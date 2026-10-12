@@ -1,0 +1,281 @@
+{
+  "list": "video",
+  "checked": "2026-10-05",
+  "entries": [
+    {
+      "id": "royaltechno:omni-flash",
+      "label": "Gemini Omni Flash",
+      "vendor": "Google",
+      "family": "Gemini Omni Flash",
+      "host": "royaltechno",
+      "hostLabel": "RoyalTechno",
+      "preset": "royaltechno",
+      "baseUrl": "https://api.royaltechno.cc/v1",
+      "model": "omni-flash",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        4,
+        6,
+        8,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 7,
+      "audio": "speech",
+      "promptMax": 4000,
+      "price": "0,01 $ за секунду",
+      "notes": "Найдешевший Omni Flash з голосом; до 7 референсів, довжини лише 4/6/8/10 с.",
+      "source": "https://api.royaltechno.cc/docs",
+      "popular": 3
+    },
+    {
+      "id": "royaltechno:veo-3.1",
+      "label": "Veo 3.1",
+      "vendor": "Google",
+      "family": "Veo 3.1",
+      "host": "royaltechno",
+      "hostLabel": "RoyalTechno",
+      "preset": "royaltechno",
+      "baseUrl": "https://api.royaltechno.cc/v1",
+      "model": "veo-3.1",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 3,
+      "audio": "speech",
+      "promptMax": 4000,
+      "price": "0,02 $ за кліп 720p, 0,05 $ — 1080p",
+      "notes": "Veo 3.1 з голосом, кліп завжди 8 с; є тариф-безліміт.",
+      "source": "https://api.royaltechno.cc/docs",
+      "popular": 3
+    },
+    {
+      "id": "royaltechno:seedance-2.0",
+      "label": "Seedance 2.0",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "royaltechno",
+      "hostLabel": "RoyalTechno",
+      "preset": "royaltechno",
+      "baseUrl": "https://api.royaltechno.cc/v1",
+      "model": "seedance-2.0",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "0,11 $ за секунду (720p), 0,25 $ (1080p)",
+      "notes": "Seedance 2.0 з голосом, 2–15 с, до 9 референсів.",
+      "source": "https://api.royaltechno.cc/docs",
+      "popular": 2
+    },
+    {
+      "id": "royaltechno:seedance-2.0-fast",
+      "label": "Seedance 2.0 Fast",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "royaltechno",
+      "hostLabel": "RoyalTechno",
+      "preset": "royaltechno",
+      "baseUrl": "https://api.royaltechno.cc/v1",
+      "model": "seedance-2.0-fast",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 4000,
+      "price": "0,09 $ за секунду",
+      "notes": "Швидша Seedance 2.0 з голосом, 720p.",
+      "source": "https://api.royaltechno.cc/docs",
+      "popular": 2
+    },
+    {
+      "id": "royaltechno:seedance-2.0-mini",
+      "label": "Seedance 2.0 Mini",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "royaltechno",
+      "hostLabel": "RoyalTechno",
+      "preset": "royaltechno",
+      "baseUrl": "https://api.royaltechno.cc/v1",
+      "model": "seedance-2.0-mini",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 4000,
+      "price": "0,08 $ за секунду",
+      "notes": "Найдешевша Seedance 2.0 з голосом, 720p.",
+      "source": "https://api.royaltechno.cc/docs",
+      "popular": 1
+    },
+    {
+      "id": "royaltechno:grok-imagine-1.5",
+      "label": "Grok Imagine 1.5 (480p)",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "royaltechno",
+      "hostLabel": "RoyalTechno",
+      "preset": "royaltechno",
+      "baseUrl": "https://api.royaltechno.cc/v1",
+      "model": "grok-imagine-1.5",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "480p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 2500,
+      "price": "0,01 $ за секунду",
+      "notes": "Дуже дешевий чорновий рендер 480p, 6 або 10 с, без референсів.",
+      "source": "https://api.royaltechno.cc/docs",
+      "popular": 1
+    },
+    {
+      "id": "royaltechno:grok-imagine-1.5-720p",
+      "label": "Grok Imagine 1.5 (720p)",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "royaltechno",
+      "hostLabel": "RoyalTechno",
+      "preset": "royaltechno",
+      "baseUrl": "https://api.royaltechno.cc/v1",
+      "model": "grok-imagine-1.5-720p",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 2500,
+      "price": "0,02 $ за секунду",
+      "notes": "Grok Imagine у 720p, 6 або 10 с, без референсів.",
+      "source": "https://api.royaltechno.cc/docs",
+      "popular": 1
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+* text=auto
+*.go text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.webp binary
+*.syso binary
+*.ttf binary
+*.otf binary
+internal/nle/testdata/** -text
+internal/codeanim/testdata/** -text
+*.json text eol=lf
+*.md text eol=lf

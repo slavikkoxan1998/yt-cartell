@@ -1,0 +1,2333 @@
+{
+  "list": "image",
+  "checked": "2026-10-05",
+  "entries": [
+    {
+      "id": "fal:fal-ai/nano-banana-pro",
+      "label": "Nano Banana Pro · текст → кадр",
+      "vendor": "Google",
+      "family": "Nano Banana Pro",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/nano-banana-pro",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 50000,
+      "text": true,
+      "price": "0,15 $ за зображення (4K — удвічі дорожче)",
+      "notes": "Gemini 3 Pro Image: найвища якість, чіткий текст, до 4K, опційний веб-пошук.",
+      "source": "https://fal.ai/models/fal-ai/nano-banana-pro/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:fal-ai/nano-banana-pro/edit",
+      "label": "Nano Banana Pro · за референсами",
+      "vendor": "Google",
+      "family": "Nano Banana Pro",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/nano-banana-pro/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 14,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 50000,
+      "text": true,
+      "price": "0,15 $ за зображення (4K — удвічі дорожче)",
+      "notes": "Редагування без масок і композиції до 14 референсів зі стабільними персонажами.",
+      "source": "https://fal.ai/models/fal-ai/nano-banana-pro/edit/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:fal-ai/nano-banana-2",
+      "label": "Nano Banana 2 · текст → кадр",
+      "vendor": "Google",
+      "family": "Nano Banana 2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/nano-banana-2",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16",
+        "4:1",
+        "1:4",
+        "8:1",
+        "1:8"
+      ],
+      "sizes": [
+        "0.5K",
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 50000,
+      "text": true,
+      "price": "0,08 $ за зображення (2K — ×1,5, 4K — ×2)",
+      "notes": "Gemini 3.1 Flash Image: швидше й дешевше за Pro, точний текст, формати аж до 8:1.",
+      "source": "https://fal.ai/models/fal-ai/nano-banana-2/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:fal-ai/nano-banana-2/edit",
+      "label": "Nano Banana 2 · за референсами",
+      "vendor": "Google",
+      "family": "Nano Banana 2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/nano-banana-2/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 14,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16",
+        "4:1",
+        "1:4",
+        "8:1",
+        "1:8"
+      ],
+      "sizes": [
+        "0.5K",
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 50000,
+      "text": true,
+      "price": "0,08 $ за зображення (2K — ×1,5, 4K — ×2)",
+      "notes": "Семантичне редагування й компонування до 14 референсів, 0.5K–4K.",
+      "source": "https://fal.ai/models/fal-ai/nano-banana-2/edit/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:fal-ai/nano-banana",
+      "label": "Nano Banana · текст → кадр",
+      "vendor": "Google",
+      "family": "Nano Banana",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/nano-banana",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 50000,
+      "text": false,
+      "price": "0,039 $ за зображення",
+      "notes": "Оригінальна Gemini 2.5 Flash Image: дешева й швидка, вихід близько 1 Мп.",
+      "source": "https://fal.ai/models/fal-ai/nano-banana/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/nano-banana/edit",
+      "label": "Nano Banana · за референсами",
+      "vendor": "Google",
+      "family": "Nano Banana",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/nano-banana/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 3,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "3:2",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "2:3",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 50000,
+      "text": false,
+      "price": "0,039 $ за зображення",
+      "notes": "Редагування природною мовою; Google радить до 3 вхідних зображень.",
+      "source": "https://fal.ai/models/fal-ai/nano-banana/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:openai/gpt-image-2",
+      "label": "GPT Image 2 · текст → кадр",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "openai/gpt-image-2",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 32000,
+      "text": true,
+      "price": "за токенами: зображення 8 $ вхід / 30 $ вихід за 1 млн токенів",
+      "notes": "Модель OpenAI з дуже детальними кадрами й дрібною типографікою; якість low–high змінює ціну.",
+      "source": "https://fal.ai/models/openai/gpt-image-2/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:openai/gpt-image-2/edit",
+      "label": "GPT Image 2 · за референсами",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "openai/gpt-image-2/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 32000,
+      "text": true,
+      "price": "за токенами: зображення 8 $ вхід / 30 $ вихід за 1 млн токенів",
+      "notes": "Точні правки й композиції до 16 референсів зі збереженням деталей.",
+      "source": "https://fal.ai/models/openai/gpt-image-2/edit/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:openai/gpt-image-2.5/flare/text-to-image",
+      "label": "GPT Image 2.5 Flare · текст → кадр",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "openai/gpt-image-2.5/flare/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 32000,
+      "text": true,
+      "price": "за токенами: зображення 8 $ вхід / 30 $ вихід за 1 млн токенів",
+      "notes": "Базова модель 2.5: швидко, природне світло, складні макети, прозорий фон, до 10 кадрів.",
+      "source": "https://fal.ai/models/openai/gpt-image-2.5/flare/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:openai/gpt-image-2.5/flare/edit",
+      "label": "GPT Image 2.5 Flare · за референсами",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "openai/gpt-image-2.5/flare/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 32000,
+      "text": true,
+      "price": "за токенами: зображення 8 $ вхід / 30 $ вихід за 1 млн токенів",
+      "notes": "Змінює лише те, що просили, зберігаючи сюжет і композицію; до 16 референсів.",
+      "source": "https://fal.ai/models/openai/gpt-image-2.5/flare/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:openai/gpt-image-2.5/sunburst/text-to-image",
+      "label": "GPT Image 2.5 Sunburst · текст → кадр",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "openai/gpt-image-2.5/sunburst/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 32000,
+      "text": true,
+      "price": "за токенами: зображення 8 $ вхід / 30 $ вихід за 1 млн токенів",
+      "notes": "Точніша й повільніша версія 2.5 для преміальних кадрів із дрібними деталями.",
+      "source": "https://fal.ai/models/openai/gpt-image-2.5/sunburst/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:openai/gpt-image-2.5/sunburst/edit",
+      "label": "GPT Image 2.5 Sunburst · за референсами",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "openai/gpt-image-2.5/sunburst/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 32000,
+      "text": true,
+      "price": "за токенами: зображення 8 $ вхід / 30 $ вихід за 1 млн токенів",
+      "notes": "Найконтрольованіше редагування 2.5 для багатьох раундів правок; до 16 референсів.",
+      "source": "https://fal.ai/models/openai/gpt-image-2.5/sunburst/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/gpt-image-1.5",
+      "label": "GPT Image 1.5 · текст → кадр",
+      "vendor": "OpenAI",
+      "family": "GPT Image 1.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/gpt-image-1.5",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536"
+      ],
+      "promptMax": 32000,
+      "text": true,
+      "price": "",
+      "notes": "Попереднє покоління OpenAI: сильне слідування промпту, три фіксовані розміри.",
+      "source": "https://fal.ai/models/fal-ai/gpt-image-1.5/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/gpt-image-1.5/edit",
+      "label": "GPT Image 1.5 · за референсами",
+      "vendor": "OpenAI",
+      "family": "GPT Image 1.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/gpt-image-1.5/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "1:1",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536"
+      ],
+      "promptMax": 32000,
+      "text": true,
+      "price": "",
+      "notes": "Редагування за референсами з опційною маскою; ліміт 16 — за API OpenAI.",
+      "source": "https://fal.ai/models/fal-ai/gpt-image-1.5/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:blackforestlabs/flux-3/text-to-image",
+      "label": "FLUX 3 · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX 3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "blackforestlabs/flux-3/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "2:1",
+        "16:9",
+        "3:2",
+        "7:5",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "5:7",
+        "2:3",
+        "9:16",
+        "1:2"
+      ],
+      "sizes": [
+        "512",
+        "768",
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,024 $ за 1K-кадр (акція −50% до 8 жовтня, далі 0,048 $)",
+      "notes": "Новітня модель BFL: нативні 2K/4K, точна компоновка, покращений текст.",
+      "source": "https://fal.ai/models/blackforestlabs/flux-3/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:blackforestlabs/flux-3/edit-image",
+      "label": "FLUX 3 · за референсами",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX 3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "blackforestlabs/flux-3/edit-image",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "21:9",
+        "2:1",
+        "16:9",
+        "3:2",
+        "7:5",
+        "4:3",
+        "5:4",
+        "1:1",
+        "4:5",
+        "3:4",
+        "5:7",
+        "2:3",
+        "9:16",
+        "1:2"
+      ],
+      "sizes": [
+        "512",
+        "768",
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,024 $ за 1K-кадр (акція −50% до 8 жовтня, далі 0,048 $)",
+      "notes": "Точкові локальні правки й поєднання до 10 референсів в одному кадрі.",
+      "source": "https://fal.ai/models/blackforestlabs/flux-3/edit-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux-2-pro",
+      "label": "FLUX.2 [pro] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2-pro",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,03 $ за перший Мп + 0,015 $ за кожен наступний",
+      "notes": "Продакшн-якість без налаштування кроків і guidance.",
+      "source": "https://fal.ai/models/fal-ai/flux-2-pro/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:fal-ai/flux-2-pro/edit",
+      "label": "FLUX.2 [pro] · за референсами",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2-pro/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 9,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,03 $ за перший Мп + 0,015 $ за кожен наступний (вхід і вихід)",
+      "notes": "Редагування й композиція до 9 референсів (сумарно до 9 Мп).",
+      "source": "https://fal.ai/models/fal-ai/flux-2-pro/edit/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:fal-ai/flux-2-max",
+      "label": "FLUX.2 [max] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2-max",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,07 $ за перший Мп + 0,03 $ за кожен наступний",
+      "notes": "Найвища якість FLUX.2: реалізм, точність і консистентність.",
+      "source": "https://fal.ai/models/fal-ai/flux-2-max/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux-2-max/edit",
+      "label": "FLUX.2 [max] · за референсами",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2-max/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 8,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,07 $ за перший Мп + 0,03 $ за кожен наступний (вхідні теж рахуються)",
+      "notes": "Преміальне редагування FLUX.2; BFL вказує до 8 референсів через API.",
+      "source": "https://fal.ai/models/fal-ai/flux-2-max/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux-2-flex",
+      "label": "FLUX.2 [flex] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2-flex",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,05 $ за Мп",
+      "notes": "Регульовані кроки й guidance, сильна типографіка для логотипів і банерів.",
+      "source": "https://fal.ai/models/fal-ai/flux-2-flex/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/flux-2-flex/edit",
+      "label": "FLUX.2 [flex] · за референсами",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2-flex/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,05 $ за Мп (вхід і вихід)",
+      "notes": "До 10 референсів (до 14 Мп сумарно) з налаштуванням кроків.",
+      "source": "https://fal.ai/models/fal-ai/flux-2-flex/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/flux-2",
+      "label": "FLUX.2 [dev] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,012 $ за Мп",
+      "notes": "Відкрита легка FLUX.2: дешево й швидко, JSON-промпти, HEX-кольори.",
+      "source": "https://fal.ai/models/fal-ai/flux-2/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux-2/edit",
+      "label": "FLUX.2 [dev] · за референсами",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-2/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 4,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,012 $ за Мп (вхід і вихід)",
+      "notes": "Мультиреференсне редагування до 4 зображень (вхідні зводяться до 1 Мп).",
+      "source": "https://fal.ai/models/fal-ai/flux-2/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "label": "FLUX1.1 [pro] ultra · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-pro/v1.1-ultra",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:21"
+      ],
+      "sizes": [
+        "2K"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,06 $ за зображення",
+      "notes": "Фотореалізм до 2K, режим raw та опційний image prompt.",
+      "source": "https://fal.ai/models/fal-ai/flux-pro/v1.1-ultra/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux/dev",
+      "label": "FLUX.1 [dev] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux/dev",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,025 $ за Мп",
+      "notes": "Класична відкрита 12B-модель BFL з гнучкими налаштуваннями.",
+      "source": "https://fal.ai/models/fal-ai/flux/dev/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux/schnell",
+      "label": "FLUX.1 [schnell] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux/schnell",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,003 $ за Мп",
+      "notes": "1–4 кроки: найшвидші й найдешевші чернетки.",
+      "source": "https://fal.ai/models/fal-ai/flux/schnell/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/flux-pro/kontext",
+      "label": "FLUX.1 Kontext [pro] · редагування",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1 Kontext",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-pro/kontext",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:21"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Точкові правки й трансформації сцени за одним зображенням і текстом.",
+      "source": "https://fal.ai/models/fal-ai/flux-pro/kontext/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/flux-pro/kontext/text-to-image",
+      "label": "FLUX.1 Kontext [pro] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1 Kontext",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-pro/kontext/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:21"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Текст → кадр із сильним слідуванням промпту й типографікою.",
+      "source": "https://fal.ai/models/fal-ai/flux-pro/kontext/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/flux-pro/kontext/max",
+      "label": "FLUX.1 Kontext [max] · редагування",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1 Kontext",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-pro/kontext/max",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:21"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Преміальна Kontext: краще слідування промпту й типографіка під час редагування.",
+      "source": "https://fal.ai/models/fal-ai/flux-pro/kontext/max/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/flux-pro/kontext/max/text-to-image",
+      "label": "FLUX.1 Kontext [max] · текст → кадр",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1 Kontext",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/flux-pro/kontext/max/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:21"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Преміальна Kontext для генерації з нуля з точним текстом.",
+      "source": "https://fal.ai/models/fal-ai/flux-pro/kontext/max/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:bytedance/seedream/v5/pro/text-to-image",
+      "label": "Seedream 5.0 Pro · текст → кадр",
+      "vendor": "ByteDance",
+      "family": "Seedream 5.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "bytedance/seedream/v5/pro/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,0675 $ за зображення до 1536×1536, 0,135 $ до 2048×2048",
+      "notes": "Флагман ByteDance: «думаючий» розбір промпту, текст 14 мовами, щільні макети.",
+      "source": "https://fal.ai/models/bytedance/seedream/v5/pro/text-to-image/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:bytedance/seedream/v5/pro/edit",
+      "label": "Seedream 5.0 Pro · за референсами",
+      "vendor": "ByteDance",
+      "family": "Seedream 5.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "bytedance/seedream/v5/pro/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "від 0,0675 $ за зображення + 0,0045 $ за кожне додаткове вхідне",
+      "notes": "Точне редагування регіонів зі збереженням решти кадру, до 10 референсів.",
+      "source": "https://fal.ai/models/bytedance/seedream/v5/pro/edit/api",
+      "popular": 3
+    },
+    {
+      "id": "fal:bytedance/seedream/v5/lite/text-to-image",
+      "label": "Seedream 5.0 Lite · текст → кадр",
+      "vendor": "ByteDance",
+      "family": "Seedream 5.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "bytedance/seedream/v5/lite/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "2K",
+        "3K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Швидка версія Seedream 5.0 з виходом до 4K.",
+      "source": "https://fal.ai/models/bytedance/seedream/v5/lite/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:bytedance/seedream/v5/lite/edit",
+      "label": "Seedream 5.0 Lite · за референсами",
+      "vendor": "ByteDance",
+      "family": "Seedream 5.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "bytedance/seedream/v5/lite/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "2K",
+        "3K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Швидке редагування з кількома вхідними зображеннями (до 10).",
+      "source": "https://fal.ai/models/bytedance/seedream/v5/lite/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:bytedance/seedream/v5/flash/text-to-image",
+      "label": "Seedream 5.0 Flash · текст → кадр",
+      "vendor": "ByteDance",
+      "family": "Seedream 5.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "bytedance/seedream/v5/flash/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Найшвидша й найбюджетніша Seedream 5.0.",
+      "source": "https://fal.ai/models/bytedance/seedream/v5/flash/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:bytedance/seedream/v5/flash/edit",
+      "label": "Seedream 5.0 Flash · за референсами",
+      "vendor": "ByteDance",
+      "family": "Seedream 5.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "bytedance/seedream/v5/flash/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Бюджетне швидке редагування, до 10 референсів.",
+      "source": "https://fal.ai/models/bytedance/seedream/v5/flash/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/bytedance/seedream/v4.5/text-to-image",
+      "label": "Seedream 4.5 · текст → кадр",
+      "vendor": "ByteDance",
+      "family": "Seedream 4.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/bytedance/seedream/v4.5/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "2K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,04 $ за зображення",
+      "notes": "Популярна уніфікована модель: до 4 Мп, до 6 кадрів за виклик.",
+      "source": "https://fal.ai/models/fal-ai/bytedance/seedream/v4.5/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/bytedance/seedream/v4.5/edit",
+      "label": "Seedream 4.5 · за референсами",
+      "vendor": "ByteDance",
+      "family": "Seedream 4.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/bytedance/seedream/v4.5/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "2K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,04 $ за зображення",
+      "notes": "Заміна об'єктів, стилів і написів, до 10 референсів.",
+      "source": "https://fal.ai/models/fal-ai/bytedance/seedream/v4.5/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:ideogram/v4.5",
+      "label": "Ideogram 4.5 · текст → кадр",
+      "vendor": "Ideogram",
+      "family": "Ideogram 4.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "ideogram/v4.5",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 10000,
+      "text": true,
+      "price": "0,03 $ (low) / 0,06 $ (medium) / 0,22 $ (high) за зображення",
+      "notes": "Найновіша Ideogram: постери й логотипи з точною типографікою, до 8 кадрів.",
+      "source": "https://fal.ai/models/ideogram/v4.5/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:ideogram/v4.5/edit",
+      "label": "Ideogram 4.5 · редагування",
+      "vendor": "Ideogram",
+      "family": "Ideogram 4.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "ideogram/v4.5/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 5,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 10000,
+      "text": true,
+      "price": "від 0,008 $ (very low) до 0,22 $ (high) за зображення",
+      "notes": "Редагує джерело з опційною маскою та до 4 референсів; розмір зберігається.",
+      "source": "https://fal.ai/models/ideogram/v4.5/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:ideogram/v4",
+      "label": "Ideogram V4.0q · текст → кадр",
+      "vendor": "Ideogram",
+      "family": "Ideogram 4",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "ideogram/v4",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,0075 / 0,015 / 0,025 $ за Мп (TURBO / BALANCED / QUALITY)",
+      "notes": "Чіткий текст і дизайн-макети з трьома режимами швидкості.",
+      "source": "https://fal.ai/models/ideogram/v4/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/ideogram/v3",
+      "label": "Ideogram V3 · текст → кадр",
+      "vendor": "Ideogram",
+      "family": "Ideogram 3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/ideogram/v3",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,03 / 0,06 / 0,09 $ (TURBO / BALANCED / QUALITY)",
+      "notes": "Перевірена Ideogram V3: типографіка, стилі та опційні стильові референси.",
+      "source": "https://fal.ai/models/fal-ai/ideogram/v3/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/recraft/v4.1/pro/text-to-image",
+      "label": "Recraft V4.1 Pro · текст → кадр",
+      "vendor": "Recraft",
+      "family": "Recraft V4.1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "2K"
+      ],
+      "promptMax": 10000,
+      "text": true,
+      "price": "",
+      "notes": "Дизайнерська якість у високій роздільності до 2048×2048 для героїчних кадрів і друку.",
+      "source": "https://fal.ai/models/fal-ai/recraft/v4.1/pro/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/recraft/v4.1/text-to-image",
+      "label": "Recraft V4.1 · текст → кадр",
+      "vendor": "Recraft",
+      "family": "Recraft V4.1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/recraft/v4.1/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 10000,
+      "text": true,
+      "price": "",
+      "notes": "Дизайн-орієнтована модель для брендових систем і редакційних ілюстрацій.",
+      "source": "https://fal.ai/models/fal-ai/recraft/v4.1/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/recraft/v3/text-to-image",
+      "label": "Recraft V3 · текст → кадр",
+      "vendor": "Recraft",
+      "family": "Recraft V3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/recraft/v3/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 1000,
+      "text": true,
+      "price": "0,04 $ за зображення (векторні стилі — 0,08 $)",
+      "notes": "Довгі написи, векторний арт і десятки стилів.",
+      "source": "https://fal.ai/models/fal-ai/recraft/v3/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:alibaba/qwen-image-3/text-to-image",
+      "label": "Qwen Image 3 · текст → кадр",
+      "vendor": "Alibaba Qwen",
+      "family": "Qwen Image 3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "alibaba/qwen-image-3/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 5000,
+      "text": true,
+      "price": "0,04 $ (1K) / 0,075 $ (2K) за зображення",
+      "notes": "Новітня Qwen: складний текст, автопереписування промпту, до 2048×2048.",
+      "source": "https://fal.ai/models/alibaba/qwen-image-3/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:alibaba/qwen-image-3/edit",
+      "label": "Qwen Image 3 · за референсами",
+      "vendor": "Alibaba Qwen",
+      "family": "Qwen Image 3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "alibaba/qwen-image-3/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 3,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 5000,
+      "text": true,
+      "price": "0,04 $ (1K) / 0,075 $ (2K) за зображення",
+      "notes": "Редагування за 1–3 референсами зі збереженням облич та ідентичності.",
+      "source": "https://fal.ai/models/alibaba/qwen-image-3/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/qwen-image-2512",
+      "label": "Qwen Image 2512 · текст → кадр",
+      "vendor": "Alibaba Qwen",
+      "family": "Qwen Image",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/qwen-image-2512",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "0,02 $ за Мп",
+      "notes": "Відкрита Qwen-Image з кращим текстом і реалістичнішими людьми.",
+      "source": "https://fal.ai/models/fal-ai/qwen-image-2512/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/qwen-image-edit-2511",
+      "label": "Qwen Image Edit 2511 · за референсами",
+      "vendor": "Alibaba Qwen",
+      "family": "Qwen Image Edit",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/qwen-image-edit-2511",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 3,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Відкрита модель редагування Qwen з кількома вхідними зображеннями.",
+      "source": "https://fal.ai/models/fal-ai/qwen-image-edit-2511/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/hunyuan-image/v3/instruct/text-to-image",
+      "label": "Hunyuan Image 3.0 Instruct · текст → кадр",
+      "vendor": "Tencent",
+      "family": "Hunyuan Image 3.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/hunyuan-image/v3/instruct/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Версія Hunyuan 3.0 з внутрішнім міркуванням для складних промптів.",
+      "source": "https://fal.ai/models/fal-ai/hunyuan-image/v3/instruct/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/hunyuan-image/v3/instruct/edit",
+      "label": "Hunyuan Image 3.0 Instruct · за референсами",
+      "vendor": "Tencent",
+      "family": "Hunyuan Image 3.0",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/hunyuan-image/v3/instruct/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 3,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Редагування Hunyuan 3.0 Instruct, до 3 референсів.",
+      "source": "https://fal.ai/models/fal-ai/hunyuan-image/v3/instruct/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/hidream-i1-full",
+      "label": "HiDream I1 Full · текст → кадр",
+      "vendor": "HiDream",
+      "family": "HiDream I1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/hidream-i1-full",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,05 $ за Мп",
+      "notes": "Відкрита 17B-модель із сильним слідуванням промпту.",
+      "source": "https://fal.ai/models/fal-ai/hidream-i1-full/api",
+      "popular": 0
+    },
+    {
+      "id": "fal:fal-ai/kolors",
+      "label": "Kolors · текст → кадр",
+      "vendor": "Kuaishou Kolors",
+      "family": "Kolors",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/kolors",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Фотореалістична відкрита модель Kuaishou, до 8 кадрів за запит.",
+      "source": "https://fal.ai/models/fal-ai/kolors/api",
+      "popular": 0
+    },
+    {
+      "id": "fal:fal-ai/stable-diffusion-v35-large",
+      "label": "Stable Diffusion 3.5 Large · текст → кадр",
+      "vendor": "Stability AI",
+      "family": "Stable Diffusion 3.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/stable-diffusion-v35-large",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Відкрита MMDiT-модель Stability AI з негативним промптом і тонким налаштуванням.",
+      "source": "https://fal.ai/models/fal-ai/stable-diffusion-v35-large/api",
+      "popular": 0
+    },
+    {
+      "id": "fal:fal-ai/luma-photon",
+      "label": "Luma Photon · текст → кадр",
+      "vendor": "Luma AI",
+      "family": "Luma Photon",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/luma-photon",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9",
+        "9:21"
+      ],
+      "sizes": [],
+      "promptMax": 5000,
+      "text": false,
+      "price": "",
+      "notes": "Креативна модель Luma з вдалим співвідношенням ціни та якості.",
+      "source": "https://fal.ai/models/fal-ai/luma-photon/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:luma/agent/uni-1/v1/text-to-image",
+      "label": "Luma Uni-1 · текст → кадр",
+      "vendor": "Luma AI",
+      "family": "Luma Uni-1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "luma/agent/uni-1/v1/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "3:1",
+        "2:1",
+        "16:9",
+        "3:2",
+        "1:1",
+        "2:3",
+        "9:16",
+        "1:2",
+        "1:3"
+      ],
+      "sizes": [],
+      "promptMax": 6000,
+      "text": false,
+      "price": "0,042 $ за зображення",
+      "notes": "Новий Uni-1 від Luma: стилі, веб-підказки та опційні стильові референси.",
+      "source": "https://fal.ai/models/luma/agent/uni-1/v1/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:luma/agent/uni-1/v1/edit",
+      "label": "Luma Uni-1 · редагування",
+      "vendor": "Luma AI",
+      "family": "Luma Uni-1",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "luma/agent/uni-1/v1/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 9,
+      "aspects": [],
+      "sizes": [],
+      "promptMax": 6000,
+      "text": false,
+      "price": "0,042 $ + 0,003 $ за кожне вхідне зображення",
+      "notes": "Переробляє джерело за інструкцією зі збереженням композиції, плюс до 8 референсів.",
+      "source": "https://fal.ai/models/luma/agent/uni-1/v1/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:bria/fibo-gen-1.5/text-to-image",
+      "label": "Bria FIBO Gen 1.5 · текст → кадр",
+      "vendor": "Bria AI",
+      "family": "Bria FIBO",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "bria/fibo-gen-1.5/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "2:3",
+        "3:2",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9"
+      ],
+      "sizes": [
+        "1MP",
+        "4MP"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Комерційно безпечна модель на ліцензованих даних, JSON-промпти, точна типографіка.",
+      "source": "https://fal.ai/models/bria/fibo-gen-1.5/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/wan/v2.7/pro/text-to-image",
+      "label": "Wan 2.7 Pro · текст → кадр",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.7",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/wan/v2.7/pro/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 2000,
+      "text": false,
+      "price": "",
+      "notes": "Преміальна Wan 2.7 з кращою деталізацією та композицією.",
+      "source": "https://fal.ai/models/fal-ai/wan/v2.7/pro/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/wan/v2.7/pro/edit",
+      "label": "Wan 2.7 Pro · за референсами",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.7",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/wan/v2.7/pro/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 4,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 2000,
+      "text": false,
+      "price": "",
+      "notes": "Редагування за текстовою інструкцією з 1–4 референсами.",
+      "source": "https://fal.ai/models/fal-ai/wan/v2.7/pro/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:xai/grok-imagine-image/v2.0/text-to-image",
+      "label": "Grok Imagine Image 2.0 · текст → кадр",
+      "vendor": "xAI",
+      "family": "Grok Imagine Image",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "xai/grok-imagine-image/v2.0/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "2:1",
+        "20:9",
+        "19.5:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:19.5",
+        "9:20",
+        "1:2"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 8000,
+      "text": false,
+      "price": "0,04–0,06 $ (1K) / 0,06–0,08 $ (2K) за зображення",
+      "notes": "Нова версія Grok Imagine від xAI: 1K/2K і мобільні пропорції.",
+      "source": "https://fal.ai/models/xai/grok-imagine-image/v2.0/text-to-image/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:xai/grok-imagine-image/v2.0/edit",
+      "label": "Grok Imagine Image 2.0 · за референсами",
+      "vendor": "xAI",
+      "family": "Grok Imagine Image",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "xai/grok-imagine-image/v2.0/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 5,
+      "aspects": [
+        "2:1",
+        "20:9",
+        "19.5:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:19.5",
+        "9:20",
+        "1:2"
+      ],
+      "sizes": [
+        "1K",
+        "2K"
+      ],
+      "promptMax": 8000,
+      "text": false,
+      "price": "0,04–0,08 $ за зображення + 0,01 $ за кожне вхідне",
+      "notes": "Редагування Grok Imagine 2.0, до 5 вхідних зображень.",
+      "source": "https://fal.ai/models/xai/grok-imagine-image/v2.0/edit/api",
+      "popular": 2
+    },
+    {
+      "id": "fal:fal-ai/minimax/image-01",
+      "label": "MiniMax Image-01 · текст → кадр",
+      "vendor": "MiniMax",
+      "family": "MiniMax Image-01",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/minimax/image-01",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "4:3",
+        "3:2",
+        "2:3",
+        "3:4",
+        "9:16",
+        "21:9"
+      ],
+      "sizes": [],
+      "promptMax": 1500,
+      "text": false,
+      "price": "0,01 $ за зображення",
+      "notes": "Дуже дешева модель; довші промпти дають кращу якість, до 9 кадрів.",
+      "source": "https://fal.ai/models/fal-ai/minimax/image-01/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/minimax/image-01/subject-reference",
+      "label": "MiniMax Image-01 · за референсами",
+      "vendor": "MiniMax",
+      "family": "MiniMax Image-01",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/minimax/image-01/subject-reference",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "4:3",
+        "3:2",
+        "2:3",
+        "3:4",
+        "9:16",
+        "21:9"
+      ],
+      "sizes": [],
+      "promptMax": 1500,
+      "text": false,
+      "price": "",
+      "notes": "Консистентний персонаж за одним референсом суб'єкта.",
+      "source": "https://fal.ai/models/fal-ai/minimax/image-01/subject-reference/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/kling-image/o3/text-to-image",
+      "label": "Kling Image O3 · текст → кадр",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling Image O3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/kling-image/o3/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "21:9"
+      ],
+      "sizes": [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 2500,
+      "text": false,
+      "price": "0,028 $ за зображення (4K — удвічі)",
+      "notes": "Kling Omni 3: висока консистентність, до 9 кадрів, до 4K.",
+      "source": "https://fal.ai/models/fal-ai/kling-image/o3/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/kling-image/o3/image-to-image",
+      "label": "Kling Image O3 · за референсами",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling Image O3",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/kling-image/o3/image-to-image",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "21:9"
+      ],
+      "sizes": [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 2500,
+      "text": false,
+      "price": "0,028 $ за зображення (4K — удвічі)",
+      "notes": "До 10 референсів із посиланнями @Image1… у промпті.",
+      "source": "https://fal.ai/models/fal-ai/kling-image/o3/image-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:microsoft/mai-image-2.5-pro",
+      "label": "MAI Image 2.5 Pro · текст → кадр",
+      "vendor": "Microsoft",
+      "family": "MAI Image 2.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "microsoft/mai-image-2.5-pro",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "4:3",
+        "3:4",
+        "16:9",
+        "9:16",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [],
+      "promptMax": 5000,
+      "text": true,
+      "price": "≈0,17 $ за зображення (за токенами)",
+      "notes": "Найякісніша модель Microsoft: фотореалізм, точний текст, дизайн.",
+      "source": "https://fal.ai/models/microsoft/mai-image-2.5-pro/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:microsoft/mai-image-2.5-pro/edit",
+      "label": "MAI Image 2.5 Pro · редагування",
+      "vendor": "Microsoft",
+      "family": "MAI Image 2.5",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "microsoft/mai-image-2.5-pro/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "1:1",
+        "4:3",
+        "3:4",
+        "16:9",
+        "9:16",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [],
+      "promptMax": 5000,
+      "text": true,
+      "price": "≈0,18–0,27 $ за зображення з одним вхідним",
+      "notes": "Редагування за одним зображенням: об'єкти, світло, фон, текст.",
+      "source": "https://fal.ai/models/microsoft/mai-image-2.5-pro/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:meta/muse-image/text-to-image",
+      "label": "Meta Muse Image · текст → кадр",
+      "vendor": "Meta",
+      "family": "Meta Muse Image",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "meta/muse-image/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:21"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Модель Meta: точне слідування інструкціям, текст, графіки й QR-коди; довільні пропорції.",
+      "source": "https://fal.ai/models/meta/muse-image/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:meta/muse-image/edit",
+      "label": "Meta Muse Image · за референсами",
+      "vendor": "Meta",
+      "family": "Meta Muse Image",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "meta/muse-image/edit",
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 10,
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "3:2",
+        "1:1",
+        "2:3",
+        "3:4",
+        "9:16",
+        "9:21"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Точкові правки й композиції з 1–10 референсів, стабільні між раундами.",
+      "source": "https://fal.ai/models/meta/muse-image/edit/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:krea/v2/large/text-to-image",
+      "label": "Krea 2 Large · текст → кадр",
+      "vendor": "Krea",
+      "family": "Krea 2",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "krea/v2/large/text-to-image",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "4:3",
+        "3:2",
+        "16:9",
+        "2.35:1",
+        "4:5",
+        "2:3",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 5000,
+      "text": false,
+      "price": "0,06 $ за зображення (зі стильовими референсами — 0,065 $)",
+      "notes": "Висока естетика Krea 2, опційно до 10 стильових референсів.",
+      "source": "https://fal.ai/models/krea/v2/large/text-to-image/api",
+      "popular": 1
+    },
+    {
+      "id": "fal:fal-ai/z-image/turbo",
+      "label": "Z-Image Turbo · текст → кадр",
+      "vendor": "Alibaba Tongyi-MAI",
+      "family": "Z-Image",
+      "host": "fal",
+      "hostLabel": "fal.ai",
+      "preset": "fal",
+      "baseUrl": "https://queue.fal.run",
+      "model": "fal-ai/z-image/turbo",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "0,005 $ за Мп",
+      "notes": "Надшвидка 6B-модель: 1–8 кроків, до 4 Мп, дуже дешево.",
+      "source": "https://fal.ai/models/fal-ai/z-image/turbo/api",
+      "popular": 2
+    }
+  ]
+}

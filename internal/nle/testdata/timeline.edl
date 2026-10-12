@@ -1,0 +1,24 @@
+TITLE: Test - film
+FCM: NON-DROP FRAME
+
+001  AX       V     C        00:00:00:12 00:00:04:06 00:00:00:00 00:00:03:18
+* FROM CLIP NAME: 001_scene.mp4
+* SOURCE FILE: media/001_scene.mp4
+
+002  AX       V     C        00:00:04:06 00:00:04:06 00:00:03:18 00:00:03:18
+002  AX       V     D    012 00:00:00:00 00:00:02:12 00:00:03:18 00:00:06:06
+* FROM CLIP NAME: 001_scene.mp4
+* TO CLIP NAME: 002_scene.mp4
+* SOURCE FILE: media/002_scene.mp4
+
+003  AX       V     C        00:00:00:00 00:00:00:13 00:00:06:06 00:00:06:19
+* FROM CLIP NAME: 002_hold.jpg
+* SOURCE FILE: media/002_hold.jpg
+
+004  AX       V     C        00:00:00:13 00:00:00:13 00:00:06:19 00:00:06:19
+004  AX       V     D    014 00:00:00:00 00:00:02:22 00:00:06:19 00:00:10:00
+* FROM CLIP NAME: 002_hold.jpg
+* TO CLIP NAME: 003_frame.jpg
+* SOURCE FILE: media/003_frame.jpg
+* EFFECT: fade
+

@@ -1,0 +1,73 @@
+# ── Builds ──────────────────────────────────────────────────────────────
+# Windows exe (incl. the -old / -prev copies) and the macOS / Linux binary.
+*.exe
+*.exe~
+/YT-Cartell-Studio
+*.app/
+*.dmg
+*.zip
+*.pkg
+/dist/
+/build/
+/release/
+# Go build / test artefacts (keep rsrc_windows_*.syso — it is the exe icon).
+*.dll
+*.so
+*.dylib
+*.test
+*.prof
+*.pprof
+coverage.out
+coverage.html
+cover.out
+/vendor/
+go.work
+go.work.sum
+
+# ── Generated output ────────────────────────────────────────────────────
+# Screenshots: only the few that README.md shows are tracked.
+/screenshots/**
+!/screenshots/**/
+!/screenshots/review/home-light-1920x1080.png
+!/screenshots/new/montage/workspace-wide-light-1440x900.png
+!/screenshots/new/montage/cover-1400-light.png
+!/screenshots/new/montage/voice-move-1400-light.png
+# README crops of the 2.0.1 screens (no personal paths): made from screenshots/new
+!/screenshots/readme/*.png
+/cmd/guikit/out/
+/guikit-out/
+
+# ── Logs, partial downloads, temp ───────────────────────────────────────
+*.log
+*.part
+*.tmp
+*.bak
+*.swp
+*~
+
+# ── User data and secrets: never commit ─────────────────────────────────
+# (the app keeps them in Documents\YT Cartell Studio and %AppData%\YT Cartell Studio)
+/projects/
+/data/
+/uploads/
+/whisper/
+tts-keys.json
+.env
+.env.*
+*.pem
+*.key
+*.p12
+
+# ── OS / editor junk ────────────────────────────────────────────────────
+.DS_Store
+._*
+.AppleDouble
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.idea/
+.vscode/
+*.code-workspace

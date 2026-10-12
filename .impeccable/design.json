@@ -1,0 +1,1632 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T21:07:59+00:00",
+  "title": "Design System: YT Cartell Studio (desktop)",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#FFF4E6",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.022 74.1)",
+          "oklch(26.4% 0.022 74.1)",
+          "oklch(37.9% 0.022 74.1)",
+          "oklch(49.3% 0.022 74.1)",
+          "oklch(60.7% 0.022 74.1)",
+          "oklch(72.1% 0.022 74.1)",
+          "oklch(83.6% 0.022 74.1)",
+          "oklch(95.0% 0.022 74.1)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Oat",
+        "canonical": "#F7EBDD",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.023 71.8)",
+          "oklch(26.4% 0.023 71.8)",
+          "oklch(37.9% 0.023 71.8)",
+          "oklch(49.3% 0.023 71.8)",
+          "oklch(60.7% 0.023 71.8)",
+          "oklch(72.1% 0.023 71.8)",
+          "oklch(83.6% 0.023 71.8)",
+          "oklch(95.0% 0.023 71.8)"
+        ]
+      },
+      "surface-hover": {
+        "role": "neutral",
+        "displayName": "Oat Hover",
+        "canonical": "#F0E1D0",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.028 70.9)",
+          "oklch(26.4% 0.028 70.9)",
+          "oklch(37.9% 0.028 70.9)",
+          "oklch(49.3% 0.028 70.9)",
+          "oklch(60.7% 0.028 70.9)",
+          "oklch(72.1% 0.028 70.9)",
+          "oklch(83.6% 0.028 70.9)",
+          "oklch(95.0% 0.028 70.9)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "canonical": "#FFFFFF",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(26.4% 0.000 0.0)",
+          "oklch(37.9% 0.000 0.0)",
+          "oklch(49.3% 0.000 0.0)",
+          "oklch(60.7% 0.000 0.0)",
+          "oklch(72.1% 0.000 0.0)",
+          "oklch(83.6% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Warm Hairline",
+        "canonical": "#E7DACB",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.025 71.4)",
+          "oklch(26.4% 0.025 71.4)",
+          "oklch(37.9% 0.025 71.4)",
+          "oklch(49.3% 0.025 71.4)",
+          "oklch(60.7% 0.025 71.4)",
+          "oklch(72.1% 0.025 71.4)",
+          "oklch(83.6% 0.025 71.4)",
+          "oklch(95.0% 0.025 71.4)"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#D9C8B4",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.033 71.8)",
+          "oklch(26.4% 0.033 71.8)",
+          "oklch(37.9% 0.033 71.8)",
+          "oklch(49.3% 0.033 71.8)",
+          "oklch(60.7% 0.033 71.8)",
+          "oklch(72.1% 0.033 71.8)",
+          "oklch(83.6% 0.033 71.8)",
+          "oklch(95.0% 0.033 71.8)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Espresso",
+        "canonical": "#2B241F",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 57.6)",
+          "oklch(26.4% 0.014 57.6)",
+          "oklch(37.9% 0.014 57.6)",
+          "oklch(49.3% 0.014 57.6)",
+          "oklch(60.7% 0.014 57.6)",
+          "oklch(72.1% 0.014 57.6)",
+          "oklch(83.6% 0.014 57.6)",
+          "oklch(95.0% 0.014 57.6)"
+        ]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Walnut",
+        "canonical": "#6F625A",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.021 53.7)",
+          "oklch(26.4% 0.021 53.7)",
+          "oklch(37.9% 0.021 53.7)",
+          "oklch(49.3% 0.021 53.7)",
+          "oklch(60.7% 0.021 53.7)",
+          "oklch(72.1% 0.021 53.7)",
+          "oklch(83.6% 0.021 53.7)",
+          "oklch(95.0% 0.021 53.7)"
+        ]
+      },
+      "text-3": {
+        "role": "neutral",
+        "displayName": "Driftwood",
+        "canonical": "#736960",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.019 64.4)",
+          "oklch(26.4% 0.019 64.4)",
+          "oklch(37.9% 0.019 64.4)",
+          "oklch(49.3% 0.019 64.4)",
+          "oklch(60.7% 0.019 64.4)",
+          "oklch(72.1% 0.019 64.4)",
+          "oklch(83.6% 0.019 64.4)",
+          "oklch(95.0% 0.019 64.4)"
+        ]
+      },
+      "action": {
+        "role": "primary",
+        "displayName": "Studio Orange",
+        "canonical": "#FF6A3D",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.052 37.1)",
+          "oklch(26.4% 0.089 37.1)",
+          "oklch(37.9% 0.127 37.1)",
+          "oklch(49.3% 0.165 37.1)",
+          "oklch(60.7% 0.192 37.1)",
+          "oklch(72.1% 0.177 37.1)",
+          "oklch(83.6% 0.093 37.1)",
+          "oklch(95.0% 0.026 37.1)"
+        ]
+      },
+      "action-hover": {
+        "role": "primary",
+        "displayName": "Orange Hover",
+        "canonical": "#FF7B52",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.051 37.9)",
+          "oklch(26.4% 0.088 37.9)",
+          "oklch(37.9% 0.125 37.9)",
+          "oklch(49.3% 0.162 37.9)",
+          "oklch(60.7% 0.171 37.9)",
+          "oklch(72.1% 0.171 37.9)",
+          "oklch(83.6% 0.093 37.9)",
+          "oklch(95.0% 0.026 37.9)"
+        ]
+      },
+      "action-pressed": {
+        "role": "primary",
+        "displayName": "Orange Pressed",
+        "canonical": "#F9602F",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.052 37.4)",
+          "oklch(26.4% 0.088 37.4)",
+          "oklch(37.9% 0.126 37.4)",
+          "oklch(49.3% 0.164 37.4)",
+          "oklch(60.7% 0.197 37.4)",
+          "oklch(72.1% 0.177 37.4)",
+          "oklch(83.6% 0.093 37.4)",
+          "oklch(95.0% 0.026 37.4)"
+        ]
+      },
+      "action-soft": {
+        "role": "primary",
+        "displayName": "Orange Wash",
+        "canonical": "#FFE3D6",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.036 46.5)",
+          "oklch(26.4% 0.036 46.5)",
+          "oklch(37.9% 0.036 46.5)",
+          "oklch(49.3% 0.036 46.5)",
+          "oklch(60.7% 0.036 46.5)",
+          "oklch(72.1% 0.036 46.5)",
+          "oklch(83.6% 0.036 46.5)",
+          "oklch(95.0% 0.027 46.5)"
+        ]
+      },
+      "action-soft-hi": {
+        "role": "primary",
+        "displayName": "Orange Wash Hover",
+        "canonical": "#FFD5C2",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.044 45.7)",
+          "oklch(26.4% 0.054 45.7)",
+          "oklch(37.9% 0.054 45.7)",
+          "oklch(49.3% 0.054 45.7)",
+          "oklch(60.7% 0.054 45.7)",
+          "oklch(72.1% 0.054 45.7)",
+          "oklch(83.6% 0.054 45.7)",
+          "oklch(95.0% 0.027 45.7)"
+        ]
+      },
+      "action-text": {
+        "role": "primary",
+        "displayName": "Ember Ink",
+        "canonical": "#AF492A",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.052 37.3)",
+          "oklch(26.4% 0.089 37.3)",
+          "oklch(37.9% 0.126 37.3)",
+          "oklch(49.3% 0.141 37.3)",
+          "oklch(60.7% 0.141 37.3)",
+          "oklch(72.1% 0.141 37.3)",
+          "oklch(83.6% 0.093 37.3)",
+          "oklch(95.0% 0.026 37.3)"
+        ]
+      },
+      "on-action": {
+        "role": "primary",
+        "displayName": "Ink on Orange",
+        "canonical": "#2B241F",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 57.6)",
+          "oklch(26.4% 0.014 57.6)",
+          "oklch(37.9% 0.014 57.6)",
+          "oklch(49.3% 0.014 57.6)",
+          "oklch(60.7% 0.014 57.6)",
+          "oklch(72.1% 0.014 57.6)",
+          "oklch(83.6% 0.014 57.6)",
+          "oklch(95.0% 0.014 57.6)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Focus Glow",
+        "canonical": "#FF6A3D66",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.052 37.1)",
+          "oklch(26.4% 0.089 37.1)",
+          "oklch(37.9% 0.127 37.1)",
+          "oklch(49.3% 0.165 37.1)",
+          "oklch(60.7% 0.192 37.1)",
+          "oklch(72.1% 0.177 37.1)",
+          "oklch(83.6% 0.093 37.1)",
+          "oklch(95.0% 0.026 37.1)"
+        ],
+        "alpha": 0.4
+      },
+      "success": {
+        "role": "status",
+        "displayName": "Done Green",
+        "canonical": "#1F9D55",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.040 152.3)",
+          "oklch(26.4% 0.069 152.3)",
+          "oklch(37.9% 0.099 152.3)",
+          "oklch(49.3% 0.129 152.3)",
+          "oklch(60.7% 0.150 152.3)",
+          "oklch(72.1% 0.150 152.3)",
+          "oklch(83.6% 0.150 152.3)",
+          "oklch(95.0% 0.081 152.3)"
+        ]
+      },
+      "success-soft": {
+        "role": "status",
+        "displayName": "Done Green Soft",
+        "canonical": "#DDF3E6",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.029 159.9)",
+          "oklch(26.4% 0.029 159.9)",
+          "oklch(37.9% 0.029 159.9)",
+          "oklch(49.3% 0.029 159.9)",
+          "oklch(60.7% 0.029 159.9)",
+          "oklch(72.1% 0.029 159.9)",
+          "oklch(83.6% 0.029 159.9)",
+          "oklch(95.0% 0.029 159.9)"
+        ]
+      },
+      "success-ink": {
+        "role": "status",
+        "displayName": "Done Green Ink",
+        "canonical": "#187B43",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.040 152.8)",
+          "oklch(26.4% 0.069 152.8)",
+          "oklch(37.9% 0.098 152.8)",
+          "oklch(49.3% 0.124 152.8)",
+          "oklch(60.7% 0.124 152.8)",
+          "oklch(72.1% 0.124 152.8)",
+          "oklch(83.6% 0.124 152.8)",
+          "oklch(95.0% 0.081 152.8)"
+        ]
+      },
+      "running": {
+        "role": "status",
+        "displayName": "Running Violet",
+        "canonical": "#7A5AF8",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.088 286.6)",
+          "oklch(26.4% 0.153 286.6)",
+          "oklch(37.9% 0.219 286.6)",
+          "oklch(49.3% 0.224 286.6)",
+          "oklch(60.7% 0.224 286.6)",
+          "oklch(72.1% 0.153 286.6)",
+          "oklch(83.6% 0.086 286.6)",
+          "oklch(95.0% 0.025 286.6)"
+        ]
+      },
+      "running-soft": {
+        "role": "status",
+        "displayName": "Running Violet Soft",
+        "canonical": "#ECE7FF",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.033 295.3)",
+          "oklch(26.4% 0.033 295.3)",
+          "oklch(37.9% 0.033 295.3)",
+          "oklch(49.3% 0.033 295.3)",
+          "oklch(60.7% 0.033 295.3)",
+          "oklch(72.1% 0.033 295.3)",
+          "oklch(83.6% 0.033 295.3)",
+          "oklch(95.0% 0.027 295.3)"
+        ]
+      },
+      "running-ink": {
+        "role": "status",
+        "displayName": "Running Violet Ink",
+        "canonical": "#6D50DE",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.088 286.8)",
+          "oklch(26.4% 0.153 286.8)",
+          "oklch(37.9% 0.206 286.8)",
+          "oklch(49.3% 0.206 286.8)",
+          "oklch(60.7% 0.206 286.8)",
+          "oklch(72.1% 0.153 286.8)",
+          "oklch(83.6% 0.086 286.8)",
+          "oklch(95.0% 0.025 286.8)"
+        ]
+      },
+      "warning": {
+        "role": "status",
+        "displayName": "Changed Amber",
+        "canonical": "#C98A00",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.033 76.5)",
+          "oklch(26.4% 0.056 76.5)",
+          "oklch(37.9% 0.080 76.5)",
+          "oklch(49.3% 0.103 76.5)",
+          "oklch(60.7% 0.127 76.5)",
+          "oklch(72.1% 0.142 76.5)",
+          "oklch(83.6% 0.142 76.5)",
+          "oklch(95.0% 0.042 76.5)"
+        ]
+      },
+      "warning-soft": {
+        "role": "status",
+        "displayName": "Changed Amber Soft",
+        "canonical": "#FCF1D2",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.032 90.8)",
+          "oklch(26.4% 0.042 90.8)",
+          "oklch(37.9% 0.042 90.8)",
+          "oklch(49.3% 0.042 90.8)",
+          "oklch(60.7% 0.042 90.8)",
+          "oklch(72.1% 0.042 90.8)",
+          "oklch(83.6% 0.042 90.8)",
+          "oklch(95.0% 0.042 90.8)"
+        ]
+      },
+      "warning-ink": {
+        "role": "status",
+        "displayName": "Changed Amber Ink",
+        "canonical": "#906300",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.033 77.6)",
+          "oklch(26.4% 0.056 77.6)",
+          "oklch(37.9% 0.079 77.6)",
+          "oklch(49.3% 0.103 77.6)",
+          "oklch(60.7% 0.111 77.6)",
+          "oklch(72.1% 0.111 77.6)",
+          "oklch(83.6% 0.111 77.6)",
+          "oklch(95.0% 0.043 77.6)"
+        ]
+      },
+      "error": {
+        "role": "status",
+        "displayName": "Failed Red",
+        "canonical": "#D6334A",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.062 18.7)",
+          "oklch(26.4% 0.106 18.7)",
+          "oklch(37.9% 0.152 18.7)",
+          "oklch(49.3% 0.198 18.7)",
+          "oklch(60.7% 0.198 18.7)",
+          "oklch(72.1% 0.174 18.7)",
+          "oklch(83.6% 0.091 18.7)",
+          "oklch(95.0% 0.025 18.7)"
+        ]
+      },
+      "error-soft": {
+        "role": "status",
+        "displayName": "Failed Red Soft",
+        "canonical": "#FBE1E5",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.029 7.1)",
+          "oklch(26.4% 0.029 7.1)",
+          "oklch(37.9% 0.029 7.1)",
+          "oklch(49.3% 0.029 7.1)",
+          "oklch(60.7% 0.029 7.1)",
+          "oklch(72.1% 0.029 7.1)",
+          "oklch(83.6% 0.029 7.1)",
+          "oklch(95.0% 0.026 7.1)"
+        ]
+      },
+      "error-ink": {
+        "role": "status",
+        "displayName": "Failed Red Ink",
+        "canonical": "#C22E43",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.062 18.5)",
+          "oklch(26.4% 0.106 18.5)",
+          "oklch(37.9% 0.152 18.5)",
+          "oklch(49.3% 0.183 18.5)",
+          "oklch(60.7% 0.183 18.5)",
+          "oklch(72.1% 0.174 18.5)",
+          "oklch(83.6% 0.091 18.5)",
+          "oklch(95.0% 0.025 18.5)"
+        ]
+      },
+      "error-fill": {
+        "role": "status",
+        "displayName": "Danger Red",
+        "canonical": "#CF2F46",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.062 18.8)",
+          "oklch(26.4% 0.106 18.8)",
+          "oklch(37.9% 0.152 18.8)",
+          "oklch(49.3% 0.195 18.8)",
+          "oklch(60.7% 0.195 18.8)",
+          "oklch(72.1% 0.174 18.8)",
+          "oklch(83.6% 0.091 18.8)",
+          "oklch(95.0% 0.025 18.8)"
+        ]
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Scrim",
+        "canonical": "#2B241F6B",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 57.6)",
+          "oklch(26.4% 0.014 57.6)",
+          "oklch(37.9% 0.014 57.6)",
+          "oklch(49.3% 0.014 57.6)",
+          "oklch(60.7% 0.014 57.6)",
+          "oklch(72.1% 0.014 57.6)",
+          "oklch(83.6% 0.014 57.6)",
+          "oklch(95.0% 0.014 57.6)"
+        ],
+        "alpha": 0.42
+      },
+      "shadow": {
+        "role": "neutral",
+        "displayName": "Shadow Tint",
+        "canonical": "#4A2E1C",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.040 52.9)",
+          "oklch(26.4% 0.050 52.9)",
+          "oklch(37.9% 0.050 52.9)",
+          "oklch(49.3% 0.050 52.9)",
+          "oklch(60.7% 0.050 52.9)",
+          "oklch(72.1% 0.050 52.9)",
+          "oklch(83.6% 0.050 52.9)",
+          "oklch(95.0% 0.029 52.9)"
+        ]
+      },
+      "tooltip-bg": {
+        "role": "neutral",
+        "displayName": "Tooltip",
+        "canonical": "#2B241F",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 57.6)",
+          "oklch(26.4% 0.014 57.6)",
+          "oklch(37.9% 0.014 57.6)",
+          "oklch(49.3% 0.014 57.6)",
+          "oklch(60.7% 0.014 57.6)",
+          "oklch(72.1% 0.014 57.6)",
+          "oklch(83.6% 0.014 57.6)",
+          "oklch(95.0% 0.014 57.6)"
+        ]
+      },
+      "tooltip-fg": {
+        "role": "neutral",
+        "displayName": "Tooltip Text",
+        "canonical": "#FFF8F1",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.012 67.7)",
+          "oklch(26.4% 0.012 67.7)",
+          "oklch(37.9% 0.012 67.7)",
+          "oklch(49.3% 0.012 67.7)",
+          "oklch(60.7% 0.012 67.7)",
+          "oklch(72.1% 0.012 67.7)",
+          "oklch(83.6% 0.012 67.7)",
+          "oklch(95.0% 0.012 67.7)"
+        ]
+      },
+      "selection": {
+        "role": "neutral",
+        "displayName": "Selection",
+        "canonical": "#FF9A7066",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.046 43.0)",
+          "oklch(26.4% 0.079 43.0)",
+          "oklch(37.9% 0.112 43.0)",
+          "oklch(49.3% 0.134 43.0)",
+          "oklch(60.7% 0.134 43.0)",
+          "oklch(72.1% 0.134 43.0)",
+          "oklch(83.6% 0.096 43.0)",
+          "oklch(95.0% 0.027 43.0)"
+        ],
+        "alpha": 0.4
+      },
+      "shimmer": {
+        "role": "neutral",
+        "displayName": "Shimmer",
+        "canonical": "#FFFCF8",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.006 75.4)",
+          "oklch(26.4% 0.006 75.4)",
+          "oklch(37.9% 0.006 75.4)",
+          "oklch(49.3% 0.006 75.4)",
+          "oklch(60.7% 0.006 75.4)",
+          "oklch(72.1% 0.006 75.4)",
+          "oklch(83.6% 0.006 75.4)",
+          "oklch(95.0% 0.006 75.4)"
+        ]
+      },
+      "track": {
+        "role": "neutral",
+        "displayName": "Track",
+        "canonical": "#F1E4D5",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.025 71.5)",
+          "oklch(26.4% 0.025 71.5)",
+          "oklch(37.9% 0.025 71.5)",
+          "oklch(49.3% 0.025 71.5)",
+          "oklch(60.7% 0.025 71.5)",
+          "oklch(72.1% 0.025 71.5)",
+          "oklch(83.6% 0.025 71.5)",
+          "oklch(95.0% 0.025 71.5)"
+        ]
+      },
+      "overlay": {
+        "role": "neutral",
+        "displayName": "Overlay",
+        "canonical": "#FFFFFFE6",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(26.4% 0.000 0.0)",
+          "oklch(37.9% 0.000 0.0)",
+          "oklch(49.3% 0.000 0.0)",
+          "oklch(60.7% 0.000 0.0)",
+          "oklch(72.1% 0.000 0.0)",
+          "oklch(83.6% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ],
+        "alpha": 0.9
+      },
+      "overlay-ink": {
+        "role": "neutral",
+        "displayName": "Overlay Ink",
+        "canonical": "#2B241F",
+        "theme": "light",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 57.6)",
+          "oklch(26.4% 0.014 57.6)",
+          "oklch(37.9% 0.014 57.6)",
+          "oklch(49.3% 0.014 57.6)",
+          "oklch(60.7% 0.014 57.6)",
+          "oklch(72.1% 0.014 57.6)",
+          "oklch(83.6% 0.014 57.6)",
+          "oklch(95.0% 0.014 57.6)"
+        ]
+      },
+      "ground-dark": {
+        "role": "neutral",
+        "displayName": "Warm Paper · Вечір",
+        "canonical": "#1B1714",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 59.2)",
+          "oklch(26.4% 0.009 59.2)",
+          "oklch(37.9% 0.009 59.2)",
+          "oklch(49.3% 0.009 59.2)",
+          "oklch(60.7% 0.009 59.2)",
+          "oklch(72.1% 0.009 59.2)",
+          "oklch(83.6% 0.009 59.2)",
+          "oklch(95.0% 0.009 59.2)"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Oat · Вечір",
+        "canonical": "#26201B",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.013 62.0)",
+          "oklch(26.4% 0.013 62.0)",
+          "oklch(37.9% 0.013 62.0)",
+          "oklch(49.3% 0.013 62.0)",
+          "oklch(60.7% 0.013 62.0)",
+          "oklch(72.1% 0.013 62.0)",
+          "oklch(83.6% 0.013 62.0)",
+          "oklch(95.0% 0.013 62.0)"
+        ]
+      },
+      "surface-hover-dark": {
+        "role": "neutral",
+        "displayName": "Oat Hover · Вечір",
+        "canonical": "#322A24",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.016 59.0)",
+          "oklch(26.4% 0.016 59.0)",
+          "oklch(37.9% 0.016 59.0)",
+          "oklch(49.3% 0.016 59.0)",
+          "oklch(60.7% 0.016 59.0)",
+          "oklch(72.1% 0.016 59.0)",
+          "oklch(83.6% 0.016 59.0)",
+          "oklch(95.0% 0.016 59.0)"
+        ]
+      },
+      "card-dark": {
+        "role": "neutral",
+        "displayName": "Card White · Вечір",
+        "canonical": "#2C2520",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 57.6)",
+          "oklch(26.4% 0.014 57.6)",
+          "oklch(37.9% 0.014 57.6)",
+          "oklch(49.3% 0.014 57.6)",
+          "oklch(60.7% 0.014 57.6)",
+          "oklch(72.1% 0.014 57.6)",
+          "oklch(83.6% 0.014 57.6)",
+          "oklch(95.0% 0.014 57.6)"
+        ]
+      },
+      "border-dark": {
+        "role": "neutral",
+        "displayName": "Warm Hairline · Вечір",
+        "canonical": "#3D342D",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.018 60.0)",
+          "oklch(26.4% 0.018 60.0)",
+          "oklch(37.9% 0.018 60.0)",
+          "oklch(49.3% 0.018 60.0)",
+          "oklch(60.7% 0.018 60.0)",
+          "oklch(72.1% 0.018 60.0)",
+          "oklch(83.6% 0.018 60.0)",
+          "oklch(95.0% 0.018 60.0)"
+        ]
+      },
+      "border-strong-dark": {
+        "role": "neutral",
+        "displayName": "Strong Hairline · Вечір",
+        "canonical": "#52463D",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.022 59.0)",
+          "oklch(26.4% 0.022 59.0)",
+          "oklch(37.9% 0.022 59.0)",
+          "oklch(49.3% 0.022 59.0)",
+          "oklch(60.7% 0.022 59.0)",
+          "oklch(72.1% 0.022 59.0)",
+          "oklch(83.6% 0.022 59.0)",
+          "oklch(95.0% 0.022 59.0)"
+        ]
+      },
+      "text-dark": {
+        "role": "neutral",
+        "displayName": "Espresso · Вечір",
+        "canonical": "#F6EEE6",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 67.7)",
+          "oklch(26.4% 0.014 67.7)",
+          "oklch(37.9% 0.014 67.7)",
+          "oklch(49.3% 0.014 67.7)",
+          "oklch(60.7% 0.014 67.7)",
+          "oklch(72.1% 0.014 67.7)",
+          "oklch(83.6% 0.014 67.7)",
+          "oklch(95.0% 0.014 67.7)"
+        ]
+      },
+      "text-2-dark": {
+        "role": "neutral",
+        "displayName": "Walnut · Вечір",
+        "canonical": "#C2B4A6",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.025 67.4)",
+          "oklch(26.4% 0.025 67.4)",
+          "oklch(37.9% 0.025 67.4)",
+          "oklch(49.3% 0.025 67.4)",
+          "oklch(60.7% 0.025 67.4)",
+          "oklch(72.1% 0.025 67.4)",
+          "oklch(83.6% 0.025 67.4)",
+          "oklch(95.0% 0.025 67.4)"
+        ]
+      },
+      "text-3-dark": {
+        "role": "neutral",
+        "displayName": "Driftwood · Вечір",
+        "canonical": "#9E9083",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.025 65.3)",
+          "oklch(26.4% 0.025 65.3)",
+          "oklch(37.9% 0.025 65.3)",
+          "oklch(49.3% 0.025 65.3)",
+          "oklch(60.7% 0.025 65.3)",
+          "oklch(72.1% 0.025 65.3)",
+          "oklch(83.6% 0.025 65.3)",
+          "oklch(95.0% 0.025 65.3)"
+        ]
+      },
+      "action-dark": {
+        "role": "primary",
+        "displayName": "Studio Orange · Вечір",
+        "canonical": "#FF7A4D",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.050 39.0)",
+          "oklch(26.4% 0.085 39.0)",
+          "oklch(37.9% 0.122 39.0)",
+          "oklch(49.3% 0.158 39.0)",
+          "oklch(60.7% 0.173 39.0)",
+          "oklch(72.1% 0.173 39.0)",
+          "oklch(83.6% 0.094 39.0)",
+          "oklch(95.0% 0.026 39.0)"
+        ]
+      },
+      "action-hover-dark": {
+        "role": "primary",
+        "displayName": "Orange Hover · Вечір",
+        "canonical": "#FF8B62",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.049 40.0)",
+          "oklch(26.4% 0.084 40.0)",
+          "oklch(37.9% 0.119 40.0)",
+          "oklch(49.3% 0.152 40.0)",
+          "oklch(60.7% 0.152 40.0)",
+          "oklch(72.1% 0.152 40.0)",
+          "oklch(83.6% 0.094 40.0)",
+          "oklch(95.0% 0.026 40.0)"
+        ]
+      },
+      "action-pressed-dark": {
+        "role": "primary",
+        "displayName": "Orange Pressed · Вечір",
+        "canonical": "#F0683A",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.051 38.6)",
+          "oklch(26.4% 0.086 38.6)",
+          "oklch(37.9% 0.123 38.6)",
+          "oklch(49.3% 0.160 38.6)",
+          "oklch(60.7% 0.179 38.6)",
+          "oklch(72.1% 0.178 38.6)",
+          "oklch(83.6% 0.094 38.6)",
+          "oklch(95.0% 0.026 38.6)"
+        ]
+      },
+      "action-soft-dark": {
+        "role": "primary",
+        "displayName": "Orange Wash · Вечір",
+        "canonical": "#4A2C20",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.047 42.5)",
+          "oklch(26.4% 0.049 42.5)",
+          "oklch(37.9% 0.049 42.5)",
+          "oklch(49.3% 0.049 42.5)",
+          "oklch(60.7% 0.049 42.5)",
+          "oklch(72.1% 0.049 42.5)",
+          "oklch(83.6% 0.049 42.5)",
+          "oklch(95.0% 0.026 42.5)"
+        ]
+      },
+      "action-soft-hi-dark": {
+        "role": "primary",
+        "displayName": "Orange Wash Hover · Вечір",
+        "canonical": "#5A3527",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.048 41.4)",
+          "oklch(26.4% 0.058 41.4)",
+          "oklch(37.9% 0.058 41.4)",
+          "oklch(49.3% 0.058 41.4)",
+          "oklch(60.7% 0.058 41.4)",
+          "oklch(72.1% 0.058 41.4)",
+          "oklch(83.6% 0.058 41.4)",
+          "oklch(95.0% 0.026 41.4)"
+        ]
+      },
+      "action-text-dark": {
+        "role": "primary",
+        "displayName": "Ember Ink · Вечір",
+        "canonical": "#FF8A61",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.049 39.8)",
+          "oklch(26.4% 0.084 39.8)",
+          "oklch(37.9% 0.120 39.8)",
+          "oklch(49.3% 0.153 39.8)",
+          "oklch(60.7% 0.153 39.8)",
+          "oklch(72.1% 0.153 39.8)",
+          "oklch(83.6% 0.094 39.8)",
+          "oklch(95.0% 0.026 39.8)"
+        ]
+      },
+      "on-action-dark": {
+        "role": "primary",
+        "displayName": "Ink on Orange · Вечір",
+        "canonical": "#1B1714",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 59.2)",
+          "oklch(26.4% 0.009 59.2)",
+          "oklch(37.9% 0.009 59.2)",
+          "oklch(49.3% 0.009 59.2)",
+          "oklch(60.7% 0.009 59.2)",
+          "oklch(72.1% 0.009 59.2)",
+          "oklch(83.6% 0.009 59.2)",
+          "oklch(95.0% 0.009 59.2)"
+        ]
+      },
+      "focus-dark": {
+        "role": "primary",
+        "displayName": "Focus Glow · Вечір",
+        "canonical": "#FF7A4D73",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.050 39.0)",
+          "oklch(26.4% 0.085 39.0)",
+          "oklch(37.9% 0.122 39.0)",
+          "oklch(49.3% 0.158 39.0)",
+          "oklch(60.7% 0.173 39.0)",
+          "oklch(72.1% 0.173 39.0)",
+          "oklch(83.6% 0.094 39.0)",
+          "oklch(95.0% 0.026 39.0)"
+        ],
+        "alpha": 0.45
+      },
+      "success-dark": {
+        "role": "status",
+        "displayName": "Done Green · Вечір",
+        "canonical": "#4CC784",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.037 156.1)",
+          "oklch(26.4% 0.064 156.1)",
+          "oklch(37.9% 0.092 156.1)",
+          "oklch(49.3% 0.120 156.1)",
+          "oklch(60.7% 0.147 156.1)",
+          "oklch(72.1% 0.147 156.1)",
+          "oklch(83.6% 0.147 156.1)",
+          "oklch(95.0% 0.079 156.1)"
+        ]
+      },
+      "success-soft-dark": {
+        "role": "status",
+        "displayName": "Done Green Soft · Вечір",
+        "canonical": "#1E3A2A",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.036 157.6)",
+          "oklch(26.4% 0.045 157.6)",
+          "oklch(37.9% 0.045 157.6)",
+          "oklch(49.3% 0.045 157.6)",
+          "oklch(60.7% 0.045 157.6)",
+          "oklch(72.1% 0.045 157.6)",
+          "oklch(83.6% 0.045 157.6)",
+          "oklch(95.0% 0.045 157.6)"
+        ]
+      },
+      "success-ink-dark": {
+        "role": "status",
+        "displayName": "Done Green Ink · Вечір",
+        "canonical": "#5FD394",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.037 157.1)",
+          "oklch(26.4% 0.063 157.1)",
+          "oklch(37.9% 0.090 157.1)",
+          "oklch(49.3% 0.117 157.1)",
+          "oklch(60.7% 0.140 157.1)",
+          "oklch(72.1% 0.140 157.1)",
+          "oklch(83.6% 0.140 157.1)",
+          "oklch(95.0% 0.078 157.1)"
+        ]
+      },
+      "running-dark": {
+        "role": "status",
+        "displayName": "Running Violet · Вечір",
+        "canonical": "#A08CFF",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.087 289.5)",
+          "oklch(26.4% 0.150 289.5)",
+          "oklch(37.9% 0.164 289.5)",
+          "oklch(49.3% 0.164 289.5)",
+          "oklch(60.7% 0.164 289.5)",
+          "oklch(72.1% 0.155 289.5)",
+          "oklch(83.6% 0.087 289.5)",
+          "oklch(95.0% 0.025 289.5)"
+        ]
+      },
+      "running-soft-dark": {
+        "role": "status",
+        "displayName": "Running Violet Soft · Вечір",
+        "canonical": "#2E2750",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.072 289.2)",
+          "oklch(26.4% 0.072 289.2)",
+          "oklch(37.9% 0.072 289.2)",
+          "oklch(49.3% 0.072 289.2)",
+          "oklch(60.7% 0.072 289.2)",
+          "oklch(72.1% 0.072 289.2)",
+          "oklch(83.6% 0.072 289.2)",
+          "oklch(95.0% 0.025 289.2)"
+        ]
+      },
+      "running-ink-dark": {
+        "role": "status",
+        "displayName": "Running Violet Ink · Вечір",
+        "canonical": "#B3A3FF",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.086 291.0)",
+          "oklch(26.4% 0.130 291.0)",
+          "oklch(37.9% 0.130 291.0)",
+          "oklch(49.3% 0.130 291.0)",
+          "oklch(60.7% 0.130 291.0)",
+          "oklch(72.1% 0.130 291.0)",
+          "oklch(83.6% 0.088 291.0)",
+          "oklch(95.0% 0.026 291.0)"
+        ]
+      },
+      "warning-dark": {
+        "role": "status",
+        "displayName": "Changed Amber · Вечір",
+        "canonical": "#E8B03A",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.032 81.9)",
+          "oklch(26.4% 0.055 81.9)",
+          "oklch(37.9% 0.078 81.9)",
+          "oklch(49.3% 0.102 81.9)",
+          "oklch(60.7% 0.125 81.9)",
+          "oklch(72.1% 0.144 81.9)",
+          "oklch(83.6% 0.144 81.9)",
+          "oklch(95.0% 0.048 81.9)"
+        ]
+      },
+      "warning-soft-dark": {
+        "role": "status",
+        "displayName": "Changed Amber Soft · Вечір",
+        "canonical": "#3D3118",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.032 84.4)",
+          "oklch(26.4% 0.043 84.4)",
+          "oklch(37.9% 0.043 84.4)",
+          "oklch(49.3% 0.043 84.4)",
+          "oklch(60.7% 0.043 84.4)",
+          "oklch(72.1% 0.043 84.4)",
+          "oklch(83.6% 0.043 84.4)",
+          "oklch(95.0% 0.043 84.4)"
+        ]
+      },
+      "warning-ink-dark": {
+        "role": "status",
+        "displayName": "Changed Amber Ink · Вечір",
+        "canonical": "#F0BF55",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.032 84.0)",
+          "oklch(26.4% 0.055 84.0)",
+          "oklch(37.9% 0.078 84.0)",
+          "oklch(49.3% 0.101 84.0)",
+          "oklch(60.7% 0.125 84.0)",
+          "oklch(72.1% 0.134 84.0)",
+          "oklch(83.6% 0.134 84.0)",
+          "oklch(95.0% 0.051 84.0)"
+        ]
+      },
+      "error-dark": {
+        "role": "status",
+        "displayName": "Failed Red · Вечір",
+        "canonical": "#FF6B7F",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.062 14.7)",
+          "oklch(26.4% 0.106 14.7)",
+          "oklch(37.9% 0.152 14.7)",
+          "oklch(49.3% 0.180 14.7)",
+          "oklch(60.7% 0.180 14.7)",
+          "oklch(72.1% 0.176 14.7)",
+          "oklch(83.6% 0.092 14.7)",
+          "oklch(95.0% 0.025 14.7)"
+        ]
+      },
+      "error-soft-dark": {
+        "role": "status",
+        "displayName": "Failed Red Soft · Вечір",
+        "canonical": "#45232A",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.052 7.5)",
+          "oklch(26.4% 0.052 7.5)",
+          "oklch(37.9% 0.052 7.5)",
+          "oklch(49.3% 0.052 7.5)",
+          "oklch(60.7% 0.052 7.5)",
+          "oklch(72.1% 0.052 7.5)",
+          "oklch(83.6% 0.052 7.5)",
+          "oklch(95.0% 0.026 7.5)"
+        ]
+      },
+      "error-ink-dark": {
+        "role": "status",
+        "displayName": "Failed Red Ink · Вечір",
+        "canonical": "#FF8292",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.062 13.4)",
+          "oklch(26.4% 0.106 13.4)",
+          "oklch(37.9% 0.152 13.4)",
+          "oklch(49.3% 0.152 13.4)",
+          "oklch(60.7% 0.152 13.4)",
+          "oklch(72.1% 0.152 13.4)",
+          "oklch(83.6% 0.092 13.4)",
+          "oklch(95.0% 0.025 13.4)"
+        ]
+      },
+      "error-fill-dark": {
+        "role": "status",
+        "displayName": "Danger Red · Вечір",
+        "canonical": "#C7364B",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.062 17.4)",
+          "oklch(26.4% 0.106 17.4)",
+          "oklch(37.9% 0.152 17.4)",
+          "oklch(49.3% 0.181 17.4)",
+          "oklch(60.7% 0.181 17.4)",
+          "oklch(72.1% 0.174 17.4)",
+          "oklch(83.6% 0.091 17.4)",
+          "oklch(95.0% 0.025 17.4)"
+        ]
+      },
+      "scrim-dark": {
+        "role": "neutral",
+        "displayName": "Scrim · Вечір",
+        "canonical": "#000000A6",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(26.4% 0.000 0.0)",
+          "oklch(37.9% 0.000 0.0)",
+          "oklch(49.3% 0.000 0.0)",
+          "oklch(60.7% 0.000 0.0)",
+          "oklch(72.1% 0.000 0.0)",
+          "oklch(83.6% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ],
+        "alpha": 0.65
+      },
+      "shadow-dark": {
+        "role": "neutral",
+        "displayName": "Shadow Tint · Вечір",
+        "canonical": "#000000",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(26.4% 0.000 0.0)",
+          "oklch(37.9% 0.000 0.0)",
+          "oklch(49.3% 0.000 0.0)",
+          "oklch(60.7% 0.000 0.0)",
+          "oklch(72.1% 0.000 0.0)",
+          "oklch(83.6% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ]
+      },
+      "tooltip-bg-dark": {
+        "role": "neutral",
+        "displayName": "Tooltip · Вечір",
+        "canonical": "#F6EEE6",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 67.7)",
+          "oklch(26.4% 0.014 67.7)",
+          "oklch(37.9% 0.014 67.7)",
+          "oklch(49.3% 0.014 67.7)",
+          "oklch(60.7% 0.014 67.7)",
+          "oklch(72.1% 0.014 67.7)",
+          "oklch(83.6% 0.014 67.7)",
+          "oklch(95.0% 0.014 67.7)"
+        ]
+      },
+      "tooltip-fg-dark": {
+        "role": "neutral",
+        "displayName": "Tooltip Text · Вечір",
+        "canonical": "#1B1714",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 59.2)",
+          "oklch(26.4% 0.009 59.2)",
+          "oklch(37.9% 0.009 59.2)",
+          "oklch(49.3% 0.009 59.2)",
+          "oklch(60.7% 0.009 59.2)",
+          "oklch(72.1% 0.009 59.2)",
+          "oklch(83.6% 0.009 59.2)",
+          "oklch(95.0% 0.009 59.2)"
+        ]
+      },
+      "selection-dark": {
+        "role": "neutral",
+        "displayName": "Selection · Вечір",
+        "canonical": "#FF7A4D66",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.050 39.0)",
+          "oklch(26.4% 0.085 39.0)",
+          "oklch(37.9% 0.122 39.0)",
+          "oklch(49.3% 0.158 39.0)",
+          "oklch(60.7% 0.173 39.0)",
+          "oklch(72.1% 0.173 39.0)",
+          "oklch(83.6% 0.094 39.0)",
+          "oklch(95.0% 0.026 39.0)"
+        ],
+        "alpha": 0.4
+      },
+      "shimmer-dark": {
+        "role": "neutral",
+        "displayName": "Shimmer · Вечір",
+        "canonical": "#3E342C",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.020 60.7)",
+          "oklch(26.4% 0.020 60.7)",
+          "oklch(37.9% 0.020 60.7)",
+          "oklch(49.3% 0.020 60.7)",
+          "oklch(60.7% 0.020 60.7)",
+          "oklch(72.1% 0.020 60.7)",
+          "oklch(83.6% 0.020 60.7)",
+          "oklch(95.0% 0.020 60.7)"
+        ]
+      },
+      "track-dark": {
+        "role": "neutral",
+        "displayName": "Track · Вечір",
+        "canonical": "#3A3029",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.019 57.0)",
+          "oklch(26.4% 0.019 57.0)",
+          "oklch(37.9% 0.019 57.0)",
+          "oklch(49.3% 0.019 57.0)",
+          "oklch(60.7% 0.019 57.0)",
+          "oklch(72.1% 0.019 57.0)",
+          "oklch(83.6% 0.019 57.0)",
+          "oklch(95.0% 0.019 57.0)"
+        ]
+      },
+      "overlay-dark": {
+        "role": "neutral",
+        "displayName": "Overlay · Вечір",
+        "canonical": "#2C2520D9",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 57.6)",
+          "oklch(26.4% 0.014 57.6)",
+          "oklch(37.9% 0.014 57.6)",
+          "oklch(49.3% 0.014 57.6)",
+          "oklch(60.7% 0.014 57.6)",
+          "oklch(72.1% 0.014 57.6)",
+          "oklch(83.6% 0.014 57.6)",
+          "oklch(95.0% 0.014 57.6)"
+        ],
+        "alpha": 0.85
+      },
+      "overlay-ink-dark": {
+        "role": "neutral",
+        "displayName": "Overlay Ink · Вечір",
+        "canonical": "#F6EEE6",
+        "theme": "dark",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 67.7)",
+          "oklch(26.4% 0.014 67.7)",
+          "oklch(37.9% 0.014 67.7)",
+          "oklch(49.3% 0.014 67.7)",
+          "oklch(60.7% 0.014 67.7)",
+          "oklch(72.1% 0.014 67.7)",
+          "oklch(83.6% 0.014 67.7)",
+          "oklch(95.0% 0.014 67.7)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The Home greeting only, with the short orange dash under it; H2 on phones."
+      },
+      "h1": {
+        "displayName": "H1",
+        "purpose": "Page titles: Проєкти, Черга, Налаштування."
+      },
+      "h2": {
+        "displayName": "H2",
+        "purpose": "Section heads on the ground, the project title, stat-tile numbers; 22 sp for dialog titles and project section heads."
+      },
+      "h3": {
+        "displayName": "H3",
+        "purpose": "Card, next-step and empty-state titles; 20 sp for drawer titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, field text, descriptions; in Medium it labels Md buttons and titles activity rows."
+      },
+      "body-strong": {
+        "displayName": "Body Strong",
+        "purpose": "Inline emphasis; 16 sp for picker values."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Sm buttons, field labels, chips, tabs; 15 sp for links."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Meta lines, hints, captions; 14 sp for card-head descriptions; Medium in status pills."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Counters, timestamps, rail labels, badges, tooltips."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "Numbers inside progress rings, scaled to 27 % of the ring diameter."
+      }
+    },
+    "shadows": [
+      {
+        "name": "elev-control",
+        "value": "0 1px 3px rgba(74,46,28,0.10), 0 2px 8px rgba(74,46,28,0.06)",
+        "valueDark": "0 1px 3px rgba(0,0,0,0.260), 0 2px 8px rgba(0,0,0,0.156)",
+        "purpose": "Toggle and slider knobs, the sliding tab indicator, the segmented thumb, the logo at rest."
+      },
+      {
+        "name": "elev-card",
+        "value": "0 2px 10px rgba(74,46,28,0.06), 0 12px 28px rgba(74,46,28,0.05)",
+        "valueDark": "0 2px 10px rgba(0,0,0,0.156), 0 12px 28px rgba(0,0,0,0.130)",
+        "purpose": "Every card resting on the ground."
+      },
+      {
+        "name": "elev-hover",
+        "value": "0 3px 10px rgba(74,46,28,0.06), 0 16px 32px rgba(74,46,28,0.09)",
+        "valueDark": "0 3px 10px rgba(0,0,0,0.156), 0 16px 32px rgba(0,0,0,0.234)",
+        "purpose": "A pressable card under the pointer, lifted 2 dp."
+      },
+      {
+        "name": "elev-pop",
+        "value": "0 2px 6px rgba(74,46,28,0.06), 0 14px 36px rgba(74,46,28,0.14)",
+        "valueDark": "0 2px 6px rgba(0,0,0,0.156), 0 14px 36px rgba(0,0,0,0.364)",
+        "purpose": "Select popovers, toasts, tooltips."
+      },
+      {
+        "name": "elev-sheet",
+        "value": "0 2px 8px rgba(74,46,28,0.06), 0 24px 60px rgba(74,46,28,0.18)",
+        "valueDark": "0 2px 8px rgba(0,0,0,0.156), 0 24px 60px rgba(0,0,0,0.468)",
+        "purpose": "Dialogs, drawers, the big picker, the tour bubble."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-cubic",
+        "value": "cubic-bezier(0.33, 1, 0.68, 1)",
+        "purpose": "Default easing: entries, hover and colour changes, values."
+      },
+      {
+        "name": "ease-in-out-cubic",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Moves: the sliding tab indicator, segmented thumb, toggle knob, chevron turn, theme crossfade."
+      },
+      {
+        "name": "ease-in-cubic",
+        "value": "cubic-bezier(0.32, 0, 0.67, 0)",
+        "purpose": "Exits: the outgoing page fade and a leaving toast."
+      },
+      {
+        "name": "dur-hover",
+        "value": "120ms",
+        "purpose": "Hover fills and outlines, focus rings, tooltip fade, card lift."
+      },
+      {
+        "name": "press-spring",
+        "value": "critically damped spring, 220ms to settle, no overshoot",
+        "purpose": "Press feedback: buttons scale to 0.97, cards 0.985, chips 0.96, rail items 0.95, icon buttons 0.94."
+      },
+      {
+        "name": "dur-field-focus",
+        "value": "180ms",
+        "purpose": "The field focus glow and border growing in."
+      },
+      {
+        "name": "dur-tabs",
+        "value": "200ms",
+        "purpose": "Tab indicator and segmented thumb slides, toggle knob travel (ease-in-out-cubic)."
+      },
+      {
+        "name": "dur-sheet",
+        "value": "240ms",
+        "purpose": "Drawers and sheets sliding in with the scrim fade."
+      },
+      {
+        "name": "dur-dialog",
+        "value": "180ms",
+        "purpose": "Dialogs scale from 0.96 to 1 while fading in."
+      },
+      {
+        "name": "dur-toast",
+        "value": "220ms in, 180ms out, 4s on screen",
+        "purpose": "Toasts slide 32 dp in from the right and pause while hovered."
+      },
+      {
+        "name": "dur-value",
+        "value": "300ms",
+        "purpose": "Progress bars and rings gliding to new values."
+      },
+      {
+        "name": "dur-theme",
+        "value": "250ms",
+        "purpose": "The light / dark / system palette crossfade (ease-in-out-cubic)."
+      },
+      {
+        "name": "route",
+        "value": "90ms fade out, then 180ms fade in rising 8dp",
+        "purpose": "Page changes; the outgoing page takes no input."
+      },
+      {
+        "name": "stagger",
+        "value": "12ms apart, at most 12 items, 180ms each",
+        "purpose": "List items entering on first load only, no bounce."
+      },
+      {
+        "name": "dur-shimmer",
+        "value": "1400ms loop",
+        "purpose": "Skeleton shimmer band, in unison across placeholders."
+      },
+      {
+        "name": "spinner",
+        "value": "900ms per turn",
+        "purpose": "Busy spinners: a short arc over a faint track."
+      },
+      {
+        "name": "tip-delay",
+        "value": "400ms",
+        "purpose": "Hover time before a tooltip appears."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "instant",
+        "purpose": "«Менше анімацій» jumps every animation to its end state."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "bottom-bar",
+        "value": "window < 900px"
+      },
+      {
+        "name": "page-padding-24",
+        "value": "window >= 900px"
+      },
+      {
+        "name": "page-padding-32",
+        "value": "window >= 1280px"
+      },
+      {
+        "name": "home-8-plus-4",
+        "value": "content >= 1100px"
+      },
+      {
+        "name": "settings-two-columns",
+        "value": "window >= 1280px"
+      },
+      {
+        "name": "montage-two-columns",
+        "value": ">= 1000px"
+      },
+      {
+        "name": "montage-three-columns",
+        "value": ">= 1600px"
+      },
+      {
+        "name": "workspace-context-column",
+        "value": "content >= 1340px (360px column)"
+      },
+      {
+        "name": "grid-card-min",
+        "value": "300px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one orange action of a view (Автопілот, Створити план); dark ink on the orange, never white.",
+      "html": "<button class=\"ds-btn-primary\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5\"/><path d=\"M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09\"/><path d=\"M9 12a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2z\"/><path d=\"M9 12H4s.55-3.03 2-4c1.62-1.08 5 .05 5 .05\"/></svg>Автопілот</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border: none; border-radius: 12px; font-family: 'Fira Sans', 'Segoe UI', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.3; cursor: pointer; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1), transform 220ms cubic-bezier(0.33, 1, 0.68, 1); background: #FF6A3D; color: #2B241F; } .ds-btn-primary svg { width: 18px; height: 18px; flex: none; } .ds-btn-primary:hover { background: #FF7B52; } .ds-btn-primary:active { background: #F9602F; transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: 2px solid rgba(255, 106, 61, 0.4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The outlined alternative next to the primary (Покроково); card fill with a dark 1.25 dp hairline.",
+      "html": "<button class=\"ds-btn-secondary\">Покроково<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border: none; border-radius: 12px; font-family: 'Fira Sans', 'Segoe UI', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.3; cursor: pointer; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1), transform 220ms cubic-bezier(0.33, 1, 0.68, 1); background: #FFFFFF; color: #2B241F; box-shadow: inset 0 0 0 1.25px rgba(43, 36, 31, 0.85); } .ds-btn-secondary svg { width: 18px; height: 18px; flex: none; } .ds-btn-secondary:hover { background: #F7EBDD; } .ds-btn-secondary:active { background: #F0E1D0; transform: scale(0.97); } .ds-btn-secondary:focus-visible { outline: 2px solid rgba(255, 106, 61, 0.4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Tinted Button",
+      "kind": "button",
+      "refersTo": "button-tinted",
+      "description": "Quiet but clearly a button: Cancel in dialogs, ⋯ menus, secondary tools; the Oat fill.",
+      "html": "<button class=\"ds-btn-tinted\">Скасувати</button>",
+      "css": ".ds-btn-tinted { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border: none; border-radius: 12px; font-family: 'Fira Sans', 'Segoe UI', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.3; cursor: pointer; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1), transform 220ms cubic-bezier(0.33, 1, 0.68, 1); background: #F7EBDD; color: #2B241F; } .ds-btn-tinted:hover { background: #F0E1D0; } .ds-btn-tinted:active { background: #E8D8C6; transform: scale(0.97); } .ds-btn-tinted:focus-visible { outline: 2px solid rgba(255, 106, 61, 0.4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Label above, hint below; the border eases to orange and a soft glow grows in on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Назва проєкту</span><input class=\"ds-field-input\" type=\"text\" placeholder=\"Наприклад, «Лисиця і місяць»\"><span class=\"ds-field-hint\">Назву можна змінити будь-коли.</span></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; width: 340px; font-family: 'Fira Sans', 'Segoe UI', sans-serif; } .ds-field-label { margin-bottom: 8px; font-size: 14px; font-weight: 500; line-height: 1.3; color: #2B241F; } .ds-field-input { height: 44px; padding: 0 14px; border: 1px solid #E7DACB; border-radius: 12px; background: #FFFFFF; color: #2B241F; font: inherit; font-size: 15px; line-height: 1.5; outline: none; transition: border-color 120ms cubic-bezier(0.33, 1, 0.68, 1), box-shadow 180ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-field-input::placeholder { color: #736960; } .ds-field-input:hover { border-color: #D9C8B4; } .ds-field-input:focus, .ds-field-input:focus-visible { border-color: #FF6A3D; box-shadow: inset 0 0 0 0.5px #FF6A3D, 0 0 0 3px rgba(255, 106, 61, 0.36); } .ds-field-hint { margin-top: 6px; font-size: 13px; line-height: 1.45; color: #736960; }"
+    },
+    {
+      "name": "Chips",
+      "kind": "chip",
+      "refersTo": "chip-selected",
+      "description": "Pills for profiles, languages and durations; the picked one takes the orange wash with a check.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\">Дитяча казка</button><button class=\"ds-chip\">Shorts / Reels 9:16</button><button class=\"ds-chip ds-chip-selected\" aria-pressed=\"true\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Типові налаштування</button></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fira Sans', 'Segoe UI', sans-serif; } .ds-chip { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px; border: 1px solid #E7DACB; border-radius: 999px; background: #FFFFFF; color: #6F625A; font: inherit; font-size: 14px; font-weight: 500; line-height: 1.3; cursor: pointer; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1), color 120ms cubic-bezier(0.33, 1, 0.68, 1), border-color 120ms cubic-bezier(0.33, 1, 0.68, 1), transform 220ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-chip svg { width: 16px; height: 16px; flex: none; } .ds-chip:hover { background: #F7EBDD; color: #2B241F; } .ds-chip:active { transform: scale(0.96); } .ds-chip:focus-visible { outline: 2px solid rgba(255, 106, 61, 0.4); outline-offset: 2px; } .ds-chip-selected, .ds-chip-selected:hover { padding-left: 12px; background: #FFE3D6; color: #2B241F; border-color: transparent; } .ds-chip-selected svg { color: #AF492A; } .ds-chip-selected:hover { border-color: rgba(255, 106, 61, 0.5); }"
+    },
+    {
+      "name": "Rail Navigation",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "The 92 dp rail: icon over label; the active item sits on the orange wash; running work shows as a count badge.",
+      "html": "<nav class=\"ds-rail\"><a class=\"ds-nav ds-nav-active\" href=\"#\"><span class=\"ds-nav-pill\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\"/><path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg></span>Головна</a><a class=\"ds-nav\" href=\"#\"><span class=\"ds-nav-pill\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z\"/></svg></span>Проєкти</a><a class=\"ds-nav\" href=\"#\"><span class=\"ds-nav-pill\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 5H3\"/><path d=\"M10 12H3\"/><path d=\"M10 19H3\"/><path d=\"M15 12.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997a1 1 0 0 1-1.517-.86z\"/></svg><span class=\"ds-nav-badge\">3</span></span>Черга</a></nav>",
+      "css": ".ds-rail { display: flex; flex-direction: column; gap: 8px; width: 92px; padding: 24px 0; background: #FFFFFF; border-right: 1px solid #E7DACB; font-family: 'Fira Sans', 'Segoe UI', sans-serif; } .ds-nav { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 4px 0 8px; color: #6F625A; text-decoration: none; font-size: 12px; font-weight: 500; line-height: 1.4; transition: color 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-nav-pill { position: relative; display: flex; align-items: center; justify-content: center; width: 56px; height: 32px; border-radius: 999px; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1), transform 220ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-nav-pill svg { width: 22px; height: 22px; } .ds-nav:hover { color: #2B241F; } .ds-nav:hover .ds-nav-pill { background: #F7EBDD; } .ds-nav:active .ds-nav-pill { transform: scale(0.95); } .ds-nav:focus-visible { outline: none; } .ds-nav:focus-visible .ds-nav-pill { outline: 2px solid rgba(255, 106, 61, 0.4); outline-offset: 2px; } .ds-nav-active, .ds-nav-active:hover { color: #AF492A; font-weight: 600; } .ds-nav-active .ds-nav-pill, .ds-nav-active:hover .ds-nav-pill { background: #FFE3D6; } .ds-nav-active .ds-nav-pill svg { color: #FF6A3D; } .ds-nav-badge { position: absolute; top: -2px; left: 33px; box-sizing: border-box; min-width: 22px; height: 22px; padding: 0 8px; border-radius: 999px; background: #FF6A3D; color: #2B241F; font-size: 12px; font-weight: 600; line-height: 22px; text-align: center; }"
+    },
+    {
+      "name": "Step Tabs",
+      "kind": "nav",
+      "refersTo": "pill-tabs",
+      "description": "The project's five steps as pill tabs: a white indicator slides on an Oat track; done steps show a green check, the current number is orange.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" role=\"tab\"><span class=\"ds-tab-num ds-tab-done\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>Сценарій</button><button class=\"ds-tab ds-tab-active\" role=\"tab\" aria-selected=\"true\"><span class=\"ds-tab-num\">2</span>План</button><button class=\"ds-tab\" role=\"tab\"><span class=\"ds-tab-num\">3</span>Розкадровка</button></div>",
+      "css": ".ds-tabs { display: inline-flex; box-sizing: border-box; height: 44px; padding: 4px; border-radius: 999px; background: #F7EBDD; font-family: 'Fira Sans', 'Segoe UI', sans-serif; } .ds-tab { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 16px; border: none; border-radius: 999px; background: transparent; color: #6F625A; font: inherit; font-size: 14px; font-weight: 500; line-height: 1.3; cursor: pointer; transition: background-color 200ms cubic-bezier(0.65, 0, 0.35, 1), color 120ms cubic-bezier(0.33, 1, 0.68, 1), box-shadow 200ms cubic-bezier(0.65, 0, 0.35, 1); } .ds-tab:hover { background: #F0E1D0; color: #2B241F; } .ds-tab:focus-visible { outline: 2px solid rgba(255, 106, 61, 0.4); outline-offset: 2px; } .ds-tab-active, .ds-tab-active:hover { background: #FFFFFF; color: #2B241F; font-weight: 600; box-shadow: 0 1px 3px rgba(74, 46, 28, 0.10), 0 2px 8px rgba(74, 46, 28, 0.06); } .ds-tab-num { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: #F0E1D0; color: #6F625A; font-size: 12px; font-weight: 600; } .ds-tab-num svg { width: 14px; height: 14px; } .ds-tab-active .ds-tab-num { background: #FF6A3D; color: #2B241F; } .ds-tab-num.ds-tab-done { background: #1F9D55; color: #1B1714; }"
+    },
+    {
+      "name": "Card with Head",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "The main surface: white, 22 dp corners, warm hairline, two soft layers of warm shadow; a head with an Oat icon box, and an Oat well instead of a nested card.",
+      "html": "<section class=\"ds-card\"><div class=\"ds-card-head\"><span class=\"ds-card-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 22v-5\"/><path d=\"M15 8V2\"/><path d=\"M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z\"/><path d=\"M9 8V2\"/></svg></span><div><h3 class=\"ds-card-title\">Текст і сценарій</h3><p class=\"ds-card-text\">Пише план: персонажів, локації, озвучку й промти.</p></div></div><div class=\"ds-well\">Ключі зберігаються лише на цьому комп’ютері.</div></section>",
+      "css": ".ds-card { display: flex; flex-direction: column; gap: 20px; box-sizing: border-box; width: 420px; padding: 24px; border: 1px solid rgba(231, 218, 203, 0.75); border-radius: 22px; background: #FFFFFF; color: #2B241F; font-family: 'Fira Sans', 'Segoe UI', sans-serif; box-shadow: 0 2px 10px rgba(74, 46, 28, 0.06), 0 12px 28px rgba(74, 46, 28, 0.05); } .ds-card-head { display: flex; align-items: flex-start; gap: 16px; } .ds-card-icon { display: flex; flex: none; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: #F7EBDD; color: #2B241F; } .ds-card-icon svg { width: 20px; height: 20px; } .ds-card-title { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.3; } .ds-card-text { margin: 4px 0 0; font-size: 14px; line-height: 1.45; color: #6F625A; } .ds-well { padding: 16px; border-radius: 16px; background: #F7EBDD; font-size: 15px; line-height: 1.5; }"
+    },
+    {
+      "name": "Next-Step Card",
+      "kind": "custom",
+      "refersTo": "next-step-arrow",
+      "description": "The signature: the whole card is a button naming what to do next; it lifts on hover and its orange arrow slides forward.",
+      "html": "<button class=\"ds-next\"><span class=\"ds-next-circle\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\"/><path d=\"M20 2v4\"/><path d=\"M22 4h-4\"/><circle cx=\"4\" cy=\"20\" r=\"2\"/></svg></span><span class=\"ds-next-body\"><span class=\"ds-next-title\">Далі: розкадровка</span><span class=\"ds-next-text\">Перевір текст і промти — далі герої, місця й кадри.</span></span><span class=\"ds-next-arrow\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></button>",
+      "css": ".ds-next { display: flex; align-items: center; gap: 16px; box-sizing: border-box; width: 440px; padding: 20px; border: 1px solid rgba(231, 218, 203, 0.75); border-radius: 22px; background: #FFFFFF; color: #2B241F; font-family: 'Fira Sans', 'Segoe UI', sans-serif; text-align: left; cursor: pointer; box-shadow: 0 2px 10px rgba(74, 46, 28, 0.06), 0 12px 28px rgba(74, 46, 28, 0.05); transition: transform 120ms cubic-bezier(0.33, 1, 0.68, 1), box-shadow 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-next:hover { transform: translateY(-2px); box-shadow: 0 3px 10px rgba(74, 46, 28, 0.06), 0 16px 32px rgba(74, 46, 28, 0.09); } .ds-next:active { transform: translateY(-2px) scale(0.985); } .ds-next:focus-visible { outline: 2px solid rgba(255, 106, 61, 0.4); outline-offset: 2px; } .ds-next-circle { display: flex; flex: none; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; background: #FFE3D6; } .ds-next-circle svg { width: 28px; height: 28px; } .ds-next-body { display: flex; flex: 1; flex-direction: column; gap: 4px; } .ds-next-title { font-size: 18px; font-weight: 600; line-height: 1.3; } .ds-next-text { font-size: 14px; line-height: 1.45; color: #6F625A; } .ds-next-arrow { display: flex; flex: none; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: #FF6A3D; color: #2B241F; transition: background-color 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-next-arrow svg { width: 22px; height: 22px; transition: transform 120ms cubic-bezier(0.33, 1, 0.68, 1); } .ds-next:hover .ds-next-arrow { background: #FF7B52; } .ds-next:hover .ds-next-arrow svg { transform: translateX(3px); }"
+    },
+    {
+      "name": "Status Pills",
+      "kind": "custom",
+      "refersTo": "status-running",
+      "description": "Every asset and scene state in its own family: soft fill, readable ink, an icon; generating shows a live spinner.",
+      "html": "<div class=\"ds-pills\"><span class=\"ds-pill ds-pill-done\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>Готово</span><span class=\"ds-pill ds-pill-running\"><span class=\"ds-spin\"></span>Генерується 45%</span><span class=\"ds-pill ds-pill-stale\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\"/><path d=\"M21 3v5h-5\"/><path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\"/><path d=\"M8 16H3v5\"/></svg>Змінено — перегенеруй</span><span class=\"ds-pill ds-pill-error\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\"/><path d=\"M12 9v4\"/><path d=\"M12 17h.01\"/></svg>Помилка</span></div>",
+      "css": ".ds-pills { display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Fira Sans', 'Segoe UI', sans-serif; } .ds-pill { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px 0 10px; border-radius: 999px; font-size: 13px; font-weight: 500; line-height: 1.45; } .ds-pill svg { width: 14px; height: 14px; flex: none; } .ds-pill-done { background: #DDF3E6; color: #187B43; } .ds-pill-running { background: #ECE7FF; color: #6D50DE; } .ds-pill-stale { background: #FCF1D2; color: #906300; } .ds-pill-error { background: #FBE1E5; color: #C22E43; } .ds-spin { box-sizing: border-box; width: 14px; height: 14px; border: 1.75px solid rgba(109, 80, 222, 0.2); border-top-color: #6D50DE; border-radius: 50%; animation: ds-spin 900ms linear infinite; } @keyframes ds-spin { to { transform: rotate(360deg); } } @media (prefers-reduced-motion: reduce) { .ds-spin { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Warm Board",
+    "overview": "The studio lays its work out like cards pinned to a warm paper board. The whole window is a tinted ground (Warm Paper by day, the brown «Вечір» ground at night), and everything the user reads or edits sits on it as a soft white card with 22 dp corners, a warm hairline and a two-layer brown-tinted shadow. It is a consumer app for non-technical creators, not a pro tool: plain sentence-case Ukrainian, one humanist sans (Fira Sans), outlined Lucide icons, and exactly one bright colour, Studio Orange, which marks the thing you can press next. It refuses the category's dark neon dashboard; the dark theme is the same board at evening light, with the same grammar.\n\nThe board uses the whole window. There is no page max-width: cards spread across responsive column grids (8 + 4, auto-fill cards of at least 300 dp, a 360 dp context column), and the navigation rail turns into a bottom bar on narrow windows. Structure comes from cards on the ground; inside a card, grouping comes from tinted wells and flat inset fields, never from another card. Every stage of the pipeline shows as a state (ready, generating, changed, failed, not yet) with its own colour family, which keeps the orange free for the next action.\n\nMotion is part of the material. Everything eases on a clock and asks for frames only while it moves: hover in 120 ms, press as a critically damped spring to 0.97 with no bounce, pages fading out in 90 ms and rising 8 dp into place in 180 ms, sheets sliding in 240 ms, dialogs growing from 0.96 in 180 ms, progress settling in 300 ms, lists staggering 12 ms apart. The theme switch crossfades every colour in 250 ms, and «Менше анімацій» makes all of it instant.",
+    "keyCharacteristics": [
+      "Warm tinted ground with soft white cards: 22 dp corners, a warm hairline, a two-layer warm shadow.",
+      "One bright colour, Studio Orange, reserved for what you can press, always with dark ink on it.",
+      "Four status families (running violet, done green, changed amber, failed red), each in strong, soft and ink steps.",
+      "Fira Sans only: SemiBold headings, Medium labels, Regular body, and no kickers.",
+      "Full-window card grids, a 92 dp rail on the left, a bottom bar under 900 dp.",
+      "Cards never nest: wells and flat inset controls do the grouping inside a card.",
+      "Clock-driven motion with a reduced-motion switch; light, dark and system themes."
+    ],
+    "rules": [
+      {
+        "name": "The Pressable Orange Rule",
+        "body": "Studio Orange fills only what can be pressed, so one glance finds the next step. The world has exactly two devices outside that: the arc of step progress (x/5), which points at the next step, and the short dash under the Home greeting. Status never borrows the orange.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dark Ink Rule",
+        "body": "Labels and icons on an orange fill are Ink on Orange, never white; white measured 2.85:1 on the orange. Hover brightens and press deepens only within the range where the ink stays at or above 4.5:1.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three-Step Status Rule",
+        "body": "Every status family comes as strong (dots, bars, rings), soft (pill and circle fills) and ink (text and icons on its soft fill, at least 4.5:1). Status colour always names a state and is never decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Kicker Rule",
+        "body": "There is no overline or eyebrow style. A label above content is sentence case in Label or Small, never uppercase and never letter-spaced, and headings stand on their own. The world card's 11 px tracked overline was dropped on purpose.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Fira Sans is the only face and system fonts stay off. Hierarchy comes from the ten steps above, never from a second typeface.",
+        "section": "typography"
+      },
+      {
+        "name": "The Full-Window Rule",
+        "body": "Never center a narrow column. Extra width becomes more or wider cards in the grid, never wider margins.",
+        "section": "layout"
+      },
+      {
+        "name": "The Cards-Never-Nest Rule",
+        "body": "Shadows live only between the ground and what sits on it, and between the window and its overlays. Inside a card or sheet, a group is a tinted well (Oat, 16 dp corners, no border, no shadow) and a field is a flat inset control (Oat, 12 dp corners, hairline, no shadow). A card never sits inside a card.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lift Rule",
+        "body": "A pressable card answers hover by rising 2 dp into the Hover shadow over 120 ms and answers a press by scaling to 0.985 on a spring; its fill never changes.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Step-Down Corner Rule",
+        "body": "Each level inward drops one step of the ladder: card 22 → well, tile or thumbnail 16 → control 12 → tooltip 8. Pills stay pills at any level.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do give each view one Primary (orange) button and make the rest Secondary, Tinted, Ghost or a Link.",
+      "Do put Ink on Orange (#2B241F; #1B1714 in «Вечір») on every orange fill, and use Ember Ink (#AF492A) whenever text must be orange.",
+      "Do lay cards on the ground in grids with 24 dp gutters, and group inside a card with Oat wells and flat inset controls.",
+      "Do colour states by meaning only: violet generating, green done, amber changed, red failed, Oat for empty and queued.",
+      "Do take every colour from the palette tokens so the light, dark and system switch crossfades it in 250 ms, and check new text against its fill at 4.5:1.",
+      "Do animate on the kit's clock and durations (120 ms hover, 180 ms dialogs and routes, 200 ms tabs, 240 ms sheets, 300 ms values) and let «Менше анімацій» make every animation instant.",
+      "Do write labels in plain, sentence-case Ukrainian and give every icon-only button a tooltip.",
+      "Do fill the window: 32, 24 or 16 dp page padding and more columns as it grows."
+    ],
+    "donts": [
+      "Don't put white text or icons on Studio Orange (2.85:1), and don't press the orange deeper than #F9602F.",
+      "Don't use orange to decorate, to show status or to stress something that can't be pressed; the step-progress arc and the one greeting dash are the only exceptions, and the dash never goes under other headings.",
+      "Don't nest a card inside a card, or give anything inside a card its own shadow.",
+      "Don't add kickers, eyebrows, overlines or uppercase letter-spaced labels.",
+      "Don't use hard, offset or pure black shadows on the light ground; shadows are soft, two-layer and warm.",
+      "Don't confine a page to a narrow centred column.",
+      "Don't bounce or overshoot: springs are critically damped and entries ease out.",
+      "Don't drift toward the category's dark neon dashboard; «Вечір» is warm brown evening light with the same grammar.",
+      "Don't introduce a second typeface or system fonts."
+    ]
+  }
+}

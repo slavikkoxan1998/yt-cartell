@@ -1,0 +1,3106 @@
+{
+  "list": "video",
+  "checked": "2026-10-05",
+  "entries": [
+    {
+      "id": "replicate:google/veo-3.1",
+      "label": "Veo 3.1",
+      "vendor": "Google",
+      "family": "Veo 3.1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "google/veo-3.1",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref"
+      ],
+      "lengths": [
+        4,
+        6,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 3,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,40 $ за секунду зі звуком, 0,20 $ без звуку",
+      "notes": "Флагман Google з голосом і звуком; до 3 референсів лише для 16:9 і 8 с.",
+      "source": "https://replicate.com/google/veo-3.1/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:google/veo-3.1-fast",
+      "label": "Veo 3.1 Fast",
+      "vendor": "Google",
+      "family": "Veo 3.1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "google/veo-3.1-fast",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        4,
+        6,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,15 $ за секунду зі звуком, 0,10 $ без звуку",
+      "notes": "Швидша й дешевша Veo 3.1 з голосом, звуком і останнім кадром.",
+      "source": "https://replicate.com/google/veo-3.1-fast/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:google/veo-3.1-lite",
+      "label": "Veo 3.1 Lite",
+      "vendor": "Google",
+      "family": "Veo 3.1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "google/veo-3.1-lite",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        4,
+        6,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,05 $ за секунду (720p), 0,08 $ (1080p)",
+      "notes": "Найдешевша Veo 3.1 зі звуком; 1080p лише для 8 с.",
+      "source": "https://replicate.com/google/veo-3.1-lite/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:google/veo-3",
+      "label": "Veo 3",
+      "vendor": "Google",
+      "family": "Veo 3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "google/veo-3",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        6,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,40 $ за секунду зі звуком, 0,20 $ без звуку",
+      "notes": "Попередній флагман Google з голосом і звуком.",
+      "source": "https://replicate.com/google/veo-3/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:google/veo-3-fast",
+      "label": "Veo 3 Fast",
+      "vendor": "Google",
+      "family": "Veo 3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "google/veo-3-fast",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        6,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,15 $ за секунду зі звуком, 0,10 $ без звуку",
+      "notes": "Швидша й дешевша Veo 3 зі звуком.",
+      "source": "https://replicate.com/google/veo-3-fast/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:google/veo-2",
+      "label": "Veo 2",
+      "vendor": "Google",
+      "family": "Veo 2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "google/veo-2",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,50 $ за секунду",
+      "notes": "Старша модель Google без звуку, добре тримає фізику.",
+      "source": "https://replicate.com/google/veo-2/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:google/gemini-omni-1.1",
+      "label": "Gemini Omni 1.1 Flash",
+      "vendor": "Google",
+      "family": "Gemini Omni",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "google/gemini-omni-1.1",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref",
+        "v2v"
+      ],
+      "lengths": [],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "360p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "maxRefs": 7,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,05–0,45 $ за секунду залежно від роздільності",
+      "notes": "Генерація й редагування відео з голосом і звуком; тривалість задається в промпті.",
+      "source": "https://replicate.com/google/gemini-omni-1.1/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:kwaivgi/kling-v3-omni-video",
+      "label": "Kling 3.0 Omni",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 3.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-v3-omni-video",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref",
+        "v2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "maxRefs": 7,
+      "audio": "speech",
+      "promptMax": 2500,
+      "price": "0,168–0,42 $ за секунду залежно від режиму і звуку",
+      "notes": "Універсальна Kling 3.0: референси, редагування відео, мультикадр і звук.",
+      "source": "https://replicate.com/kwaivgi/kling-v3-omni-video/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:kwaivgi/kling-v3-video",
+      "label": "Kling 3.0",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 3.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-v3-video",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 2500,
+      "price": "0,168–0,42 $ за секунду залежно від режиму і звуку",
+      "notes": "Kling 3.0 до 15 с з мультикадром і озвученими діалогами.",
+      "source": "https://replicate.com/kwaivgi/kling-v3-video/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:kwaivgi/kling-o1",
+      "label": "Kling O1",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling O1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-o1",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref",
+        "v2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [],
+      "maxRefs": 7,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,084–0,168 $ за секунду залежно від режиму",
+      "notes": "Генерація за референсами і редагування відео командами; 3–10 с лише з відео-референсом.",
+      "source": "https://replicate.com/kwaivgi/kling-o1/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:kwaivgi/kling-v2.6",
+      "label": "Kling 2.6 Pro",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 2.6",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-v2.6",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,07 $ за секунду без звуку, 0,14 $ зі звуком",
+      "notes": "Kling 2.6 Pro з рідним звуком і синхронними діалогами.",
+      "source": "https://replicate.com/kwaivgi/kling-v2.6/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:kwaivgi/kling-v2.5-turbo-pro",
+      "label": "Kling 2.5 Turbo Pro",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 2.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-v2.5-turbo-pro",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,07 $ за секунду",
+      "notes": "Швидка Kling із плавним рухом і точним дотриманням промпту.",
+      "source": "https://replicate.com/kwaivgi/kling-v2.5-turbo-pro/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:kwaivgi/kling-v2.1",
+      "label": "Kling 2.1",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 2.1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-v2.1",
+      "modes": [
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,05 $ за секунду (standard 720p), 0,09 $ (pro 1080p)",
+      "notes": "Потрібен стартовий кадр; останній кадр лише в режимі pro.",
+      "source": "https://replicate.com/kwaivgi/kling-v2.1/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:kwaivgi/kling-v2.1-master",
+      "label": "Kling 2.1 Master",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 2.1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-v2.1-master",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,28 $ за секунду",
+      "notes": "Преміум-версія Kling 2.1 з кращою динамікою, 1080p.",
+      "source": "https://replicate.com/kwaivgi/kling-v2.1-master/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:kwaivgi/kling-v2.0",
+      "label": "Kling 2.0",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 2.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "kwaivgi/kling-v2.0",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,28 $ за секунду",
+      "notes": "Старіша Kling 2.0, відео 720p на 5 або 10 с.",
+      "source": "https://replicate.com/kwaivgi/kling-v2.0/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:minimax/h3",
+      "label": "H3",
+      "vendor": "MiniMax",
+      "family": "MiniMax H3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/h3",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "resolutions": [
+        "768p",
+        "2k"
+      ],
+      "maxRefs": 9,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Мультимодальна модель MiniMax: до 9 зображень-референсів, перший і останній кадр; з кадром пропорція «adaptive».",
+      "source": "https://replicate.com/minimax/h3/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:minimax/hailuo-2.3",
+      "label": "Hailuo 2.3",
+      "vendor": "MiniMax",
+      "family": "Hailuo 2.3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/hailuo-2.3",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "768p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,28 $ за 6 с 768p, 0,56 $ за 10 с, 0,49 $ за 6 с 1080p",
+      "notes": "Реалістичні рухи людей і ефекти; 1080p лише 6 с, пропорції за кадром.",
+      "source": "https://replicate.com/minimax/hailuo-2.3/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:minimax/hailuo-2.3-fast",
+      "label": "Hailuo 2.3 Fast · кадр → відео",
+      "vendor": "MiniMax",
+      "family": "Hailuo 2.3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/hailuo-2.3-fast",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "768p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,19 $ за 6 с 768p, 0,32 $ за 10 с, 0,33 $ за 6 с 1080p",
+      "notes": "Швидша Hailuo 2.3 лише з кадру; 1080p тільки 6 с.",
+      "source": "https://replicate.com/minimax/hailuo-2.3-fast/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:minimax/hailuo-02",
+      "label": "Hailuo 02",
+      "vendor": "MiniMax",
+      "family": "Hailuo 02",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/hailuo-02",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "512p",
+        "768p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Сильна фізика; 1080p лише 6 с, пропорції за першим кадром.",
+      "source": "https://replicate.com/minimax/hailuo-02/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:minimax/hailuo-02-fast",
+      "label": "Hailuo 02 Fast",
+      "vendor": "MiniMax",
+      "family": "Hailuo 02",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/hailuo-02-fast",
+      "modes": [
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "512p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,10 $ за 6 с, 0,15 $ за 10 с",
+      "notes": "Дешева швидка Hailuo 02 у 512p, потрібен перший кадр.",
+      "source": "https://replicate.com/minimax/hailuo-02-fast/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:minimax/video-01",
+      "label": "Video-01 (Hailuo)",
+      "vendor": "MiniMax",
+      "family": "Video-01",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/video-01",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [],
+      "aspects": [],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 1,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,50 $ за відео",
+      "notes": "Перша Hailuo: 6 с 720p, одне фото персонажа як референс (S2V-01).",
+      "source": "https://replicate.com/minimax/video-01/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:minimax/video-01-live",
+      "label": "Video-01 Live · кадр → відео",
+      "vendor": "MiniMax",
+      "family": "Video-01",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/video-01-live",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [],
+      "aspects": [],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,50 $ за відео",
+      "notes": "Оживлення ілюстрацій і Live2D-анімація з кадру, ролик 6 с.",
+      "source": "https://replicate.com/minimax/video-01-live/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:minimax/video-01-director",
+      "label": "Video-01 Director",
+      "vendor": "MiniMax",
+      "family": "Video-01",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "minimax/video-01-director",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [],
+      "aspects": [],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,50 $ за відео",
+      "notes": "Рухи камери командами у квадратних дужках у промпті, ролик 6 с.",
+      "source": "https://replicate.com/minimax/video-01-director/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:bytedance/seedance-2.5",
+      "label": "Seedance 2.5",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-2.5",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref",
+        "v2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 30,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,10–0,97 $ за секунду залежно від роздільності і відео на вході",
+      "notes": "Флагман ByteDance: до 30 с за раз, до 30 референсів, голос і звук.",
+      "source": "https://replicate.com/bytedance/seedance-2.5/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:bytedance/seedance-2.0",
+      "label": "Seedance 2.0",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-2.0",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref",
+        "v2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9",
+        "9:21"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 4000,
+      "price": "0,08–1,25 $ за секунду залежно від роздільності",
+      "notes": "Мультимодальна модель з діалогами і звуком; референси не поєднуються з кадрами.",
+      "source": "https://replicate.com/bytedance/seedance-2.0/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:bytedance/seedance-2.0-fast",
+      "label": "Seedance 2.0 Fast",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-2.0-fast",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref",
+        "v2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9",
+        "9:21"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,07–0,17 $ за секунду",
+      "notes": "Швидша Seedance 2.0 з голосом і референсами, до 720p.",
+      "source": "https://replicate.com/bytedance/seedance-2.0-fast/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:bytedance/seedance-2.0-mini",
+      "label": "Seedance 2.0 Mini",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-2.0-mini",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref",
+        "v2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9",
+        "9:21"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 4000,
+      "price": "0,04–0,11 $ за секунду",
+      "notes": "Найдешевша Seedance 2.0 для великих обсягів.",
+      "source": "https://replicate.com/bytedance/seedance-2.0-mini/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:bytedance/seedance-1.5-pro",
+      "label": "Seedance 1.5 Pro",
+      "vendor": "ByteDance",
+      "family": "Seedance 1.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-1.5-pro",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9",
+        "9:21"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,013–0,12 $ за секунду залежно від роздільності і звуку",
+      "notes": "Відео разом зі звуком і точним ліпсинком багатьма мовами.",
+      "source": "https://replicate.com/bytedance/seedance-1.5-pro/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:bytedance/seedance-1-pro",
+      "label": "Seedance 1 Pro",
+      "vendor": "ByteDance",
+      "family": "Seedance 1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-1-pro",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9",
+        "9:21"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,03 $ за секунду (480p) – 0,15 $ (1080p)",
+      "notes": "Якісна Seedance 1 без звуку до 1080p.",
+      "source": "https://replicate.com/bytedance/seedance-1-pro/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:bytedance/seedance-1-pro-fast",
+      "label": "Seedance 1 Pro Fast",
+      "vendor": "ByteDance",
+      "family": "Seedance 1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-1-pro-fast",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9",
+        "9:21"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,015 $ за секунду (480p) – 0,06 $ (1080p)",
+      "notes": "Швидша й дешевша Seedance 1 Pro.",
+      "source": "https://replicate.com/bytedance/seedance-1-pro-fast/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:bytedance/seedance-1-lite",
+      "label": "Seedance 1 Lite",
+      "vendor": "ByteDance",
+      "family": "Seedance 1",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "bytedance/seedance-1-lite",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "ref"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16",
+        "21:9",
+        "9:21"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 4,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,018 $ за секунду (480p) – 0,072 $ (1080p)",
+      "notes": "Дешева Seedance з 1–4 референсами (не разом із кадрами).",
+      "source": "https://replicate.com/bytedance/seedance-1-lite/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:alibaba/wan-3",
+      "label": "Wan 3.0",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 3.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "alibaba/wan-3",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,025 $ за секунду (480p) – 0,10 $ (1080p)",
+      "notes": "Wan 3.0 до 30 с; є пропорція «adaptive», з кадром — пропорції фото.",
+      "source": "https://replicate.com/alibaba/wan-3/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:alibaba/wan-3-prime",
+      "label": "Wan 3.0 Prime",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 3.0",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "alibaba/wan-3-prime",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,068 $ за секунду (480p) – 0,28 $ (1080p)",
+      "notes": "Старша якісніша версія Wan 3.0, до 30 с.",
+      "source": "https://replicate.com/alibaba/wan-3-prime/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:wan-video/wan-2.7-t2v",
+      "label": "Wan 2.7 · текст → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.7",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.7-t2v",
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "0,10 $ за секунду",
+      "notes": "Сам додає звукові ефекти й фон; можна дати своє аудіо для синхронізації.",
+      "source": "https://replicate.com/wan-video/wan-2.7-t2v/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan-2.7-i2v",
+      "label": "Wan 2.7",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.7",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.7-i2v",
+      "modes": [
+        "i2v",
+        "first-last",
+        "v2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "0,10 $ за секунду (720p), 0,15 $ (1080p)",
+      "notes": "Кадр або перший і останній кадр, продовження кліпу, автозвук.",
+      "source": "https://replicate.com/wan-video/wan-2.7-i2v/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan-2.7-r2v",
+      "label": "Wan 2.7 R2V · за референсами",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.7",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.7-r2v",
+      "modes": [
+        "ref"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 5,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,10 $ за секунду",
+      "notes": "Зберігає персонажа з фото чи кліпів; разом до 5 референсів (за документацією Alibaba).",
+      "source": "https://replicate.com/wan-video/wan-2.7-r2v/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:wan-video/wan-2.7-videoedit",
+      "label": "Wan 2.7 VideoEdit · редагування відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.7",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.7-videoedit",
+      "modes": [
+        "v2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "0,10 $ за секунду",
+      "notes": "Редагування відео 2–10 с текстом, можна додати фото-референс.",
+      "source": "https://replicate.com/wan-video/wan-2.7-videoedit/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:wan-video/wan-2.6-t2v",
+      "label": "Wan 2.6 · текст → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.6",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.6-t2v",
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        5,
+        10,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,10 $ за секунду (720p), 0,15 $ (1080p)",
+      "notes": "Рідний звук із ліпсинком і мультикадр; формат задається розміром кадру.",
+      "source": "https://replicate.com/wan-video/wan-2.6-t2v/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan-2.6-i2v",
+      "label": "Wan 2.6 · кадр → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.6",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.6-i2v",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10,
+        15
+      ],
+      "aspects": [],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,10 $ за секунду (720p), 0,15 $ (1080p)",
+      "notes": "Оживлення кадру з рідним звуком і ліпсинком до 15 с.",
+      "source": "https://replicate.com/wan-video/wan-2.6-i2v/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan2.6-i2v-flash",
+      "label": "Wan 2.6 Flash · кадр → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.6",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan2.6-i2v-flash",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10,
+        15
+      ],
+      "aspects": [],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "0,05 $ за секунду (720p), 0,075 $ (1080p)",
+      "notes": "Швидка Wan 2.6 з кадру з необов'язковим автозвуком.",
+      "source": "https://replicate.com/wan-video/wan2.6-i2v-flash/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan-2.5-t2v",
+      "label": "Wan 2.5 · текст → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.5-t2v",
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,05 $ за секунду (480p) – 0,15 $ (1080p)",
+      "notes": "Відео з озвученням і ліпсинком за один прохід.",
+      "source": "https://replicate.com/wan-video/wan-2.5-t2v/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan-2.5-t2v-fast",
+      "label": "Wan 2.5 Fast · текст → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.5-t2v-fast",
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,068 $ за секунду (720p), 0,102 $ (1080p)",
+      "notes": "Швидша Wan 2.5 з тексту зі звуком.",
+      "source": "https://replicate.com/wan-video/wan-2.5-t2v-fast/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan-2.5-i2v",
+      "label": "Wan 2.5 · кадр → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.5-i2v",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,05 $ за секунду (480p) – 0,15 $ (1080p)",
+      "notes": "Оживлення кадру з фоновим звуком і голосом.",
+      "source": "https://replicate.com/wan-video/wan-2.5-i2v/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:wan-video/wan-2.5-i2v-fast",
+      "label": "Wan 2.5 Fast · кадр → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.5-i2v-fast",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,068 $ за секунду (720p), 0,102 $ (1080p)",
+      "notes": "Швидша Wan 2.5 з кадру зі звуком.",
+      "source": "https://replicate.com/wan-video/wan-2.5-i2v-fast/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:wan-video/wan-2.2-i2v-fast",
+      "label": "Wan 2.2 Fast",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.2-i2v-fast",
+      "modes": [
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [],
+      "aspects": [],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,05 $ за відео (480p), 0,11 $ (720p)",
+      "notes": "Дуже швидка й дешева Wan 2.2; довжина задається кадрами (81–121).",
+      "source": "https://replicate.com/wan-video/wan-2.2-i2v-fast/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:wan-video/wan-2.2-t2v-fast",
+      "label": "Wan 2.2 Fast · текст → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.2-t2v-fast",
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,05 $ за відео (480p), 0,10 $ (720p)",
+      "notes": "Швидка дешева Wan 2.2; довжина задається кадрами (81–121).",
+      "source": "https://replicate.com/wan-video/wan-2.2-t2v-fast/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:wan-video/wan-2.2-5b-fast",
+      "label": "Wan 2.2 5B Fast",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "wan-video/wan-2.2-5b-fast",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,0125 $ за відео (480p), 0,025 $ (720p)",
+      "notes": "Найшвидша і найдешевша Wan 2.2; довжина в кадрах.",
+      "source": "https://replicate.com/wan-video/wan-2.2-5b-fast/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:alibaba/happyhorse-1.1",
+      "label": "HappyHorse 1.1",
+      "vendor": "Alibaba",
+      "family": "HappyHorse",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "alibaba/happyhorse-1.1",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 9,
+      "audio": "none",
+      "promptMax": 2500,
+      "price": "0,14 $ за секунду (720p), 0,18 $ (1080p)",
+      "notes": "Текст, один кадр або до 9 референсів; з кадром пропорції фото.",
+      "source": "https://replicate.com/alibaba/happyhorse-1.1/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:alibaba/happyhorse-1.0",
+      "label": "HappyHorse 1.0",
+      "vendor": "Alibaba",
+      "family": "HappyHorse",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "alibaba/happyhorse-1.0",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 2500,
+      "price": "0,14 $ за секунду (720p), 0,28 $ (1080p)",
+      "notes": "Відео з тексту або оживлення одного кадру, 3–15 с.",
+      "source": "https://replicate.com/alibaba/happyhorse-1.0/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:pixverse/pixverse-v6",
+      "label": "PixVerse V6",
+      "vendor": "PixVerse",
+      "family": "PixVerse",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "pixverse/pixverse-v6",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        8,
+        10,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "360p",
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Флагман PixVerse: мультикадр, звук із діалогами за перемикачем.",
+      "source": "https://replicate.com/pixverse/pixverse-v6/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:pixverse/pixverse-v5.6",
+      "label": "PixVerse V5.6",
+      "vendor": "PixVerse",
+      "family": "PixVerse",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "pixverse/pixverse-v5.6",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        8,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "360p",
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,07 $ за секунду (360p) – 0,15 $ (1080p)",
+      "notes": "Реалістична фізика, звук і діалоги за перемикачем; 10 с до 720p.",
+      "source": "https://replicate.com/pixverse/pixverse-v5.6/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:pixverse/pixverse-v5",
+      "label": "PixVerse V5",
+      "vendor": "PixVerse",
+      "family": "PixVerse",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "pixverse/pixverse-v5",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "360p",
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Добре для аніме і складних рухів, є шаблонні ефекти.",
+      "source": "https://replicate.com/pixverse/pixverse-v5/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:pixverse/pixverse-v4.5",
+      "label": "PixVerse V4.5",
+      "vendor": "PixVerse",
+      "family": "PixVerse",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "pixverse/pixverse-v4.5",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "360p",
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Швидкі ролики з ефектами, фонова музика чи звук за перемикачем; 1080p лише 5 с.",
+      "source": "https://replicate.com/pixverse/pixverse-v4.5/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:vidu/q3-pro",
+      "label": "Vidu Q3 Pro",
+      "vendor": "Vidu",
+      "family": "Vidu Q3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "vidu/q3-pro",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "3:4",
+        "4:3",
+        "1:1"
+      ],
+      "resolutions": [
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "0,07 $ за секунду (540p) – 0,16 $ (1080p)",
+      "notes": "До 16 с із синхронними діалогами та звуком.",
+      "source": "https://replicate.com/vidu/q3-pro/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:vidu/q3-turbo",
+      "label": "Vidu Q3 Turbo",
+      "vendor": "Vidu",
+      "family": "Vidu Q3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "vidu/q3-turbo",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "3:4",
+        "4:3",
+        "1:1"
+      ],
+      "resolutions": [
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "0,04 $ за секунду (540p) – 0,08 $ (1080p)",
+      "notes": "Швидша й дешевша Vidu Q3 зі звуком.",
+      "source": "https://replicate.com/vidu/q3-turbo/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:luma/ray-3.2",
+      "label": "Ray 3.2",
+      "vendor": "Luma",
+      "family": "Ray 3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "luma/ray-3.2",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "9:16",
+        "3:4",
+        "1:1",
+        "4:3",
+        "16:9",
+        "21:9"
+      ],
+      "resolutions": [
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Модель з міркуванням, HDR і EXR; з кадрами лише 5 с.",
+      "source": "https://replicate.com/luma/ray-3.2/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:luma/ray-2-720p",
+      "label": "Ray 2 720p",
+      "vendor": "Luma",
+      "family": "Ray 2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "luma/ray-2-720p",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        9
+      ],
+      "aspects": [
+        "1:1",
+        "3:4",
+        "4:3",
+        "9:16",
+        "16:9",
+        "9:21",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,18 $ за секунду",
+      "notes": "Кінематографічні кадри Luma, є рухи камери і зациклення.",
+      "source": "https://replicate.com/luma/ray-2-720p/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:luma/ray-2-540p",
+      "label": "Ray 2 540p",
+      "vendor": "Luma",
+      "family": "Ray 2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "luma/ray-2-540p",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        9
+      ],
+      "aspects": [
+        "1:1",
+        "3:4",
+        "4:3",
+        "9:16",
+        "16:9",
+        "9:21",
+        "21:9"
+      ],
+      "resolutions": [
+        "540p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,10 $ за секунду",
+      "notes": "Ray 2 у 540p, дешевше.",
+      "source": "https://replicate.com/luma/ray-2-540p/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:luma/ray-flash-2-720p",
+      "label": "Ray Flash 2 720p",
+      "vendor": "Luma",
+      "family": "Ray 2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "luma/ray-flash-2-720p",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        9
+      ],
+      "aspects": [
+        "1:1",
+        "3:4",
+        "4:3",
+        "9:16",
+        "16:9",
+        "9:21",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,06 $ за секунду",
+      "notes": "Швидша й дешевша Ray 2.",
+      "source": "https://replicate.com/luma/ray-flash-2-720p/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:luma/ray-flash-2-540p",
+      "label": "Ray Flash 2 540p",
+      "vendor": "Luma",
+      "family": "Ray 2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "luma/ray-flash-2-540p",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        9
+      ],
+      "aspects": [
+        "1:1",
+        "3:4",
+        "4:3",
+        "9:16",
+        "16:9",
+        "9:21",
+        "21:9"
+      ],
+      "resolutions": [
+        "540p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,033 $ за секунду",
+      "notes": "Найдешевша Ray для чернеток.",
+      "source": "https://replicate.com/luma/ray-flash-2-540p/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:lightricks/ltx-2.5-fast",
+      "label": "LTX 2.5 Fast",
+      "vendor": "Lightricks",
+      "family": "LTX-2.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "lightricks/ltx-2.5-fast",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p",
+        "2k",
+        "4k"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,03 $ за секунду (720p) – 0,24 $ (4K)",
+      "notes": "Швидка LTX зі звуком до 20 с; понад 10 с лише 720p/1080p.",
+      "source": "https://replicate.com/lightricks/ltx-2.5-fast/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:lightricks/ltx-2.3-pro",
+      "label": "LTX 2.3 Pro",
+      "vendor": "Lightricks",
+      "family": "LTX-2.3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "lightricks/ltx-2.3-pro",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last",
+        "v2v"
+      ],
+      "lengths": [
+        6,
+        8,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "1080p",
+        "2k",
+        "4k"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,08 $ за секунду (1080p) – 0,32 $ (4K)",
+      "notes": "Якісна LTX зі звуком, також аудіо → відео, перезйомка фрагмента і продовження.",
+      "source": "https://replicate.com/lightricks/ltx-2.3-pro/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:lightricks/ltx-2.3-fast",
+      "label": "LTX 2.3 Fast",
+      "vendor": "Lightricks",
+      "family": "LTX-2.3",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "lightricks/ltx-2.3-fast",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "1080p",
+        "2k",
+        "4k"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,06 $ за секунду (1080p) – 0,24 $ (4K)",
+      "notes": "Швидка LTX зі звуком і рухами камери; понад 10 с лише 1080p.",
+      "source": "https://replicate.com/lightricks/ltx-2.3-fast/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:lightricks/ltx-2-pro",
+      "label": "LTX-2 Pro",
+      "vendor": "Lightricks",
+      "family": "LTX-2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "lightricks/ltx-2-pro",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        8,
+        10
+      ],
+      "aspects": [],
+      "resolutions": [
+        "1080p",
+        "2k",
+        "4k"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,06 $ за секунду (1080p) – 0,24 $ (4K)",
+      "notes": "LTX-2 з голосом, музикою й ефектами до 4K.",
+      "source": "https://replicate.com/lightricks/ltx-2-pro/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:lightricks/ltx-2-fast",
+      "label": "LTX-2 Fast",
+      "vendor": "Lightricks",
+      "family": "LTX-2",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "lightricks/ltx-2-fast",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "aspects": [],
+      "resolutions": [
+        "1080p",
+        "2k",
+        "4k"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,04 $ за секунду (1080p) – 0,16 $ (4K)",
+      "notes": "Дуже швидка LTX-2 зі звуком; понад 10 с лише 1080p.",
+      "source": "https://replicate.com/lightricks/ltx-2-fast/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:runwayml/gen-4.5",
+      "label": "Gen-4.5",
+      "vendor": "Runway",
+      "family": "Runway Gen-4.5",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "runwayml/gen-4.5",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "21:9"
+      ],
+      "resolutions": [],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,12 $ за секунду",
+      "notes": "Найкраща якість руху і дотримання промпту в Runway, без звуку.",
+      "source": "https://replicate.com/runwayml/gen-4.5/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:runwayml/gen4-turbo",
+      "label": "Gen-4 Turbo · кадр → відео",
+      "vendor": "Runway",
+      "family": "Runway Gen-4",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "runwayml/gen4-turbo",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,05 $ за секунду",
+      "notes": "Швидке оживлення кадру у 720p.",
+      "source": "https://replicate.com/runwayml/gen4-turbo/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:runwayml/gen4-aleph",
+      "label": "Gen-4 Aleph · редагування відео",
+      "vendor": "Runway",
+      "family": "Runway Gen-4",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "runwayml/gen4-aleph",
+      "modes": [
+        "v2v"
+      ],
+      "lengths": [],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "21:9"
+      ],
+      "resolutions": [],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,18 $ за секунду",
+      "notes": "Редагує і перетворює відео (бере до 5 с), можна дати фото-референс стилю.",
+      "source": "https://replicate.com/runwayml/gen4-aleph/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:xai/grok-imagine-video",
+      "label": "Grok Imagine Video",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "xai/grok-imagine-video",
+      "modes": [
+        "t2v",
+        "i2v",
+        "v2v"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "9:16",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "0,05 $ за секунду",
+      "notes": "Дешева модель xAI з музикою та ефектами; вміє редагувати відео до 8,7 с.",
+      "source": "https://replicate.com/xai/grok-imagine-video/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:xai/grok-imagine-video-1.5",
+      "label": "Grok Imagine Video 1.5 · кадр → відео",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "xai/grok-imagine-video-1.5",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "9:16",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,08 $ за секунду",
+      "notes": "Оживлення кадру зі звуком і короткими репліками.",
+      "source": "https://replicate.com/xai/grok-imagine-video-1.5/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:xai/grok-imagine-r2v",
+      "label": "Grok Imagine R2V · за референсами",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "xai/grok-imagine-r2v",
+      "modes": [
+        "ref"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "4:3",
+        "1:1",
+        "9:16",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "resolutions": [
+        "480p",
+        "720p"
+      ],
+      "maxRefs": 7,
+      "audio": "none",
+      "promptMax": 4096,
+      "price": "0,05 $ за секунду",
+      "notes": "Відео за 1–7 фото-референсами стилю й об'єктів.",
+      "source": "https://replicate.com/xai/grok-imagine-r2v/api/schema",
+      "popular": 1
+    },
+    {
+      "id": "replicate:prunaai/p-video",
+      "label": "P-Video",
+      "vendor": "Pruna AI",
+      "family": "P-Video",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "prunaai/p-video",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,02 $ за секунду (720p), 0,04 $ (1080p); чернетка дешевше",
+      "notes": "Дуже швидка й дешева модель з діалогами і режимом чернетки.",
+      "source": "https://replicate.com/prunaai/p-video/api/schema",
+      "popular": 3
+    },
+    {
+      "id": "replicate:prunaai/p-video-2",
+      "label": "P-Video 2",
+      "vendor": "Pruna AI",
+      "family": "P-Video",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "prunaai/p-video-2",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,03 $ за секунду (720p), 0,06 $ (1080p); чернетка дешевше",
+      "notes": "Якісніша P-Video з ліпсинком і стабільними обличчями.",
+      "source": "https://replicate.com/prunaai/p-video-2/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:prunaai/p-video-2-pro",
+      "label": "P-Video 2 Pro",
+      "vendor": "Pruna AI",
+      "family": "P-Video",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "prunaai/p-video-2-pro",
+      "modes": [
+        "t2v",
+        "i2v",
+        "first-last"
+      ],
+      "lengths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "resolutions": [
+        "480p",
+        "768p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Найякісніша P-Video з режимами якість, швидкість або ціна.",
+      "source": "https://replicate.com/prunaai/p-video-2-pro/api/schema",
+      "popular": 2
+    },
+    {
+      "id": "replicate:character-ai/ovi-i2v",
+      "label": "Ovi · кадр → відео",
+      "vendor": "Character.AI",
+      "family": "Ovi",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "character-ai/ovi-i2v",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [],
+      "aspects": [],
+      "resolutions": [],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "0,20 $ за відео",
+      "notes": "Відео 5 с із мовленням: репліки беруться в теги <S>…<E>.",
+      "source": "https://replicate.com/character-ai/ovi-i2v/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:leonardoai/motion-2.0",
+      "label": "Motion 2.0",
+      "vendor": "Leonardo.Ai",
+      "family": "Leonardo Motion",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "leonardoai/motion-2.0",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [],
+      "aspects": [
+        "9:16",
+        "16:9",
+        "2:3",
+        "4:5"
+      ],
+      "resolutions": [
+        "480p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "0,30 $ за відео",
+      "notes": "Ролики 5 с у 480p зі стильовими пресетами.",
+      "source": "https://replicate.com/leonardoai/motion-2.0/api/schema",
+      "popular": 0
+    },
+    {
+      "id": "replicate:tencent/hunyuan-video",
+      "label": "HunyuanVideo · текст → відео",
+      "vendor": "Tencent",
+      "family": "HunyuanVideo",
+      "host": "replicate",
+      "hostLabel": "Replicate",
+      "preset": "replicate",
+      "baseUrl": "https://api.replicate.com/v1",
+      "model": "tencent/hunyuan-video",
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [],
+      "aspects": [],
+      "resolutions": [],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Відкрита модель Tencent; розмір і довжина задаються в пікселях і кадрах.",
+      "source": "https://replicate.com/tencent/hunyuan-video/api/schema",
+      "popular": 1
+    }
+  ]
+}

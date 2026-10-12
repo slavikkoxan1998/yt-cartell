@@ -1,0 +1,1641 @@
+{
+  "list": "tts",
+  "checked": "2026-10-05",
+  "entries": [
+    {
+      "id": "polly:generative",
+      "kind": "model",
+      "label": "Amazon Polly Generative",
+      "vendor": "Amazon Polly",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://polly.us-east-1.amazonaws.com",
+      "model": "generative",
+      "voice": "",
+      "voiceName": "",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 0,
+      "languagesNote": "до 42 мовних варіантів (залежить від рушія); української немає",
+      "maxChars": 3000,
+      "concurrency": 26,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "30 $ за 1 млн символів",
+      "notes": "Найприродніший рушій Polly; POST /v1/speech з Engine=generative і підписом AWS SigV4, до 3000 символів.",
+      "source": "https://docs.aws.amazon.com/polly/latest/dg/limits.html",
+      "popular": 2
+    },
+    {
+      "id": "polly:long-form",
+      "kind": "model",
+      "label": "Amazon Polly Long-Form",
+      "vendor": "Amazon Polly",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://polly.us-east-1.amazonaws.com",
+      "model": "long-form",
+      "voice": "",
+      "voiceName": "",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 0,
+      "languagesNote": "до 42 мовних варіантів (залежить від рушія); української немає",
+      "maxChars": 3000,
+      "concurrency": 26,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "100 $ за 1 млн символів",
+      "notes": "Рушій для довгого читання (статті, книжки); лише кілька голосів en-US і es-ES.",
+      "source": "https://docs.aws.amazon.com/polly/latest/dg/limits.html",
+      "popular": 1
+    },
+    {
+      "id": "polly:neural",
+      "kind": "model",
+      "label": "Amazon Polly Neural",
+      "vendor": "Amazon Polly",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://polly.us-east-1.amazonaws.com",
+      "model": "neural",
+      "voice": "",
+      "voiceName": "",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 0,
+      "languagesNote": "до 42 мовних варіантів (залежить від рушія); української немає",
+      "maxChars": 3000,
+      "concurrency": 18,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "16 $ за 1 млн символів",
+      "notes": "Нейронні голоси Polly, 8 запитів на секунду.",
+      "source": "https://docs.aws.amazon.com/polly/latest/dg/limits.html",
+      "popular": 2
+    },
+    {
+      "id": "polly:standard",
+      "kind": "model",
+      "label": "Amazon Polly Standard",
+      "vendor": "Amazon Polly",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://polly.us-east-1.amazonaws.com",
+      "model": "standard",
+      "voice": "",
+      "voiceName": "",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 0,
+      "languagesNote": "до 42 мовних варіантів (залежить від рушія); української немає",
+      "maxChars": 3000,
+      "concurrency": 80,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "4 $ за 1 млн символів",
+      "notes": "Найдешевший старий рушій, 80 запитів на секунду.",
+      "source": "https://docs.aws.amazon.com/polly/latest/dg/limits.html",
+      "popular": 1
+    },
+    {
+      "id": "polly:generative:Joanna",
+      "kind": "voice",
+      "label": "Amazon Polly — Joanna",
+      "vendor": "Amazon Polly",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://polly.us-east-1.amazonaws.com",
+      "model": "generative",
+      "voice": "Joanna",
+      "voiceName": "Joanna",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 1,
+      "languagesNote": "англійська (en-US)",
+      "maxChars": 3000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Популярний американський голос, є в generative, neural і standard.",
+      "source": "https://docs.aws.amazon.com/polly/latest/dg/available-voices.html",
+      "popular": 1
+    },
+    {
+      "id": "polly:generative:Matthew",
+      "kind": "voice",
+      "label": "Amazon Polly — Matthew",
+      "vendor": "Amazon Polly",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://polly.us-east-1.amazonaws.com",
+      "model": "generative",
+      "voice": "Matthew",
+      "voiceName": "Matthew",
+      "gender": "male",
+      "ukrainian": false,
+      "languages": 1,
+      "languagesNote": "англійська (en-US)",
+      "maxChars": 3000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Популярний американський чоловічий голос, є в generative і neural.",
+      "source": "https://docs.aws.amazon.com/polly/latest/dg/available-voices.html",
+      "popular": 1
+    },
+    {
+      "id": "deepgram:aura-2-thalia-en",
+      "kind": "model",
+      "label": "Deepgram Aura-2 — Thalia",
+      "vendor": "Deepgram",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.deepgram.com/v1",
+      "model": "aura-2-thalia-en",
+      "voice": "",
+      "voiceName": "Thalia",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 7,
+      "languagesNote": "7 мов, української немає",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,030 $ за 1000 символів",
+      "notes": "Aura-2: POST /v1/speak?model=…&encoding=mp3, ключ у заголовку «Authorization: Token …»; голос вшитий у назву моделі, до 2000 символів.",
+      "source": "https://developers.deepgram.com/reference/text-to-speech/speak-request",
+      "popular": 2,
+      "spec": {
+        "name": "Deepgram Aura-2",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/speak?model={{model}}&encoding=mp3",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}"
+          }
+        },
+        "error": [
+          "err_msg",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/projects"
+        }
+      }
+    },
+    {
+      "id": "deepgram:aura-2-andromeda-en",
+      "kind": "model",
+      "label": "Deepgram Aura-2 — Andromeda",
+      "vendor": "Deepgram",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.deepgram.com/v1",
+      "model": "aura-2-andromeda-en",
+      "voice": "",
+      "voiceName": "Andromeda",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 7,
+      "languagesNote": "7 мов, української немає",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,030 $ за 1000 символів",
+      "notes": "Aura-2: POST /v1/speak?model=…&encoding=mp3, ключ у заголовку «Authorization: Token …»; голос вшитий у назву моделі, до 2000 символів.",
+      "source": "https://developers.deepgram.com/reference/text-to-speech/speak-request",
+      "popular": 1,
+      "spec": {
+        "name": "Deepgram Aura-2",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/speak?model={{model}}&encoding=mp3",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}"
+          }
+        },
+        "error": [
+          "err_msg",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/projects"
+        }
+      }
+    },
+    {
+      "id": "deepgram:aura-2-apollo-en",
+      "kind": "model",
+      "label": "Deepgram Aura-2 — Apollo",
+      "vendor": "Deepgram",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.deepgram.com/v1",
+      "model": "aura-2-apollo-en",
+      "voice": "",
+      "voiceName": "Apollo",
+      "gender": "male",
+      "ukrainian": false,
+      "languages": 7,
+      "languagesNote": "7 мов, української немає",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,030 $ за 1000 символів",
+      "notes": "Aura-2: POST /v1/speak?model=…&encoding=mp3, ключ у заголовку «Authorization: Token …»; голос вшитий у назву моделі, до 2000 символів.",
+      "source": "https://developers.deepgram.com/reference/text-to-speech/speak-request",
+      "popular": 1,
+      "spec": {
+        "name": "Deepgram Aura-2",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/speak?model={{model}}&encoding=mp3",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}"
+          }
+        },
+        "error": [
+          "err_msg",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/projects"
+        }
+      }
+    },
+    {
+      "id": "deepgram:aura-2-arcas-en",
+      "kind": "model",
+      "label": "Deepgram Aura-2 — Arcas",
+      "vendor": "Deepgram",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.deepgram.com/v1",
+      "model": "aura-2-arcas-en",
+      "voice": "",
+      "voiceName": "Arcas",
+      "gender": "male",
+      "ukrainian": false,
+      "languages": 7,
+      "languagesNote": "7 мов, української немає",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,030 $ за 1000 символів",
+      "notes": "Aura-2: POST /v1/speak?model=…&encoding=mp3, ключ у заголовку «Authorization: Token …»; голос вшитий у назву моделі, до 2000 символів.",
+      "source": "https://developers.deepgram.com/reference/text-to-speech/speak-request",
+      "popular": 0,
+      "spec": {
+        "name": "Deepgram Aura-2",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/speak?model={{model}}&encoding=mp3",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}"
+          }
+        },
+        "error": [
+          "err_msg",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/projects"
+        }
+      }
+    },
+    {
+      "id": "deepgram:flux-kit-en",
+      "kind": "model",
+      "label": "Deepgram Flux TTS — Kit",
+      "vendor": "Deepgram",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.deepgram.com/v2",
+      "model": "flux-kit-en",
+      "voice": "",
+      "voiceName": "Kit",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 1,
+      "languagesNote": "лише англійська",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Flux TTS (GA): пакетний POST /v2/speak?model=flux-kit-en&encoding=mp3; 36 англійських голосів 7 акцентів; /v1/speak його не обслуговує.",
+      "source": "https://developers.deepgram.com/docs/flux-tts/quickstart",
+      "popular": 1,
+      "spec": {
+        "name": "Deepgram Flux TTS",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/speak?model={{model}}&encoding=mp3",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}"
+          }
+        },
+        "error": [
+          "err_msg",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "https://api.deepgram.com/v1/projects"
+        }
+      }
+    },
+    {
+      "id": "deepgram:flux-haley-en",
+      "kind": "model",
+      "label": "Deepgram Flux TTS — Haley",
+      "vendor": "Deepgram",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.deepgram.com/v2",
+      "model": "flux-haley-en",
+      "voice": "",
+      "voiceName": "Haley",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 1,
+      "languagesNote": "лише англійська",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Flux TTS (GA): пакетний POST /v2/speak?model=flux-haley-en&encoding=mp3; 36 англійських голосів 7 акцентів; /v1/speak його не обслуговує.",
+      "source": "https://developers.deepgram.com/docs/flux-tts/quickstart",
+      "popular": 0,
+      "spec": {
+        "name": "Deepgram Flux TTS",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/speak?model={{model}}&encoding=mp3",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}"
+          }
+        },
+        "error": [
+          "err_msg",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "https://api.deepgram.com/v1/projects"
+        }
+      }
+    },
+    {
+      "id": "google-gemini-tts:gemini-2.5-flash-tts",
+      "kind": "model",
+      "label": "Google Gemini 2.5 Flash TTS (Cloud)",
+      "vendor": "Google Cloud",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://texttospeech.googleapis.com/v1",
+      "model": "gemini-2.5-flash-tts",
+      "voice": "Kore",
+      "voiceName": "Kore",
+      "gender": "female",
+      "ukrainian": true,
+      "languages": 86,
+      "languagesNote": "86 локалей (24 GA, решта Preview), uk-UA — GA",
+      "maxChars": 4000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,50 $ за 1 млн текстових і 10 $ за 1 млн аудіотокенів",
+      "notes": "Gemini-TTS у Cloud TTS: POST /v1/text:synthesize з voice.modelName, ключ Google Cloud у x-goog-api-key (у документації — OAuth; ключ має дозволяти Cloud Text-to-Speech API); 30 персон Chirp (Kore, Charon…), до 4000 байтів тексту.",
+      "source": "https://docs.cloud.google.com/text-to-speech/docs/gemini-tts",
+      "popular": 2,
+      "spec": {
+        "name": "Google Cloud Gemini-TTS",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/text:synthesize",
+          "body": {
+            "input": {
+              "text": "{{text}}"
+            },
+            "voice": {
+              "languageCode": "{{language}}",
+              "name": "{{voice}}",
+              "modelName": "{{model}}"
+            },
+            "audioConfig": {
+              "audioEncoding": "MP3"
+            }
+          }
+        },
+        "result": "audioContent",
+        "error": "error.message",
+        "test": {
+          "method": "GET",
+          "path": "/voices?languageCode=uk-UA"
+        }
+      }
+    },
+    {
+      "id": "google-gemini-tts:gemini-2.5-pro-tts",
+      "kind": "model",
+      "label": "Google Gemini 2.5 Pro TTS (Cloud)",
+      "vendor": "Google Cloud",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://texttospeech.googleapis.com/v1",
+      "model": "gemini-2.5-pro-tts",
+      "voice": "Kore",
+      "voiceName": "Kore",
+      "gender": "female",
+      "ukrainian": true,
+      "languages": 86,
+      "languagesNote": "86 локалей (24 GA, решта Preview), uk-UA — GA",
+      "maxChars": 4000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "1 $ за 1 млн текстових і 20 $ за 1 млн аудіотокенів",
+      "notes": "Gemini-TTS у Cloud TTS: POST /v1/text:synthesize з voice.modelName, ключ Google Cloud у x-goog-api-key (у документації — OAuth; ключ має дозволяти Cloud Text-to-Speech API); 30 персон Chirp (Kore, Charon…), до 4000 байтів тексту.",
+      "source": "https://docs.cloud.google.com/text-to-speech/docs/gemini-tts",
+      "popular": 1,
+      "spec": {
+        "name": "Google Cloud Gemini-TTS",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/text:synthesize",
+          "body": {
+            "input": {
+              "text": "{{text}}"
+            },
+            "voice": {
+              "languageCode": "{{language}}",
+              "name": "{{voice}}",
+              "modelName": "{{model}}"
+            },
+            "audioConfig": {
+              "audioEncoding": "MP3"
+            }
+          }
+        },
+        "result": "audioContent",
+        "error": "error.message",
+        "test": {
+          "method": "GET",
+          "path": "/voices?languageCode=uk-UA"
+        }
+      }
+    },
+    {
+      "id": "google-gemini-tts:gemini-2.5-flash-lite-preview-tts",
+      "kind": "model",
+      "label": "Google Gemini 2.5 Flash-Lite TTS (Cloud, preview)",
+      "vendor": "Google Cloud",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://texttospeech.googleapis.com/v1",
+      "model": "gemini-2.5-flash-lite-preview-tts",
+      "voice": "Kore",
+      "voiceName": "Kore",
+      "gender": "female",
+      "ukrainian": true,
+      "languages": 86,
+      "languagesNote": "86 локалей (24 GA, решта Preview), uk-UA — GA",
+      "maxChars": 4000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,50 $ за 1 млн текстових і 10 $ за 1 млн аудіотокенів",
+      "notes": "Gemini-TTS у Cloud TTS: POST /v1/text:synthesize з voice.modelName, ключ Google Cloud у x-goog-api-key (у документації — OAuth; ключ має дозволяти Cloud Text-to-Speech API); 30 персон Chirp (Kore, Charon…), до 4000 байтів тексту.",
+      "source": "https://docs.cloud.google.com/text-to-speech/docs/gemini-tts",
+      "popular": 0,
+      "spec": {
+        "name": "Google Cloud Gemini-TTS",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/text:synthesize",
+          "body": {
+            "input": {
+              "text": "{{text}}"
+            },
+            "voice": {
+              "languageCode": "{{language}}",
+              "name": "{{voice}}",
+              "modelName": "{{model}}"
+            },
+            "audioConfig": {
+              "audioEncoding": "MP3"
+            }
+          }
+        },
+        "result": "audioContent",
+        "error": "error.message",
+        "test": {
+          "method": "GET",
+          "path": "/voices?languageCode=uk-UA"
+        }
+      }
+    },
+    {
+      "id": "google-gemini-tts:gemini-3.1-flash-tts-preview",
+      "kind": "model",
+      "label": "Google Gemini 3.1 Flash TTS (Cloud, preview)",
+      "vendor": "Google Cloud",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://texttospeech.googleapis.com/v1",
+      "model": "gemini-3.1-flash-tts-preview",
+      "voice": "Kore",
+      "voiceName": "Kore",
+      "gender": "female",
+      "ukrainian": true,
+      "languages": 86,
+      "languagesNote": "86 локалей (24 GA, решта Preview), uk-UA — GA",
+      "maxChars": 4000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "1 $ за 1 млн текстових і 20 $ за 1 млн аудіотокенів",
+      "notes": "Gemini-TTS у Cloud TTS: POST /v1/text:synthesize з voice.modelName, ключ Google Cloud у x-goog-api-key (у документації — OAuth; ключ має дозволяти Cloud Text-to-Speech API); 30 персон Chirp (Kore, Charon…), до 4000 байтів тексту.",
+      "source": "https://docs.cloud.google.com/text-to-speech/docs/gemini-tts",
+      "popular": 1,
+      "spec": {
+        "name": "Google Cloud Gemini-TTS",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/text:synthesize",
+          "body": {
+            "input": {
+              "text": "{{text}}"
+            },
+            "voice": {
+              "languageCode": "{{language}}",
+              "name": "{{voice}}",
+              "modelName": "{{model}}"
+            },
+            "audioConfig": {
+              "audioEncoding": "MP3"
+            }
+          }
+        },
+        "result": "audioContent",
+        "error": "error.message",
+        "test": {
+          "method": "GET",
+          "path": "/voices?languageCode=uk-UA"
+        }
+      }
+    },
+    {
+      "id": "gemini-api:gemini-3.8-flash-tts",
+      "kind": "model",
+      "label": "Gemini API — Gemini 3.8 Flash TTS",
+      "vendor": "Google Gemini API",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "model": "gemini-3.8-flash-tts",
+      "voice": "Kore",
+      "voiceName": "Kore",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 130,
+      "languagesNote": "130+ мов з автовизначенням; у таблиці мов української немає",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Ключ Google AI Studio (x-goog-api-key), POST /v1beta/interactions → WAV 24 кГц у base64; мову визначає сам; 30 вбудованих голосів і бібліотека додаткових.",
+      "source": "https://ai.google.dev/gemini-api/docs/speech-generation",
+      "popular": 2,
+      "spec": {
+        "name": "Gemini API TTS",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/interactions",
+          "body": {
+            "model": "{{model}}",
+            "input": [
+              {
+                "type": "user_input",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "{{text}}"
+                  }
+                ]
+              }
+            ],
+            "response_format": {
+              "type": "audio",
+              "mime_type": "audio/wav"
+            },
+            "generation_config": {
+              "speech_config": [
+                {
+                  "voice": "{{voice}}"
+                }
+              ]
+            }
+          }
+        },
+        "result": [
+          "steps.-1.content.-1.data",
+          "outputs.-1.data"
+        ],
+        "error": "error.message",
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        }
+      }
+    },
+    {
+      "id": "gemini-api:gemini-3.8-flash-lite-tts",
+      "kind": "model",
+      "label": "Gemini API — Gemini 3.8 Flash-Lite TTS",
+      "vendor": "Google Gemini API",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "model": "gemini-3.8-flash-lite-tts",
+      "voice": "Kore",
+      "voiceName": "Kore",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 100,
+      "languagesNote": "100+ мов; у таблиці мов української немає",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Дешевша й швидша версія Gemini 3.8 TTS через Interactions API (WAV у base64).",
+      "source": "https://ai.google.dev/gemini-api/docs/speech-generation",
+      "popular": 1,
+      "spec": {
+        "name": "Gemini API TTS",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/interactions",
+          "body": {
+            "model": "{{model}}",
+            "input": [
+              {
+                "type": "user_input",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "{{text}}"
+                  }
+                ]
+              }
+            ],
+            "response_format": {
+              "type": "audio",
+              "mime_type": "audio/wav"
+            },
+            "generation_config": {
+              "speech_config": [
+                {
+                  "voice": "{{voice}}"
+                }
+              ]
+            }
+          }
+        },
+        "result": [
+          "steps.-1.content.-1.data",
+          "outputs.-1.data"
+        ],
+        "error": "error.message",
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        }
+      }
+    },
+    {
+      "id": "resemble:ultra",
+      "kind": "model",
+      "label": "Resemble Ultra",
+      "vendor": "Resemble AI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://f.cluster.resemble.ai",
+      "model": "",
+      "voice": "55592656",
+      "voiceName": "Ember",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 0,
+      "languagesNote": "перелік мов для Ultra не опубліковано",
+      "maxChars": 3000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "POST /synthesize з voice_uuid (модель визначає сам голос), до 3000 символів; відповідь — MP3 у base64 (audio_content); старі моделі, зокрема Chatterbox, у хмарі вимкнено.",
+      "source": "https://docs.resemble.ai/api-reference/text-to-speech/synthesize",
+      "popular": 1,
+      "spec": {
+        "name": "Resemble AI",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/synthesize",
+          "body": {
+            "voice_uuid": "{{voice}}",
+            "data": "{{text}}",
+            "output_format": "mp3"
+          }
+        },
+        "result": "audio_content",
+        "error": [
+          "message",
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "murf:falcon-2",
+      "kind": "model",
+      "label": "Murf Falcon 2",
+      "vendor": "Murf AI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://global.api.murf.ai/v1",
+      "model": "falcon-2",
+      "voice": "en-US-natalie",
+      "voiceName": "Natalie",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 35,
+      "languagesNote": "35 мов (повний список — GET /v1/speech/voices)",
+      "maxChars": 3000,
+      "concurrency": 2,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,01 $ за 1000 символів",
+      "notes": "POST /v1/speech/stream із заголовком api-key, відповідь — сам MP3; 2 одночасні запити на глобальному сервері, 5 — на US-East.",
+      "source": "https://murf.ai/api/docs/api-reference/text-to-speech/stream",
+      "popular": 1,
+      "spec": {
+        "name": "Murf Falcon",
+        "auth": "header:api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/speech/stream",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "voiceId": "{{voice}}",
+            "model": "{{model}}",
+            "format": "MP3",
+            "sampleRate": 44100
+          }
+        },
+        "error": [
+          "errorMessage",
+          "message",
+          "error"
+        ]
+      }
+    },
+    {
+      "id": "murf:GEN2",
+      "kind": "model",
+      "label": "Murf Gen2",
+      "vendor": "Murf AI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.murf.ai/v1",
+      "model": "GEN2",
+      "voice": "en-US-natalie",
+      "voiceName": "Natalie",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 35,
+      "languagesNote": "35 мов (повний список — GET /v1/speech/voices)",
+      "maxChars": 3000,
+      "concurrency": 5,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Студійна модель зі стилями: POST /v1/speech/generate (modelVersion GEN2) → посилання audioFile; потокова Gen2 застаріла.",
+      "source": "https://murf.ai/api/docs/api-reference/text-to-speech/generate",
+      "popular": 1,
+      "spec": {
+        "name": "Murf Gen2",
+        "auth": "header:api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/speech/generate",
+          "body": {
+            "text": "{{text}}",
+            "voiceId": "{{voice}}",
+            "modelVersion": "{{model}}",
+            "format": "MP3",
+            "sampleRate": 44100
+          }
+        },
+        "result": [
+          "audioFile",
+          "encodedAudio"
+        ],
+        "error": [
+          "errorMessage",
+          "message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/speech/voices"
+        }
+      }
+    },
+    {
+      "id": "speechify:simba-3.2",
+      "kind": "model",
+      "label": "Speechify Simba 3.2",
+      "vendor": "Speechify AI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.speechify.ai/v1",
+      "model": "simba-3.2",
+      "voice": "geffen_32",
+      "voiceName": "Geffen",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 1,
+      "languagesNote": "англійська",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "POST /v1/audio/speech, але свій формат (voice_id, аудіо base64 у JSON) — не OpenAI-сумісний; до 2000 символів; лише англійська.",
+      "source": "https://docs.speechify.ai/build/api-reference/v1/audio/speech",
+      "popular": 1,
+      "spec": {
+        "name": "Speechify",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/audio/speech",
+          "body": {
+            "input": "{{text}}",
+            "voice_id": "{{voice}}",
+            "model": "{{model}}",
+            "audio_format": "mp3"
+          }
+        },
+        "result": "audio_data",
+        "error": [
+          "error.message",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/voices"
+        }
+      }
+    },
+    {
+      "id": "speechify:simba-3.0",
+      "kind": "model",
+      "label": "Speechify Simba 3.0",
+      "vendor": "Speechify AI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.speechify.ai/v1",
+      "model": "simba-3.0",
+      "voice": "george",
+      "voiceName": "George",
+      "gender": "male",
+      "ukrainian": false,
+      "languages": 6,
+      "languagesNote": "англійська, німецька, іспанська, французька, італійська, португальська",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Модель за замовчуванням для європейських мов; simba-english і simba-multilingual зняті з API-версії 2026-09-21.",
+      "source": "https://docs.speechify.ai/tts/guides/concepts/models",
+      "popular": 0,
+      "spec": {
+        "name": "Speechify",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/audio/speech",
+          "body": {
+            "input": "{{text}}",
+            "voice_id": "{{voice}}",
+            "model": "{{model}}",
+            "audio_format": "mp3"
+          }
+        },
+        "result": "audio_data",
+        "error": [
+          "error.message",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/voices"
+        }
+      }
+    },
+    {
+      "id": "rime:coda",
+      "kind": "model",
+      "label": "Rime Coda",
+      "vendor": "Rime",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://users.rime.ai/v1",
+      "model": "coda",
+      "voice": "astra",
+      "voiceName": "Astra",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 9,
+      "languagesNote": "9 мов, української немає",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Флагман Rime (травень 2026): POST /v1/rime-tts з modelId і speaker, Accept: audio/mpeg; modelId задавай явно (без нього — Mist v3).",
+      "source": "https://docs.rime.ai/docs/models",
+      "popular": 1,
+      "spec": {
+        "name": "Rime",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/rime-tts",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "speaker": "{{voice}}",
+            "modelId": "{{model}}"
+          }
+        },
+        "error": [
+          "message",
+          "error",
+          "detail"
+        ]
+      }
+    },
+    {
+      "id": "rime:mistv3",
+      "kind": "model",
+      "label": "Rime Mist v3",
+      "vendor": "Rime",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://users.rime.ai/v1",
+      "model": "mistv3",
+      "voice": "astra",
+      "voiceName": "Astra",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 4,
+      "languagesNote": "англійська, французька, німецька, іспанська",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Найнижча затримка (~37 мс) і власні паузи; обслуговує запити без modelId.",
+      "source": "https://docs.rime.ai/docs/models",
+      "popular": 0,
+      "spec": {
+        "name": "Rime",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/rime-tts",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "speaker": "{{voice}}",
+            "modelId": "{{model}}"
+          }
+        },
+        "error": [
+          "message",
+          "error",
+          "detail"
+        ]
+      }
+    },
+    {
+      "id": "rime:mistv2",
+      "kind": "model",
+      "label": "Rime Mist v2",
+      "vendor": "Rime",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://users.rime.ai/v1",
+      "model": "mistv2",
+      "voice": "astra",
+      "voiceName": "Astra",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 4,
+      "languagesNote": "англійська, французька, німецька, іспанська",
+      "maxChars": 1000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Єдина модель Rime з вбудованим керуванням вимовою (фонеми в дужках); до 1000 символів за запит.",
+      "source": "https://docs.rime.ai/docs/models",
+      "popular": 0,
+      "spec": {
+        "name": "Rime",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/rime-tts",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "speaker": "{{voice}}",
+            "modelId": "{{model}}"
+          }
+        },
+        "error": [
+          "message",
+          "error",
+          "detail"
+        ]
+      }
+    },
+    {
+      "id": "smallest:lightning_v3.1",
+      "kind": "model",
+      "label": "Smallest.ai Lightning v3.1",
+      "vendor": "Smallest.ai",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.smallest.ai/waves/v1",
+      "model": "lightning_v3.1",
+      "voice": "sophia",
+      "voiceName": "Sophia",
+      "gender": "female",
+      "ukrainian": false,
+      "languages": 20,
+      "languagesNote": "20 мов (європейські та індійські), української немає",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "POST /waves/v1/tts з Bearer-ключем і model; 217 голосів і миттєве клонування; голоси Pro і звичайні не взаємозамінні.",
+      "source": "https://docs.smallest.ai/waves/documentation/text-to-speech-lightning/quickstart",
+      "popular": 0,
+      "spec": {
+        "name": "Smallest.ai Lightning",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/tts",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "voice_id": "{{voice}}",
+            "model": "{{model}}",
+            "language": "{{language}}",
+            "speed": "{{speed}}",
+            "sample_rate": 44100,
+            "output_format": "mp3"
+          }
+        },
+        "error": [
+          "message",
+          "error",
+          "detail"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/lightning-v3.1/get_voices"
+        }
+      }
+    },
+    {
+      "id": "smallest:lightning_v3.1_pro",
+      "kind": "model",
+      "label": "Smallest.ai Lightning v3.1 Pro",
+      "vendor": "Smallest.ai",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.smallest.ai/waves/v1",
+      "model": "lightning_v3.1_pro",
+      "voice": "meher",
+      "voiceName": "Meher",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 31,
+      "languagesNote": "31 мова (у кожної свої голоси), української немає",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Преміальні голоси Smallest, мова визначається вибраним голосом.",
+      "source": "https://docs.smallest.ai/models/text-to-speech/voices-languages",
+      "popular": 0,
+      "spec": {
+        "name": "Smallest.ai Lightning",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/tts",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "voice_id": "{{voice}}",
+            "model": "{{model}}",
+            "language": "{{language}}",
+            "speed": "{{speed}}",
+            "sample_rate": 44100,
+            "output_format": "mp3"
+          }
+        },
+        "error": [
+          "message",
+          "error",
+          "detail"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/lightning-v3.1/get_voices"
+        }
+      }
+    },
+    {
+      "id": "sarvam:bulbul:v3",
+      "kind": "model",
+      "label": "Sarvam Bulbul v3",
+      "vendor": "Sarvam AI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.sarvam.ai",
+      "model": "bulbul:v3",
+      "voice": "shubh",
+      "voiceName": "Shubh",
+      "gender": "male",
+      "ukrainian": false,
+      "languages": 11,
+      "languagesNote": "10 індійських мов і англійська",
+      "maxChars": 2500,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "POST /text-to-speech із заголовком api-subscription-key, мова — target_language_code (hi-IN, en-IN…); 30+ голосів, відповідь — base64 у audios.",
+      "source": "https://docs.sarvam.ai/api/getting-started/models/bulbul",
+      "popular": 0,
+      "spec": {
+        "name": "Sarvam Bulbul",
+        "auth": "header:api-subscription-key",
+        "submit": {
+          "method": "POST",
+          "path": "/text-to-speech",
+          "body": {
+            "text": "{{text}}",
+            "target_language_code": "{{language}}-IN",
+            "speaker": "{{voice}}",
+            "model": "{{model}}",
+            "pace": "{{speed}}",
+            "output_audio_codec": "mp3"
+          }
+        },
+        "result": "audios.0",
+        "error": [
+          "error.message",
+          "message"
+        ]
+      }
+    },
+    {
+      "id": "mistral:voxtral-mini-tts-2603",
+      "kind": "model",
+      "label": "Mistral Voxtral TTS",
+      "vendor": "Mistral AI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.mistral.ai/v1",
+      "model": "voxtral-mini-tts-2603",
+      "voice": "en_paul_neutral",
+      "voiceName": "Paul",
+      "gender": "male",
+      "ukrainian": false,
+      "languages": 9,
+      "languagesNote": "9 мов, української немає",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "0,016 $ за 1000 символів",
+      "notes": "POST /v1/audio/speech з voice_id (30 пресетів) або ref_audio (клон із 2–3 с), відповідь base64 у JSON — не OpenAI-сумісний; speed не приймає.",
+      "source": "https://docs.mistral.ai/studio/audio/text_to_speech/speech",
+      "popular": 1,
+      "spec": {
+        "name": "Mistral Voxtral TTS",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/audio/speech",
+          "body": {
+            "model": "{{model}}",
+            "input": "{{text}}",
+            "voice_id": "{{voice}}",
+            "response_format": "mp3"
+          }
+        },
+        "result": "audio_data",
+        "error": [
+          "message",
+          "detail.0.msg",
+          "detail"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/audio/voices?limit=1"
+        }
+      }
+    },
+    {
+      "id": "xai:tts:eve",
+      "kind": "voice",
+      "label": "xAI Grok TTS — Eve",
+      "vendor": "xAI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "",
+      "voice": "eve",
+      "voiceName": "Eve",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 20,
+      "languagesNote": "20 мов, української в списку немає",
+      "maxChars": 60000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "POST /v1/tts з text, voice_id і language (тут auto), відповідь — сам MP3; голос за замовчуванням, будь-який голос говорить усіма мовами.",
+      "source": "https://docs.x.ai/developers/model-capabilities/audio/text-to-speech",
+      "popular": 1,
+      "spec": {
+        "name": "xAI TTS",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/tts",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "voice_id": "{{voice}}",
+            "language": "auto",
+            "speed": "{{speed}}",
+            "output_format": {
+              "codec": "mp3",
+              "sample_rate": 44100,
+              "bit_rate": 128000
+            }
+          }
+        },
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/tts/voices"
+        }
+      }
+    },
+    {
+      "id": "xai:tts:ara",
+      "kind": "voice",
+      "label": "xAI Grok TTS — Ara",
+      "vendor": "xAI",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "",
+      "voice": "ara",
+      "voiceName": "Ara",
+      "gender": "",
+      "ukrainian": false,
+      "languages": 20,
+      "languagesNote": "20 мов, української в списку немає",
+      "maxChars": 60000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Теплий розмовний голос xAI; до 60 000 символів за запит.",
+      "source": "https://docs.x.ai/developers/model-capabilities/audio/text-to-speech",
+      "popular": 0,
+      "spec": {
+        "name": "xAI TTS",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/tts",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "text": "{{text}}",
+            "voice_id": "{{voice}}",
+            "language": "auto",
+            "speed": "{{speed}}",
+            "output_format": {
+              "codec": "mp3",
+              "sample_rate": 44100,
+              "bit_rate": 128000
+            }
+          }
+        },
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/tts/voices"
+        }
+      }
+    },
+    {
+      "id": "narakeet:tts",
+      "kind": "model",
+      "label": "Narakeet Text to Speech API",
+      "vendor": "Narakeet",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://api.narakeet.com",
+      "model": "",
+      "voice": "",
+      "voiceName": "",
+      "gender": "",
+      "ukrainian": true,
+      "languages": 100,
+      "languagesNote": "100 мов, 900 голосів, зокрема українська",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "POST /text-to-speech/mp3?voice=… із заголовком x-api-key; швидкий режим — до 1 КБ тексту, довгий — до 1024 КБ.",
+      "source": "https://www.narakeet.com/docs/automating/text-to-speech-api/",
+      "popular": 1
+    },
+    {
+      "id": "narakeet:tts:oleksandr",
+      "kind": "voice",
+      "label": "Narakeet — Олександр",
+      "vendor": "Narakeet",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://api.narakeet.com",
+      "model": "",
+      "voice": "oleksandr",
+      "voiceName": "Олександр",
+      "gender": "male",
+      "ukrainian": true,
+      "languages": 1,
+      "languagesNote": "українська",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Рідний український чоловічий голос Narakeet.",
+      "source": "https://www.narakeet.com/languages/ukrainian-text-to-speech/",
+      "popular": 1
+    },
+    {
+      "id": "narakeet:tts:svitlana",
+      "kind": "voice",
+      "label": "Narakeet — Світлана",
+      "vendor": "Narakeet",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://api.narakeet.com",
+      "model": "",
+      "voice": "svitlana",
+      "voiceName": "Світлана",
+      "gender": "female",
+      "ukrainian": true,
+      "languages": 1,
+      "languagesNote": "українська",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Рідний український жіночий голос Narakeet.",
+      "source": "https://www.narakeet.com/languages/ukrainian-text-to-speech/",
+      "popular": 1
+    },
+    {
+      "id": "narakeet:tts:lesia",
+      "kind": "voice",
+      "label": "Narakeet — Леся",
+      "vendor": "Narakeet",
+      "provider": "",
+      "protocol": "rest",
+      "baseUrl": "https://api.narakeet.com",
+      "model": "",
+      "voice": "lesia",
+      "voiceName": "Леся",
+      "gender": "female",
+      "ukrainian": true,
+      "languages": 1,
+      "languagesNote": "українська",
+      "maxChars": 0,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Ще один український жіночий голос Narakeet.",
+      "source": "https://www.narakeet.com/languages/ukrainian-text-to-speech/",
+      "popular": 0
+    },
+    {
+      "id": "typecast:ssfm-v30",
+      "kind": "model",
+      "label": "Typecast ssfm-v30",
+      "vendor": "Typecast",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.typecast.ai/v1",
+      "model": "ssfm-v30",
+      "voice": "tc_60e5426de8b95f1d3000d7b5",
+      "voiceName": "",
+      "gender": "",
+      "ukrainian": true,
+      "languages": 37,
+      "languagesNote": "37 мов, зокрема українська (ukr)",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "POST /v1/text-to-speech із заголовком X-API-KEY; 7 емоційних пресетів; мова — код ISO 639-3 (ukr) або автовизначення з тексту (так і передається тут).",
+      "source": "https://typecast.ai/docs/api-reference/text-to-speech/text-to-speech",
+      "popular": 1,
+      "spec": {
+        "name": "Typecast",
+        "auth": "header:X-API-KEY",
+        "submit": {
+          "method": "POST",
+          "path": "/text-to-speech",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "voice_id": "{{voice}}",
+            "text": "{{text}}",
+            "model": "{{model}}",
+            "output": {
+              "audio_tempo": "{{speed}}",
+              "audio_format": "mp3"
+            }
+          }
+        },
+        "error": [
+          "message",
+          "detail.0.msg",
+          "detail"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "https://api.typecast.ai/v3/voices"
+        }
+      }
+    },
+    {
+      "id": "typecast:ssfm-v21",
+      "kind": "model",
+      "label": "Typecast ssfm-v21",
+      "vendor": "Typecast",
+      "provider": "custom",
+      "protocol": "rest",
+      "baseUrl": "https://api.typecast.ai/v1",
+      "model": "ssfm-v21",
+      "voice": "tc_60e5426de8b95f1d3000d7b5",
+      "voiceName": "",
+      "gender": "",
+      "ukrainian": true,
+      "languages": 27,
+      "languagesNote": "27 мов, зокрема українська (ukr)",
+      "maxChars": 2000,
+      "concurrency": 0,
+      "selfHosted": false,
+      "keyOptional": false,
+      "price": "",
+      "notes": "Стабільна модель з низькою затримкою і 4 емоційними пресетами.",
+      "source": "https://typecast.ai/docs/api-reference/text-to-speech/text-to-speech",
+      "popular": 0,
+      "spec": {
+        "name": "Typecast",
+        "auth": "header:X-API-KEY",
+        "submit": {
+          "method": "POST",
+          "path": "/text-to-speech",
+          "headers": {
+            "Accept": "audio/mpeg"
+          },
+          "body": {
+            "voice_id": "{{voice}}",
+            "text": "{{text}}",
+            "model": "{{model}}",
+            "output": {
+              "audio_tempo": "{{speed}}",
+              "audio_format": "mp3"
+            }
+          }
+        },
+        "error": [
+          "message",
+          "detail.0.msg",
+          "detail"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "https://api.typecast.ai/v3/voices"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,2905 @@
+{
+  "list": "video",
+  "checked": "2026-10-05",
+  "entries": [
+    {
+      "id": "runway:gen4.5",
+      "label": "Gen-4.5",
+      "vendor": "Runway",
+      "family": "Gen-4.5",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "gen4.5",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 1000,
+      "price": "12 кредитів (0,12 $) за секунду",
+      "notes": "Флагман Runway без звуку; з тексту лише 16:9 або 9:16.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 2
+    },
+    {
+      "id": "runway:gen4_turbo",
+      "label": "Gen-4 Turbo · кадр → відео",
+      "vendor": "Runway",
+      "family": "Gen-4",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "gen4_turbo",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 1000,
+      "price": "5 кредитів (0,05 $) за секунду",
+      "notes": "Швидко й дешево оживляє готовий кадр; з тексту не знімає.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 1
+    },
+    {
+      "id": "runway:veo3.1",
+      "label": "Veo 3.1",
+      "vendor": "Google",
+      "family": "Veo 3.1",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "veo3.1",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        6,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 1000,
+      "price": "40 кредитів (0,40 $) за секунду зі звуком, 20 — без",
+      "notes": "Veo 3.1 через Runway: голос і звук, кредити Runway.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 3
+    },
+    {
+      "id": "runway:veo3.1_fast",
+      "label": "Veo 3.1 Fast",
+      "vendor": "Google",
+      "family": "Veo 3.1",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "veo3.1_fast",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        6,
+        8
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 1000,
+      "price": "15 кредитів (0,15 $) за секунду зі звуком, 10 — без",
+      "notes": "Дешевша й швидша Veo 3.1 з голосом через Runway.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 3
+    },
+    {
+      "id": "runway:seedance2",
+      "label": "Seedance 2.0",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "seedance2",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 3500,
+      "price": "36 кредитів (0,36 $) за секунду",
+      "notes": "Seedance 2.0 з голосом через Runway; студія шле 720p.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 2
+    },
+    {
+      "id": "runway:seedance2_fast",
+      "label": "Seedance 2.0 Fast",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "seedance2_fast",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 3500,
+      "price": "29 кредитів (0,29 $) за секунду",
+      "notes": "Швидша Seedance 2.0 з голосом через Runway.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 1
+    },
+    {
+      "id": "runway:seedance2_5",
+      "label": "Seedance 2.5",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.5",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "seedance2_5",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 15000,
+      "price": "",
+      "notes": "Новітня Seedance до 30 с з голосом через Runway.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 2
+    },
+    {
+      "id": "runway:gemini_omni_flash_1.1",
+      "label": "Gemini Omni Flash 1.1",
+      "vendor": "Google",
+      "family": "Gemini Omni Flash",
+      "host": "runway",
+      "hostLabel": "Runway API",
+      "preset": "runway",
+      "baseUrl": "https://api.dev.runwayml.com/v1",
+      "model": "gemini_omni_flash_1.1",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 4000,
+      "price": "3,4–30 кредитів за секунду залежно від роздільності",
+      "notes": "Gemini Omni Flash через Runway; 3–10 с, 16:9 або 9:16.",
+      "source": "https://docs.dev.runwayml.com/api/",
+      "popular": 2
+    },
+    {
+      "id": "luma:ray-3.2",
+      "label": "Ray 3.2",
+      "vendor": "Luma AI",
+      "family": "Ray 3",
+      "host": "luma",
+      "hostLabel": "Luma Agents API",
+      "preset": "luma",
+      "baseUrl": "https://agents.lumalabs.ai/v1",
+      "model": "ray-3.2",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        5,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "540p",
+        "720p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 6000,
+      "price": "720p: 0,30 $ за 5 с, 0,90 $ за 10 с",
+      "notes": "Кінематографічний рух без звуку; 10 с з кадром іде як ключовий кадр 0.",
+      "source": "https://docs.agents.lumalabs.ai/guides/videos/generation/",
+      "popular": 2
+    },
+    {
+      "id": "minimax:MiniMax-H3",
+      "label": "MiniMax H3 (Hailuo 3)",
+      "vendor": "MiniMax",
+      "family": "MiniMax H3",
+      "host": "minimax",
+      "hostLabel": "MiniMax API",
+      "preset": "minimax",
+      "baseUrl": "https://api.minimax.io",
+      "model": "MiniMax-H3",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "768p",
+        "2k"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 7000,
+      "price": "",
+      "notes": "Нова модель MiniMax з голосом і звуком; до 9 референсів.",
+      "source": "https://platform.minimax.io/docs/api-reference/video-generation-v2-create",
+      "popular": 3
+    },
+    {
+      "id": "minimax:MiniMax-H3-Max",
+      "label": "MiniMax H3 Max",
+      "vendor": "MiniMax",
+      "family": "MiniMax H3",
+      "host": "minimax",
+      "hostLabel": "MiniMax API",
+      "preset": "minimax",
+      "baseUrl": "https://api.minimax.io",
+      "model": "MiniMax-H3-Max",
+      "modes": [
+        "t2v",
+        "i2v",
+        "ref"
+      ],
+      "lengths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "480p",
+        "768p"
+      ],
+      "maxRefs": 9,
+      "audio": "speech",
+      "promptMax": 7000,
+      "price": "",
+      "notes": "Посилена H3 (5–15 с), до 768p, голос і референси.",
+      "source": "https://platform.minimax.io/docs/api-reference/video-generation-v2-create",
+      "popular": 2
+    },
+    {
+      "id": "minimax:MiniMax-Hailuo-2.3",
+      "label": "Hailuo 2.3",
+      "vendor": "MiniMax",
+      "family": "Hailuo 2.3",
+      "host": "minimax",
+      "hostLabel": "MiniMax API",
+      "preset": "minimax",
+      "baseUrl": "https://api.minimax.io",
+      "model": "MiniMax-Hailuo-2.3",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "768p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 2000,
+      "price": "",
+      "notes": "Попереднє покоління без звуку; 1080p лише для 6 с, пропорції бере з кадру.",
+      "source": "https://platform.minimax.io/docs/api-reference/video-generation-i2v",
+      "popular": 2
+    },
+    {
+      "id": "minimax:MiniMax-Hailuo-2.3-Fast",
+      "label": "Hailuo 2.3 Fast · кадр → відео",
+      "vendor": "MiniMax",
+      "family": "Hailuo 2.3",
+      "host": "minimax",
+      "hostLabel": "MiniMax API",
+      "preset": "minimax",
+      "baseUrl": "https://api.minimax.io",
+      "model": "MiniMax-Hailuo-2.3-Fast",
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "768p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 2000,
+      "price": "",
+      "notes": "Швидка й дешева Hailuo 2.3 лише з кадру, без звуку.",
+      "source": "https://platform.minimax.io/docs/api-reference/video-generation-i2v",
+      "popular": 1
+    },
+    {
+      "id": "minimax:MiniMax-Hailuo-02",
+      "label": "Hailuo 02",
+      "vendor": "MiniMax",
+      "family": "Hailuo 02",
+      "host": "minimax",
+      "hostLabel": "MiniMax API",
+      "preset": "minimax",
+      "baseUrl": "https://api.minimax.io",
+      "model": "MiniMax-Hailuo-02",
+      "modes": [
+        "t2v",
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "512p",
+        "768p",
+        "1080p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 2000,
+      "price": "",
+      "notes": "Старша Hailuo без звуку; 512p лише з кадру, 1080p лише 6 с.",
+      "source": "https://platform.minimax.io/docs/api-reference/video-generation-i2v",
+      "popular": 1
+    },
+    {
+      "id": "google:gemini-omni-1.1-flash",
+      "label": "Gemini Omni Flash · текст → відео",
+      "vendor": "Google",
+      "family": "Gemini Omni Flash",
+      "host": "google",
+      "hostLabel": "Google Gemini API",
+      "preset": "universal",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "model": "gemini-omni-1.1-flash",
+      "spec": {
+        "name": "Gemini API",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/interactions",
+          "timeout": 900,
+          "body": {
+            "model": "{{model}}",
+            "input": "{{prompt}}",
+            "response_format": {
+              "type": "video",
+              "aspect_ratio": "{{aspect}}",
+              "duration": "{{seconds}}s"
+            }
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/interactions/{id}",
+          "every": 10
+        },
+        "state": "status",
+        "done": [
+          "completed"
+        ],
+        "failed": [
+          "failed",
+          "cancelled",
+          "incomplete"
+        ],
+        "queued": [
+          "queued"
+        ],
+        "result": [
+          "steps.-1.content.-1.data",
+          "steps.-1.content.0.data",
+          "outputs.0.data",
+          "steps.-1.content.-1.uri"
+        ],
+        "error": [
+          "errors.0.message",
+          "error.message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models?pageSize=1"
+        },
+        "caps": {
+          "lengths": [
+            4,
+            6,
+            8,
+            10
+          ],
+          "aspects": [
+            "16:9",
+            "9:16"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        4,
+        6,
+        8,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Лише з тексту: адаптер не вміє вкласти кадр у список input; кадр і референси — вбудованим клієнтом Google.",
+      "source": "https://ai.google.dev/gemini-api/docs/omni",
+      "popular": 2
+    },
+    {
+      "id": "xai:grok-imagine-video-1.5",
+      "label": "Grok Imagine Video 1.5 · текст → відео",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "xai",
+      "hostLabel": "xAI API",
+      "preset": "universal",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "grok-imagine-video-1.5",
+      "spec": {
+        "name": "xAI",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/videos/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "aspect_ratio": "{{aspect}}",
+            "resolution": "720p"
+          }
+        },
+        "id": "request_id",
+        "poll": {
+          "method": "GET",
+          "path": "/videos/{id}",
+          "every": 5
+        },
+        "state": "status",
+        "done": [
+          "done"
+        ],
+        "failed": [
+          "failed",
+          "expired"
+        ],
+        "queued": [
+          "pending"
+        ],
+        "result": "video.url",
+        "error": [
+          "error.message",
+          "video.storage_error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "0,08 $ за секунду",
+      "notes": "Гнучка довжина 1–15 с і багато пропорцій; кадр — окремий пресет «кадр → відео».",
+      "source": "https://docs.x.ai/developers/rest-api-reference/inference/videos",
+      "popular": 2
+    },
+    {
+      "id": "xai:grok-imagine-video-1.5:i2v",
+      "label": "Grok Imagine Video 1.5 · кадр → відео",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "xai",
+      "hostLabel": "xAI API",
+      "preset": "universal",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "grok-imagine-video-1.5",
+      "spec": {
+        "name": "xAI",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/videos/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "aspect_ratio": "{{aspect}}",
+            "resolution": "720p",
+            "image": {
+              "url": "{{start_image}}"
+            }
+          }
+        },
+        "id": "request_id",
+        "poll": {
+          "method": "GET",
+          "path": "/videos/{id}",
+          "every": 5
+        },
+        "state": "status",
+        "done": [
+          "done"
+        ],
+        "failed": [
+          "failed",
+          "expired"
+        ],
+        "queued": [
+          "pending"
+        ],
+        "result": "video.url",
+        "error": [
+          "error.message",
+          "video.storage_error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "startFrame": true
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 0,
+      "price": "0,08 $ за секунду",
+      "notes": "Оживляє кадр сцени (дані вкладаються в запит); без кадру не працює.",
+      "source": "https://docs.x.ai/developers/rest-api-reference/inference/videos",
+      "popular": 2
+    },
+    {
+      "id": "kling:kling-3.0",
+      "label": "Kling 3.0 · текст → відео",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 3.0",
+      "host": "kling",
+      "hostLabel": "Kling API",
+      "preset": "universal",
+      "baseUrl": "https://api-singapore.klingai.com",
+      "model": "kling-3.0",
+      "spec": {
+        "name": "Kling API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/text-to-video/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "settings": {
+              "duration": "{{seconds}}",
+              "resolution": "720p",
+              "audio": "native",
+              "multi_shot": false,
+              "aspect_ratio": "{{aspect}}"
+            }
+          }
+        },
+        "id": "data.id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks?task_ids={id}",
+          "every": 10
+        },
+        "state": "data.0.status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "submitted"
+        ],
+        "result": "data.0.outputs.0.url",
+        "error": [
+          "data.0.message",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/account/costs?start_time=1767225600000&end_time=1767312000000"
+        },
+        "caps": {
+          "lengths": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 3072,
+      "price": "",
+      "notes": "Флагман Kling з рідним звуком і голосом; ключ API з kling.ai/dev (не пара AK/SK).",
+      "source": "https://kling.ai/document-api/api/video/3-0-omni/text-to-video",
+      "popular": 3
+    },
+    {
+      "id": "kling:kling-3.0:i2v",
+      "label": "Kling 3.0 · кадр → відео",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 3.0",
+      "host": "kling",
+      "hostLabel": "Kling API",
+      "preset": "universal",
+      "baseUrl": "https://api-singapore.klingai.com",
+      "model": "kling-3.0",
+      "spec": {
+        "name": "Kling API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/image-to-video/{{model}}",
+          "body": {
+            "contents": [
+              {
+                "type": "prompt",
+                "text": "{{prompt}}"
+              },
+              {
+                "type": "first_frame",
+                "url": "{{start_image_b64}}"
+              }
+            ],
+            "settings": {
+              "duration": "{{seconds}}",
+              "resolution": "720p",
+              "audio": "native",
+              "multi_shot": false
+            }
+          }
+        },
+        "id": "data.id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks?task_ids={id}",
+          "every": 10
+        },
+        "state": "data.0.status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "submitted"
+        ],
+        "result": "data.0.outputs.0.url",
+        "error": [
+          "data.0.message",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/account/costs?start_time=1767225600000&end_time=1767312000000"
+        },
+        "caps": {
+          "lengths": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "startFrame": true
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 3072,
+      "price": "",
+      "notes": "Kling 3.0 з першого кадру, пропорції бере з кадру; без кадру не працює.",
+      "source": "https://kling.ai/document-api/api/video/3-0-omni/image-to-video",
+      "popular": 3
+    },
+    {
+      "id": "kling:kling-3.0-turbo",
+      "label": "Kling 3.0 Turbo · текст → відео",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 3.0",
+      "host": "kling",
+      "hostLabel": "Kling API",
+      "preset": "universal",
+      "baseUrl": "https://api-singapore.klingai.com",
+      "model": "kling-3.0-turbo",
+      "spec": {
+        "name": "Kling API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/text-to-video/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "settings": {
+              "duration": "{{seconds}}",
+              "resolution": "720p",
+              "aspect_ratio": "{{aspect}}"
+            }
+          }
+        },
+        "id": "data.id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks?task_ids={id}",
+          "every": 10
+        },
+        "state": "data.0.status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "submitted"
+        ],
+        "result": "data.0.outputs.0.url",
+        "error": [
+          "data.0.message",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/account/costs?start_time=1767225600000&end_time=1767312000000"
+        },
+        "caps": {
+          "lengths": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 3072,
+      "price": "",
+      "notes": "Швидший і дешевший Kling 3.0 без звуку.",
+      "source": "https://kling.ai/document-api/api/video/3-0-turbo/text-to-video",
+      "popular": 2
+    },
+    {
+      "id": "kling:kling-3.0-turbo:i2v",
+      "label": "Kling 3.0 Turbo · кадр → відео",
+      "vendor": "Kuaishou Kling",
+      "family": "Kling 3.0",
+      "host": "kling",
+      "hostLabel": "Kling API",
+      "preset": "universal",
+      "baseUrl": "https://api-singapore.klingai.com",
+      "model": "kling-3.0-turbo",
+      "spec": {
+        "name": "Kling API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/image-to-video/{{model}}",
+          "body": {
+            "contents": [
+              {
+                "type": "prompt",
+                "text": "{{prompt}}"
+              },
+              {
+                "type": "first_frame",
+                "url": "{{start_image_b64}}"
+              }
+            ],
+            "settings": {
+              "duration": "{{seconds}}",
+              "resolution": "720p"
+            }
+          }
+        },
+        "id": "data.id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks?task_ids={id}",
+          "every": 10
+        },
+        "state": "data.0.status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "submitted"
+        ],
+        "result": "data.0.outputs.0.url",
+        "error": [
+          "data.0.message",
+          "message"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/account/costs?start_time=1767225600000&end_time=1767312000000"
+        },
+        "caps": {
+          "lengths": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "startFrame": true
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "none",
+      "promptMax": 3072,
+      "price": "",
+      "notes": "Kling 3.0 Turbo з першого кадру, без звуку; без кадру не працює.",
+      "source": "https://kling.ai/document-api/api/video/3-0-turbo/image-to-video",
+      "popular": 2
+    },
+    {
+      "id": "lightricks:ltx-2-5-pro",
+      "label": "LTX-2.5 Pro · текст → відео",
+      "vendor": "Lightricks",
+      "family": "LTX-2.5",
+      "host": "lightricks",
+      "hostLabel": "LTX API",
+      "preset": "universal",
+      "baseUrl": "https://api.ltx.io",
+      "model": "ltx-2-5-pro",
+      "spec": {
+        "name": "LTX API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/v2/text-to-video",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "resolution": "{{size}}",
+            "generate_audio": true
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/v2/text-to-video/{id}",
+          "every": 6
+        },
+        "state": "status",
+        "done": [
+          "completed"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "pending"
+        ],
+        "result": "result.video_url",
+        "error": "error.message",
+        "caps": {
+          "lengths": [
+            6,
+            8,
+            10
+          ],
+          "aspects": [
+            "16:9",
+            "9:16"
+          ],
+          "startFrame": false,
+          "size": 1280
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        6,
+        8,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "0,12 $ за секунду (720p)",
+      "notes": "Якісна LTX з голосом і звуком; студія шле 1280×720 / 720×1280.",
+      "source": "https://docs.ltx.io/api-documentation/api-reference/async-video-generation/submit-text-to-video",
+      "popular": 1
+    },
+    {
+      "id": "lightricks:ltx-2-5-pro:i2v",
+      "label": "LTX-2.5 Pro · кадр → відео",
+      "vendor": "Lightricks",
+      "family": "LTX-2.5",
+      "host": "lightricks",
+      "hostLabel": "LTX API",
+      "preset": "universal",
+      "baseUrl": "https://api.ltx.io",
+      "model": "ltx-2-5-pro",
+      "spec": {
+        "name": "LTX API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/v2/image-to-video",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "resolution": "{{size}}",
+            "generate_audio": true,
+            "image_uri": "{{start_image}}"
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/v2/image-to-video/{id}",
+          "every": 6
+        },
+        "state": "status",
+        "done": [
+          "completed"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "pending"
+        ],
+        "result": "result.video_url",
+        "error": "error.message",
+        "caps": {
+          "lengths": [
+            6,
+            8,
+            10
+          ],
+          "aspects": [
+            "16:9",
+            "9:16"
+          ],
+          "startFrame": true,
+          "size": 1280
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        8,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "0,12 $ за секунду (720p)",
+      "notes": "LTX-2.5 Pro з першого кадру (data URI до 7 МБ); без кадру не працює.",
+      "source": "https://docs.ltx.io/api-documentation/api-reference/async-video-generation/submit-image-to-video",
+      "popular": 1
+    },
+    {
+      "id": "lightricks:ltx-2-5-fast",
+      "label": "LTX-2.5 Fast · текст → відео",
+      "vendor": "Lightricks",
+      "family": "LTX-2.5",
+      "host": "lightricks",
+      "hostLabel": "LTX API",
+      "preset": "universal",
+      "baseUrl": "https://api.ltx.io",
+      "model": "ltx-2-5-fast",
+      "spec": {
+        "name": "LTX API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/v2/text-to-video",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "resolution": "{{size}}",
+            "generate_audio": true
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/v2/text-to-video/{id}",
+          "every": 6
+        },
+        "state": "status",
+        "done": [
+          "completed"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "pending"
+        ],
+        "result": "result.video_url",
+        "error": "error.message",
+        "caps": {
+          "lengths": [
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20
+          ],
+          "aspects": [
+            "16:9",
+            "9:16"
+          ],
+          "startFrame": false,
+          "size": 1280
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "0,09 $ за секунду (720p)",
+      "notes": "Швидка й дешева LTX до 20 с з голосом і звуком.",
+      "source": "https://docs.ltx.io/models/ltx-2-5",
+      "popular": 1
+    },
+    {
+      "id": "lightricks:ltx-2-5-fast:i2v",
+      "label": "LTX-2.5 Fast · кадр → відео",
+      "vendor": "Lightricks",
+      "family": "LTX-2.5",
+      "host": "lightricks",
+      "hostLabel": "LTX API",
+      "preset": "universal",
+      "baseUrl": "https://api.ltx.io",
+      "model": "ltx-2-5-fast",
+      "spec": {
+        "name": "LTX API",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/v2/image-to-video",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "resolution": "{{size}}",
+            "generate_audio": true,
+            "image_uri": "{{start_image}}"
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/v2/image-to-video/{id}",
+          "every": 6
+        },
+        "state": "status",
+        "done": [
+          "completed"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "pending"
+        ],
+        "result": "result.video_url",
+        "error": "error.message",
+        "caps": {
+          "lengths": [
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20
+          ],
+          "aspects": [
+            "16:9",
+            "9:16"
+          ],
+          "startFrame": true,
+          "size": 1280
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "aspects": [
+        "16:9",
+        "9:16"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "0,09 $ за секунду (720p)",
+      "notes": "LTX-2.5 Fast з першого кадру до 20 с; без кадру не працює.",
+      "source": "https://docs.ltx.io/models/ltx-2-5",
+      "popular": 1
+    },
+    {
+      "id": "byteplus:dreamina-seedance-2-0-260128",
+      "label": "Seedance 2.0 · текст → відео",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "byteplus",
+      "hostLabel": "BytePlus ModelArk",
+      "preset": "universal",
+      "baseUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+      "model": "dreamina-seedance-2-0-260128",
+      "spec": {
+        "name": "BytePlus ModelArk",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/contents/generations/tasks",
+          "body": {
+            "model": "{{model}}",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{prompt}}"
+              }
+            ],
+            "ratio": "{{aspect}}",
+            "duration": "{{seconds}}",
+            "resolution": "720p",
+            "generate_audio": true,
+            "watermark": false
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/contents/generations/tasks/{id}",
+          "every": 10
+        },
+        "state": "status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed",
+          "cancelled",
+          "expired"
+        ],
+        "queued": [
+          "queued"
+        ],
+        "result": "content.video_url",
+        "error": "error.message",
+        "cancel": {
+          "method": "DELETE",
+          "path": "/contents/generations/tasks/{id}"
+        },
+        "test": {
+          "method": "GET",
+          "path": "/contents/generations/tasks?page_size=1"
+        },
+        "caps": {
+          "lengths": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Seedance 2.0 напряму з голосом; модель треба активувати в консолі ModelArk.",
+      "source": "https://docs.byteplus.com/en/docs/modelark/create-video-generation-task-api",
+      "popular": 3
+    },
+    {
+      "id": "byteplus:dreamina-seedance-2-0-260128:i2v",
+      "label": "Seedance 2.0 · кадр → відео",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "byteplus",
+      "hostLabel": "BytePlus ModelArk",
+      "preset": "universal",
+      "baseUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+      "model": "dreamina-seedance-2-0-260128",
+      "spec": {
+        "name": "BytePlus ModelArk",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/contents/generations/tasks",
+          "body": {
+            "model": "{{model}}",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{prompt}}"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "{{start_image}}"
+                },
+                "role": "first_frame"
+              }
+            ],
+            "ratio": "{{aspect}}",
+            "duration": "{{seconds}}",
+            "resolution": "720p",
+            "generate_audio": true,
+            "watermark": false
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/contents/generations/tasks/{id}",
+          "every": 10
+        },
+        "state": "status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed",
+          "cancelled",
+          "expired"
+        ],
+        "queued": [
+          "queued"
+        ],
+        "result": "content.video_url",
+        "error": "error.message",
+        "cancel": {
+          "method": "DELETE",
+          "path": "/contents/generations/tasks/{id}"
+        },
+        "test": {
+          "method": "GET",
+          "path": "/contents/generations/tasks?page_size=1"
+        },
+        "caps": {
+          "lengths": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "startFrame": true
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "",
+      "notes": "З першого кадру; фото зі справжніми обличчями модель не приймає.",
+      "source": "https://docs.byteplus.com/en/docs/modelark/create-video-generation-task-api",
+      "popular": 3
+    },
+    {
+      "id": "byteplus:dreamina-seedance-2-0-fast-260128",
+      "label": "Seedance 2.0 Fast · текст → відео",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "byteplus",
+      "hostLabel": "BytePlus ModelArk",
+      "preset": "universal",
+      "baseUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+      "model": "dreamina-seedance-2-0-fast-260128",
+      "spec": {
+        "name": "BytePlus ModelArk",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/contents/generations/tasks",
+          "body": {
+            "model": "{{model}}",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{prompt}}"
+              }
+            ],
+            "ratio": "{{aspect}}",
+            "duration": "{{seconds}}",
+            "resolution": "720p",
+            "generate_audio": true,
+            "watermark": false
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/contents/generations/tasks/{id}",
+          "every": 10
+        },
+        "state": "status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed",
+          "cancelled",
+          "expired"
+        ],
+        "queued": [
+          "queued"
+        ],
+        "result": "content.video_url",
+        "error": "error.message",
+        "cancel": {
+          "method": "DELETE",
+          "path": "/contents/generations/tasks/{id}"
+        },
+        "test": {
+          "method": "GET",
+          "path": "/contents/generations/tasks?page_size=1"
+        },
+        "caps": {
+          "lengths": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Швидша й дешевша Seedance 2.0 з голосом (480p/720p).",
+      "source": "https://docs.byteplus.com/en/docs/modelark/create-video-generation-task-api",
+      "popular": 2
+    },
+    {
+      "id": "byteplus:dreamina-seedance-2-0-fast-260128:i2v",
+      "label": "Seedance 2.0 Fast · кадр → відео",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "byteplus",
+      "hostLabel": "BytePlus ModelArk",
+      "preset": "universal",
+      "baseUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+      "model": "dreamina-seedance-2-0-fast-260128",
+      "spec": {
+        "name": "BytePlus ModelArk",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/contents/generations/tasks",
+          "body": {
+            "model": "{{model}}",
+            "content": [
+              {
+                "type": "text",
+                "text": "{{prompt}}"
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "{{start_image}}"
+                },
+                "role": "first_frame"
+              }
+            ],
+            "ratio": "{{aspect}}",
+            "duration": "{{seconds}}",
+            "resolution": "720p",
+            "generate_audio": true,
+            "watermark": false
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "/contents/generations/tasks/{id}",
+          "every": 10
+        },
+        "state": "status",
+        "done": [
+          "succeeded"
+        ],
+        "failed": [
+          "failed",
+          "cancelled",
+          "expired"
+        ],
+        "queued": [
+          "queued"
+        ],
+        "result": "content.video_url",
+        "error": "error.message",
+        "cancel": {
+          "method": "DELETE",
+          "path": "/contents/generations/tasks/{id}"
+        },
+        "test": {
+          "method": "GET",
+          "path": "/contents/generations/tasks?page_size=1"
+        },
+        "caps": {
+          "lengths": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "startFrame": true
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Seedance 2.0 Fast з першого кадру; реальні обличчя на фото не приймає.",
+      "source": "https://docs.byteplus.com/en/docs/modelark/create-video-generation-task-api",
+      "popular": 2
+    },
+    {
+      "id": "alibaba:wan2.7-t2v",
+      "label": "Wan 2.7 · текст → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.7",
+      "host": "alibaba",
+      "hostLabel": "Alibaba Cloud Model Studio",
+      "preset": "universal",
+      "baseUrl": "https://dashscope-intl.aliyuncs.com/api/v1",
+      "model": "wan2.7-t2v",
+      "spec": {
+        "name": "Alibaba Model Studio",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/services/aigc/video-generation/video-synthesis",
+          "headers": {
+            "X-DashScope-Async": "enable"
+          },
+          "body": {
+            "model": "{{model}}",
+            "input": {
+              "prompt": "{{prompt}}"
+            },
+            "parameters": {
+              "resolution": "720P",
+              "ratio": "{{aspect}}",
+              "duration": "{{seconds}}",
+              "prompt_extend": false,
+              "watermark": false
+            }
+          }
+        },
+        "id": "output.task_id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks/{id}",
+          "every": 10
+        },
+        "state": "output.task_status",
+        "done": [
+          "SUCCEEDED"
+        ],
+        "failed": [
+          "FAILED",
+          "CANCELED",
+          "UNKNOWN"
+        ],
+        "queued": [
+          "PENDING"
+        ],
+        "result": "output.video_url",
+        "error": [
+          "output.message",
+          "message"
+        ],
+        "caps": {
+          "lengths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 5000,
+      "price": "",
+      "notes": "Wan 2.7 зі звуком і музикою; ключ і модель мають бути з того самого регіону (Сінгапур).",
+      "source": "https://www.alibabacloud.com/help/en/model-studio/text-to-video-api-reference",
+      "popular": 2
+    },
+    {
+      "id": "alibaba:wan2.6-i2v",
+      "label": "Wan 2.6 · кадр → відео",
+      "vendor": "Alibaba Wan",
+      "family": "Wan 2.6",
+      "host": "alibaba",
+      "hostLabel": "Alibaba Cloud Model Studio",
+      "preset": "universal",
+      "baseUrl": "https://dashscope-intl.aliyuncs.com/api/v1",
+      "model": "wan2.6-i2v",
+      "spec": {
+        "name": "Alibaba Model Studio",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/services/aigc/video-generation/video-synthesis",
+          "headers": {
+            "X-DashScope-Async": "enable"
+          },
+          "body": {
+            "model": "{{model}}",
+            "input": {
+              "prompt": "{{prompt}}",
+              "img_url": "{{start_image}}"
+            },
+            "parameters": {
+              "resolution": "720P",
+              "duration": "{{seconds}}",
+              "prompt_extend": false,
+              "watermark": false
+            }
+          }
+        },
+        "id": "output.task_id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks/{id}",
+          "every": 10
+        },
+        "state": "output.task_status",
+        "done": [
+          "SUCCEEDED"
+        ],
+        "failed": [
+          "FAILED",
+          "CANCELED",
+          "UNKNOWN"
+        ],
+        "queued": [
+          "PENDING"
+        ],
+        "result": "output.video_url",
+        "error": [
+          "output.message",
+          "message"
+        ],
+        "caps": {
+          "lengths": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4"
+          ],
+          "startFrame": true
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "sound",
+      "promptMax": 1500,
+      "price": "",
+      "notes": "Оживляє кадр (data URI) зі звуком; пропорції бере з кадру, без кадру не працює.",
+      "source": "https://www.alibabacloud.com/help/en/model-studio/image-to-video-api-reference",
+      "popular": 1
+    },
+    {
+      "id": "vidu:viduq3-pro",
+      "label": "Vidu Q3 Pro · текст → відео",
+      "vendor": "Shengshu Vidu",
+      "family": "Vidu Q3",
+      "host": "vidu",
+      "hostLabel": "Vidu API",
+      "preset": "universal",
+      "baseUrl": "https://api.vidu.com/ent/v2",
+      "model": "viduq3-pro",
+      "spec": {
+        "name": "Vidu",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/text2video",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "aspect_ratio": "{{aspect}}",
+            "resolution": "720p",
+            "audio": true
+          }
+        },
+        "id": "task_id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks/{id}/creations",
+          "every": 10
+        },
+        "state": "state",
+        "done": [
+          "success"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "created",
+          "queueing"
+        ],
+        "result": "creations.0.url",
+        "error": [
+          "err_code",
+          "message"
+        ],
+        "caps": {
+          "lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "4:3",
+            "3:4"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "",
+      "notes": "Vidu Q3 з озвученням (діалоги й звуки); ключ у форматі Token.",
+      "source": "https://platform.vidu.com/docs/text-to-video",
+      "popular": 1
+    },
+    {
+      "id": "vidu:viduq3-pro:i2v",
+      "label": "Vidu Q3 Pro · кадр → відео",
+      "vendor": "Shengshu Vidu",
+      "family": "Vidu Q3",
+      "host": "vidu",
+      "hostLabel": "Vidu API",
+      "preset": "universal",
+      "baseUrl": "https://api.vidu.com/ent/v2",
+      "model": "viduq3-pro",
+      "spec": {
+        "name": "Vidu",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/img2video",
+          "body": {
+            "model": "{{model}}",
+            "images": [
+              "{{start_image}}"
+            ],
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "resolution": "720p",
+            "audio": true
+          }
+        },
+        "id": "task_id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks/{id}/creations",
+          "every": 10
+        },
+        "state": "state",
+        "done": [
+          "success"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "created",
+          "queueing"
+        ],
+        "result": "creations.0.url",
+        "error": [
+          "err_code",
+          "message"
+        ],
+        "caps": {
+          "lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "4:3",
+            "3:4"
+          ],
+          "startFrame": true
+        }
+      },
+      "modes": [
+        "i2v"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 5000,
+      "price": "",
+      "notes": "Vidu Q3 з кадру з діалогами й звуком; без кадру не працює.",
+      "source": "https://platform.vidu.com/docs/image-to-video",
+      "popular": 1
+    },
+    {
+      "id": "vidu:viduq2:ref",
+      "label": "Vidu Q2 · за референсами",
+      "vendor": "Shengshu Vidu",
+      "family": "Vidu Q2",
+      "host": "vidu",
+      "hostLabel": "Vidu API",
+      "preset": "universal",
+      "baseUrl": "https://api.vidu.com/ent/v2",
+      "model": "viduq2",
+      "spec": {
+        "name": "Vidu",
+        "auth": "header:Authorization:Token",
+        "submit": {
+          "method": "POST",
+          "path": "/reference2video",
+          "body": {
+            "model": "{{model}}",
+            "images": "{{refs}}",
+            "prompt": "{{prompt}}",
+            "duration": "{{seconds}}",
+            "aspect_ratio": "{{aspect}}",
+            "resolution": "720p"
+          }
+        },
+        "id": "task_id",
+        "poll": {
+          "method": "GET",
+          "path": "/tasks/{id}/creations",
+          "every": 10
+        },
+        "state": "state",
+        "done": [
+          "success"
+        ],
+        "failed": [
+          "failed"
+        ],
+        "queued": [
+          "created",
+          "queueing"
+        ],
+        "result": "creations.0.url",
+        "error": [
+          "err_code",
+          "message"
+        ],
+        "caps": {
+          "lengths": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1"
+          ],
+          "startFrame": false,
+          "maxRefs": 3
+        }
+      },
+      "modes": [
+        "ref"
+      ],
+      "lengths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 3,
+      "audio": "none",
+      "promptMax": 5000,
+      "price": "",
+      "notes": "Тримає персонажів за фото-референсами; 3 фото, бо тіло запиту до 20 МБ.",
+      "source": "https://platform.vidu.com/docs/reference-to-video",
+      "popular": 1
+    },
+    {
+      "id": "higgsfield:bytedance/seedance-2.0/text-to-video",
+      "label": "Seedance 2.0 · текст → відео",
+      "vendor": "ByteDance",
+      "family": "Seedance 2.0",
+      "host": "higgsfield",
+      "hostLabel": "Higgsfield API",
+      "preset": "universal",
+      "baseUrl": "https://api.higgsfield.ai",
+      "model": "bytedance/seedance-2.0/text-to-video",
+      "spec": {
+        "name": "Higgsfield",
+        "auth": "header:Authorization:Key",
+        "submit": {
+          "method": "POST",
+          "path": "/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "resolution": "720p",
+            "generate_audio": true,
+            "duration": "{{seconds}}",
+            "aspect_ratio": "{{aspect}}"
+          }
+        },
+        "id": "request_id",
+        "poll": {
+          "method": "GET",
+          "path": "/requests/{id}/status",
+          "every": 10
+        },
+        "state": "status",
+        "done": [
+          "completed"
+        ],
+        "failed": [
+          "failed",
+          "nsfw",
+          "canceled"
+        ],
+        "queued": [
+          "queued"
+        ],
+        "result": "video.url",
+        "error": "error",
+        "cancel": {
+          "method": "POST",
+          "path": "/requests/{id}/cancel"
+        },
+        "caps": {
+          "lengths": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ],
+          "startFrame": false
+        }
+      },
+      "modes": [
+        "t2v"
+      ],
+      "lengths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "resolutions": [
+        "720p"
+      ],
+      "maxRefs": 0,
+      "audio": "speech",
+      "promptMax": 0,
+      "price": "",
+      "notes": "Ключ вводь як «ID:SECRET»; кадри Higgsfield бере лише за публічним посиланням, тому тільки з тексту.",
+      "source": "https://higgsfield.ai/higgsfield-api",
+      "popular": 1
+    }
+  ]
+}

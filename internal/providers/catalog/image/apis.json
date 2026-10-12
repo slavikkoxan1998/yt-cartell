@@ -1,0 +1,2192 @@
+{
+  "list": "image",
+  "checked": "2026-10-05",
+  "entries": [
+    {
+      "id": "openai:gpt-image-2.5-flare",
+      "label": "GPT Image 2.5 Flare",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2.5",
+      "host": "openai",
+      "hostLabel": "OpenAI API",
+      "preset": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-image-2.5-flare",
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536",
+        "1536x864",
+        "2560x1440",
+        "3840x2160"
+      ],
+      "promptMax": 32000,
+      "text": true,
+      "price": "$5 / 1M токенів тексту, $8 / 1M вхідних зображень, $30 / 1M токенів вихідного зображення",
+      "notes": "Швидка щоденна модель OpenAI: довільні розміри до 4K, до 16 референсів у редагуванні.",
+      "source": "https://developers.openai.com/api/docs/guides/image-generation",
+      "popular": 3
+    },
+    {
+      "id": "openai:gpt-image-2.5-sunburst",
+      "label": "GPT Image 2.5 Sunburst",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2.5",
+      "host": "openai",
+      "hostLabel": "OpenAI API",
+      "preset": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-image-2.5-sunburst",
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536",
+        "1536x864",
+        "2560x1440",
+        "3840x2160"
+      ],
+      "promptMax": 32000,
+      "text": true,
+      "price": "$5 / 1M токенів тексту, $8 / 1M вхідних зображень, $30 / 1M токенів вихідного зображення",
+      "notes": "Модель OpenAI для точного редагування: найкраще тримає деталі референсів.",
+      "source": "https://developers.openai.com/api/docs/guides/image-generation",
+      "popular": 3
+    },
+    {
+      "id": "openai:gpt-image-2",
+      "label": "GPT Image 2",
+      "vendor": "OpenAI",
+      "family": "GPT Image 2",
+      "host": "openai",
+      "hostLabel": "OpenAI API",
+      "preset": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-image-2",
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536",
+        "1536x864",
+        "2560x1440",
+        "3840x2160"
+      ],
+      "promptMax": 32000,
+      "text": true,
+      "price": "$5 / 1M токенів тексту, $8 / 1M вхідних зображень, $30 / 1M токенів вихідного зображення",
+      "notes": "Попереднє покоління (знімок 2026-04-21): довільні розміри, редагування до 16 зображень.",
+      "source": "https://developers.openai.com/api/docs/models/gpt-image-2",
+      "popular": 2
+    },
+    {
+      "id": "openai:gpt-image-1.5",
+      "label": "GPT Image 1.5 (до 01.12.2026)",
+      "vendor": "OpenAI",
+      "family": "GPT Image 1.5",
+      "host": "openai",
+      "hostLabel": "OpenAI API",
+      "preset": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-image-1.5",
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 16,
+      "aspects": [
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536"
+      ],
+      "promptMax": 32000,
+      "text": true,
+      "price": "",
+      "notes": "Застаріла: OpenAI вимикає її 1 грудня 2026 року — переходь на GPT Image 2.5.",
+      "source": "https://developers.openai.com/api/docs/deprecations",
+      "popular": 0
+    },
+    {
+      "id": "deepinfra:black-forest-labs/FLUX-2-max",
+      "label": "FLUX.2 [max] · DeepInfra",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "deepinfra",
+      "hostLabel": "DeepInfra",
+      "preset": "openai-compat",
+      "baseUrl": "https://api.deepinfra.com/v1/openai",
+      "model": "black-forest-labs/FLUX-2-max",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.07 за зображення",
+      "notes": "Топова FLUX.2 через OpenAI-сумісний /images/generations; лише текст → кадр.",
+      "source": "https://docs.deepinfra.com/apis/image-generation",
+      "popular": 2
+    },
+    {
+      "id": "deepinfra:black-forest-labs/FLUX-2-klein-9b",
+      "label": "FLUX.2 [klein] 9B · DeepInfra",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "deepinfra",
+      "hostLabel": "DeepInfra",
+      "preset": "openai-compat",
+      "baseUrl": "https://api.deepinfra.com/v1/openai",
+      "model": "black-forest-labs/FLUX-2-klein-9b",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Швидка й дешева FLUX.2 для чернеток; лише текст → кадр.",
+      "source": "https://docs.deepinfra.com/apis/image-generation",
+      "popular": 1
+    },
+    {
+      "id": "deepinfra:black-forest-labs/FLUX-1.1-pro",
+      "label": "FLUX1.1 [pro] · DeepInfra",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1",
+      "host": "deepinfra",
+      "hostLabel": "DeepInfra",
+      "preset": "openai-compat",
+      "baseUrl": "https://api.deepinfra.com/v1/openai",
+      "model": "black-forest-labs/FLUX-1.1-pro",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "$0.04 за зображення",
+      "notes": "Перевірена FLUX1.1 [pro]; 16:9 студія надсилає як 1536x1024 (3:2).",
+      "source": "https://docs.deepinfra.com/apis/image-generation",
+      "popular": 1
+    },
+    {
+      "id": "deepinfra:black-forest-labs/FLUX-1-schnell",
+      "label": "FLUX.1 [schnell] · DeepInfra",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1",
+      "host": "deepinfra",
+      "hostLabel": "DeepInfra",
+      "preset": "openai-compat",
+      "baseUrl": "https://api.deepinfra.com/v1/openai",
+      "model": "black-forest-labs/FLUX-1-schnell",
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "3:2",
+        "2:3",
+        "1:1"
+      ],
+      "sizes": [
+        "1024x1024",
+        "1536x1024",
+        "1024x1536"
+      ],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Найшвидша відкрита FLUX за 1–4 кроки, для ескізів.",
+      "source": "https://docs.deepinfra.com/apis/image-generation",
+      "popular": 0
+    },
+    {
+      "id": "xai:grok-imagine-image-2.0",
+      "label": "Grok Imagine Image 2.0",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "xai",
+      "hostLabel": "xAI API",
+      "preset": "universal",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "grok-imagine-image-2.0",
+      "spec": {
+        "name": "xAI Grok Imagine",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "aspect_ratio": "{{aspect}}",
+            "resolution": "2k",
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "16:9",
+            "9:16",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3",
+            "2:1",
+            "1:2",
+            "20:9",
+            "9:20",
+            "21:9",
+            "5:2"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "2:1",
+        "1:2",
+        "20:9",
+        "9:20",
+        "21:9",
+        "5:2"
+      ],
+      "sizes": [
+        "1k",
+        "2k"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.04 за зображення",
+      "notes": "Актуальна модель xAI: широкий вибір пропорцій (до 21:9), роздільність 2k.",
+      "source": "https://docs.x.ai/developers/model-capabilities/images/generation",
+      "popular": 2
+    },
+    {
+      "id": "xai:grok-imagine-image-quality",
+      "label": "Grok Imagine Image Quality",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "xai",
+      "hostLabel": "xAI API",
+      "preset": "universal",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "grok-imagine-image-quality",
+      "spec": {
+        "name": "xAI Grok Imagine",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "aspect_ratio": "{{aspect}}",
+            "resolution": "2k",
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "16:9",
+            "9:16",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3",
+            "2:1",
+            "1:2",
+            "20:9",
+            "9:20",
+            "21:9",
+            "5:2"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "2:1",
+        "1:2",
+        "20:9",
+        "9:20",
+        "21:9",
+        "5:2"
+      ],
+      "sizes": [
+        "1k",
+        "2k"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.05 за зображення",
+      "notes": "Варіант xAI з упором на якість; ті самі пропорції й 2k.",
+      "source": "https://docs.x.ai/docs/models",
+      "popular": 1
+    },
+    {
+      "id": "xai:grok-imagine-image",
+      "label": "Grok Imagine Image",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "xai",
+      "hostLabel": "xAI API",
+      "preset": "universal",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "grok-imagine-image",
+      "spec": {
+        "name": "xAI Grok Imagine",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "aspect_ratio": "{{aspect}}",
+            "resolution": "2k",
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "16:9",
+            "9:16",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3",
+            "2:1",
+            "1:2",
+            "20:9",
+            "9:20",
+            "21:9",
+            "5:2"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "2:1",
+        "1:2",
+        "20:9",
+        "9:20",
+        "21:9",
+        "5:2"
+      ],
+      "sizes": [
+        "1k",
+        "2k"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.02 за зображення",
+      "notes": "Найдешевша модель xAI для швидких кадрів.",
+      "source": "https://docs.x.ai/docs/models",
+      "popular": 1
+    },
+    {
+      "id": "xai:grok-imagine-image-2.0/edit",
+      "label": "Grok Imagine Image 2.0 · редагування",
+      "vendor": "xAI",
+      "family": "Grok Imagine",
+      "host": "xai",
+      "hostLabel": "xAI API",
+      "preset": "universal",
+      "baseUrl": "https://api.x.ai/v1",
+      "model": "grok-imagine-image-2.0",
+      "spec": {
+        "name": "xAI Grok Imagine",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/edits",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "image": {
+              "url": "{{start_image}}",
+              "type": "image_url"
+            },
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 1,
+          "aspects": [
+            "1:1",
+            "16:9",
+            "9:16",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3",
+            "2:1",
+            "1:2",
+            "20:9",
+            "9:20",
+            "21:9",
+            "5:2"
+          ]
+        }
+      },
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "2:1",
+        "1:2",
+        "20:9",
+        "9:20",
+        "21:9",
+        "5:2"
+      ],
+      "sizes": [
+        "1k"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.04 за зображення",
+      "notes": "Редагує одне фото за описом (/images/edits); пропорції бере з вихідного кадру.",
+      "source": "https://docs.x.ai/developers/model-capabilities/images/editing",
+      "popular": 1
+    },
+    {
+      "id": "google:gemini-3-pro-image",
+      "label": "Nano Banana Pro · Gemini API",
+      "vendor": "Google",
+      "family": "Nano Banana Pro",
+      "host": "google",
+      "hostLabel": "Google Gemini API",
+      "preset": "universal",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "model": "gemini-3-pro-image",
+      "spec": {
+        "name": "Google Gemini API",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/models/{{model}}:generateContent",
+          "body": {
+            "contents": [
+              {
+                "role": "user",
+                "parts": [
+                  {
+                    "text": "{{prompt}}"
+                  }
+                ]
+              }
+            ],
+            "generationConfig": {
+              "responseModalities": [
+                "IMAGE"
+              ],
+              "imageConfig": {
+                "aspectRatio": "{{aspect}}",
+                "imageSize": "2K"
+              }
+            }
+          }
+        },
+        "result": [
+          "candidates.0.content.parts.-1.inlineData.data",
+          "candidates.0.content.parts.0.inlineData.data",
+          "candidates.0.content.parts.1.inlineData.data",
+          "candidates.0.content.parts.2.inlineData.data",
+          "candidates.0.content.parts.3.inlineData.data",
+          "candidates.0.content.parts.4.inlineData.data"
+        ],
+        "error": [
+          "error.message",
+          "promptFeedback.blockReason",
+          "candidates.0.finishReason"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "3:2",
+            "2:3",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "3:2",
+        "2:3",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9"
+      ],
+      "sizes": [
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.134 за зображення 1K/2K, $0.24 — 4K",
+      "notes": "Gemini 3 Pro Image напряму від Google: студійна якість і точний текст, тут 2K; лише текст → кадр.",
+      "source": "https://ai.google.dev/gemini-api/docs/image-generation",
+      "popular": 3
+    },
+    {
+      "id": "google:gemini-3.1-flash-image",
+      "label": "Nano Banana 2 · Gemini API",
+      "vendor": "Google",
+      "family": "Nano Banana 2",
+      "host": "google",
+      "hostLabel": "Google Gemini API",
+      "preset": "universal",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "model": "gemini-3.1-flash-image",
+      "spec": {
+        "name": "Google Gemini API",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/models/{{model}}:generateContent",
+          "body": {
+            "contents": [
+              {
+                "role": "user",
+                "parts": [
+                  {
+                    "text": "{{prompt}}"
+                  }
+                ]
+              }
+            ],
+            "generationConfig": {
+              "responseModalities": [
+                "IMAGE"
+              ],
+              "imageConfig": {
+                "aspectRatio": "{{aspect}}"
+              }
+            }
+          }
+        },
+        "result": [
+          "candidates.0.content.parts.-1.inlineData.data",
+          "candidates.0.content.parts.0.inlineData.data",
+          "candidates.0.content.parts.1.inlineData.data",
+          "candidates.0.content.parts.2.inlineData.data",
+          "candidates.0.content.parts.3.inlineData.data",
+          "candidates.0.content.parts.4.inlineData.data"
+        ],
+        "error": [
+          "error.message",
+          "promptFeedback.blockReason",
+          "candidates.0.finishReason"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "3:2",
+            "2:3",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "3:2",
+        "2:3",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9"
+      ],
+      "sizes": [
+        "0.5K",
+        "1K",
+        "2K",
+        "4K"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.067 за зображення 1K (2K — $0.101, 4K — $0.151)",
+      "notes": "Gemini 3.1 Flash Image: швидко й дешево, хороший текст; лише текст → кадр.",
+      "source": "https://ai.google.dev/gemini-api/docs/image-generation",
+      "popular": 3
+    },
+    {
+      "id": "google:gemini-3.1-flash-lite-image",
+      "label": "Nano Banana 2 Lite · Gemini API",
+      "vendor": "Google",
+      "family": "Nano Banana 2",
+      "host": "google",
+      "hostLabel": "Google Gemini API",
+      "preset": "universal",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
+      "model": "gemini-3.1-flash-lite-image",
+      "spec": {
+        "name": "Google Gemini API",
+        "auth": "header:x-goog-api-key",
+        "submit": {
+          "method": "POST",
+          "path": "/models/{{model}}:generateContent",
+          "body": {
+            "contents": [
+              {
+                "role": "user",
+                "parts": [
+                  {
+                    "text": "{{prompt}}"
+                  }
+                ]
+              }
+            ],
+            "generationConfig": {
+              "responseModalities": [
+                "IMAGE"
+              ],
+              "imageConfig": {
+                "aspectRatio": "{{aspect}}"
+              }
+            }
+          }
+        },
+        "result": [
+          "candidates.0.content.parts.-1.inlineData.data",
+          "candidates.0.content.parts.0.inlineData.data",
+          "candidates.0.content.parts.1.inlineData.data",
+          "candidates.0.content.parts.2.inlineData.data",
+          "candidates.0.content.parts.3.inlineData.data",
+          "candidates.0.content.parts.4.inlineData.data"
+        ],
+        "error": [
+          "error.message",
+          "promptFeedback.blockReason",
+          "candidates.0.finishReason"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "3:2",
+            "2:3",
+            "3:4",
+            "4:3",
+            "4:5",
+            "5:4",
+            "9:16",
+            "16:9",
+            "21:9"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "3:2",
+        "2:3",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9"
+      ],
+      "sizes": [
+        "1K"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.0336 за зображення 1K",
+      "notes": "Найдешевша й найшвидша модель Google, лише 1K; лише текст → кадр.",
+      "source": "https://ai.google.dev/gemini-api/docs/image-generation",
+      "popular": 2
+    },
+    {
+      "id": "bfl:flux-2-max",
+      "label": "FLUX.2 [max] · BFL",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "bfl",
+      "hostLabel": "Black Forest Labs API",
+      "preset": "universal",
+      "baseUrl": "https://api.bfl.ai/v1",
+      "model": "flux-2-max",
+      "spec": {
+        "name": "Black Forest Labs",
+        "auth": "header:x-key",
+        "submit": {
+          "method": "POST",
+          "path": "/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "input_image": "{{start_image_b64}}",
+            "output_format": "jpeg",
+            "width": "{{width}}",
+            "height": "{{height}}"
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "{{submit.polling_url}}",
+          "every": 3
+        },
+        "state": "status",
+        "done": [
+          "Ready"
+        ],
+        "failed": [
+          "Error",
+          "Failed",
+          "Request Moderated",
+          "Content Moderated",
+          "Task not found"
+        ],
+        "queued": [
+          "Pending"
+        ],
+        "result": "result.sample",
+        "error": [
+          "details",
+          "error",
+          "status"
+        ],
+        "caps": {
+          "maxRefs": 1,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "size": 1920
+        }
+      },
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1920x1088"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Найкраща FLUX.2 від самої BFL; тут одне опорне фото (API бере до 8 окремими полями).",
+      "source": "https://docs.bfl.ai/flux_2/flux2_overview",
+      "popular": 2
+    },
+    {
+      "id": "bfl:flux-2-pro",
+      "label": "FLUX.2 [pro] · BFL",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "bfl",
+      "hostLabel": "Black Forest Labs API",
+      "preset": "universal",
+      "baseUrl": "https://api.bfl.ai/v1",
+      "model": "flux-2-pro",
+      "spec": {
+        "name": "Black Forest Labs",
+        "auth": "header:x-key",
+        "submit": {
+          "method": "POST",
+          "path": "/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "input_image": "{{start_image_b64}}",
+            "output_format": "jpeg",
+            "width": "{{width}}",
+            "height": "{{height}}"
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "{{submit.polling_url}}",
+          "every": 3
+        },
+        "state": "status",
+        "done": [
+          "Ready"
+        ],
+        "failed": [
+          "Error",
+          "Failed",
+          "Request Moderated",
+          "Content Moderated",
+          "Task not found"
+        ],
+        "queued": [
+          "Pending"
+        ],
+        "result": "result.sample",
+        "error": [
+          "details",
+          "error",
+          "status"
+        ],
+        "caps": {
+          "maxRefs": 1,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "size": 1920
+        }
+      },
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1920x1088"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Основна FLUX.2: якість і ціна в балансі, одне опорне фото через input_image.",
+      "source": "https://docs.bfl.ai/api-reference/models/generate-or-edit-an-image-with-flux2-[pro]",
+      "popular": 2
+    },
+    {
+      "id": "bfl:flux-2-flex",
+      "label": "FLUX.2 [flex] · BFL",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "bfl",
+      "hostLabel": "Black Forest Labs API",
+      "preset": "universal",
+      "baseUrl": "https://api.bfl.ai/v1",
+      "model": "flux-2-flex",
+      "spec": {
+        "name": "Black Forest Labs",
+        "auth": "header:x-key",
+        "submit": {
+          "method": "POST",
+          "path": "/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "input_image": "{{start_image_b64}}",
+            "output_format": "jpeg",
+            "width": "{{width}}",
+            "height": "{{height}}"
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "{{submit.polling_url}}",
+          "every": 3
+        },
+        "state": "status",
+        "done": [
+          "Ready"
+        ],
+        "failed": [
+          "Error",
+          "Failed",
+          "Request Moderated",
+          "Content Moderated",
+          "Task not found"
+        ],
+        "queued": [
+          "Pending"
+        ],
+        "result": "result.sample",
+        "error": [
+          "details",
+          "error",
+          "status"
+        ],
+        "caps": {
+          "maxRefs": 1,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "size": 1920
+        }
+      },
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1920x1088"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "FLUX.2 з кращою типографікою й налаштуванням кроків.",
+      "source": "https://docs.bfl.ai/flux_2/flux2_overview",
+      "popular": 1
+    },
+    {
+      "id": "bfl:flux-2-klein-9b",
+      "label": "FLUX.2 [klein] 9B · BFL",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "bfl",
+      "hostLabel": "Black Forest Labs API",
+      "preset": "universal",
+      "baseUrl": "https://api.bfl.ai/v1",
+      "model": "flux-2-klein-9b",
+      "spec": {
+        "name": "Black Forest Labs",
+        "auth": "header:x-key",
+        "submit": {
+          "method": "POST",
+          "path": "/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "input_image": "{{start_image_b64}}",
+            "output_format": "jpeg",
+            "width": "{{width}}",
+            "height": "{{height}}"
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "{{submit.polling_url}}",
+          "every": 3
+        },
+        "state": "status",
+        "done": [
+          "Ready"
+        ],
+        "failed": [
+          "Error",
+          "Failed",
+          "Request Moderated",
+          "Content Moderated",
+          "Task not found"
+        ],
+        "queued": [
+          "Pending"
+        ],
+        "result": "result.sample",
+        "error": [
+          "details",
+          "error",
+          "status"
+        ],
+        "caps": {
+          "maxRefs": 1,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "size": 1440
+        }
+      },
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1440x816"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Швидка компактна FLUX.2 для чернеток.",
+      "source": "https://docs.bfl.ai/flux_2/flux2_overview",
+      "popular": 1
+    },
+    {
+      "id": "bfl:flux-kontext-pro",
+      "label": "FLUX.1 Kontext [pro] · BFL",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.1 Kontext",
+      "host": "bfl",
+      "hostLabel": "Black Forest Labs API",
+      "preset": "universal",
+      "baseUrl": "https://api.bfl.ai/v1",
+      "model": "flux-kontext-pro",
+      "spec": {
+        "name": "Black Forest Labs",
+        "auth": "header:x-key",
+        "submit": {
+          "method": "POST",
+          "path": "/{{model}}",
+          "body": {
+            "prompt": "{{prompt}}",
+            "input_image": "{{start_image_b64}}",
+            "output_format": "jpeg",
+            "aspect_ratio": "{{aspect}}"
+          }
+        },
+        "id": "id",
+        "poll": {
+          "method": "GET",
+          "path": "{{submit.polling_url}}",
+          "every": 3
+        },
+        "state": "status",
+        "done": [
+          "Ready"
+        ],
+        "failed": [
+          "Error",
+          "Failed",
+          "Request Moderated",
+          "Content Moderated",
+          "Task not found"
+        ],
+        "queued": [
+          "Pending"
+        ],
+        "result": "result.sample",
+        "error": [
+          "details",
+          "error",
+          "status"
+        ],
+        "caps": {
+          "maxRefs": 1,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ]
+        }
+      },
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [],
+      "promptMax": 0,
+      "text": false,
+      "price": "",
+      "notes": "Редагування за інструкцією з одним вихідним фото; пропорції задає aspect_ratio.",
+      "source": "https://docs.bfl.ai/quick_start/generating_images",
+      "popular": 1
+    },
+    {
+      "id": "recraft:recraftv4_1",
+      "label": "Recraft V4.1",
+      "vendor": "Recraft",
+      "family": "Recraft V4",
+      "host": "recraft",
+      "hostLabel": "Recraft API",
+      "preset": "universal",
+      "baseUrl": "https://external.api.recraft.ai/v1",
+      "model": "recraftv4_1",
+      "spec": {
+        "name": "Recraft",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "size": "{{aspect}}",
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "message",
+          "error.message",
+          "code"
+        ],
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "2:1",
+            "1:2",
+            "3:2",
+            "2:3",
+            "4:3",
+            "3:4",
+            "5:4",
+            "4:5",
+            "6:10",
+            "14:10",
+            "10:14",
+            "16:9",
+            "9:16"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "2:1",
+        "1:2",
+        "3:2",
+        "2:3",
+        "4:3",
+        "3:4",
+        "5:4",
+        "4:5",
+        "6:10",
+        "14:10",
+        "10:14",
+        "16:9",
+        "9:16"
+      ],
+      "sizes": [
+        "1344x768"
+      ],
+      "promptMax": 10000,
+      "text": true,
+      "price": "$0.035 за зображення",
+      "notes": "Дизайнерська модель: постери, логотипи, чіткий текст, 14 пропорцій.",
+      "source": "https://www.recraft.ai/docs/api-reference/pricing",
+      "popular": 2
+    },
+    {
+      "id": "recraft:recraftv4_1_pro",
+      "label": "Recraft V4.1 Pro",
+      "vendor": "Recraft",
+      "family": "Recraft V4",
+      "host": "recraft",
+      "hostLabel": "Recraft API",
+      "preset": "universal",
+      "baseUrl": "https://external.api.recraft.ai/v1",
+      "model": "recraftv4_1_pro",
+      "spec": {
+        "name": "Recraft",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "size": "{{aspect}}",
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "message",
+          "error.message",
+          "code"
+        ],
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "2:1",
+            "1:2",
+            "3:2",
+            "2:3",
+            "4:3",
+            "3:4",
+            "5:4",
+            "4:5",
+            "6:10",
+            "14:10",
+            "10:14",
+            "16:9",
+            "9:16"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "2:1",
+        "1:2",
+        "3:2",
+        "2:3",
+        "4:3",
+        "3:4",
+        "5:4",
+        "4:5",
+        "6:10",
+        "14:10",
+        "10:14",
+        "16:9",
+        "9:16"
+      ],
+      "sizes": [
+        "2688x1536"
+      ],
+      "promptMax": 10000,
+      "text": true,
+      "price": "$0.21 за зображення",
+      "notes": "Pro-версія V4.1 з удвічі більшою роздільністю (до 2688 px).",
+      "source": "https://www.recraft.ai/docs/api-reference/pricing",
+      "popular": 1
+    },
+    {
+      "id": "recraft:recraftv4_1_flash",
+      "label": "Recraft V4.1 Flash",
+      "vendor": "Recraft",
+      "family": "Recraft V4",
+      "host": "recraft",
+      "hostLabel": "Recraft API",
+      "preset": "universal",
+      "baseUrl": "https://external.api.recraft.ai/v1",
+      "model": "recraftv4_1_flash",
+      "spec": {
+        "name": "Recraft",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "size": "{{aspect}}",
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "message",
+          "error.message",
+          "code"
+        ],
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "2:1",
+            "1:2",
+            "3:2",
+            "2:3",
+            "4:3",
+            "3:4",
+            "5:4",
+            "4:5",
+            "6:10",
+            "14:10",
+            "10:14",
+            "16:9",
+            "9:16"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "2:1",
+        "1:2",
+        "3:2",
+        "2:3",
+        "4:3",
+        "3:4",
+        "5:4",
+        "4:5",
+        "6:10",
+        "14:10",
+        "10:14",
+        "16:9",
+        "9:16"
+      ],
+      "sizes": [
+        "1344x768"
+      ],
+      "promptMax": 10000,
+      "text": true,
+      "price": "$0.007 за зображення",
+      "notes": "Найдешевша Recraft для чернеток (без стилів).",
+      "source": "https://www.recraft.ai/docs/api-reference/pricing",
+      "popular": 1
+    },
+    {
+      "id": "recraft:recraftv3",
+      "label": "Recraft V3",
+      "vendor": "Recraft",
+      "family": "Recraft V3",
+      "host": "recraft",
+      "hostLabel": "Recraft API",
+      "preset": "universal",
+      "baseUrl": "https://external.api.recraft.ai/v1",
+      "model": "recraftv3",
+      "spec": {
+        "name": "Recraft",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "n": 1,
+            "size": "{{aspect}}",
+            "response_format": "b64_json"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "message",
+          "error.message",
+          "code"
+        ],
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "2:1",
+            "1:2",
+            "3:2",
+            "2:3",
+            "4:3",
+            "3:4",
+            "5:4",
+            "4:5",
+            "6:10",
+            "14:10",
+            "10:14",
+            "16:9",
+            "9:16"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "2:1",
+        "1:2",
+        "3:2",
+        "2:3",
+        "4:3",
+        "3:4",
+        "5:4",
+        "4:5",
+        "6:10",
+        "14:10",
+        "10:14",
+        "16:9",
+        "9:16"
+      ],
+      "sizes": [],
+      "promptMax": 1000,
+      "text": true,
+      "price": "$0.04 за зображення",
+      "notes": "Попереднє покоління зі стилями; промпт до 1000 символів.",
+      "source": "https://www.recraft.ai/docs/api-reference/pricing",
+      "popular": 0
+    },
+    {
+      "id": "minimax:image-01",
+      "label": "MiniMax image-01",
+      "vendor": "MiniMax",
+      "family": "MiniMax Image",
+      "host": "minimax",
+      "hostLabel": "MiniMax API",
+      "preset": "universal",
+      "baseUrl": "https://api.minimax.io/v1",
+      "model": "image-01",
+      "spec": {
+        "name": "MiniMax",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/image_generation",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "aspect_ratio": "{{aspect}}",
+            "response_format": "base64",
+            "n": 1
+          }
+        },
+        "result": [
+          "data.image_base64.0",
+          "data.image_urls.0"
+        ],
+        "error": [
+          "base_resp.status_msg"
+        ],
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "1:1",
+            "16:9",
+            "4:3",
+            "3:2",
+            "2:3",
+            "3:4",
+            "9:16",
+            "21:9"
+          ]
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "4:3",
+        "3:2",
+        "2:3",
+        "3:4",
+        "9:16",
+        "21:9"
+      ],
+      "sizes": [],
+      "promptMax": 1500,
+      "text": false,
+      "price": "",
+      "notes": "Недорога модель MiniMax: 8 пропорцій, промпт до 1500 символів.",
+      "source": "https://platform.minimax.io/docs/api-reference/image-generation-t2i",
+      "popular": 1
+    },
+    {
+      "id": "minimax:image-01/character",
+      "label": "MiniMax image-01 · персонаж за фото",
+      "vendor": "MiniMax",
+      "family": "MiniMax Image",
+      "host": "minimax",
+      "hostLabel": "MiniMax API",
+      "preset": "universal",
+      "baseUrl": "https://api.minimax.io/v1",
+      "model": "image-01",
+      "spec": {
+        "name": "MiniMax",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/image_generation",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "aspect_ratio": "{{aspect}}",
+            "response_format": "base64",
+            "n": 1,
+            "subject_reference": [
+              {
+                "type": "character",
+                "image_file": "{{start_image}}"
+              }
+            ]
+          }
+        },
+        "result": [
+          "data.image_base64.0",
+          "data.image_urls.0"
+        ],
+        "error": [
+          "base_resp.status_msg"
+        ],
+        "caps": {
+          "maxRefs": 1,
+          "aspects": [
+            "1:1",
+            "16:9",
+            "4:3",
+            "3:2",
+            "2:3",
+            "3:4",
+            "9:16",
+            "21:9"
+          ]
+        }
+      },
+      "modes": [
+        "edit"
+      ],
+      "maxRefs": 1,
+      "aspects": [
+        "1:1",
+        "16:9",
+        "4:3",
+        "3:2",
+        "2:3",
+        "3:4",
+        "9:16",
+        "21:9"
+      ],
+      "sizes": [],
+      "promptMax": 1500,
+      "text": false,
+      "price": "",
+      "notes": "Тримає обличчя з одного фронтального портрета (subject_reference «character»).",
+      "source": "https://platform.minimax.io/docs/api-reference/image-generation-i2i",
+      "popular": 1
+    },
+    {
+      "id": "byteplus:seedream-5-0-260128",
+      "label": "Seedream 5.0 Lite · BytePlus",
+      "vendor": "ByteDance",
+      "family": "Seedream 5",
+      "host": "byteplus",
+      "hostLabel": "BytePlus ModelArk",
+      "preset": "universal",
+      "baseUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+      "model": "seedream-5-0-260128",
+      "spec": {
+        "name": "BytePlus ModelArk",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "image": "{{refs}}",
+            "size": "{{size}}",
+            "sequential_image_generation": "disabled",
+            "response_format": "b64_json",
+            "watermark": false
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message"
+        ],
+        "caps": {
+          "maxRefs": 14,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3",
+            "21:9"
+          ],
+          "size": 2560
+        }
+      },
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 14,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "21:9"
+      ],
+      "sizes": [
+        "2560x1440"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Seedream 5.0 напряму від BytePlus: до 14 референсів, кадр 2560 px.",
+      "source": "https://docs.byteplus.com/en/docs/ModelArk/1541523",
+      "popular": 2
+    },
+    {
+      "id": "byteplus:seedream-4-5-251128",
+      "label": "Seedream 4.5 · BytePlus",
+      "vendor": "ByteDance",
+      "family": "Seedream 4",
+      "host": "byteplus",
+      "hostLabel": "BytePlus ModelArk",
+      "preset": "universal",
+      "baseUrl": "https://ark.ap-southeast.bytepluses.com/api/v3",
+      "model": "seedream-4-5-251128",
+      "spec": {
+        "name": "BytePlus ModelArk",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "image": "{{refs}}",
+            "size": "{{size}}",
+            "sequential_image_generation": "disabled",
+            "response_format": "b64_json",
+            "watermark": false
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message"
+        ],
+        "caps": {
+          "maxRefs": 14,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3",
+            "21:9"
+          ],
+          "size": 2560
+        }
+      },
+      "modes": [
+        "t2i",
+        "edit"
+      ],
+      "maxRefs": 14,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3",
+        "21:9"
+      ],
+      "sizes": [
+        "2560x1440"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "",
+      "notes": "Seedream 4.5: до 14 референсів, сильна типографіка, кадр 2560 px.",
+      "source": "https://docs.byteplus.com/en/docs/ModelArk/1541523",
+      "popular": 2
+    },
+    {
+      "id": "together:black-forest-labs/FLUX.2-pro",
+      "label": "FLUX.2 [pro] · Together",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "together",
+      "hostLabel": "Together AI",
+      "preset": "universal",
+      "baseUrl": "https://api.together.xyz/v1",
+      "model": "black-forest-labs/FLUX.2-pro",
+      "spec": {
+        "name": "Together AI",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "width": "{{width}}",
+            "height": "{{height}}",
+            "n": 1,
+            "response_format": "base64"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "size": 1440
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1440x816"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.03 за зображення",
+      "notes": "FLUX.2 [pro] на Together: точні розміри кадру; лише текст → кадр.",
+      "source": "https://docs.together.ai/docs/images-overview",
+      "popular": 2
+    },
+    {
+      "id": "together:black-forest-labs/FLUX.2-max",
+      "label": "FLUX.2 [max] · Together",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "together",
+      "hostLabel": "Together AI",
+      "preset": "universal",
+      "baseUrl": "https://api.together.xyz/v1",
+      "model": "black-forest-labs/FLUX.2-max",
+      "spec": {
+        "name": "Together AI",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "width": "{{width}}",
+            "height": "{{height}}",
+            "n": 1,
+            "response_format": "base64"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "size": 1440
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1440x816"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.07 за мегапіксель",
+      "notes": "Найвища якість FLUX.2 на Together; лише текст → кадр.",
+      "source": "https://docs.together.ai/docs/images-overview",
+      "popular": 1
+    },
+    {
+      "id": "together:black-forest-labs/FLUX.2-dev",
+      "label": "FLUX.2 [dev] · Together",
+      "vendor": "Black Forest Labs",
+      "family": "FLUX.2",
+      "host": "together",
+      "hostLabel": "Together AI",
+      "preset": "universal",
+      "baseUrl": "https://api.together.xyz/v1",
+      "model": "black-forest-labs/FLUX.2-dev",
+      "spec": {
+        "name": "Together AI",
+        "auth": "bearer",
+        "submit": {
+          "method": "POST",
+          "path": "/images/generations",
+          "body": {
+            "model": "{{model}}",
+            "prompt": "{{prompt}}",
+            "width": "{{width}}",
+            "height": "{{height}}",
+            "n": 1,
+            "response_format": "base64"
+          }
+        },
+        "result": [
+          "data.0.b64_json",
+          "data.0.url"
+        ],
+        "error": [
+          "error.message",
+          "error"
+        ],
+        "test": {
+          "method": "GET",
+          "path": "/models"
+        },
+        "caps": {
+          "maxRefs": 0,
+          "aspects": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "3:2",
+            "2:3"
+          ],
+          "size": 1440
+        }
+      },
+      "modes": [
+        "t2i"
+      ],
+      "maxRefs": 0,
+      "aspects": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "sizes": [
+        "1440x816"
+      ],
+      "promptMax": 0,
+      "text": true,
+      "price": "$0.0154 за зображення",
+      "notes": "Відкрита FLUX.2 [dev] — дешево для масових чернеток.",
+      "source": "https://docs.together.ai/docs/images-overview",
+      "popular": 1
+    }
+  ]
+}

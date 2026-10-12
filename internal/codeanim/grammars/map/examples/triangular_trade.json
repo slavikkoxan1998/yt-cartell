@@ -1,0 +1,332 @@
+{
+ "grammar": "map",
+ "duration": 15,
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "data": {
+  "language": "en",
+  "year": "1750",
+  "view": {
+   "lon": -28,
+   "lat": 28,
+   "zoom": 2.6
+  },
+  "regions": [
+   {
+    "id": "uk",
+    "preset": "uk_1801",
+    "label": false
+   },
+   {
+    "id": "france",
+    "preset": "france_metropolitan",
+    "label": false
+   },
+   {
+    "id": "spain",
+    "preset": "spain_europe",
+    "label": false
+   },
+   {
+    "id": "portugal",
+    "preset": "portugal_europe",
+    "label": false
+   },
+   {
+    "id": "wafrica",
+    "countries": [
+     "GHA",
+     "TGO",
+     "BEN",
+     "NGA",
+     "CIV",
+     "LBR",
+     "SLE",
+     "GIN",
+     "GNB",
+     "SEN",
+     "GMB"
+    ],
+    "color": "brown",
+    "label": "West Africa",
+    "labelAt": [
+     -4,
+     10.5
+    ]
+   },
+   {
+    "id": "jamaica",
+    "country": "JAM",
+    "color": "red",
+    "label": false
+   },
+   {
+    "id": "sd",
+    "preset": "saint_domingue",
+    "label": false
+   },
+   {
+    "id": "cuba",
+    "country": "CUB",
+    "color": "orange",
+    "label": false
+   }
+  ],
+  "routes": [
+   {
+    "id": "leg1",
+    "from": "liverpool",
+    "via": [
+     [
+      -12,
+      44
+     ],
+     [
+      -18,
+      25
+     ]
+    ],
+    "to": "elmina",
+    "bend": 0.15
+   },
+   {
+    "id": "leg2",
+    "from": "elmina",
+    "to": "kingston",
+    "bend": -0.12
+   },
+   {
+    "id": "leg3",
+    "from": "kingston",
+    "via": [
+     [
+      -70,
+      30
+     ],
+     [
+      -45,
+      42
+     ]
+    ],
+    "to": "liverpool"
+   }
+  ],
+  "labels": [
+   {
+    "id": "ocean",
+    "text": "Atlantic Ocean",
+    "lon": -38,
+    "lat": 33,
+    "style": "water",
+    "size": 48
+   },
+   {
+    "id": "lv",
+    "text": "Liverpool",
+    "place": "liverpool",
+    "style": "city"
+   },
+   {
+    "id": "el",
+    "text": "Elmina",
+    "place": "elmina",
+    "style": "city",
+    "show": false
+   },
+   {
+    "id": "kg",
+    "text": "Kingston",
+    "place": "kingston",
+    "style": "city",
+    "show": false
+   }
+  ]
+ },
+ "cues": [
+  {
+   "at": 0.4,
+   "kind": "pop",
+   "icon": "money",
+   "place": [
+    -1,
+    55.5
+   ],
+   "size": 120
+  },
+  {
+   "at": 0.9,
+   "kind": "drawRoute",
+   "route": "leg1",
+   "dur": 1.8
+  },
+  {
+   "at": 1.2,
+   "kind": "moveAlong",
+   "route": "leg1",
+   "object": "ship",
+   "count": 2,
+   "gap": 0.2,
+   "dur": 2.4,
+   "color": "#c22e24"
+  },
+  {
+   "at": 2.6,
+   "kind": "fill",
+   "region": "wafrica",
+   "from": "west",
+   "dur": 1.0
+  },
+  {
+   "at": 2.8,
+   "kind": "label",
+   "label": "el"
+  },
+  {
+   "at": 3.4,
+   "kind": "drawRoute",
+   "route": "leg2",
+   "dur": 2.0
+  },
+  {
+   "at": 3.6,
+   "kind": "moveAlong",
+   "route": "leg2",
+   "object": "ship",
+   "count": 3,
+   "gap": 0.15,
+   "dur": 3.0,
+   "color": "#c22e24"
+  },
+  {
+   "at": 4.2,
+   "kind": "camera",
+   "view": {
+    "lon": -74,
+    "lat": 20,
+    "zoom": 13
+   },
+   "dur": 2.4
+  },
+  {
+   "at": 5.6,
+   "kind": "fill",
+   "region": "jamaica",
+   "dur": 0.6
+  },
+  {
+   "at": 5.8,
+   "kind": "fill",
+   "region": "sd",
+   "dur": 0.8
+  },
+  {
+   "at": 6.0,
+   "kind": "fill",
+   "region": "cuba",
+   "from": "west",
+   "dur": 1.0
+  },
+  {
+   "at": 6.4,
+   "kind": "label",
+   "label": "kg"
+  },
+  {
+   "at": 6.8,
+   "kind": "pop",
+   "icon": "barrel",
+   "place": [
+    -79.6,
+    17.0
+   ],
+   "size": 70
+  },
+  {
+   "at": 7.0,
+   "kind": "pop",
+   "icon": "barrel",
+   "place": [
+    -78.3,
+    16.7
+   ],
+   "size": 70
+  },
+  {
+   "at": 7.3,
+   "kind": "pop",
+   "icon": "tag",
+   "text": "SUGAR",
+   "place": [
+    -71.4,
+    21.4
+   ],
+   "size": 110
+  },
+  {
+   "at": 7.4,
+   "kind": "glow",
+   "region": "sd",
+   "dur": 1.6,
+   "color": "#cfe6ff"
+  },
+  {
+   "at": 8.6,
+   "kind": "camera",
+   "view": {
+    "lon": -28,
+    "lat": 31,
+    "zoom": 2.6
+   },
+   "dur": 2.2
+  },
+  {
+   "at": 9.2,
+   "kind": "drawRoute",
+   "route": "leg3",
+   "dur": 2.2
+  },
+  {
+   "at": 9.4,
+   "kind": "moveAlong",
+   "route": "leg3",
+   "object": "crate",
+   "count": 5,
+   "gap": 0.1,
+   "dur": 3.2
+  },
+  {
+   "at": 12.4,
+   "kind": "pop",
+   "icon": "coin",
+   "text": "£ ×3",
+   "symbol": "£",
+   "place": [
+    -6,
+    58.5
+   ],
+   "size": 100
+  },
+  {
+   "at": 12.8,
+   "kind": "glow",
+   "route": "leg1",
+   "dur": 2.0,
+   "color": "#ffd76a"
+  },
+  {
+   "at": 12.8,
+   "kind": "glow",
+   "route": "leg2",
+   "dur": 2.0,
+   "color": "#ffd76a"
+  },
+  {
+   "at": 12.8,
+   "kind": "glow",
+   "route": "leg3",
+   "dur": 2.0,
+   "color": "#ffd76a"
+  }
+ ]
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE fcpxml>
+<fcpxml version="1.10">
+	<resources>
+		<format id="r1" name="FFVideoFormat1080p24" frameDuration="1/24s" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+		<effect id="r2" name="Cross Dissolve" uid="FxPlug:4731E73A-8DAC-4113-9A30-AE85B1761265"/>
+		<effect id="r3" name="Audio Crossfade" uid="FFAudioTransition"/>
+		<effect id="r4" name="Fade To Color" uid=".../Transitions.localized/Dissolves.localized/Fade To Color.localized/Fade To Color.motn"/>
+		<asset id="r5" name="001_scene" uid="BFFA52A0265255A1B83BE88D3EB139AC" start="0s" duration="6s" hasVideo="1" format="r1" videoSources="1" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+			<media-rep kind="original-media" src="file:///C:/Export/%D0%A4%D1%96%D0%BB%D1%8C%D0%BC/media/001_scene.mp4"/>
+		</asset>
+		<asset id="r6" name="002_scene" uid="C482D7E23C9D619AECDDE1BA9CFADE73" start="0s" duration="5s" hasVideo="1" format="r1" videoSources="1" hasAudio="1" audioSources="1" audioChannels="2" audioRate="48000">
+			<media-rep kind="original-media" src="file:///C:/Export/%D0%A4%D1%96%D0%BB%D1%8C%D0%BC/media/002_scene.mp4"/>
+		</asset>
+		<format id="r8" name="FFVideoFormatRateUndefined" width="1920" height="1080" colorSpace="1-1-1 (Rec. 709)"/>
+		<asset id="r7" name="002_hold" uid="222F6586BF7C8252EDA3F6747541BAD0" start="0s" duration="0s" hasVideo="1" format="r8" videoSources="1">
+			<media-rep kind="original-media" src="file:///C:/Export/%D0%A4%D1%96%D0%BB%D1%8C%D0%BC/media/002_hold.jpg"/>
+		</asset>
+		<asset id="r9" name="003_frame" uid="EC89CF2F27957933B73800043E925BC5" start="0s" duration="0s" hasVideo="1" format="r8" videoSources="1">
+			<media-rep kind="original-media" src="file:///C:/Export/%D0%A4%D1%96%D0%BB%D1%8C%D0%BC/media/003_frame.jpg"/>
+		</asset>
+		<asset id="r10" name="001_text" uid="BD949EF32B869D3996CA2F3676013C0A" start="0s" duration="0s" hasVideo="1" format="r8" videoSources="1">
+			<media-rep kind="original-media" src="file:///C:/Export/%D0%A4%D1%96%D0%BB%D1%8C%D0%BC/media/001_text.png"/>
+		</asset>
+		<asset id="r11" name="001_voice" uid="559E456A6948A84DDF18F7A5E942F1EE" start="0s" duration="2s" hasAudio="1" audioSources="1" audioChannels="1" audioRate="44100">
+			<media-rep kind="original-media" src="file:///C:/Export/%D0%A4%D1%96%D0%BB%D1%8C%D0%BC/media/001_voice.mp3"/>
+		</asset>
+		<asset id="r12" name="music" uid="6482B955644489FC5C33DC44B74ED3FC" start="0s" duration="6s" hasAudio="1" audioSources="1" audioChannels="1" audioRate="44100">
+			<media-rep kind="original-media" src="file:///C:/Export/%D0%A4%D1%96%D0%BB%D1%8C%D0%BC/media/music.mp3"/>
+		</asset>
+	</resources>
+	<library>
+		<event name="YT Cartell Studio">
+			<project name="Тест · фільм">
+				<sequence format="r1" duration="10s" tcStart="0s" tcFormat="NDF" audioLayout="stereo" audioRate="48k">
+					<spine>
+						<asset-clip ref="r5" offset="0s" name="Сцена 1 · Початок" start="1/2s" duration="4s" format="r1" tcFormat="NDF" audioRole="effects">
+							<adjust-blend amount="1">
+								<param name="amount">
+									<keyframeAnimation>
+										<keyframe time="1/2s" value="0" curve="linear"/>
+										<keyframe time="19/24s" value="1" curve="linear"/>
+									</keyframeAnimation>
+								</param>
+							</adjust-blend>
+							<adjust-volume amount="-12dB">
+								<param name="amount">
+									<fadeIn type="easeIn" duration="7/24s"/>
+								</param>
+							</adjust-volume>
+							<video ref="r10" lane="1" offset="4/3s" name="Сцена 1 · текст" start="0s" duration="5/2s"/>
+							<asset-clip ref="r11" lane="-1" offset="3/2s" name="Сцена 1 · голос" start="0s" duration="2s" audioRole="dialogue"/>
+							<asset-clip ref="r12" lane="-2" offset="1/2s" name="Музика" start="0s" duration="6s" audioRole="music">
+								<adjust-volume amount="-14dB">
+									<param name="amount">
+										<keyframeAnimation>
+											<keyframe time="0s" value="-14dB"/>
+											<keyframe time="11/12s" value="-14dB"/>
+											<keyframe time="1s" value="-26dB"/>
+											<keyframe time="3s" value="-26dB"/>
+											<keyframe time="83/24s" value="-14dB"/>
+											<keyframe time="143/24s" value="-14dB"/>
+										</keyframeAnimation>
+									</param>
+								</adjust-volume>
+							</asset-clip>
+							<marker start="1/2s" duration="1/24s" value="Сцена 1 · Початок"/>
+						</asset-clip>
+						<transition name="Cross Dissolve" offset="15/4s" duration="1/2s">
+							<filter-video ref="r2" name="Cross Dissolve"/>
+							<filter-audio ref="r3" name="Audio Crossfade"/>
+						</transition>
+						<asset-clip ref="r6" offset="4s" name="Сцена 2" start="1/4s" duration="9/4s" format="r1" tcFormat="NDF" audioRole="effects">
+							<adjust-volume amount="-12dB"/>
+							<asset-clip ref="r12" lane="-2" offset="9/4s" name="Музика" start="0s" duration="4s" audioRole="music">
+								<adjust-volume amount="-14dB">
+									<param name="amount">
+										<keyframeAnimation>
+											<keyframe time="0s" value="-14dB"/>
+											<keyframe time="3/2s" value="-14dB"/>
+											<keyframe time="95/24s" value="-96dB"/>
+										</keyframeAnimation>
+									</param>
+								</adjust-volume>
+							</asset-clip>
+							<marker start="1/4s" duration="1/24s" value="Сцена 2"/>
+						</asset-clip>
+						<video ref="r7" offset="25/4s" name="Сцена 2 · утримання кадру" start="0s" duration="5/6s"/>
+						<transition name="Fade To Color" offset="163/24s" duration="7/12s">
+							<filter-video ref="r4" name="Fade To Color"/>
+							<filter-audio ref="r3" name="Audio Crossfade"/>
+						</transition>
+						<video ref="r9" offset="85/12s" name="Сцена 3 · кадр" start="0s" duration="35/12s">
+							<adjust-transform position="0 0" scale="1.12 1.12" rotation="0"/>
+							<marker start="0s" duration="1/24s" value="Сцена 3"/>
+						</video>
+					</spine>
+				</sequence>
+			</project>
+		</event>
+	</library>
+</fcpxml>
