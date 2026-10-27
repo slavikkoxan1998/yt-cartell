@@ -12,7 +12,9 @@ Windows, macOS, Linux.
 Генерацію робиш **своїми** сервісами й ключами (текст, картинки, відео, озвучка): студія нічого не
 продає й нікуди не передає твої ключі — вони лежать лише на твоєму комп'ютері.
 
-Ліцензія — [MIT](LICENSE). Спільнота — [YT Cartell у Telegram](https://t.me/YT_cartell).
+Ліцензія — [MIT](LICENSE). Спільнота — [YT Cartell у Telegram](https://t.me/YT_cartell).  
+🌐 **Офіційний сайт та інструкції:** [https://gitkalenyuk.github.io/yt-cartell-studio/](https://gitkalenyuk.github.io/yt-cartell-studio/)  
+🏢 **Офіс Synapse Group:** Автономний локальний форк у структурі холдингу. Всі зміни ведуться локально за регламентом офісу.
 
 ![Головна — світла тема](screenshots/review/home-light-1920x1080.png)
 
