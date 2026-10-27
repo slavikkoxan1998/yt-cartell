@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Підключення будь-якого сервісу — YT Cartell Studio 2.0.3</title>
+<meta name="description" content="Як підключити до YT Cartell Studio будь-який текстовий сервіс (OpenAI-сумісний, Anthropic, Ollama, Azure, Gemini), авторизацію, власний сервер озвучки, своє API розпізнавання й Lumean, і як читати точні помилки.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/connect.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/connect.html">
+<meta property="og:title" content="Підключення будь-якого сервісу — YT Cartell Studio 2.0.3">
+<meta property="og:description" content="Як підключити до YT Cartell Studio будь-який текстовий сервіс (OpenAI-сумісний, Anthropic, Ollama, Azure, Gemini), авторизацію, власний сервер озвучки, своє API розпізнавання й Lumean, і як читати точні помилки.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Підключення будь-якого сервісу</span></nav>
+    <h1>Підключення будь-якого сервісу</h1>
+    <p class="lead">Текст, озвучка й розпізнавання мови — через готові сервіси, будь-який сумісний або за описом API. Тут — текстові протоколи й авторизація, власний сервер озвучки, Lumean і як читати помилки.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.3</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 5 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#text">Текст: п'ять протоколів</a></li><li><a href="#address">Адреса без /v1</a></li><li><a href="#auth">Авторизація</a></li><li><a href="#errors">Якщо не працює</a></li><li><a href="#tts">Озвучка: будь-який сервер</a></li><li><a href="#stt">Розпізнавання: Своє API</a></li><li><a href="#lumean">Lumean</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#text">Текст: п'ять протоколів</a></li><li><a href="#address">Адреса без /v1</a></li><li><a href="#auth">Авторизація</a></li><li><a href="#errors">Якщо не працює</a></li><li><a href="#tts">Озвучка: будь-який сервер</a></li><li><a href="#stt">Розпізнавання: Своє API</a></li><li><a href="#lumean">Lumean</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="text"><h2 id="text">Текст: п'ять протоколів</h2>
+<p><b>Налаштування → Підключення → «Текст і сценарій» → «Хто пише текст»</b>: «OpenAI-сумісний», «Anthropic», «Ollama», «Azure», «Google Gemini» (у вузькому вікні — «OpenAI» і «Gemini»). Далі адреса, API-ключ, модель і «Перевірити». Не знаєш адресу — <a href="catalogs.html">«Вибрати з каталогу»</a>: 36 сервісів і локальних серверів.</p><div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Протокол</th><th scope="col">Що підключати</th></tr></thead><tbody><tr><td>«OpenAI-сумісний»</td><td>CarteLink, OpenAI і будь-який сервіс із <code>/chat/completions</code>.</td></tr><tr><td>«Anthropic»</td><td>Claude через Anthropic API; ключ іде в заголовку <code>x-api-key</code>.</td></tr><tr><td>«Ollama»</td><td>Локальні моделі Ollama.</td></tr><tr><td>«Azure»</td><td>Azure OpenAI. Для адреси деплойменту з'явиться поле «api-version» (за замовчуванням 2024-10-21).</td></tr><tr><td>«Google Gemini»</td><td>Ключ Google AI Studio.</td></tr></tbody></table></div><figure class="g-fig g-shot" style="--w:868px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/connect-text-dark-868.webp 868w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/connect-text-light-868.webp" srcset="../assets/img/guide/connect-text-light-868.webp 868w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="868" height="763" alt="Картка «Текст і сценарій»: протокол «OpenAI-сумісний», адреса, ключ, модель, «Авторизація» і результат перевірки" loading="lazy" decoding="async"></picture><figcaption>Протокол, адреса, ключ, модель і «Авторизація».</figcaption></figure></section>
+<section aria-labelledby="address"><h2 id="address">Адреса без /v1 — не біда</h2>
+<p>Під полем підказка: «Будь-який OpenAI-сумісний сервіс. /v1 чи /api/v1 студія знайде сама.» «Перевірити» пробує адресу як є, потім із <code>/v1</code>, <code>/api/v1</code> і <code>/openai/v1</code>. Знайшлася робоча форма — студія напише «Адресу виправлено: … → …» і збереже її. Вставив повну адресу запиту (<code>…/chat/completions</code>) — теж спрацює.</p></section>
+<section aria-labelledby="auth"><h2 id="auth">Авторизація</h2>
+<p>Поле «Авторизація» — як ключ іде на сервер. Зазвичай досить «Авто»: «Перевірити» сам знайде потрібний заголовок.</p><div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Варіант</th><th scope="col">Що робить</th></tr></thead><tbody><tr><td>«Авто (Bearer)»</td><td>Студія сама підбирає заголовок під час перевірки. Для Anthropic — «Авто (x-api-key)», для Azure — «Авто (api-key)».</td></tr><tr><td>«Authorization: Bearer»</td><td>Ключ у заголовку <code>Authorization: Bearer …</code>.</td></tr><tr><td>«x-api-key»</td><td>Ключ у заголовку <code>x-api-key</code>.</td></tr><tr><td>«api-key (Azure)»</td><td>Ключ у заголовку <code>api-key</code>.</td></tr><tr><td>«Без ключа»</td><td>Для серверів, яким ключ не потрібен.</td></tr></tbody></table></div><p>Якщо спрацював інший заголовок, студія напише «Ключ працює в заголовку … — збережено».</p><p class="muted">Ключ у параметрі адреси (query) можна задати лише в описі API для «Своє API» чи «Власного сервера»: <code>bearer</code>, <code>header:Назва</code>, <code>query:назва</code> або <code>none</code>.</p></section>
+<section aria-labelledby="errors"><h2 id="errors">Якщо не працює</h2>
+<p>«Перевірити» показує панель «Не вдалося» з точною помилкою: що відповів сервіс і з яким кодом, сам запит (ключі прибрано), «Відповідь», «Підказка» і «Спробувано» — кожну адресу, яку студія перепробувала.</p><div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Що бачиш</th><th scope="col">Що перевірити</th></tr></thead><tbody><tr><td>«…відхилив ключ (401)»</td><td>Ключ і поле «Авторизація».</td></tr><tr><td>«…відповів помилкою 404»</td><td>Адресу: найчастіше бракує <code>/v1</code> (напр. <code>https://сервер/v1</code>) або <code>/api/v1</code>.</td></tr><tr><td>Немає зв'язку з локальною адресою</td><td>Чи запущені CarteLink чи Ollama на цьому комп'ютері.</td></tr></tbody></table></div><p>Ті самі точні помилки є на картках сцен, у черзі й у Telegram — <a href="failed.html">Невдалі сцени і точні помилки</a>.</p></section>
+<section aria-labelledby="tts"><h2 id="tts">Озвучка: будь-який сервер</h2>
+<p><b>«Озвучка» → сервіс «Власний сервер» → «Опис API озвучки».</b> Почни з «Шаблон…»:</p><ul class="g-list"><li>«OpenAI-сумісний /audio/speech»</li><li>«ElevenLabs-сумісний»</li><li>«Lumean (замовлення за шаблоном)»</li><li>«Простий синхронний: POST → аудіо або посилання»</li><li>«Асинхронні задачі (каркас)»</li></ul><p>Або «Налаштувати з документації (ШІ)» → «Скласти опис» → переглянь «Чернетку від ШІ» → «Зберегти опис». Як влаштований опис API — у розділі <a href="api.html#json">«Своє API»</a>. Готові сервіси з параметрами — у <a href="catalogs.html">каталозі озвучки</a>.</p></section>
+<section aria-labelledby="stt"><h2 id="stt">Розпізнавання мови: «Своє API»</h2>
+<p><b>«Розпізнавання мови» → «Своє API» → «Опис API розпізнавання».</b> Шаблони: «OpenAI-сумісний /audio/transcriptions», «ElevenLabs Scribe», «Простий синхронний: POST → текст зі словами», «Асинхронні задачі (каркас)». Так само є «Налаштувати з документації (ШІ)».</p></section>
+<section aria-labelledby="lumean"><h2 id="lumean">Lumean</h2>
+<p>Lumean — окремий сервіс у списку «Озвучка». Він озвучує моделями ElevenLabs (за замовчуванням <code>eleven_multilingual_v2</code>, мови поза її 29 — через <code>eleven_v3</code>) і працює через замовлення: студія ставить задачу й забирає готове аудіо.</p><ol class="g-steps"><li><div>На lumean.app: <b>«Розробникам» → «API-ключі»</b> — створи ключ із <b>пресетом full</b>.</div></li><li><div>У студії: <b>«Озвучка» → сервіс «Lumean»</b> → встав ключ → «Перевірити».</div></li></ol><div class="callout warn"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg><div><p>Ключу потрібні права <code>orders.write</code>, <code>orders.download</code>, <code>templates.write</code>, <code>voices.read</code> (і <code>billing.read</code>, щоб бачити баланс) — саме їх дає пресет full. Без них студія скаже, якого права бракує, напр. «Lumean: ключу бракує прав (403) — …».</p></div></div><p class="muted">У «Власному сервері» є шаблон «Lumean (замовлення за шаблоном)», але простіше — сервіс «Lumean» у списку.</p></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Як підключити CarteLink?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>«OpenAI-сумісний», адреса на кшталт <code>http://127.0.0.1:8317/v1</code>, ключ і модель → «Перевірити». CarteLink має бути запущений.</p></div></details><details class="qa"><summary>Ollama просить ключ?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні — у «Авторизації» можна вибрати «Без ключа».</p></div></details><details class="qa"><summary>Що, як мого сервісу немає ні в списку, ні в каталозі?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Текст — будь-який OpenAI-сумісний сервіс. Кадри й відео — <a href="api.html">«Своє API»</a>, озвучка — «Власний сервер», розпізнавання — «Своє API»: шаблон, опис JSON або «Налаштувати з документації (ШІ)». Або встав усе в <a href="assistant.html">«Помічник підключення»</a>.</p></div></details></div></section><nav class="g-next" aria-label="Інші розділи довідника"><a href="assistant.html"><small>← Попередній розділ</small><b>Помічник підключення</b></a><a class="next" href="catalogs.html"><small>Наступний розділ →</small><b>Каталоги моделей</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

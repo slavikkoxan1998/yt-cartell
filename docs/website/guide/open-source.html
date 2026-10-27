@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Відкритий код і переробка під себе — YT Cartell Studio 2.1.0</title>
+<meta name="description" content="YT Cartell Studio з версії 2.1.0 — відкритий код під ліцензією MIT: як зібрати студію з коду на Windows і macOS, де що лежить у проєкті, свій канал оновлень для форку й приклади запитів до ШІ.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/open-source.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/open-source.html">
+<meta property="og:title" content="Відкритий код і переробка під себе — YT Cartell Studio 2.1.0">
+<meta property="og:description" content="YT Cartell Studio з версії 2.1.0 — відкритий код під ліцензією MIT: як зібрати студію з коду на Windows і macOS, де що лежить у проєкті, свій канал оновлень для форку й приклади запитів до ШІ.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Відкритий код</span></nav>
+    <h1>Відкритий код і переробка під себе</h1>
+    <p class="lead">З версії 2.1.0 YT Cartell Studio безкоштовна й з відкритим кодом (MIT). Тепер програма доступна кожному вайбкодеру — кожен може зробити з неї те, що хоче: забрати код, попросити ШІ змінити що завгодно й зібрати свою версію.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.1.0</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 5 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#what">Що змінилося в 2.1.0</a></li><li><a href="#build">Зібрати з коду</a></li><li><a href="#structure">Де що лежить</a></li><li><a href="#updates">Свій канал оновлень</a></li><li><a href="#prompts">Приклади запитів до ШІ</a></li><li><a href="#license">Ліцензія</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#what">Що змінилося в 2.1.0</a></li><li><a href="#build">Зібрати з коду</a></li><li><a href="#structure">Де що лежить</a></li><li><a href="#updates">Свій канал оновлень</a></li><li><a href="#prompts">Приклади запитів до ШІ</a></li><li><a href="#license">Ліцензія</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="what"><h2 id="what">Що змінилося в 2.1.0</h2>
+<ul class="g-list"><li><b>Без входу й підписок.</b> Вхід через Telegram і перевірку підписки на канал і чат прибрано: завантажуй і користуйся. Канал <a href="https://t.me/YT_cartell" rel="noopener">YT Cartell</a> лишається — для новин і спілкування, за бажанням.</li><li><b>Відкритий код.</b> Код студії — у репозиторії <a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">gitkalenyuk/yt-cartell-studio-source</a> під ліцензією MIT.</li><li><b>Готові збірки — там само, де й були:</b> у <a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">релізах gitkalenyuk/yt-cartell-studio</a>. Кнопка «Оновлення» в студії бере нові версії звідти.</li></ul>
+<div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>Не плутай із <a href="telegram.html">Telegram-ботом</a>: свій бот для сповіщень і керування з телефона нікуди не дівся — він необов'язковий і працює як раніше.</p></div></div></section>
+<section aria-labelledby="build"><h2 id="build">Зібрати з коду</h2>
+<p>Студія написана на Go: увесь інтерфейс, генерація й монтаж — в одному файлі програми, без браузера й Node.js. Для монтажу їй, як і готовій збірці, потрібен FFmpeg — його можна поставити кнопкою в самій студії.</p>
+<h3 id="build-win">Windows</h3>
+<ol class="g-steps"><li><div>Встанови <a href="https://go.dev/dl/" rel="noopener">Go 1.27 або новіший</a> і <a href="https://git-scm.com/" rel="noopener">Git</a>.</div></li><li><div>Склонуй код (або спершу зроби Fork на GitHub і клонуй свій):<pre class="g-code"><code>git clone https://github.com/gitkalenyuk/yt-cartell-studio-source
+cd yt-cartell-studio-source</code></pre></div></li><li><div>Запусти <b><code>build.bat</code></b>. Поруч з'явиться <code>YT-Cartell-Studio.exe</code>. Версію можна передати аргументом: <code>build.bat 2.1.0</code>.</div></li></ol>
+<div class="callout"><svg class="i" aria-hidden="true"><use href="#i-bulb"/></svg><div><p>Збірка не підписана сертифікатом, тож Windows може показати «Windows захистив ваш ПК» → «Докладніше» → «Виконати в будь-якому разі». Якщо збірка падає з помилкою запису — закрий запущену студію й спробуй знову.</p></div></div>
+<h3 id="build-mac">macOS</h3>
+<ol class="g-steps"><li><div>Встанови Go 1.27+ (<code>brew install go</code> або з <a href="https://go.dev/dl/" rel="noopener">go.dev</a>) і Xcode Command Line Tools: <code>xcode-select --install</code>.</div></li><li><div>Склонуй код, як вище.</div></li><li><div>Запусти <b><code>bash build-mac.sh</code></b> — він збере «YT Cartell Studio.app» для Apple Silicon та Intel і запакує їх у zip у папці <code>dist/mac</code>. Лише для свого Mac: <code>bash build-mac.sh --arch arm64</code>. Усі параметри — <code>bash build-mac.sh --help</code>.</div></li></ol>
+<div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>Mac-версію збирають лише на Mac: там графічній бібліотеці потрібен cgo, тож з Windows її не зібрати.</p></div></div></section>
+<section aria-labelledby="structure"><h2 id="structure">Де що лежить</h2>
+<p>Почни з <b>ARCHITECTURE.md</b> у корені репозиторію: там структура, правила проєкту й опис кожної частини. Дай його прочитати й своєму ШІ-агенту — так він менше помилятиметься. Кілька орієнтирів:</p>
+<div class="g-table-wrap"><table class="g-table"><thead><tr><th>Папка</th><th>Що там</th></tr></thead><tbody>
+<tr><td><code>main.go</code></td><td>точка входу програми</td></tr>
+<tr><td><code>internal/appui</code></td><td>вікно, меню й екрани студії</td></tr>
+<tr><td><code>internal/gui</code></td><td>набір елементів інтерфейсу, кольори й теми</td></tr>
+<tr><td><code>internal/studio</code></td><td>проєкти й п'ять кроків: сценарій → план → розкадровка → відео й озвучка → монтаж</td></tr>
+<tr><td><code>internal/llm</code></td><td>текстові ШІ-сервіси</td></tr>
+<tr><td><code>internal/tts</code></td><td>сервіси озвучки</td></tr>
+<tr><td><code>internal/glabs</code>, <code>internal/gemini</code>, <code>internal/providers</code></td><td>кадри й відео: G-Labs Studio, Google і «Своє API»</td></tr>
+<tr><td><code>internal/media</code></td><td>FFmpeg і збирання готового фільму</td></tr>
+<tr><td><code>internal/nle</code></td><td>експорт у DaVinci Resolve, Premiere, Final Cut та інші</td></tr>
+<tr><td><code>internal/tgbot</code>, <code>internal/notify</code></td><td>свій Telegram-бот і сповіщення</td></tr>
+<tr><td><code>internal/config</code></td><td>налаштування й ключі</td></tr>
+<tr><td><code>internal/update</code>, <code>internal/version</code></td><td>оновлення з GitHub і номер версії</td></tr>
+</tbody></table></div></section>
+<section aria-labelledby="updates"><h2 id="updates">Свій канал оновлень</h2>
+<p>Кнопка «Оновлення» шукає нові версії в релізах <code>gitkalenyuk/yt-cartell-studio</code>. Якщо ти робиш свою версію, направ оновлення на свій репозиторій — інакше студія запропонує поставити поверх неї офіційну. Репозиторій задається під час збирання через ldflags:</p>
+<pre class="g-code"><code>go build -ldflags "-X ytcartell/internal/update.Owner=me -X ytcartell/internal/update.Repo=my-studio" .</code></pre>
+<ul class="g-list"><li><b>Windows:</b> <code>build.bat</code> підставляє їх сам, якщо задати змінні середовища:<pre class="g-code"><code>set UPDATE_OWNER=me
+set UPDATE_REPO=my-studio
+build.bat 2.1.0</code></pre></li><li><b>macOS:</b> допиши ці два <code>-X …</code> у рядок <code>LDFLAGS</code> у <code>build-mac.sh</code> (або попроси ШІ). Параметр <code>--repo</code> скрипта лише вказує, куди завантажувати zip із <code>--upload</code>.</li><li><b>Що має бути в релізі:</b> тег з версією (наприклад <code>v2.1.1</code>), файли <code>YT-Cartell-Studio-&lt;версія&gt;-windows-x64.exe</code>, <code>…-macos-arm64.zip</code> / <code>…-macos-x64.zip</code> і <code>SHA256SUMS.txt</code> з їхніми контрольними сумами — без рядка в ньому студія оновлення не встановить.</li></ul></section>
+<section aria-labelledby="prompts"><h2 id="prompts">Приклади запитів до ШІ</h2>
+<p>Відкрий папку з кодом у Claude Code, Codex, Cursor чи іншому агенті й пиши своїми словами — українською теж можна. Кілька ідей:</p>
+<ul class="g-list"><li>Прочитай ARCHITECTURE.md і коротко поясни мені, як влаштована студія і де що лежить. Нічого поки не змінюй.</li><li>Додай новий стиль кадрів «Українська витинанка»: опис для промтів і прев'ю в галереї стилів — так само, як в інших стилів.</li><li>Підключи мій сервіс озвучки за документацією API за цим посиланням: … Додай його в «Налаштування → Підключення» поруч з іншими.</li><li>Додай стартовий профіль автопілота «Мій канал»: Shorts 9:16, 45 секунд, стиль «Нуар», швидкий темп.</li><li>Зроби головний колір інтерфейсу синім замість помаранчевого — і в світлій, і в темній темі.</li><li>Переклади інтерфейс студії англійською і додай у налаштування перемикач мови інтерфейсу.</li><li>Додай на крок «Монтаж» новий перехід між сценами — «Спалах білого», як інші переходи.</li><li>Зроби так, щоб моя збірка оновлювалась із мого репозиторію релізів me/my-studio, а не з офіційного.</li><li>Збери програму через build.bat і виправ помилки збірки, якщо будуть.</li></ul>
+<div class="callout tip"><svg class="i" aria-hidden="true"><use href="#i-bulb"/></svg><div><p>Проси по одній зміні за раз, а після кожної — збирай і перевіряй. Працюєш у Git — роби коміт перед кожною новою зміною, щоб легко відкотитися.</p></div></div></section>
+<section aria-labelledby="license"><h2 id="license">Ліцензія</h2>
+<p>Код поширюється під ліцензією <b>MIT</b>: його можна використовувати, змінювати, поширювати й продавати свої версії, зокрема з закритим кодом. Умова одна — зберегти текст ліцензії з копірайтом у копіях. Гарантій немає: програма надається «як є». Повний текст — у файлі <code>LICENSE</code> репозиторію.</p>
+<p>Сторонні сервіси й програми, з якими працює студія (G-Labs Studio, Google, ElevenLabs, FFmpeg та інші), мають власні умови — вони від ліцензії студії не змінюються.</p></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Треба вміти програмувати?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні — у цьому й ідея. Описуєш зміну словами, а код пише ШІ-агент. Знадобиться лише встановити Go й запустити збірку.</p></div></details><details class="qa"><summary>Мої проєкти й ключі зміняться, якщо я запущу свою збірку?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Своя збірка читає ті самі налаштування й папку проєктів, що й офіційна, — вони лежать окремо від програми. Перед великими змінами зроби копію через <a href="transfer.html">перенесення налаштувань</a>.</p></div></details><details class="qa"><summary>Потрібен вхід через Telegram?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні. З версії 2.1.0 входу через Telegram і перевірки підписки немає — студія відкривається одразу.</p></div></details><details class="qa"><summary>Можна запропонувати зміну в офіційну версію?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Так: зроби Fork, внеси зміну й відкрий Pull Request у <a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">репозиторій з кодом</a>.</p></div></details></div></section><nav class="g-next" aria-label="Інші розділи довідника"><a href="transfer.html"><small>← Попередній розділ</small><b>Перенесення налаштувань</b></a><a class="next" href="./"><small>Усі розділи →</small><b>Довідник</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Помічник підключення — YT Cartell Studio 2.0.3</title>
+<meta name="description" content="Помічник підключення в YT Cartell Studio 2.0.3: встав адреси, ключі й посилання — студія розпізнає сервіси, перевірить і налаштує їх сама. Ключі нейронці не передаються.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/assistant.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/assistant.html">
+<meta property="og:title" content="Помічник підключення — YT Cartell Studio 2.0.3">
+<meta property="og:description" content="Помічник підключення в YT Cartell Studio 2.0.3: встав адреси, ключі й посилання — студія розпізнає сервіси, перевірить і налаштує їх сама. Ключі нейронці не передаються.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Помічник підключення</span></nav>
+    <h1>Помічник підключення</h1>
+    <p class="lead">Встав в одне поле все, що маєш: адреси, ключі, посилання на документацію чи просто нотатки. Помічник розбереться, що це, перевірить і запропонує, що куди підключити.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.3</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 3 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#where">Де він</a></li><li><a href="#how">Як користуватися</a></li><li><a href="#detect">Що він розпізнає</a></li><li><a href="#keys">Ключі й ШІ</a></li><li><a href="#plan">План і перевірка</a></li><li><a href="#undo">Повернути як було</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#where">Де він</a></li><li><a href="#how">Як користуватися</a></li><li><a href="#detect">Що він розпізнає</a></li><li><a href="#keys">Ключі й ШІ</a></li><li><a href="#plan">План і перевірка</a></li><li><a href="#undo">Повернути як було</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="where"><h2 id="where">Де він</h2>
+<p><b>Налаштування → «Підключення»</b> — перша картка (у вузькому вікні вкладка зветься «Сервіси»). Якщо студії чогось бракує, на Головній поруч із «Відкрити налаштування» буде й кнопка «Помічник підключення».</p></section>
+<section aria-labelledby="how"><h2 id="how">Як користуватися</h2>
+<ol class="g-steps"><li><div><b>Встав текст</b> — як є, хоч одним повідомленням: «ось мій ендпоінт https://… ключ sk-… модель …», ключ озвучки, посилання на документацію.</div></li><li><div><b>«Розібрати й перевірити».</b> Поки помічник працює, його можна зупинити кнопкою «Скасувати».</div></li><li><div><b>Переглянь «Знайдено» і «План».</b> Зайвий крок вимкни перемикачем праворуч.</div></li><li><div><b>«Застосувати (N)»</b> — або «Відкинути», якщо передумав.</div></li></ol><figure class="g-fig g-shot" style="--w:780px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/assistant-dark-1440.webp 1440w, ../assets/img/guide/assistant-dark-860.webp 860w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/assistant-light-1440.webp" srcset="../assets/img/guide/assistant-light-1440.webp 1440w, ../assets/img/guide/assistant-light-860.webp 860w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="1440" height="777" alt="Помічник підключення: вставлений текст, знайдені адреса, ключі, модель і посилання, план — текст, кадри й відео працюють, озвучка ElevenLabs не працює з точною помилкою 401" loading="lazy" decoding="async"></picture><figcaption>Знайдене, план і перевірка кожного кроку — разом із точною помилкою.</figcaption></figure></section>
+<section aria-labelledby="detect"><h2 id="detect">Що він розпізнає</h2>
+<ul class="g-list"><li><b>Адреси.</b> Відомі сервіси помічник упізнає без жодного запиту. Для незнайомих адрес робить лише прості запити на читання — список моделей, голосів чи стан сервера.</li><li><b>Ключі за виглядом:</b> <code>sk-ant-…</code> (Anthropic), <code>sk-or-v1-…</code> (OpenRouter), <code>AIza…</code> і <code>AQ.…</code> (Google AI Studio), <code>sk_car_…</code> (Cartesia), <code>gsk_…</code>, <code>xai-…</code>, <code>r8_…</code> (Replicate), ключ fal.ai у вигляді <code>id:secret</code>, <code>cg-…</code> (CarteLink) та інші.</li><li><b>Підказки словами:</b> ключ після «ключ», «key» чи «token», модель після «модель» або за назвою, голоси, посилання на документацію. Слова в тому ж рядку підказують призначення — «озвучка ElevenLabs sk_…» піде в озвучку.</li></ul></section>
+<section aria-labelledby="keys"><h2 id="keys">Ключі й ШІ</h2>
+<p>Справжні ключі бачать лише самі сервіси — під час перевірки. Текстову модель помічник питає, тільки коли щось лишилося незрозумілим, і передає їй текст замаскованим: кожен ключ стає <code>[KEY1]</code>, <code>[KEY2]</code>…, у посиланнях ховаються параметри з ключами, а ключі, вже збережені в налаштуваннях, теж приховані.</p><p>Посилання на документацію ШІ читає, щоб скласти опис API для <a href="api.html">«Своє API»</a> чи «Власного сервера».</p><p class="muted">Перевірка нічого не генерує: текстовий сервіс просять відповісти одним словом.</p></section>
+<section aria-labelledby="plan"><h2 id="plan">План і перевірка</h2>
+<p><b>«Знайдено»</b> — усе розпізнане, ключі замасковані. <b>«План»</b> — рядок на кожну роль, напр. «Текст → tokify.sale · gemini-3.8-flash»: позначка «Працює», «Не працює» чи «Не перевірено», що саме буде записано, і результат перевірки — з точним запитом і відповіддю, якщо не вийшло.</p><p>Кроки, що не пройшли перевірку, одразу вимкнені — увімкни, якщо все одно хочеш їх записати. Угорі видно підсумок: «Усе працює» або, напр., «4 працюють з 5».</p></section>
+<section aria-labelledby="undo"><h2 id="undo">Повернути як було</h2>
+<p>Перед змінами студія зберігає копію налаштувань — <b>«Повернути як було»</b> відновить усе одним натиском. Після застосування студія напише «Підключено: …» — натисни «Перевірити» в картках, щоб переконатися ще раз.</p><p class="muted">На все в помічника є 10 хвилин. Не встиг — встав менше за раз.</p></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Помічник передає мої ключі нейронці?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні. Ключі отримують лише сервіси, яким вони належать, — під час перевірки. Текстова модель, якщо її взагалі питають, бачить замість ключів <code>[KEY1]</code>, <code>[KEY2]</code>…</p></div></details><details class="qa"><summary>Він не впізнав мій сервіс. Що робити?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Додай у рядок слово-підказку — «текст», «кадри», «відео», «озвучка» — або посилання на документацію сервісу. Чи підключи вручну: <a href="connect.html">Підключення будь-якого сервісу</a>, <a href="catalogs.html">Каталоги моделей</a>.</p></div></details><details class="qa"><summary>Що буде з ключами Google, які вже є?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Новий ключ Google AI Studio додається до списку, а не замінює його.</p></div></details></div></section><nav class="g-next" aria-label="Інші розділи довідника"><a href="failed.html"><small>← Попередній розділ</small><b>Невдалі сцени і точні помилки</b></a><a class="next" href="connect.html"><small>Наступний розділ →</small><b>Підключення будь-якого сервісу</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

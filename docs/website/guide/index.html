@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Довідник YT Cartell Studio: що нового в 2.0.3 і як цим користуватися</title>
+<meta name="description" content="Довідник YT Cartell Studio: невдалі сцени й точні помилки, Помічник підключення, будь-який сервіс, каталоги моделей, мультиголос — і всі розділи версії 2.0.1.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/">
+<meta property="og:title" content="Довідник YT Cartell Studio: що нового в 2.0.3 і як цим користуватися">
+<meta property="og:description" content="Довідник YT Cartell Studio: невдалі сцени й точні помилки, Помічник підключення, будь-який сервіс, каталоги моделей, мультиголос — і всі розділи версії 2.0.1.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="../">Головна</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Довідник</span></nav>
+    <h1>Що нового в 2.0.3</h1>
+    <p class="lead">Сцени більше не зникають з монтажу мовчки, будь-який сервіс підключається сам, а диктор і герої читають різними голосами. Тут — як цим користуватися, крок за кроком, а нижче — усі розділи версії 2.0.1.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Версія 2.0.3</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>14 розділів</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#oss">Нове в 2.1.0: відкритий код</a></li><li><a href="#update">Як оновитися</a></li><li><a href="#new203">Нове в 2.0.3</a></li><li><a href="#more">І ще в 2.0.3</a></li><li><a href="#guides">Розділи 2.0.1</a></li><li><a href="#more201">І ще в 2.0.1</a></li></ol>
+      <div class="g-toc-more"><h2>Розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#oss">Нове в 2.1.0: відкритий код</a></li><li><a href="#update">Як оновитися</a></li><li><a href="#new203">Нове в 2.0.3</a></li><li><a href="#more">І ще в 2.0.3</a></li><li><a href="#guides">Розділи 2.0.1</a></li><li><a href="#more201">І ще в 2.0.1</a></li></ol></details>
+<section aria-labelledby="oss"><h2 id="oss">Нове в 2.1.0: відкритий код, без входу</h2>
+<p>З версії 2.1.0 студія безкоштовна й з відкритим кодом (MIT). Входу через Telegram і підписки на канал чи чат більше немає — завантажуй і користуйся. Тепер програма доступна кожному вайбкодеру: забери <a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">код з GitHub</a>, відкрий папку в Claude Code, Codex чи Cursor і попроси ШІ змінити що завгодно.</p>
+<ul class="g-list"><li><a href="open-source.html#build">Як зібрати студію з коду</a> на Windows і macOS.</li><li><a href="open-source.html#structure">Де що лежить</a> у проєкті й <a href="open-source.html#updates">свій канал оновлень</a> для форку.</li><li><a href="open-source.html#prompts">Приклади запитів до ШІ</a>.</li></ul>
+<div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>Свій <a href="telegram.html">Telegram-бот</a> для сповіщень і керування з телефона лишився — він необов'язковий і з входом не пов'язаний.</p></div></div></section>
+<section aria-labelledby="update"><h2 id="update">Як оновитися</h2>
+<ol class="g-steps"><li><div>У меню студії ліворуч натисни <b>«Оновлення»</b> (крапка біля нього — є нова версія).</div></li><li><div><b>«Завантажити й встановити»</b> — студія сама завантажить нову версію й звірить контрольну суму.</div></li><li><div><b>«Перезапустити зараз»</b>. Якщо щось генерується, студія спершу перепитає.</div></li></ol><div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>Проєкти, ключі й налаштування лишаються на місці — вони лежать окремо від програми. Ще не маєш студії — <a href='../#download'>завантаж її тут</a>.</p></div></div><p class="muted" data-mac-pending="2.0.3">Версія 2.0.3 поки вийшла для Windows. Для Mac найновіша збірка — 2.0.2, її дає кнопка «<a href="../#download">Завантажити</a>».</p><p class="muted">Повний перелік змін — в <a href="../changelog/">історії версій</a> і в <a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases/tag/v2.0.3" rel="noopener">нотатках до релізу 2.0.3</a>.</p></section>
+<section aria-labelledby="new203"><h2 id="new203">Нове в 2.0.3 — як користуватися</h2>
+<div class="gi-grid"><a class="new-card" href="failed.html"><div class="new-media"><picture><img src="../assets/img/new/card-gaps-light-600.webp" srcset="../assets/img/new/card-gaps-light-796.webp 796w, ../assets/img/new/card-gaps-light-600.webp 600w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="796" height="498" alt="Вікно «Не всі сцени готові — 2 сцени» з точними помилками й трьома кнопками" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Невдалі сцени і точні помилки</h3><p>Перед монтажем — список невдалих сцен з точною помилкою й вибір: без них, з кадром замість відео чи зупинитись.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="assistant.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-assistant-dark-900.webp 900w, ../assets/img/new/card-assistant-dark-600.webp 600w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-assistant-light-600.webp" srcset="../assets/img/new/card-assistant-light-900.webp 900w, ../assets/img/new/card-assistant-light-600.webp 600w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="900" height="527" alt="Помічник підключення: вставлений текст, знайдене й план із перевіркою" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Помічник підключення</h3><p>Встав адреси, ключі й посилання як є — студія розбереться, що куди, перевірить і налаштує.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="connect.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-errors-dark-868.webp 868w, ../assets/img/new/card-errors-dark-600.webp 600w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-errors-light-600.webp" srcset="../assets/img/new/card-errors-light-868.webp 868w, ../assets/img/new/card-errors-light-600.webp 600w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="868" height="543" alt="Картка «Текст і сценарій»: «Авторизація» і точна помилка перевірки" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Підключення будь-якого сервісу</h3><p>Текст без /v1, Anthropic, Ollama, Azure, вибір авторизації, власний сервер озвучки й Lumean.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="catalogs.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-catalogs-dark-677.webp 677w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-catalogs-light-677.webp" srcset="../assets/img/new/card-catalogs-light-677.webp 677w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="677" height="423" alt="Каталог моделей відео: пошук і 199 моделей за сервісами" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Каталоги моделей</h3><p>199 моделей відео, 188 — кадрів, 144 — озвучка, 36 текстових сервісів: пошук, фільтри, вибір в один клік.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="multivoice.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-multivoice-dark-424.webp 424w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-multivoice-light-424.webp" srcset="../assets/img/new/card-multivoice-light-424.webp 424w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="424" height="265" alt="Текст озвучки за голосами: репліки «Диктор» і «Диктор 2»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Мультиголос</h3><p>Диктор, Диктор 2 і 3 та свій голос кожному героєві; субтитри кольором мовця.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a></div></section>
+<section aria-labelledby="more"><h2 id="more">І ще в 2.0.3</h2>
+<ul class="g-list"><li><b>Telegram-бот</b> — список невдалих сцен із кнопками рішення. <a href="telegram.html#failed">Докладніше</a>.</li><li><b>Lumean</b> — новий сервіс озвучки (ключ із пресетом full). <a href="connect.html#lumean">Як підключити</a>.</li><li><b>Розпізнавання мови через «Своє API»</b> і будь-яка озвучка через «Власний сервер» — з шаблонами. <a href="connect.html#tts">Докладніше</a>.</li><li><b>Кліпи не обрізає в кінці</b> — довжина враховує переходи й реальний темп мови. <a href="failed.html#length">Докладніше</a>.</li><li><b>Озвучка довша за кліп</b> — кліп позначається «перезняти?». <a href="failed.html#longer">Докладніше</a>.</li><li><b>Omni Flash через G-Labs</b> — якщо сцену відхилили, ще одна спроба лише з кадром. <a href="failed.html#retry">Докладніше</a>.</li><li><b>«Повторити»</b> — одна назва замість «Зняти ще раз», «Озвучити ще раз» і «Спробувати ще раз».</li><li><b>Ключі Google AI Studio <code>AQ.…</code></b> — з версії 2.0.2. <a href="voice.html#googlekeys">Докладніше</a>.</li></ul></section>
+<section aria-labelledby="guides"><h2 id="guides">Розділи версії 2.0.1</h2>
+<div class="gi-grid"><a class="new-card" href="modes.html"><div class="new-media"><picture><img src="../assets/img/new/card-modes-600.webp" srcset="../assets/img/new/card-modes-900.webp 900w, ../assets/img/new/card-modes-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="900" height="562" alt="Кадр із анімованим текстом «Населення Землі — 8,1 млрд» поверх ілюстрації" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Голос у відео і режими</h3><p>Герої говорять прямо в кадрі, фільми без людей і моушн-графіка з анімованими заголовками й числами.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="remake.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-remake-dark-900.webp 900w, ../assets/img/new/card-remake-dark-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-remake-light-600.webp" srcset="../assets/img/new/card-remake-light-900.webp 900w, ../assets/img/new/card-remake-light-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="900" height="563" alt="Розбір прикладу: мініатюра відео, факти й текст розбору сцена за сценою" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Перезняти за прикладом</h3><p>Посилання на YouTube + твоє побажання — Gemini розбирає відео, студія робить новий фільм за зразком.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="mic.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-mic-dark-899.webp 899w, ../assets/img/new/card-mic-dark-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-mic-light-600.webp" srcset="../assets/img/new/card-mic-light-899.webp 899w, ../assets/img/new/card-mic-light-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="899" height="562" alt="Нова історія: текст з&#x27;являється, поки говориш, під полем — рівень звуку й кнопка «Стоп»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Мікрофон</h3><p>Говориш — текст з'являється в «Новій історії». Шість хмарних сервісів або whisper.cpp без інтернету.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="telegram.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-telegram-dark-604.webp 604w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-telegram-light-604.webp" srcset="../assets/img/new/card-telegram-light-604.webp 604w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="604" height="377" alt="Керування через бота: одноразовий код 482 913 і кнопка «Відкрити бота»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Telegram-бот</h3><p>Новий проєкт текстом чи голосовим, черга, прогрес наживо й готове відео — з телефона.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="export.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-export-dark-498.webp 498w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-export-light-498.webp" srcset="../assets/img/new/card-export-light-498.webp 498w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="498" height="311" alt="Експорт у DaVinci Resolve готовий: кнопки «Відкрити папку» й «Показати ZIP»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Експорт у редактори</h3><p>DaVinci Resolve, Premiere Pro, Final Cut Pro, CapCut, Kdenlive, Shotcut, OpenTimelineIO.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="api.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-api-dark-628.webp 628w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-api-light-628.webp" srcset="../assets/img/new/card-api-light-628.webp 628w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="628" height="392" alt="Своє API для відео: універсальний сервіс, адреса, ключ і «Налаштувати з документації (ШІ)»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Своє API, RoyalTechno і Google</h3><p>Будь-який сервіс кадрів і відео за описом JSON або з документації, пресет RoyalTechno, Gemini Omni Flash.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="voice.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-voice-dark-628.webp 628w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-voice-light-628.webp" srcset="../assets/img/new/card-voice-light-628.webp 628w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="628" height="392" alt="Ключі ElevenLabs: три ключі зі станом, «Додати кілька» і «Видалити всі з помилкою»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Озвучка й ключі</h3><p>Свої ключі в кожного сервісу, ключі пачкою, голос за ID, AssemblyAI і що змінюється в ElevenLabs.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a><a class="new-card" href="transfer.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/new/card-transfer-dark-558.webp 558w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="../assets/img/new/card-transfer-light-558.webp" srcset="../assets/img/new/card-transfer-light-558.webp 558w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="558" height="349" alt="Експорт налаштувань: що взяти — підключення й ключі, профілі, типові налаштування" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Перенесення налаштувань</h3><p>Усі ключі, підключення й профілі одним зашифрованим файлом — на інший комп'ютер чи як резервна копія.</p><span class="link">Як користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a></div></section>
+<section aria-labelledby="more201"><h2 id="more201">І ще в 2.0.1</h2>
+<h3 id="ffmpeg">FFmpeg одним кліком</h3>
+<p>Немає FFmpeg — на Головній з'явиться картка «Не знайдено FFmpeg», а в «Налаштування → FFmpeg — монтаж і звук» — <b>«Встановити автоматично»</b>. Студія завантажить офіційну збірку FFmpeg 9.0.2 (Windows — збірка Gyan, ~109 МБ; Mac — Homebrew, а без нього — збірки martin-riedl.de), звірить контрольну суму й поставить у свою папку без прав адміністратора. «Відновити» перевіряє файли й за потреби завантажує їх знову; «Встановити вручну» — команди для winget, scoop і brew.</p>
+<figure class="g-fig g-shot" style="--w:628px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/ffmpeg-install-dark-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)"><img src="../assets/img/guide/ffmpeg-install-light-628.webp" srcset="../assets/img/guide/ffmpeg-install-light-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)" width="628" height="548" alt="Картка «FFmpeg — монтаж і звук»: встановлюємо FFmpeg, прогрес і кнопка «Скасувати»" loading="lazy" decoding="async"></picture><figcaption>Встановлення FFmpeg прямо з налаштувань.</figcaption></figure>
+<h3 id="speed">До 20 сцен одночасно</h3>
+<p>«Сцен одночасно» тепер іде до межі твого сервісу відео: G-Labs — до 10, Google — до 4 (+2 за кожен додатковий ключ), RoyalTechno, fal.ai, Replicate — до 20. Вище рекомендованого студія попередить. <a href="api.html#speed">Уся таблиця</a>.</p>
+<h3 id="loudness">Гучність −14 LUFS</h3>
+<p>YouTube, TikTok, Instagram і більшість програвачів вирівнюють звук приблизно до −14 LUFS, тож тихий фільм звучав би тихіше за сусідні відео. Тепер готовий фільм сам вирівнюється до −14 LUFS із запасом піків −1,5 дБ — без компресії. Нічого вмикати не треба.</p>
+<h3 id="single">Одна копія студії</h3>
+<p>Якщо студія вже відкрита, друга не запуститься — Windows покаже «YT Cartell Studio уже відкрита — переключись на її вікно». Так дві копії не перезаписують налаштування одна одної.</p>
+<h3 id="glabs">G-Labs надійніше</h3>
+<ul class="g-list"><li>Запит, який G-Labs відхилив через зміст (фільтр безпеки, недопустимі референси), більше не повторюється без змін — зміни промт чи референси.</li><li>Задачі, яких студія більше не чекає (скасування, тайм-аут), вона зупиняє в G-Labs.</li><li>Omni Flash знімає кліпи на 4 і 6 секунд і без Google AI Ultra.</li></ul>
+<h3 id="numbers">Каталоги</h3>
+<p>71 стиль у 6 категоріях і 36 жанрів та ніш (було 67 і 32). Переходи, ефекти руху, фільтри й стилі субтитрів — без змін: 23, 12, 15 і 8.</p></section>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

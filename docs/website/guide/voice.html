@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Озвучка й ключі: свої ключі, ключі пачкою, голос за ID — YT Cartell Studio 2.0.1</title>
+<meta name="description" content="Що нового в озвучці YT Cartell Studio 2.0.1: свої ключі в кожного сервісу, ключі пачкою, згорнуті списки, голос за ID, AssemblyAI і стандартні голоси ElevenLabs.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/voice.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/voice.html">
+<meta property="og:title" content="Озвучка й ключі: свої ключі, ключі пачкою, голос за ID — YT Cartell Studio 2.0.1">
+<meta property="og:description" content="Що нового в озвучці YT Cartell Studio 2.0.1: свої ключі в кожного сервісу, ключі пачкою, згорнуті списки, голос за ID, AssemblyAI і стандартні голоси ElevenLabs.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Озвучка й ключі</span></nav>
+    <h1>Озвучка й ключі</h1>
+    <p class="lead">Ключі тепер у кожного сервісу свої, додаються пачкою й перевіряються одразу. Голос можна взяти за ID, а розпізнавати мову — ще й через AssemblyAI.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.1</span><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Оновлено в 2.0.3</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 4 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#perservice">Свої ключі в кожного сервісу</a></li><li><a href="#bulk">Ключі пачкою</a></li><li><a href="#folded">Довгі списки ключів</a></li><li><a href="#byid">Голос за ID</a></li><li><a href="#eleven">ElevenLabs: що змінюється</a></li><li><a href="#googlekeys">Ключі Google AI Studio</a></li><li><a href="#stt">AssemblyAI для розпізнавання</a></li><li><a href="#new203">Нове в 2.0.2 і 2.0.3</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#perservice">Свої ключі в кожного сервісу</a></li><li><a href="#bulk">Ключі пачкою</a></li><li><a href="#folded">Довгі списки ключів</a></li><li><a href="#byid">Голос за ID</a></li><li><a href="#eleven">ElevenLabs: що змінюється</a></li><li><a href="#googlekeys">Ключі Google AI Studio</a></li><li><a href="#stt">AssemblyAI для розпізнавання</a></li><li><a href="#new203">Нове в 2.0.2 і 2.0.3</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="perservice"><h2 id="perservice">Свої ключі в кожного сервісу</h2>
+<p><b>Налаштування → Підключення → «Озвучка».</b> Перемкнув «Сервіс» — ключі, модель і голос попереднього збереглися. Повернувся — усе на місці.</p>
+<figure class="g-fig g-shot" style="--w:628px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/voice-card-dark-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)"><img src="../assets/img/guide/voice-card-light-628.webp" srcset="../assets/img/guide/voice-card-light-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)" width="628" height="1167" alt="Картка «Озвучка»: сервіс ElevenLabs, три ключі зі станом, «Додати кілька», голос Alice з приміткою про 31 грудня 2026 і перевірка" loading="lazy" decoding="async"></picture><figcaption>Картка «Озвучка».</figcaption></figure></section>
+<section aria-labelledby="bulk"><h2 id="bulk">Ключі пачкою</h2>
+<ol class="g-steps"><li><div>«Додати кілька» під списком ключів.</div></li><li><div>Встав ключі — кожен з нового рядка, через кому чи пробіл. Підписи на кшталт <code>key1:</code> чи <code>ELEVENLABS_API_KEY=</code> студія пропустить.</div></li><li><div>«Додати й перевірити». Кожен ключ перевіряється одразу — дешевим запитом, без озвучки.</div></li></ol>
+<ul class="g-list"><li>Ключ іншого сервісу не додасться — студія скаже, чий він («… — ключі ElevenLabs, не Cartesia»).</li><li>«Видалити всі з помилкою (N)» прибирає зламані ключі, «Скинути помилки» — дає їм ще один шанс.</li><li>Стани: «працює», «вичерпано до 1 …» (місячний ліміт), «помилка» (пропускається годину), «відпочиває до …».</li></ul></section>
+<section aria-labelledby="folded"><h2 id="folded">Довгі списки ключів</h2>
+<p>Більше трьох ключів — список згортається в один рядок-підсумок («52 ключі · 50 працюють · 2 з помилкою…»). «Показати всі» — пошук за маскою чи станом і фільтри «Працюють», «Помилка», «Вичерпані». Так само — ключі Google AI Studio.</p></section>
+<section aria-labelledby="byid"><h2 id="byid">Голос за ID</h2>
+<p>Для <b>Cartesia</b> і <b>ElevenLabs</b> — якщо голосу немає в списку акаунта:</p>
+<ol class="g-steps"><li><div>У виборі голосу → «Вставити ID голосу».</div></li><li><div>Встав ID або посилання на голос (студія візьме з нього ID) → «Знайти голос».</div></li><li><div>«Знайдено: ім'я» з мовою й статтю → «Використати голос».</div></li></ol>
+<figure class="g-fig g-shot" style="--w:518px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/voice-byid-dark-518.webp 518w" sizes="(min-width: 860px) 518px, calc(100vw - 40px)"><img src="../assets/img/guide/voice-byid-light-518.webp" srcset="../assets/img/guide/voice-byid-light-518.webp 518w" sizes="(min-width: 860px) 518px, calc(100vw - 40px)" width="518" height="522" alt="Вікно «Голос за ID»: ID голосу Cartesia, «Знайдено: Олена — оповідачка» і кнопка «Використати голос»" loading="lazy" decoding="async"></picture><figcaption>Голос знайдено — можна використати.</figcaption></figure>
+<p class="muted">Голос лишається в «Мої голоси за ID» — до 50 на сервіс; «Забути цей голос» прибирає його.</p></section>
+<section aria-labelledby="eleven"><h2 id="eleven">ElevenLabs: що змінюється</h2>
+<div class="callout warn"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg><div><p><b>Стандартні голоси ElevenLabs доступні до 31 грудня 2026.</b> Якщо такий голос у тебе за замовчуванням, студія попередить і підкаже заміну зі своїх голосів.</p></div></div>
+<ul class="g-list"><li>На безкоштовному тарифі через API працюють стандартні й власні голоси. Голоси з бібліотеки (Voice Library) — лише на платному тарифі, студія позначає їх «потрібен платний тариф ElevenLabs».</li></ul></section>
+<section aria-labelledby="googlekeys"><h2 id="googlekeys">Ключі Google AI Studio</h2>
+<ul class="g-list"><li>Картка «Google AI Studio»: ключі по одному або «Додати кілька». Підходять обидва формати: новий <code>AQ.…</code> (Google видає такі з травня 2026) і старий <code>AIza…</code>. Кожен перевіряється одразу, безкоштовно.</li><li>Стани: «працює», «відпочиває до …» (хвилинний ліміт — за хвилину, денний — опівночі за тихоокеанським часом), «помилка» (пропускається годину).</li><li>Ліміти діють на проєкт Google — бери ключі з різних проєктів.</li><li>Ці ключі потрібні й для <a href="remake.html">«Перезняти за прикладом»</a>.</li></ul></section>
+<section aria-labelledby="stt"><h2 id="stt">AssemblyAI для розпізнавання мови</h2>
+<p><b>«Розпізнавання мови»</b> (для «Своєї озвучки») → «AssemblyAI»: «API-ключ AssemblyAI» і «Де обробляти» — США або ЄС (дані не залишають Європу). Українську студія розпізнає моделлю Universal-2 сама. «Перевірити» — безкоштовно.</p></section>
+<section aria-labelledby="new203"><h2 id="new203">Нове в 2.0.2 і 2.0.3</h2>
+<ul class="g-list"><li><b>Ключі Google AI Studio <code>AQ.…</code></b> (2.0.2) — у картці «Google AI Studio», пачкою, у диктуванні й у «Помічнику підключення».</li><li><b>Lumean</b> — новий сервіс озвучки; потрібен ключ із пресетом full. <a href="connect.html#lumean">Як підключити</a>.</li><li><b>«Власний сервер»</b> для будь-якої озвучки й <b>«Своє API»</b> для розпізнавання мови — з шаблонами. <a href="connect.html#tts">Докладніше</a>.</li><li><b>Каталог озвучки</b> — 144 моделі, голоси й сервери: «Вибрати з каталогу» в картці «Озвучка». <a href="catalogs.html">Каталоги моделей</a>.</li><li><b>Мультиголос</b> — диктор і герої різними голосами. <a href="multivoice.html">Мультиголос</a>.</li></ul></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Куди діваються ключі старого сервісу, коли я перемикаюсь?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Нікуди: кожен сервіс зберігає свої ключі, модель і голос. Повернешся — усе на місці.</p></div></details><details class="qa"><summary>Де лежать ключі?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Лише на твоєму комп'ютері, у <code>config.json</code>. Стан ключів (без самих ключів, лише маски) — у <code>tts-keys.json</code>.</p></div></details></div></section>
+<nav class="g-next" aria-label="Інші розділи довідника"><a href="api.html"><small>← Попередній розділ</small><b>Своє API, RoyalTechno і Google</b></a><a class="next" href="transfer.html"><small>Наступний розділ →</small><b>Перенесення налаштувань</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

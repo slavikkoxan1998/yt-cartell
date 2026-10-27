@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YT Cartell Studio — встав історію, отримай готове відео</title>
+<meta name="description" content="Програма для фейслес-каналів YouTube і Shorts: встав історію — студія напише план, намалює однакових героїв, зніме кліпи, озвучить і змонтує готовий .mp4 із субтитрами й обкладинкою. З версії 2.1.0 — безкоштовно й з відкритим кодом (MIT), без входу й підписок. Windows і macOS, українською.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/">
+<meta property="og:title" content="YT Cartell Studio — встав історію, отримай готове відео">
+<meta property="og:description" content="План, однакові герої в кожному кадрі, кліпи, озвучка й монтаж — в одному вікні. Безкоштовно й з відкритим кодом (MIT). Для Windows і macOS, українською.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="YT Cartell Studio: вікно монтажу з таймлайном і кадром мультфільму">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YT Cartell Studio — встав історію, отримай готове відео">
+<meta name="twitter:description" content="План, однакові герої в кожному кадрі, кліпи, озвучка й монтаж — в одному вікні. Відкритий код (MIT), Windows і macOS.">
+<meta name="twitter:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/guide.css">
+<script src="assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4.6v14.8a1 1 0 0 0 1.5.86l12.3-7.4a1 1 0 0 0 0-1.72L7.5 3.74A1 1 0 0 0 6 4.6z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+  <symbol id="i-list-video" viewBox="0 0 24 24"><path d="M12 12H3"/><path d="M16 6H3"/><path d="M12 18H3"/><path d="m16 12 5 3-5 3v-6Z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+  <symbol id="i-type" viewBox="0 0 24 24"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></symbol>
+  <symbol id="i-template" viewBox="0 0 24 24"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="5" height="7" x="16" y="14" rx="1"/></symbol>
+  <symbol id="i-wifi-off" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.288-3.764"/><path d="m2 2 20 20"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="w-min" viewBox="0 0 10 10"><path d="M0 5h10"/></symbol>
+  <symbol id="w-max" viewBox="0 0 10 10"><rect x=".5" y=".5" width="9" height="9" rx="1.5"/></symbol>
+  <symbol id="w-close" viewBox="0 0 10 10"><path d="M0 0l10 10M10 0 0 10"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="YT Cartell Studio — на початок">
+      <img src="assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul>
+        <li><a href="#new">Що нового</a></li>
+        <li><a href="#how">Як це працює</a></li>
+        <li><a href="#styles">Стилі</a></li>
+        <li><a href="guide/">Довідник</a></li>
+        <li><a href="#open-source">Відкритий код</a></li>
+        <li><a href="#faq">Питання</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <a class="hero-badge" href="#open-source" data-hero style="--hd:0"><span class="pill pill-new">Відкритий код · MIT</span><span class="t">Версія 2.1.0: безкоштовно, без входу й підписок</span><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <h1 class="display" id="hero-title" data-hero style="--hd:1">Встав історію&nbsp;—<br> отримай готове відео</h1>
+      <span class="dash" aria-hidden="true"></span>
+      <p class="lead" data-hero style="--hd:2">YT Cartell Studio сама пише план, малює героїв однаковими в кожному кадрі, знімає кліпи, озвучує й монтує .mp4 із субтитрами та обкладинкою. Кожен крок можна виправити, поки не витратив жодного кредиту.</p>
+      <div class="hero-cta" id="hero-cta" data-hero style="--hd:3">
+        <a class="btn btn-primary" id="hero-dl" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases">
+          <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+          <span id="hero-dl-label">Завантажити студію</span>
+        </a>
+        <a class="btn btn-secondary" href="#tutorial">
+          <svg class="i" aria-hidden="true"><use href="#i-play"/></svg>
+          Відео
+        </a>
+      </div>
+      <p class="hero-meta" data-hero style="--hd:4">
+        <span id="hero-meta-text">Windows 10/11 і macOS · українською</span>
+        <span class="sep" aria-hidden="true"></span>
+        <a href="#download">Усі системи й вимоги</a>
+      </p>
+      <p class="hero-meta downloads-count" id="hero-count" data-hero style="--hd:4" hidden></p>
+      <div class="hero-oss" data-hero style="--hd:5">
+        <p><b>Відкритий код · MIT.</b> З версії 2.1.0 студія безкоштовна й без входу — завантажуй і користуйся. А хочеш — забирай код і переробляй під себе.</p>
+        <div class="hero-oss-cta">
+          <a class="btn btn-md btn-secondary" href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>Вихідний код на GitHub</a>
+          <a class="btn btn-md btn-secondary" href="#open-source">Як переробити під себе<svg class="i btn-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <figure class="window"><div class="window-bar" aria-hidden="true"><img src="assets/img/mark-96.png" width="16" height="16" alt="">YT Cartell Studio<span class="window-ctrls"><svg><use href="#w-min"/></svg><svg><use href="#w-max"/></svg><svg><use href="#w-close"/></svg></span></div><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/hero-dark-1440.webp 1440w, assets/img/shots/hero-dark-1080.webp 1080w, assets/img/shots/hero-dark-720.webp 720w" sizes="(min-width: 1440px) 1180px, (min-width: 1100px) 78vw, calc(100vw - 32px)"><img src="assets/img/shots/hero-light-1080.webp" srcset="assets/img/shots/hero-light-1440.webp 1440w, assets/img/shots/hero-light-1080.webp 1080w, assets/img/shots/hero-light-720.webp 720w" sizes="(min-width: 1440px) 1180px, (min-width: 1100px) 78vw, calc(100vw - 32px)" width="1440" height="900" alt="Вікно YT Cartell Studio: проєкт «Стежка додому» на кроці «Монтаж» — кадр із хлопчиком і лисицею в осінньому лісі, таймлайн і картка «Відео готове»" fetchpriority="high" decoding="async"></picture></figure>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S NEW: the newest version first, the earlier ones briefly (all of them: changelog/) -->
+<section class="section" id="new" aria-labelledby="new-title">
+  <div class="wrap">
+    <div class="section-head split new-head">
+      <h2 class="h2" id="new-title" data-reveal>Що нового в 2.0.3</h2>
+      <div data-reveal style="--rd:1">
+        <p class="lead">Сцени більше не зникають з монтажу мовчки, будь-який сервіс підключається сам, а диктор і герої читають різними голосами.</p>
+        <p class="lead">Уже маєш студію — натисни «Оновлення» в меню ліворуч: проєкти, ключі й налаштування лишаться на місці.</p>
+        <p class="mac-note" data-mac-pending="2.0.3">Версія 2.0.3 поки вийшла для Windows. Для Mac найновіша збірка — 2.0.2, її й дає кнопка <a class="prose-link" href="#download">«Завантажити»</a>.</p>
+        <div class="new-links"><a class="link" href="guide/">Довідник — як цим користуватися<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a><a class="link" href="changelog/">Історія версій<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a><a class="link" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases/tag/v2.0.3" rel="noopener">Нотатки до релізу<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></div>
+      </div>
+    </div>
+    <div class="new-grid" data-reveal="shot">
+      <a class="new-card new-card-lg" href="guide/failed.html"><div class="new-media"><picture><img src="assets/img/new/card-gaps-light-600.webp" srcset="assets/img/new/card-gaps-light-796.webp 796w, assets/img/new/card-gaps-light-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="796" height="498" alt="Вікно «Не всі сцени готові — 2 сцени»: для кожної сцени точна помилка G-Labs і підказка, кнопки «Зупинитись», «Змонтувати без них» і «З кадром замість відео»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Без заглушок і зниклих сцен</h3><p>Студія нічого не підставляє мовчки: перед монтажем показує невдалі сцени з точною помилкою сервісу й питає — змонтувати без них, з кадром замість відео чи зупинитись.</p><span class="link">Як це працює<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a>
+      <a class="new-card new-card-lg" href="guide/assistant.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/new/card-assistant-dark-900.webp 900w, assets/img/new/card-assistant-dark-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="assets/img/new/card-assistant-light-600.webp" srcset="assets/img/new/card-assistant-light-900.webp 900w, assets/img/new/card-assistant-light-600.webp 600w" sizes="(min-width: 1100px) 520px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="900" height="527" alt="Помічник підключення: вставлені адреса, ключі й посилання, усе знайдене — і план «Текст → tokify.sale · gemini-3.8-flash» з позначкою «Працює»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Помічник підключення</h3><p>Встав адреси, ключі й посилання як є — студія сама розбереться, що куди, перевірить і налаштує. ШІ бачить ключі лише замаскованими.</p><span class="link">Як це працює<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a>
+      <a class="new-card" href="guide/connect.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/new/card-errors-dark-868.webp 868w, assets/img/new/card-errors-dark-600.webp 600w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="assets/img/new/card-errors-light-600.webp" srcset="assets/img/new/card-errors-light-868.webp 868w, assets/img/new/card-errors-light-600.webp 600w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="868" height="543" alt="Картка «Текст і сценарій»: авторизація «Авто (Bearer)» і помилка «Не вдалося» — які адреси пробували, запит, відповідь 404 і підказка" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Будь-який сервіс</h3><p>Адреса без /v1 підбирається сама; Anthropic, Ollama, Azure OpenAI й вибір авторизації. Не вийшло — видно сервіс, код і відповідь.</p><span class="link">Як це працює<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a>
+      <a class="new-card" href="guide/catalogs.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/new/card-catalogs-dark-677.webp 677w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="assets/img/new/card-catalogs-light-677.webp" srcset="assets/img/new/card-catalogs-light-677.webp 677w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="677" height="423" alt="Каталог моделей відео: пошук і 199 моделей за сервісами — fal.ai, Replicate, Runway, RoyalTechno та інші" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Каталоги моделей</h3><p>199 моделей відео, 188 — кадрів, 144 моделі й голоси озвучки, 36 текстових сервісів. «Вибрати з каталогу» заповнить сервіс, адресу й модель.</p><span class="link">Як це працює<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a>
+      <a class="new-card" href="guide/multivoice.html"><div class="new-media"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/new/card-multivoice-dark-424.webp 424w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)"><img src="assets/img/new/card-multivoice-light-424.webp" srcset="assets/img/new/card-multivoice-light-424.webp 424w" sizes="(min-width: 1100px) 380px, (min-width: 700px) 46vw, calc(100vw - 32px)" width="424" height="265" alt="Текст озвучки за голосами: одна репліка — «Диктор», друга — «Диктор 2»" loading="lazy" decoding="async"></picture></div><div class="new-body"><h3>Мультиголос</h3><p>Диктор, Диктор 2 і 3 та свій голос кожному героєві. Студія сама розподіляє репліки й голоси, субтитри — кольором мовця.</p><span class="link">Як це працює<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></span></div></a>
+    </div>
+    <div class="also" data-reveal><b>І ще:</b><span class="pill">Lumean — нова озвучка</span><span class="pill">Telegram: кнопки рішення для невдалих сцен</span><span class="pill">кліпи не обрізає в кінці</span><span class="pill">озвучка довша за кліп → «перезняти?»</span><span class="pill">розпізнавання мови через «Своє API»</span><a class="link" href="guide/#more">Докладніше<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></div>
+    <div class="rel-prev" data-reveal>
+      <h3 class="rel-prev-title">Попередні версії</h3>
+      <div class="rel-grid">
+        <article class="rel-item"><h4>2.0.2 <time datetime="2026-10-02">2 жовтня 2026</time></h4><p>Ключі Google AI Studio нового формату <code>AQ.…</code> — у «Підключення → Google», пачкою й у диктуванні. На Mac вікно відкривається надійно, навіть після сну без активного дисплея.</p><a class="link" href="changelog/#v2.0.2">Усі зміни 2.0.2<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></article>
+        <article class="rel-item"><h4>2.0.1 <time datetime="2026-10-02">2 жовтня 2026</time></h4><p>Велике оновлення: голос у відео, «Перезняти за прикладом», мікрофон, Telegram-бот, експорт у DaVinci Resolve, Premiere, Final Cut і CapCut, своє API для будь-якого сервісу й перенесення налаштувань.</p><a class="link" href="changelog/#v2.0.1">Усі зміни 2.0.1<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></article>
+      </div>
+      <div class="rel-foot"><a class="link" href="changelog/">Історія версій<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a><a class="link" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі релізи на GitHub<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW: five steps -->
+<section class="section" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <h2 class="h2" id="how-title" data-reveal>П'ять кроків від тексту до .mp4</h2>
+      <p class="lead" data-reveal style="--rd:1">Студія веде тебе крок за кроком і показує все, що придумав ШІ: героїв, місця, репліки й промти. Не подобається — виправ, і лише потім генеруй.</p>
+    </div>
+
+    <div class="tabs-track" role="tablist" aria-label="Кроки проєкту" data-reveal style="--rd:2">
+      <span class="tabs-ind" aria-hidden="true"></span>
+      <button class="tab" role="tab" id="tab-1" aria-controls="step-1" aria-selected="true"><span class="tab-n">1</span>Сценарій</button>
+      <button class="tab" role="tab" id="tab-2" aria-controls="step-2" aria-selected="false" tabindex="-1"><span class="tab-n">2</span>План</button>
+      <button class="tab" role="tab" id="tab-3" aria-controls="step-3" aria-selected="false" tabindex="-1"><span class="tab-n">3</span>Розкадровка</button>
+      <button class="tab" role="tab" id="tab-4" aria-controls="step-4" aria-selected="false" tabindex="-1"><span class="tab-n">4</span>Відео й озвучка</button>
+      <button class="tab" role="tab" id="tab-5" aria-controls="step-5" aria-selected="false" tabindex="-1"><span class="tab-n">5</span>Монтаж</button>
+    </div>
+
+    <div class="steps-panels">
+      <div class="step-panel" id="step-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+        <figure class="window" data-reveal="shot"><div class="window-bar" aria-hidden="true"><img src="assets/img/mark-96.png" width="16" height="16" alt="">YT Cartell Studio<span class="window-ctrls"><svg><use href="#w-min"/></svg><svg><use href="#w-max"/></svg><svg><use href="#w-close"/></svg></span></div><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/step1-dark-1440.webp 1440w, assets/img/shots/step1-dark-1080.webp 1080w, assets/img/shots/step1-dark-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)"><img src="assets/img/shots/step1-light-1080.webp" srcset="assets/img/shots/step1-light-1440.webp 1440w, assets/img/shots/step1-light-1080.webp 1080w, assets/img/shots/step1-light-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)" width="1440" height="900" alt="Крок «Сценарій»: текст історії в режимі «Ідея», картка «Що піде в план» і налаштування фільму — тривалість, формат, мова, голос" loading="lazy" decoding="async"></picture></figure>
+        <div class="step-copy" data-reveal>
+          <h3 class="h3">Сценарій: встав історію або ідею</h3>
+          <p>Три режими: «Ідея» — ШІ сам напише текст під потрібну тривалість, «Готовий сценарій» — озвучимо слово в слово, «Своя озвучка» — сцени наріжуться під твій запис. Або встав посилання на YouTube — <a class="prose-link" href="guide/remake.html">«Перезняти за прикладом»</a>.</p>
+          <ul class="facts">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Тривалість від 15 секунд до 30 хвилин</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>16:9 для YouTube або 9:16 для Shorts і Reels</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Стиль, жанр, голос оповідача, тон, камера й темп</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Звук і що в кадрі: голос у відео, без людей, моушн-графіка</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-panel" id="step-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0">
+        <figure class="window" data-reveal="shot"><div class="window-bar" aria-hidden="true"><img src="assets/img/mark-96.png" width="16" height="16" alt="">YT Cartell Studio<span class="window-ctrls"><svg><use href="#w-min"/></svg><svg><use href="#w-max"/></svg><svg><use href="#w-close"/></svg></span></div><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/step2-dark-1440.webp 1440w, assets/img/shots/step2-dark-1080.webp 1080w, assets/img/shots/step2-dark-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)"><img src="assets/img/shots/step2-light-1080.webp" srcset="assets/img/shots/step2-light-1440.webp 1440w, assets/img/shots/step2-light-1080.webp 1080w, assets/img/shots/step2-light-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)" width="1440" height="900" alt="Крок «План»: назва, короткий опис, спільний стиль кадрів і акторський склад — Тарас і Лисиця з описом зовнішності" loading="lazy" decoding="async"></picture></figure>
+        <div class="step-copy">
+          <h3 class="h3">План: герої, місця й сцени</h3>
+          <p>ШІ пише назву, короткий опис, персонажів із власними голосами, локації й сцени — хто говорить, де, хто в кадрі. Усе редагується тут же й зберігається само.</p>
+          <ul class="facts">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Герої з твоїх фото — під твоїми іменами</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Попередить, якщо репліка довша за кліп</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>«Переписати промти ШІ» з твоїм побажанням</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-panel" id="step-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0">
+        <figure class="window" data-reveal="shot"><div class="window-bar" aria-hidden="true"><img src="assets/img/mark-96.png" width="16" height="16" alt="">YT Cartell Studio<span class="window-ctrls"><svg><use href="#w-min"/></svg><svg><use href="#w-max"/></svg><svg><use href="#w-close"/></svg></span></div><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/step3-dark-1440.webp 1440w, assets/img/shots/step3-dark-1080.webp 1080w, assets/img/shots/step3-dark-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)"><img src="assets/img/shots/step3-light-1080.webp" srcset="assets/img/shots/step3-light-1440.webp 1440w, assets/img/shots/step3-light-1080.webp 1080w, assets/img/shots/step3-light-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)" width="1440" height="900" alt="Крок «Розкадровка»: усі кадри готові, референси героїв — Тарас, Лисиця й Бабуся" loading="lazy" decoding="async"></picture></figure>
+        <div class="step-copy">
+          <h3 class="h3">Розкадровка: ті самі герої в кожному кадрі</h3>
+          <p>Спершу студія малює обличчя героїв і місця, потім перший кадр кожної сцени — уже з ними. Будь-який кадр можна перемалювати, змінити його промт або завантажити свій.</p>
+          <ul class="facts">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Розкадровка 3×3 — дев'ять моментів дії на сцену</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Ланцюжок кадрів: кожна сцена продовжує попередню</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Обидва режими — з G-Labs Omni Flash</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-panel" id="step-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0">
+        <figure class="window" data-reveal="shot"><div class="window-bar" aria-hidden="true"><img src="assets/img/mark-96.png" width="16" height="16" alt="">YT Cartell Studio<span class="window-ctrls"><svg><use href="#w-min"/></svg><svg><use href="#w-max"/></svg><svg><use href="#w-close"/></svg></span></div><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/step4-dark-1440.webp 1440w, assets/img/shots/step4-dark-1080.webp 1080w, assets/img/shots/step4-dark-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)"><img src="assets/img/shots/step4-light-1080.webp" srcset="assets/img/shots/step4-light-1440.webp 1440w, assets/img/shots/step4-light-1080.webp 1080w, assets/img/shots/step4-light-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)" width="1440" height="900" alt="Крок «Відео й озвучка»: 3 з 3 кліпів знято й озвучено, сцени з програвачем і голосом кожного героя" loading="lazy" decoding="async"></picture></figure>
+        <div class="step-copy">
+          <h3 class="h3">Відео й озвучка</h3>
+          <p>«Все разом» знімає кліпи й озвучує репліки. Щось не вдалося — переробиш лише цю сцену, а «Перезняти змінені» не чіпає того, що вже готове.</p>
+          <ul class="facts">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>До 20 сцен одночасно — у межах лімітів твого сервісу</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Кожен герой говорить своїм голосом — озвучкою або прямо в кадрі</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Динамічна довжина: кліп рівно під репліку</li>
+          </ul>
+        </div>
+      </div>
+      <div class="step-panel" id="step-5" role="tabpanel" aria-labelledby="tab-5" tabindex="0">
+        <figure class="window" data-reveal="shot"><div class="window-bar" aria-hidden="true"><img src="assets/img/mark-96.png" width="16" height="16" alt="">YT Cartell Studio<span class="window-ctrls"><svg><use href="#w-min"/></svg><svg><use href="#w-max"/></svg><svg><use href="#w-close"/></svg></span></div><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/step5-dark-1440.webp 1440w, assets/img/shots/step5-dark-1080.webp 1080w, assets/img/shots/step5-dark-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)"><img src="assets/img/shots/step5-light-1080.webp" srcset="assets/img/shots/step5-light-1440.webp 1440w, assets/img/shots/step5-light-1080.webp 1080w, assets/img/shots/step5-light-720.webp 720w" sizes="(min-width: 1440px) 900px, (min-width: 1024px) 64vw, calc(100vw - 32px)" width="1440" height="900" alt="Крок «Монтаж»: перегляд сцени з субтитрами, налаштування переходу, руху камери й обрізки, картка «Що вийде»" loading="lazy" decoding="async"></picture></figure>
+        <div class="step-copy">
+          <h3 class="h3">Монтаж і готовий .mp4</h3>
+          <p>Таймлайн із переглядом: порядок сцен, обрізка, переходи, рух камери, фільтри, субтитри й музика. «Змонтувати відео» кредитів не витрачає.</p>
+          <ul class="facts">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Готовий .mp4, субтитри .srt і обкладинка JPEG</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>«Відкрити», «Показати в папці», «Зберегти як…»</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Експорт у DaVinci Resolve, Premiere, Final Cut, CapCut</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS: the newest tutorial first, then promos and older tutorials.
+     Add a video: put NAME.mp4, NAME-poster.jpg and, if there are subtitles, NAME.uk.vtt into docs/media/
+     and copy one <article class="vid">. An entry with data-probe stays hidden until its .mp4 is published
+     (site.js checks it; give it data-poster instead of poster, so nothing is requested before); the first
+     visible entry is shown large. Subtitles must be WebVTT (.vtt), not .srt. -->
+<section class="section section-tight" id="tutorial" aria-labelledby="videos-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <h2 class="h2" id="videos-title" data-reveal>Відео</h2>
+      <p class="lead" data-reveal style="--rd:1">Відеоуроки в справжній студії — що натискати й де що лежить, — і короткі ролики про нові версії.</p>
+    </div>
+    <div class="vid-list" id="videos">
+      <article class="vid" data-probe hidden aria-labelledby="vid-tutorial-203">
+        <div class="vid-copy">
+          <span class="pill pill-new">Версія 2.0.3</span>
+          <h3 class="h3" id="vid-tutorial-203">Відеоурок: що нового в 2.0.3</h3>
+          <p>Нові можливості версії 2.0.3 у справжній студії.</p>
+        </div>
+        <div class="video-card"><video controls preload="none" playsinline data-poster="media/tutorial-2.0.3-poster.jpg" aria-labelledby="vid-tutorial-203"><source src="media/tutorial-2.0.3.mp4" type="video/mp4"><track kind="subtitles" srclang="uk" label="Українська" src="media/tutorial-2.0.3.uk.vtt"></video></div>
+      </article>
+      <article class="vid is-lead" aria-labelledby="vid-tutorial-200">
+        <div class="vid-copy">
+          <span class="pill">Версія 2.0.0 · 7 хв</span>
+          <h3 class="h3" id="vid-tutorial-200">Відеоурок: від історії до готового відео</h3>
+          <p>Увесь шлях у студії: перший запуск, Головна, п'ять кроків проєкту, черга, переклад і сповіщення. Вхід через Telegram на початку відео з версії 2.1.0 прибрано — студія відкривається одразу.</p>
+        </div>
+        <div class="video-card"><video controls preload="none" playsinline poster="media/tutorial-poster.jpg" aria-labelledby="vid-tutorial-200"><source src="media/tutorial.mp4" type="video/mp4"><track kind="subtitles" srclang="uk" label="Українська" src="media/tutorial.uk.vtt"></video></div>
+      </article>
+      <article class="vid" aria-labelledby="vid-promo-201">
+        <div class="vid-copy">
+          <span class="pill">Версія 2.0.1 · 1 хв</span>
+          <h3 class="h3" id="vid-promo-201">Промо-ролик 2.0.1</h3>
+          <p>Голос у відео, перезйомка за прикладом, Telegram-бот і експорт у редактори — за хвилину.</p>
+        </div>
+        <div class="video-card"><video controls preload="none" playsinline poster="media/promo-2.0.1-poster.jpg" aria-labelledby="vid-promo-201"><source src="media/promo-2.0.1.mp4" type="video/mp4"><track kind="subtitles" srclang="uk" label="Українська" src="media/promo-2.0.1.uk.vtt"></video></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AUTOPILOT -->
+<section class="section" id="autopilot" aria-labelledby="autopilot-title">
+  <div class="wrap feature">
+    <div class="feature-copy">
+      <h2 class="h2" id="autopilot-title" data-reveal>Не хочеш покроково? Натисни «Автопілот»</h2>
+      <p class="lead" data-reveal style="--rd:1">Встав історію, вибери профіль — і студія сама пройде всі п'ять кроків: план, герої, кадри, відео й озвучка, монтаж, а за бажанням ще й обкладинка.</p>
+      <dl class="deflist" data-reveal style="--rd:2">
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-refresh"/></svg></span><dt>Повторні спроби</dt><dd>Кадри, кліпи й озвучку, що не вдалися, студія пробує ще раз — до трьох разів. Якщо сцена так і не вийшла, автопілот зупиниться перед монтажем і покаже чому — або, як вибереш у налаштуваннях, змонтує без неї чи з кадром замість відео. <a class="prose-link" href="guide/failed.html">Докладніше</a></dd></div>
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-layers"/></svg></span><dt>Профілі</dt><dd>«YouTube історія 16:9», «Shorts / Reels 9:16», «Дитяча казка», «Документальне пояснення» — або опиши свій канал словами, і ШІ сам заповнить профіль.</dd></div>
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-list-video"/></svg></span><dt>Черга</dt><dd>Прогрес усіх проєктів наживо. Проєкт можна закрити — робота йде далі.</dd></div>
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-bell"/></svg></span><dt>Telegram-бот</dt><dd>Новий проєкт текстом чи голосовим, черга, прогрес наживо й готове відео — прямо в чат на телефоні. <a class="prose-link" href="guide/telegram.html">Як підключити</a></dd></div>
+      </dl>
+    </div>
+    <figure class="cutout cutout-natural soft-edges" data-reveal="shot">
+      <picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/autopilot-dark-628.webp 628w, assets/img/shots/autopilot-dark-500.webp 500w" sizes="(min-width: 720px) 628px, calc(100vw - 32px)"><img src="assets/img/shots/autopilot-light-500.webp" srcset="assets/img/shots/autopilot-light-628.webp 628w, assets/img/shots/autopilot-light-500.webp 500w" sizes="(min-width: 720px) 628px, calc(100vw - 32px)" width="628" height="556" alt="Налаштування автопілота: ланцюжок План → Персонажі → Кадри → Відео й озвучка → Монтаж → Обкладинка, профіль, обкладинка, повторні спроби й «Якщо частина сцен не вдалася» — «Питати мене»" loading="lazy" decoding="async"></picture>
+    </figure>
+  </div>
+</section>
+
+<!-- CONSISTENT HEROES -->
+<section class="section section-tight" id="heroes" aria-labelledby="heroes-title">
+  <div class="wrap feature flip">
+    <div class="feature-copy">
+      <h2 class="h2" id="heroes-title" data-reveal>Герої однакові від першого кадру до останнього</h2>
+      <p class="lead" data-reveal style="--rd:1">Спершу студія малює кожного героя й кожне місце окремо, а потім будує на цих референсах кадри всіх сцен. Тарас у червоному шарфі лишається Тарасом і в третій сцені.</p>
+      <dl class="deflist" data-reveal style="--rd:2">
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-image"/></svg></span><dt>Свої фото героїв і місць</dt><dd>Додай фото в «Матеріали» — і в кадрах буде саме твій герой, без генерації й без витрат.</dd></div>
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-pencil"/></svg></span><dt>Перемалюй одне — решта на місці</dt><dd>Не сподобався кадр? Перемалюй його, зміни промт або завантаж свій. Готове не перемальовується.</dd></div>
+      </dl>
+    </div>
+    <figure class="cutout fade-b" style="--fade:84%" data-reveal="shot">
+      <picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/refs-dark-1414.webp 1414w, assets/img/shots/refs-dark-1080.webp 1080w, assets/img/shots/refs-dark-720.webp 720w" sizes="(min-width: 1440px) 800px, (min-width: 1024px) 56vw, calc(100vw - 32px)"><img src="assets/img/shots/refs-light-1080.webp" srcset="assets/img/shots/refs-light-1414.webp 1414w, assets/img/shots/refs-light-1080.webp 1080w, assets/img/shots/refs-light-720.webp 720w" sizes="(min-width: 1440px) 800px, (min-width: 1024px) 56vw, calc(100vw - 32px)" width="1414" height="688" alt="Розкадровка: референси героїв Тарас, Лисиця й Бабуся, три локації та кадри сцен із тими самими героями" loading="lazy" decoding="async"></picture>
+    </figure>
+  </div>
+</section>
+
+<!-- STYLES -->
+<section class="section" id="styles" aria-labelledby="styles-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <h2 class="h2" id="styles-title" data-reveal>71 стиль — вибирай на око, а не за назвою</h2>
+      <p class="lead" data-reveal style="--rd:1">Дівчина в червоному шарфі зустрічає лисицю біля хатки в осінньому лісі — так цю сцену малює кожен стиль студії. Чотири нові стилі для моушн-графіки й відео без людей показано схемою.</p>
+    </div>
+    <div class="chips" role="group" aria-label="Категорії стилів">
+<button type="button" class="chip" data-filter="all" aria-pressed="true">Усі <span class="chip-n">71</span></button>
+<button type="button" class="chip" data-filter="animation" aria-pressed="false">Анімація <span class="chip-n">15</span></button>
+<button type="button" class="chip" data-filter="comics" aria-pressed="false">Комікси <span class="chip-n">6</span></button>
+<button type="button" class="chip" data-filter="cinema" aria-pressed="false">Кіно й фото <span class="chip-n">13</span></button>
+<button type="button" class="chip" data-filter="art" aria-pressed="false">Мистецтво <span class="chip-n">19</span></button>
+<button type="button" class="chip" data-filter="explainer" aria-pressed="false">Пояснювальні <span class="chip-n">11</span></button>
+<button type="button" class="chip" data-filter="effects" aria-pressed="false">Ефекти <span class="chip-n">7</span></button>
+</div>
+<ul class="style-grid" id="style-grid">
+<li class="style" data-cat="cinema" style="--i:0"><figure><div class="style-img"><img src="assets/img/styles/cinematic.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для драм, трилерів і майже будь-якої історії.</p></div><figcaption>Кіно</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:1"><figure><div class="style-img"><img src="assets/img/styles/realism.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для правдивих, побутових і документальних історій.</p></div><figcaption>Реалізм</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:2"><figure><div class="style-img"><img src="assets/img/styles/2d.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для мультсеріалів, казок і гумору.</p></div><figcaption>2D-анімація</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:3"><figure><div class="style-img"><img src="assets/img/styles/npr-2point5d.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для казок, пригод і м&#x27;яких драм.</p></div><figcaption>2.5D мальований</figcaption></figure></li>
+<li class="style" data-cat="comics" style="--i:4"><figure><div class="style-img"><img src="assets/img/styles/comics.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для пригод, екшену й героїчних історій.</p></div><figcaption>Комікс</figcaption></figure></li>
+<li class="style" data-cat="comics" style="--i:5"><figure><div class="style-img"><img src="assets/img/styles/retro-comics.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для ретро-історій, пародій і епохи 50–60-х.</p></div><figcaption>Ретро-комікс</figcaption></figure></li>
+<li class="style" data-cat="comics" style="--i:6"><figure><div class="style-img"><img src="assets/img/styles/dirty-comics.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для кримінальних, темних і панк-історій.</p></div><figcaption>Брудний комікс</figcaption></figure></li>
+<li class="style" data-cat="comics" style="--i:7"><figure><div class="style-img"><img src="assets/img/styles/manga.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для аніме-історій, драм і пригод.</p></div><figcaption>Манґа</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:8"><figure><div class="style-img"><img src="assets/img/styles/noir.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для детективів, трукраймів і загадок.</p></div><figcaption>Нуар</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:9"><figure><div class="style-img"><img src="assets/img/styles/watercolor.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для казок, ліричних і спокійних історій.</p></div><figcaption>Акварель</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:10"><figure><div class="style-img"><img src="assets/img/styles/oil-painting.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історії, епосу й біографій.</p></div><figcaption>Олійний живопис</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:11"><figure><div class="style-img"><img src="assets/img/styles/sketch.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для спогадів, щоденникових історій і пояснень.</p></div><figcaption>Скетч</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:12"><figure><div class="style-img"><img src="assets/img/styles/claymation.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для гумору, дитячих і сімейних історій.</p></div><figcaption>Пластилін</figcaption></figure></li>
+<li class="style" data-cat="effects" style="--i:13"><figure><div class="style-img"><img src="assets/img/styles/pixel-art.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для ігрових тем, ретро й гумору.</p></div><figcaption>Піксель-арт</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:14"><figure><div class="style-img"><img src="assets/img/styles/classic-cartoon.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для гумору й дитячих пригод.</p></div><figcaption>Класичний мультик</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:15"><figure><div class="style-img"><img src="assets/img/styles/rubber-hose-modern.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для гумору, ретро-казок і музичних історій.</p></div><figcaption>Rubber Hose</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:16"><figure><div class="style-img"><img src="assets/img/styles/rotoscope.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для снів, психології й незвичних історій.</p></div><figcaption>Ротоскоп</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:17"><figure><div class="style-img"><img src="assets/img/styles/vector-minimalism.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для пояснень, бізнесу й технологій.</p></div><figcaption>Векторний мінімалізм</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:18"><figure><div class="style-img"><img src="assets/img/styles/quirky-minimalist.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для гумору, психології й коротких пояснень.</p></div><figcaption>Мінімалізм</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:19"><figure><div class="style-img"><img src="assets/img/styles/mixed-media-collage.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історії, культури й відео-есеїв.</p></div><figcaption>Колаж</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:20"><figure><div class="style-img"><img src="assets/img/styles/underground.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для панку, сатири й контркультури.</p></div><figcaption>Андеграунд</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:21"><figure><div class="style-img"><img src="assets/img/styles/gross-out.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для абсурдного гумору й пародій.</p></div><figcaption>Гротеск</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:22"><figure><div class="style-img"><img src="assets/img/styles/stickman.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для гумору, лайфхаків і простих пояснень.</p></div><figcaption>Стікмен</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:23"><figure><div class="style-img"><img src="assets/img/styles/science-explainer.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для науки, космосу й пояснень «як це працює».</p></div><figcaption>Науковий пояснювач</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:24"><figure><div class="style-img"><img src="assets/img/styles/chalkboard.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для уроків, історії науки й освітніх пояснень.</p></div><figcaption>Крейдяна дошка</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:25"><figure><div class="style-img"><img src="assets/img/styles/whiteboard.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для бізнес-пояснень, лайфхаків і мотивації.</p></div><figcaption>Дошка з маркером</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:26"><figure><div class="style-img"><img src="assets/img/styles/infographic.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для фінансів, геополітики, порівнянь і статистики.</p></div><figcaption>Інфографіка</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:27"><figure><div class="style-img"><img src="assets/img/styles/isometric.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для пояснень, бізнесу, міст і процесів.</p></div><figcaption>Ізометрична діорама</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:28"><figure><div class="style-img"><img src="assets/img/styles/vintage-map.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історії, геополітики, подорожей і воєн.</p></div><figcaption>Стара мапа</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:29"><figure><div class="style-img"><img src="assets/img/styles/motion-graphics.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для пояснень, фактів, бізнесу й технологій.</p></div><figcaption>Моушн-графіка</figcaption></figure></li>
+<li class="style" data-cat="explainer" style="--i:30"><figure><div class="style-img"><img src="assets/img/styles/kinetic-type.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для цитат, мотивації, списків і коротких фактів.</p></div><figcaption>Кінетична типографіка</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:31"><figure><div class="style-img"><img src="assets/img/styles/documentary-broll.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для фактів, історії місць, природи й відео без людей.</p></div><figcaption>Документальний b-roll</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:32"><figure><div class="style-img"><img src="assets/img/styles/product-shot.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для оглядів, реклами, брендів і предметів.</p></div><figcaption>Предметна зйомка</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:33"><figure><div class="style-img"><img src="assets/img/styles/archival-footage.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історії, трукраймів і загадок минулого.</p></div><figcaption>Архівна плівка</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:34"><figure><div class="style-img"><img src="assets/img/styles/photo-1940s.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історій Другої світової, біографій і епохи.</p></div><figcaption>Фото 1940-х</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:35"><figure><div class="style-img"><img src="assets/img/styles/aged-realism.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історичних драм, імперій і давніх цивілізацій.</p></div><figcaption>Історичний реалізм</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:36"><figure><div class="style-img"><img src="assets/img/styles/faceless-cinematic.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для фейслес-каналів, трукраймів і психології.</p></div><figcaption>Кіно без облич</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:37"><figure><div class="style-img"><img src="assets/img/styles/wildlife-doc.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для тварин, природи й фактів про планету.</p></div><figcaption>Дика природа</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:38"><figure><div class="style-img"><img src="assets/img/styles/botanical-macro.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для природи, науки й медитативних відео.</p></div><figcaption>Макро-ботаніка</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:39"><figure><div class="style-img"><img src="assets/img/styles/space-drama.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для космосу, наукової фантастики й історій астронавтів.</p></div><figcaption>Космічна драма</figcaption></figure></li>
+<li class="style" data-cat="cinema" style="--i:40"><figure><div class="style-img"><img src="assets/img/styles/soviet-realism.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історій про СРСР, ностальгії й холодної війни.</p></div><figcaption>Радянський ретрореалізм</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:41"><figure><div class="style-img"><img src="assets/img/styles/family-3d.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для дитячих і сімейних історій, казок.</p></div><figcaption>Сімейна 3D-анімація</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:42"><figure><div class="style-img"><img src="assets/img/styles/soviet-animation.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для казок, дитячих історій і ностальгії.</p></div><figcaption>Класична радянська анімація</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:43"><figure><div class="style-img"><img src="assets/img/styles/papercraft.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для казок, дитячих і освітніх відео.</p></div><figcaption>Паперова аплікація</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:44"><figure><div class="style-img"><img src="assets/img/styles/felt-stop-motion.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для затишних дитячих історій і казок на ніч.</p></div><figcaption>Фетрова анімація</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:45"><figure><div class="style-img"><img src="assets/img/styles/anime-glow.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для романтики, мрій і ліричних історій.</p></div><figcaption>Сяюче аніме</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:46"><figure><div class="style-img"><img src="assets/img/styles/anime-drama.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для екшену, трилерів і драм.</p></div><figcaption>Драматичне аніме</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:47"><figure><div class="style-img"><img src="assets/img/styles/chibi.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для гумору, коротких смішних історій і дітей.</p></div><figcaption>Чібі</figcaption></figure></li>
+<li class="style" data-cat="animation" style="--i:48"><figure><div class="style-img"><img src="assets/img/styles/marker-cartoon.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для гумору, пояснень і коротких скетчів.</p></div><figcaption>Маркерний мультик</figcaption></figure></li>
+<li class="style" data-cat="comics" style="--i:49"><figure><div class="style-img"><img src="assets/img/styles/grunge-novel.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для трилерів, кримінальних і темних історій.</p></div><figcaption>Гранж-графічний роман</figcaption></figure></li>
+<li class="style" data-cat="comics" style="--i:50"><figure><div class="style-img"><img src="assets/img/styles/fantasy-comic.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для пригод, міфології й фентезі-світів.</p></div><figcaption>Фентезі-комікс</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:51"><figure><div class="style-img"><img src="assets/img/styles/golden-allegory.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для притч, релігії, філософії й мотивації.</p></div><figcaption>Золота алегорія</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:52"><figure><div class="style-img"><img src="assets/img/styles/ink-manuscript.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для середньовіччя, легенд і церковної історії.</p></div><figcaption>Середньовічний рукопис</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:53"><figure><div class="style-img"><img src="assets/img/styles/ukiyo-e.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для японських легенд, самураїв і природи.</p></div><figcaption>Укійо-е</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:54"><figure><div class="style-img"><img src="assets/img/styles/petrykivka.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для українських казок, легенд і свят.</p></div><figcaption>Петриківський розпис</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:55"><figure><div class="style-img"><img src="assets/img/styles/art-deco.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для історій 1920–30-х, розкоші й подорожей.</p></div><figcaption>Ар-деко постер</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:56"><figure><div class="style-img"><img src="assets/img/styles/linocut.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для притч, фольклору й історичних тем.</p></div><figcaption>Ліногравюра</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:57"><figure><div class="style-img"><img src="assets/img/styles/stained-glass.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для релігії, легенд і лицарських історій.</p></div><figcaption>Вітраж</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:58"><figure><div class="style-img"><img src="assets/img/styles/charcoal.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для драм, воєнних історій і біографій.</p></div><figcaption>Вугілля</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:59"><figure><div class="style-img"><img src="assets/img/styles/sumi-e.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для філософії, дзену й азійських легенд.</p></div><figcaption>Туш сумі-е</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:60"><figure><div class="style-img"><img src="assets/img/styles/gouache-book.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для дитячих книжок і казок на ніч.</p></div><figcaption>Гуаш для книжки</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:61"><figure><div class="style-img"><img src="assets/img/styles/crayon.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для дитячих історій, гумору й спогадів.</p></div><figcaption>Дитячий малюнок</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:62"><figure><div class="style-img"><img src="assets/img/styles/black-figure.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для міфології й античної історії.</p></div><figcaption>Давньогрецька кераміка</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:63"><figure><div class="style-img"><img src="assets/img/styles/dark-fantasy.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для хорору, фольклору й легенд про чудовиськ.</p></div><figcaption>Темне фентезі</figcaption></figure></li>
+<li class="style" data-cat="art" style="--i:64"><figure><div class="style-img"><img src="assets/img/styles/tarot-nouveau.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для езотерики, міфів і психології.</p></div><figcaption>Таро в стилі модерн</figcaption></figure></li>
+<li class="style" data-cat="effects" style="--i:65"><figure><div class="style-img"><img src="assets/img/styles/cosmic-glow.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для езотерики, містики й духовних тем.</p></div><figcaption>Космічне сяйво</figcaption></figure></li>
+<li class="style" data-cat="effects" style="--i:66"><figure><div class="style-img"><img src="assets/img/styles/voxel.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для ігрових тем, дитячих пригод і пояснень.</p></div><figcaption>Воксельний світ</figcaption></figure></li>
+<li class="style" data-cat="effects" style="--i:67"><figure><div class="style-img"><img src="assets/img/styles/low-poly.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для пояснень, ігрових і техно-тем.</p></div><figcaption>Низькополігональне 3D</figcaption></figure></li>
+<li class="style" data-cat="effects" style="--i:68"><figure><div class="style-img"><img src="assets/img/styles/cyberpunk.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для технологій, майбутнього й трилерів.</p></div><figcaption>Неоновий кіберпанк</figcaption></figure></li>
+<li class="style" data-cat="effects" style="--i:69"><figure><div class="style-img"><img src="assets/img/styles/vaporwave.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для ностальгії, інтернет-культури й музики.</p></div><figcaption>Вейпорвейв</figcaption></figure></li>
+<li class="style" data-cat="effects" style="--i:70"><figure><div class="style-img"><img src="assets/img/styles/analog-horror.webp" width="480" height="360" alt="" loading="lazy" decoding="async"><p class="style-suits">Підходить для хорору, містики й моторошних історій.</p></div><figcaption>Аналоговий хорор VHS</figcaption></figure></li>
+</ul>
+    <div class="styles-more">
+      <button class="btn btn-md btn-secondary" type="button" id="styles-all" hidden>Показати всі 71 стиль<svg class="i btn-arrow" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+      <p>А ще — 36 жанрів і ніш, 9 варіантів камери, 9 тонів оповіді й «Свій стиль»: опиши його словами або додай фото-зразок.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MONTAGE -->
+<section class="section section-tight" id="montage" aria-labelledby="montage-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <h2 class="h2" id="montage-title" data-reveal>Монтаж — як у редакторі, тільки простіше</h2>
+      <p class="lead" data-reveal style="--rd:1">Перетягни сцену, обріж кліп за край, вибери перехід між будь-якими двома сценами. Під кліпами — доріжка голосу: репліку можна посунути, обрізати й переозвучити просто тут.</p>
+    </div>
+    <figure class="cutout fade-b montage-figure" style="--fade:88%" data-reveal="shot">
+      <picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/montage-dark-1430.webp 1430w, assets/img/shots/montage-dark-1080.webp 1080w, assets/img/shots/montage-dark-720.webp 720w" sizes="(min-width: 1440px) 1376px, calc(100vw - 32px)"><img src="assets/img/shots/montage-light-1080.webp" srcset="assets/img/shots/montage-light-1430.webp 1430w, assets/img/shots/montage-light-1080.webp 1080w, assets/img/shots/montage-light-720.webp 720w" sizes="(min-width: 1440px) 1376px, calc(100vw - 32px)" width="1430" height="784" alt="Таймлайн монтажу: сцена «Крізь туман» із субтитрами, налаштування переходу й обрізки, репліка, доріжки кліпів і голосу" loading="lazy" decoding="async"></picture>
+    </figure>
+    <div class="feature-grid">
+      <div data-reveal><h3><span class="num">23</span> переходи</h3><p>Затемнення, розчинення, шторки, зсуви, коло, пікселі…</p></div>
+      <div data-reveal style="--rd:1"><h3><span class="num">12</span> ефектів руху</h3><p>Наближення, Кен Бернс, наїзд, дрейф, ручна камера…</p></div>
+      <div data-reveal style="--rd:2"><h3><span class="num">15</span> кольорових фільтрів</h3><p>Кіно, золота година, місячне світло, нуар, плівкове зерно…</p></div>
+      <div data-reveal style="--rd:3"><h3><span class="num">8</span> стилів субтитрів</h3><p>Жовті YouTube, караоке, біла плашка, великі по центру для Shorts…</p></div>
+    </div>
+    <p class="montage-note" data-reveal>Фонова музика сама тихішає під голос, а гучність фільму вирівнюється до −14 LUFS. Субтитри — прямо у відео або файлом .srt. «Змонтувати відео» кредитів не витрачає. Хочеш доробити в редакторі — <a class="prose-link" href="guide/export.html">«Експортувати в…»</a> DaVinci Resolve, Premiere Pro, Final Cut Pro, CapCut чи Kdenlive.</p>
+  </div>
+</section>
+
+<!-- COVER -->
+<section class="section" id="cover" aria-labelledby="cover-title">
+  <div class="wrap feature flip">
+    <div class="feature-copy">
+      <h2 class="h2" id="cover-title" data-reveal>Обкладинка для YouTube — у тому ж вікні</h2>
+      <p class="lead" data-reveal style="--rd:1">Візьми кадр сцени, свою картинку або намалюй нову, додай заголовок — і одразу побачиш, якою її побачать глядачі на YouTube.</p>
+      <dl class="deflist" data-reveal style="--rd:2">
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-template"/></svg></span><dt>12 шаблонів</dt><dd>Від «Великий заголовок знизу» до «Неон» і «Моторошний». Шрифт, кольори й розташування можна змінити.</dd></div>
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-type"/></svg></span><dt>8 шрифтів із повною українською абеткою</dt><dd>Напиши *слово* в зірочках — і воно стане кольоровим. Заголовок може запропонувати ШІ.</dd></div>
+        <div><span class="ico" aria-hidden="true"><svg class="i"><use href="#i-image"/></svg></span><dt>Готовий JPEG</dt><dd>1280×720 для YouTube або 1080×1920 для Shorts, до 2 МБ — як хоче YouTube.</dd></div>
+      </dl>
+    </div>
+    <figure class="cutout soft-edges" data-reveal="shot">
+      <picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/cover-dark-1432.webp 1432w, assets/img/shots/cover-dark-1080.webp 1080w, assets/img/shots/cover-dark-720.webp 720w" sizes="(min-width: 1440px) 800px, (min-width: 1024px) 56vw, calc(100vw - 32px)"><img src="assets/img/shots/cover-light-1080.webp" srcset="assets/img/shots/cover-light-1432.webp 1432w, assets/img/shots/cover-light-1080.webp 1080w, assets/img/shots/cover-light-720.webp 720w" sizes="(min-width: 1440px) 800px, (min-width: 1024px) 56vw, calc(100vw - 32px)" width="1432" height="802" alt="Студія обкладинок: обкладинка «Він повернувся додому», перегляд «Так побачать на YouTube» і 12 шаблонів" loading="lazy" decoding="async"></picture>
+    </figure>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="section section-tight" id="languages" aria-labelledby="languages-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <h2 class="h2" id="languages-title" data-reveal>93 мови й твій власний голос</h2>
+      <p class="lead" data-reveal style="--rd:1">Пиши українською — фільм отримуй англійською, іспанською чи німецькою. Мова озвучки, субтитрів і назви вибирається окремо, а «Авто» бере мову тексту.</p>
+    </div>
+    <div class="lang-grid">
+      <div class="lang-card" data-reveal>
+        <h3 class="h3">93 мови озвучки й субтитрів</h3>
+        <p>Повний список — у студії, з пошуком.</p>
+        <ul class="lang-wall"><li>Українська</li><li>Англійська</li><li>Африкаанс</li><li>Амхарська</li><li>Арабська</li><li>Вірменська</li><li>Ассамська</li><li>Астурійська</li><li>Азербайджанська</li><li>Білоруська</li><li>Бенгальська</li><li>Боснійська</li><li>Болгарська</li><li>Бірманська</li><li>Кантонська</li><li>Каталанська</li><li>Себуанська</li><li>Чічева</li><li>Китайська (мандаринська)</li><li>Хорватська</li><li>Чеська</li><li>Данська</li><li>Нідерландська</li><li>Естонська</li><li>Філіппінська</li><li>Фінська</li><li>Французька</li><li>Фула</li><li>Галісійська</li><li>Грузинська</li><li>Німецька</li><li>Грецька</li><li>Гуджараті</li><li>Хауса</li><li>Іврит</li><li>Гінді</li><li>Угорська</li><li>Ісландська</li><li>Індонезійська</li><li>Ірландська</li><li>Італійська</li><li>Японська</li><li>Яванська</li><li>Камба</li><li>Каннада</li><li>Казахська</li><li>Корейська</li><li>Курдська (сорані)</li><li>Киргизька</li><li>Лаоська</li><li>Латиська</li><li>Лінгала</li><li>Литовська</li><li>Луганда</li><li>Люксембурзька</li><li>Македонська</li><li>Малайська</li><li>Малаялам</li><li>Мальтійська</li><li>Маорі</li><li>Маратхі</li><li>Монгольська</li><li>Непальська</li><li>Норвезька</li><li>Окситанська</li><li>Орія</li><li>Пушту</li><li>Перська</li><li>Польська</li><li>Португальська</li><li>Панджабі</li><li>Румунська</li><li>Російська</li><li>Сербська</li><li>Шона</li><li>Сіндхі</li><li>Словацька</li><li>Словенська</li><li>Сомалійська</li><li>Іспанська</li><li>Суахілі</li><li>Шведська</li><li>Таджицька</li><li>Тамільська</li><li>Телугу</li><li>Тайська</li><li>Турецька</li><li>Урду</li><li>Узбецька</li><li>В&#x27;єтнамська</li><li>Валлійська</li><li>Волоф</li><li>Зулу</li></ul>
+      </div>
+      <div class="lang-col" data-reveal style="--rd:1">
+        <h3 class="h3">Переклад проєкту</h3>
+        <p>Той самий фільм іншою мовою — окремим проєктом. Кадри й кліпи ті самі, заново робляться лише текст, озвучка й субтитри, тож це хвилини, а не години.</p>
+        <figure class="sheet">
+          <picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/translate-dark-558.webp 558w, assets/img/shots/translate-dark-420.webp 420w" sizes="(min-width: 1024px) 380px, (min-width: 700px) 44vw, min(420px, calc(100vw - 32px))"><img src="assets/img/shots/translate-light-420.webp" srcset="assets/img/shots/translate-light-558.webp 558w, assets/img/shots/translate-light-420.webp 420w" sizes="(min-width: 1024px) 380px, (min-width: 700px) 44vw, min(420px, calc(100vw - 32px))" width="558" height="874" alt="Вікно «Перекласти проєкт»: мова перекладу англійська, голос оповідача як в оригіналі, кнопка «Перекласти: англійська»" loading="lazy" decoding="async"></picture>
+        </figure>
+      </div>
+      <div class="lang-col" data-reveal style="--rd:2">
+        <h3 class="h3">Своя озвучка</h3>
+        <p>Завантаж запис свого голосу — студія розпізнає мову, наріже сцени точно під твої фрази, і у фільмі звучатиме саме ти. Є субтитри SRT чи VTT? Розпізнавати не доведеться.</p>
+        <figure class="sheet voice">
+          <picture><source data-dark media="(prefers-color-scheme: dark)" srcset="assets/img/shots/voice-dark-598.webp 598w, assets/img/shots/voice-dark-420.webp 420w" sizes="(min-width: 1024px) 380px, (min-width: 700px) 44vw, min(420px, calc(100vw - 32px))"><img src="assets/img/shots/voice-light-420.webp" srcset="assets/img/shots/voice-light-598.webp 598w, assets/img/shots/voice-light-420.webp 420w" sizes="(min-width: 1024px) 380px, (min-width: 700px) 44vw, min(420px, calc(100vw - 32px))" width="598" height="874" alt="Вікно «Своя озвучка»: запис «Лисиця і місяць — озвучка.mp3», текст із таймкодами, матеріали й кнопка «Автопілот»" loading="lazy" decoding="async"></picture>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN SOURCE: for vibe-coders -->
+<section class="section" id="open-source" aria-labelledby="open-source-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <div>
+        <span class="pill pill-new oss-pill" data-reveal>Відкритий код · MIT</span>
+        <h2 class="h2" id="open-source-title" data-reveal>Для вайбкодерів</h2>
+      </div>
+      <div data-reveal style="--rd:1">
+        <p class="lead">Тепер програма доступна кожному вайбкодеру — кожен може зробити з неї те, що хоче. Забери код, відкрий папку в Claude Code, Codex чи Cursor і попроси ШІ змінити що завгодно: додати стиль, підключити свій сервіс, переробити інтерфейс, зробити свої профілі чи переклад.</p>
+        <p class="lead">Студія написана на Go й збирається в один файл програми, а ARCHITECTURE.md пояснює, де що лежить, — і тобі, і ШІ.</p>
+      </div>
+    </div>
+    <div class="oss">
+      <div class="oss-copy" data-reveal>
+        <h3 class="h4">Своя версія — чотири кроки</h3>
+        <ol class="ol-steps">
+          <li><span class="n" aria-hidden="true">1</span><div><b>Fork або Clone</b><span class="d">Зроби Fork <a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">репозиторію з кодом</a> на GitHub або просто склонуй його:</span><code class="cmd">git clone https://github.com/gitkalenyuk/yt-cartell-studio-source</code></div></li>
+          <li><span class="n" aria-hidden="true">2</span><div><b>Відкрий папку в ШІ-агенті</b><span class="d">Claude Code, Codex, Cursor чи інший. Попроси його спершу прочитати ARCHITECTURE.md — там структура й правила проєкту.</span></div></li>
+          <li><span class="n" aria-hidden="true">3</span><div><b>Опиши зміну своїми словами</b><span class="d">Українською, як другові: що додати чи змінити. Агент сам знайде потрібні файли й перепише код.</span></div></li>
+          <li><span class="n" aria-hidden="true">4</span><div><b>Збери свою версію</b><span class="d">Windows — <code>build.bat</code>, macOS — <code>bash build-mac.sh</code>. Потрібен Go 1.27+, на Mac ще Xcode Command Line Tools.</span></div></li>
+        </ol>
+        <div class="access-cta">
+          <a class="btn btn-md btn-primary" href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>Вихідний код на GitHub</a>
+          <a class="btn btn-md btn-secondary" href="guide/open-source.html"><svg class="i" aria-hidden="true"><use href="#i-file"/></svg>Як зібрати й переробити</a>
+        </div>
+        <ul class="trust">
+          <li><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><span>Ліцензія MIT: користуйся, змінюй і поширюй свої версії, зокрема комерційно, — лиши лише текст ліцензії з копірайтом.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-refresh"/></svg><span>Готові збірки для Windows і macOS, як і раніше, — у <a class="prose-link" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">релізах на GitHub</a>; звідти ж оновлюється студія.</span></li>
+        </ul>
+      </div>
+      <div class="prompt-card oss-prompts" data-reveal style="--rd:1">
+        <div class="prompt-head">
+          <span class="box" aria-hidden="true"><svg class="i"><use href="#i-sparkles"/></svg></span>
+          <div class="prompt-title">
+            <h3 class="h4">Що можна попросити в ШІ</h3>
+            <p>Приклади — скопіюй і зміни під себе</p>
+          </div>
+        </div>
+        <ul class="vibe-list">
+          <li><p id="vp-1">Додай новий стиль кадрів «Українська витинанка»: опис для промтів і прев'ю в галереї стилів — так само, як в інших стилів.</p><button class="icon-btn copy-btn" type="button" data-copy="#vp-1" data-copied="Запит скопійовано — встав його в агента." aria-label="Скопіювати запит"><svg class="i i-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i i-done" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          <li><p id="vp-2">Підключи мій сервіс озвучки за документацією API за цим посиланням: … Додай його в «Налаштування → Підключення» поруч з іншими.</p><button class="icon-btn copy-btn" type="button" data-copy="#vp-2" data-copied="Запит скопійовано — встав його в агента." aria-label="Скопіювати запит"><svg class="i i-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i i-done" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          <li><p id="vp-3">Зроби головний колір інтерфейсу синім замість помаранчевого — і в світлій, і в темній темі.</p><button class="icon-btn copy-btn" type="button" data-copy="#vp-3" data-copied="Запит скопійовано — встав його в агента." aria-label="Скопіювати запит"><svg class="i i-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i i-done" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          <li><p id="vp-4">Додай стартовий профіль автопілота «Мій канал»: Shorts 9:16, 45 секунд, стиль «Нуар», швидкий темп.</p><button class="icon-btn copy-btn" type="button" data-copy="#vp-4" data-copied="Запит скопійовано — встав його в агента." aria-label="Скопіювати запит"><svg class="i i-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i i-done" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          <li><p id="vp-5">Переклади інтерфейс студії англійською і додай у налаштування перемикач мови інтерфейсу.</p><button class="icon-btn copy-btn" type="button" data-copy="#vp-5" data-copied="Запит скопійовано — встав його в агента." aria-label="Скопіювати запит"><svg class="i i-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i i-done" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+          <li><p id="vp-6">Зроби так, щоб моя збірка оновлювалась із мого репозиторію релізів me/my-studio, а не з офіційного.</p><button class="icon-btn copy-btn" type="button" data-copy="#vp-6" data-copied="Запит скопійовано — встав його в агента." aria-label="Скопіювати запит"><svg class="i i-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i i-done" aria-hidden="true"><use href="#i-check"/></svg></button></li>
+        </ul>
+        <p class="prompt-foot"><span class="copy-status" aria-live="polite"></span><a class="link" href="guide/open-source.html#prompts">Більше прикладів<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section section-tight" id="download" aria-labelledby="download-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <h2 class="h2" id="download-title" data-reveal>Завантаж студію</h2>
+      <p class="lead" data-reveal style="--rd:1">Одна програма з власним вікном — без браузера й без Node.js. Проєкти, кадри й ключі лишаються на твоєму комп'ютері.</p>
+    </div>
+    <div class="dl-grid">
+      <div class="card" data-reveal>
+        <div class="card-head">
+          <span class="box" aria-hidden="true"><img src="assets/img/mark-96.png" width="32" height="32" alt=""></span>
+          <div>
+            <h3 class="h3">YT Cartell Studio</h3>
+            <p id="dl-version">Остання версія з GitHub</p>
+          </div>
+        </div>
+        <ul class="dl-list">
+          <li class="dl-row" id="dl-win" data-os="win">
+            <span class="os" aria-hidden="true"><svg class="i"><use href="#i-monitor"/></svg></span>
+            <span><b>Windows<span class="dl-you" hidden>твоя система</span></b><span class="meta">Windows 10/11, 64-біт · файл .exe</span></span>
+            <a class="btn btn-md btn-secondary" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Завантажити</a>
+          </li>
+          <li class="dl-row" id="dl-mac-arm" data-os="mac-arm">
+            <span class="os" aria-hidden="true"><svg class="i"><use href="#i-laptop"/></svg></span>
+            <span><b>macOS · Apple Silicon<span class="dl-you" hidden>твоя система</span></b><span class="meta">Mac на M1 і новіших · архів .zip</span><a class="row-link" href="#mac-ai">Встановити через ШІ-агента</a></span>
+            <a class="btn btn-md btn-secondary" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Завантажити</a>
+          </li>
+          <li class="dl-row" id="dl-mac-x64" data-os="mac-x64">
+            <span class="os" aria-hidden="true"><svg class="i"><use href="#i-laptop"/></svg></span>
+            <span><b>macOS · Intel<span class="dl-you" hidden>твоя система</span></b><span class="meta">Mac з процесором Intel · архів .zip</span><a class="row-link" href="#mac-ai">Встановити через ШІ-агента</a></span>
+            <a class="btn btn-md btn-secondary" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Завантажити</a>
+          </li>
+        </ul>
+        <div class="dl-foot">
+          <span class="dl-status" id="dl-status" aria-live="polite"></span>
+          <a class="link" href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+        </div>
+        <div class="first-run">
+          <h4 class="h4">Перший запуск</h4>
+          <p class="well"><b>Windows.</b> Якщо з'явиться «Windows захистив ваш ПК» — натисни «Докладніше» → «Виконати в будь-якому разі». Програма просто не підписана сертифікатом.</p>
+          <p class="well"><b>Оновлення.</b> Нова версія — кнопка «Оновлення» в меню студії: вона сама завантажить і встановить її, а проєкти й ключі лишаться на місці.</p>
+          <p class="well"><b>macOS.</b> Розпакуй .zip і перетягни YT Cartell Studio у «Програми». Перший запуск — правий клік → «Відкрити». Немає такої кнопки — «Системні параметри» → «Приватність і безпека» → «Усе одно відкрити». Або доручи все ШІ-агенту — <a href="#mac-ai">інструкція нижче</a>.</p>
+        </div>
+      </div>
+      <div data-reveal style="--rd:1">
+        <h3 class="h3">Що знадобиться</h3>
+        <ul class="req-list">
+          <li><b>Windows 10/11 (64-біт) або macOS 13 Ventura+</b><span>Mac з Apple Silicon (M1 і новіші) або з Intel.</span></li>
+          <li><b>FFmpeg разом із ffprobe</b><span>Для монтажу, перегляду, мікрофона й експорту. Найпростіше — кнопка «Встановити автоматично» в самій студії. Вручну: Windows — <code>winget install Gyan.FFmpeg</code>, macOS — <code>brew install ffmpeg</code>.</span></li>
+          <li><b>Твої сервіси генерації</b><span>Текст: CarteLink, будь-який OpenAI-сумісний сервіс, Anthropic, Ollama, Azure OpenAI або Google Gemini. Кадри й відео: <a class="prose-link" href="#g-labs">G-Labs Studio</a>, Google (Gemini Omni Flash / Veo) або <a class="prose-link" href="guide/api.html">своє API</a> — OpenAI, fal.ai, Replicate, Runway, Luma, MiniMax, RoyalTechno чи будь-яке інше за описом. Озвучка: ElevenLabs, Cartesia, OpenAI, Google Cloud, Azure, MiniMax, Fish Audio, Lumean або будь-яка інша через «Власний сервер». Не знаєш, що куди, — встав усе в <a class="prose-link" href="guide/assistant.html">«Помічник підключення»</a>.</span></li>
+          <li><b>Ключі — лише в тебе</b><span>Студія зберігає їх тільки на твоєму комп'ютері.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAC: install through an AI agent -->
+<section class="section" id="mac-ai" aria-labelledby="mac-ai-title">
+  <div class="wrap">
+    <div class="section-head split">
+      <h2 class="h2" id="mac-ai-title" data-reveal>Встановлення на Mac через ШІ-агента</h2>
+      <p class="lead" data-reveal style="--rd:1">Не хочеш розбиратися з Терміналом? Відкрий на Mac ШІ-агента, який уміє виконувати команди, — Claude Code, Codex CLI чи інший, — встав інструкцію й запусти. Далі він усе зробить сам.</p>
+    </div>
+    <div class="macai">
+      <div class="macai-copy" data-reveal>
+        <h3 class="h4">Що зробить агент</h3>
+        <ul class="facts">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Завантажить найновішу версію для Mac з GitHub — zip саме під твій Mac</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Звірить SHA-256 із SHA256SUMS.txt — підмінений файл не встановиться</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Покладе програму в «Програми» й зніме карантин</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Поставить FFmpeg через Homebrew, а whisper-cpp — якщо скажеш</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Запустить студію й підкаже, що налаштувати далі</li>
+        </ul>
+        <p class="macai-note">Паролі (пароль Mac для Homebrew) вводиш тільки ти. Якщо в найновішому релізі ще немає збірки для Mac, агент поставить попередню версію й скаже яку.</p>
+
+        <h3 class="h4 macai-manual-title">Або вручну — три кроки</h3>
+        <ol class="ol-steps manual-steps">
+          <li><span class="n" aria-hidden="true">1</span><div><b>Завантаж і перенеси</b><span class="d">Візьми .zip для свого Mac кнопкою <a href="#download">«Завантажити»</a> вище або з <a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">релізів на GitHub</a>, розпакуй і перетягни YT Cartell Studio у «Програми».</span></div></li>
+          <li><span class="n" aria-hidden="true">2</span><div><b>Зніми карантин</b><span class="d">У Терміналі:</span><code class="cmd">xattr -dr com.apple.quarantine "/Applications/YT Cartell Studio.app"</code></div></li>
+          <li><span class="n" aria-hidden="true">3</span><div><b>Постав FFmpeg</b><span class="d">Через <a href="https://brew.sh" rel="noopener">Homebrew</a>:</span><code class="cmd">brew install ffmpeg</code></div></li>
+        </ol>
+      </div>
+
+      <div class="prompt-card" data-reveal style="--rd:1">
+        <div class="prompt-head">
+          <span class="box" aria-hidden="true"><svg class="i"><use href="#i-terminal"/></svg></span>
+          <div class="prompt-title">
+            <h3 class="h4">Інструкція для агента</h3>
+            <p>Встав цілком у Claude Code, Codex CLI чи іншого агента</p>
+          </div>
+          <button class="btn btn-md btn-primary copy-btn" type="button" data-copy="#mac-prompt">
+            <svg class="i i-copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="i i-done" aria-hidden="true"><use href="#i-check"/></svg><span class="copy-label">Скопіювати інструкцію</span>
+          </button>
+        </div>
+        <div class="prompt-well" tabindex="0" role="region" aria-label="Текст інструкції для ШІ-агента">
+          <pre class="prompt" id="mac-prompt">Встанови на цей Mac програму YT Cartell Studio з офіційних релізів GitHub
+(https://github.com/gitkalenyuk/yt-cartell-studio). Працюй крок за кроком і після кожного кроку
+коротко пиши, що зроблено. Використовуй лише офіційні джерела: релізи цього репозиторію,
+https://brew.sh та формули Homebrew. Паролі вводжу я сам — не вводь і не виводь їх.
+Нічого не видаляй, крім старої копії самої програми.
+
+1. Перевір систему: <code><span class="bt">`</span>sw_vers<span class="bt">`</span></code> (потрібна macOS 13 Ventura або новіша) і <code><span class="bt">`</span>uname -m<span class="bt">`</span></code>
+   (arm64 = Apple Silicon, x86_64 = Intel).
+2. Знайди найновішу версію для Mac:
+   <code><span class="bt">`</span>curl -fsSL "https://api.github.com/repos/gitkalenyuk/yt-cartell-studio/releases?per_page=20"<span class="bt">`</span></code>
+   Релізи йдуть від нових до старих; пропусти чернетки й попередні (draft, prerelease). Візьми
+   перший реліз, де є файл під мою архітектуру: <code><span class="bt">`</span>YT-Cartell-Studio-&lt;версія&gt;-macos-arm64.zip<span class="bt">`</span></code>
+   (Apple Silicon) або <code><span class="bt">`</span>YT-Cartell-Studio-&lt;версія&gt;-macos-x64.zip<span class="bt">`</span></code> (Intel); якщо його нема, підійде
+   <code><span class="bt">`</span>…-macos-universal.zip<span class="bt">`</span></code>. Mac-збірка інколи виходить пізніше за Windows — якщо в найновішому
+   релізі zip для macOS немає, скажи мені, яку версію ставиш замість неї. Якщо zip для macOS
+   немає в жодному релізі — зупинись і скажи, що Mac-версія ще не опублікована.
+3. Завантаж обраний zip і <code><span class="bt">`</span>SHA256SUMS.txt<span class="bt">`</span></code> з того ж релізу в <code><span class="bt">`</span>~/Downloads/yt-cartell-studio/<span class="bt">`</span></code>
+   (curl -fL з адрес <code><span class="bt">`</span>browser_download_url<span class="bt">`</span></code>). Перевір контрольну суму: <code><span class="bt">`</span>shasum -a 256 &lt;zip&gt;<span class="bt">`</span></code>
+   має збігтися з рядком цього файлу в <code><span class="bt">`</span>SHA256SUMS.txt<span class="bt">`</span></code>. Якщо не збігається — зупинись і
+   нічого не встановлюй.
+4. Якщо програма вже запущена — закрий її: <code><span class="bt">`</span>osascript -e 'quit app "YT Cartell Studio"'<span class="bt">`</span></code>.
+   Розпакуй: <code><span class="bt">`</span>ditto -x -k &lt;zip&gt; ~/Downloads/yt-cartell-studio/app<span class="bt">`</span></code>. Якщо в /Applications вже є
+   «YT Cartell Studio.app» — перейменуй її на «YT Cartell Studio.old.app», скопіюй нову
+   (<code><span class="bt">`</span>ditto "&lt;…&gt;/YT Cartell Studio.app" "/Applications/YT Cartell Studio.app"<span class="bt">`</span></code>), а після успішного
+   запуску видали стару копію.
+5. Програма не підписана сертифікатом Apple, тому зніми карантин:
+   <code><span class="bt">`</span>xattr -dr com.apple.quarantine "/Applications/YT Cartell Studio.app"<span class="bt">`</span></code>.
+6. Потрібні інструменти:
+   - Homebrew: <code><span class="bt">`</span>command -v brew<span class="bt">`</span></code>; якщо нема — встанови офіційним скриптом з https://brew.sh і
+     виконай рядок <code><span class="bt">`</span>eval "$(… brew shellenv)"<span class="bt">`</span></code>, який він підкаже.
+   - <code><span class="bt">`</span>brew install ffmpeg<span class="bt">`</span></code> — без FFmpeg програма не змонтує відео.
+   - Запитай мене, чи потрібне локальне розпізнавання мови (для «Своєї озвучки» без
+     інтернету); якщо так — <code><span class="bt">`</span>brew install whisper-cpp<span class="bt">`</span></code>.
+7. Запусти: <code><span class="bt">`</span>open -a "YT Cartell Studio"<span class="bt">`</span></code> — має відкритися вікно студії.
+   Перевір, що в <code><span class="bt">`</span>~/Library/Application Support/YT Cartell Studio/studio.log<span class="bt">`</span></code> немає
+   слова panic.
+8. Прибери завантажені файли з <code><span class="bt">`</span>~/Downloads/yt-cartell-studio/<span class="bt">`</span></code> і напиши мені звіт: встановлена
+   версія, архітектура, що довстановлено (ffmpeg, whisper-cpp), і що робити далі:
+   - встановити G-Labs Studio (https://duckmartians.info/g-labs/en/) для кадрів і відео,
+     увімкнути в ній Webhook API (Generate → Start Server) і вписати адресу
+     http://127.0.0.1:8765 та ключ у «Налаштування → Кадри й відео» студії;
+   - вписати текстовий сервіс (CarteLink, будь-який OpenAI-сумісний, Anthropic, Ollama, Azure
+     чи Gemini) і ключ озвучки (наприклад ElevenLabs) у «Налаштування → Підключення» — або
+     вставити всі адреси й ключі в «Помічник підключення» там само, він розбереться сам;
+   - коли вперше натисну мікрофон у «Новій історії», macOS спитає дозвіл на мікрофон — дозволити.</pre>
+        </div>
+        <p class="prompt-foot"><span class="copy-status" aria-live="polite"></span><a class="link" href="https://github.com/gitkalenyuk/yt-cartell-studio/blob/main/INSTALL-MAC-AI.md" rel="noopener">Та сама інструкція на GitHub<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- G-LABS STUDIO -->
+<section class="section section-tight" id="g-labs" aria-labelledby="g-labs-title">
+  <div class="wrap glabs">
+    <div class="glabs-copy">
+      <h2 class="h2" id="g-labs-title" data-reveal>G-Labs Studio: кадри й відео з твого Google Flow</h2>
+      <p class="lead" data-reveal style="--rd:1">Окрема програма для Windows і macOS від duckmartians, безкоштовна для особистого використання. Це не наш продукт&nbsp;— YT Cartell Studio просто підключається до неї.</p>
+      <p class="body-2 glabs-more" data-reveal style="--rd:2">G-Labs Studio автоматизує Google Flow — картинки Nano Banana й відео Veo, а також Grok, Meta AI і ChatGPT GPT Image: кілька акаунтів Google, черги й локальний Webhook API. Студія надсилає туди запити на кадри й кліпи, тож генерація йде на кредитах твого акаунта Google — Free, Pro чи Ultra. Кліпи Veo 3.1 на 4 і 6 секунд через G-Labs — лише з Ultra; Omni Flash знімає 4–10 секунд і без неї.</p>
+      <ul class="ext-links" data-reveal style="--rd:3">
+        <li><a href="https://duckmartians.info/g-labs/en/" rel="noopener">Сайт G-Labs Studio<svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://duckmartians.info/g-labs/guide/en/" rel="noopener">Посібник<svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://duckmartians.info/g-labs/guide/en/webhook-api/" rel="noopener">Посібник із Webhook API<svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+        <li><a href="https://github.com/duckmartians/G-Labs-Studio" rel="noopener">GitHub<svg class="i" aria-hidden="true"><use href="#i-external"/></svg></a></li>
+      </ul>
+      <p class="well glabs-alt" data-reveal style="--rd:4"><b>Без G-Labs теж можна.</b> У студії є й інші шляхи: ключі Google AI Studio (Gemini Omni Flash / Veo) або <a href="guide/api.html">своє API</a> — OpenAI, fal.ai, Replicate, Runway, Luma, MiniMax, RoyalTechno чи будь-яке інше за описом.</p>
+    </div>
+    <div class="card glabs-card" data-reveal="shot">
+      <div class="card-head">
+        <span class="box" aria-hidden="true"><svg class="i"><use href="#i-plug"/></svg></span>
+        <div>
+          <h3 class="h3">Як підключити</h3>
+          <p>Чотири кроки, один раз</p>
+        </div>
+      </div>
+      <ol class="ol-steps">
+        <li><span class="n" aria-hidden="true">1</span><div><b>Встанови G-Labs Studio</b><span class="d">З <a href="https://duckmartians.info/g-labs/en/" rel="noopener">офіційного сайту</a> — для Windows або macOS.</span></div></li>
+        <li><span class="n" aria-hidden="true">2</span><div><b>Додай свій акаунт Google</b><span class="d">У розділі «Accounts». Можна кілька.</span></div></li>
+        <li><span class="n" aria-hidden="true">3</span><div><b>Увімкни Webhook API</b><span class="d">«Webhook API» → «Generate» (з'явиться ключ) → «Start Server».</span></div></li>
+        <li><span class="n" aria-hidden="true">4</span><div><b>Підключи YT Cartell Studio</b><span class="d">«Налаштування → Підключення → Кадри й відео»: адреса <code>http://127.0.0.1:8765</code> і ключ → «Перевірити G-Labs».</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq">
+    <div class="faq-head">
+      <h2 class="h2" id="faq-title" data-reveal>Питання</h2>
+      <p class="lead" data-reveal style="--rd:1">Не знайшов відповіді — спитай у чаті спільноти YT Cartell: вступати туди не обов'язково, студія працює й без нього.</p>
+      <a class="link" href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener" data-reveal style="--rd:2">Чат YT Cartell<svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+    </div>
+    <div data-reveal style="--rd:1">
+      <details class="qa">
+        <summary>Студія безкоштовна? Потрібна підписка чи вхід?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>З версії 2.1.0 — безкоштовна й з відкритим кодом (MIT). Входу через Telegram і підписки на канал чи чат більше немає: завантажуй і користуйся. Платиш лише своїм сервісам генерації — за їхні кредити.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Можна переробити студію під себе?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Так. Код — на <a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">GitHub</a>: зроби Fork, відкрий папку в Claude Code, Codex чи Cursor і опиши, що змінити. Зібрати свою версію — <code>build.bat</code> на Windows або <code>bash build-mac.sh</code> на Mac. <a href="guide/open-source.html">Покроково в довіднику</a>.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Що нового у версії 2.0.3?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Невдалі сцени більше не зникають з монтажу й не підміняються мовчки кадром — студія показує точну помилку й питає, як бути. А ще «Помічник підключення» і каталоги моделей, текст через Anthropic, Ollama чи Azure OpenAI, озвучка Lumean, мультиголос і кнопки рішення в Telegram-боті. Усе по кроках — у <a href="guide/">довіднику</a>, попередні версії — в <a href="changelog/">історії версій</a>.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Чи можна керувати студією з телефона?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Так, через свого Telegram-бота: новий проєкт текстом чи голосовим, черга, прогрес наживо й готове відео прямо в чат. Студія при цьому має бути відкрита на комп'ютері. <a href="guide/telegram.html">Як підключити</a>.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Можна доробити фільм у DaVinci Resolve чи CapCut?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Так: «Експортувати в…» на кроці «Монтаж» збере кліпи, голос, музику, текст у кадрі й субтитри для DaVinci Resolve, Premiere Pro, Final Cut Pro, Kdenlive чи Shotcut, а для CapCut — пакет уже нарізаних сцен. <a href="guide/export.html">Як відкрити в кожному редакторі</a>.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Хто платить за генерацію?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Студія працює з твоїми сервісами й твоїми ключами, тож кредити списує сам сервіс — Google Flow через G-Labs, ElevenLabs та інші. Нічого дорогого не запускається само: кожен платний крок — окрема кнопка, і видно, скільки всього буде. Монтаж кредитів не витрачає.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Чи можна виправити те, що написав ШІ?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Так, усе: назву, опис, героїв, місця, репліки й промти кадрів. Правки зберігаються самі, щойно перестанеш друкувати, — і лише потім студія малює й знімає.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Яке довге відео можна зробити?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Від 15-секундного Shorts до фільму на 20–25 хвилин: до 150 сцен, кожна сцена — кліп на 4, 6 або 8 секунд (з Omni Flash — до 10). Формат — 16:9 або 9:16.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Що, як одна сцена не вдалася?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>У кожної сцени свій стан і точна помилка сервісу з підказкою. Переробиш лише її — решта лишається як є. «Повторити» на етапі доробляє тільки те, що не вийшло, а замінені версії кадрів, кліпів і голосів зберігаються в кошику проєкту.</p><p>Нічого не підставляється мовчки: якщо перед монтажем якісь сцени не готові, студія спитає — змонтувати без них, з кадром замість відео чи зупинитись. <a href="guide/failed.html">Докладніше</a>.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Де лежать мої проєкти й ключі?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Проєкти — у «Документи → YT Cartell Studio → projects» (папку можна змінити в налаштуваннях). Ключі й налаштування — у файлі config.json у профілі користувача, лише на цьому комп'ютері.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Чи потрібен інтернет?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Так — для сервісів генерації. Розпізнавати мову для «Своєї озвучки» можна й без інтернету — через whisper.cpp на твоєму комп'ютері.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Можна закрити вікно, поки йде генерація?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Згорнути — так. Закриття програми зупиняє роботу, тому студія спершу перепитає. Потім натисни «Повторити» — доробиться лише незроблене.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Я працював у веб-версії. Проєкти перенесуться?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Так: «Налаштування → Дані → Вибрати папку й імпортувати». Переносяться ключі, налаштування й проєкти разом із файлами. Це разова копія — дві версії не синхронізуються.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Що таке G-Labs Studio і чи обов'язкова вона?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Окрема програма від duckmartians, через яку студія малює кадри й знімає відео у Google Flow твого акаунта Google. Вона не обов'язкова: можна підключити ключі Google AI Studio або своє API. <a href="#g-labs">Докладніше й як підключити</a>.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Як оновлювати студію?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Під час запуску студія сама перевіряє, чи вийшла нова версія. Є нова — натисни «Оновлення» в меню ліворуч: студія завантажить її, перевірить і встановить після перезапуску. Перевірити вручну можна там само.</p><p>Проєкти, налаштування й ключі під час оновлення не зачіпаються — вони лежать окремо від програми.</p></div>
+      </details>
+      <details class="qa">
+        <summary>Студія працює на Mac?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+        <div class="a"><p>Так, є збірки для Apple Silicon та Intel. Mac-збірка інколи виходить пізніше за Windows — тоді кнопка «Завантажити» дає найновішу версію для Mac. Найпростіше встановити через ШІ-агента — <a href="#mac-ai">готова інструкція</a> сама завантажить, перевірить і встановить усе потрібне.</p><p>Найбільше студію перевіряли на Windows — якщо на Mac щось поводиться дивно, напиши в <a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">чат спільноти</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="section section-tight closing" aria-labelledby="closing-title">
+  <div class="wrap">
+    <div class="closing-card" data-reveal>
+      <div>
+        <h2 class="h2" id="closing-title">Перше відео — з першої історії</h2>
+        <p class="lead">Завантаж студію, встав історію й натисни «Автопілот». Без входу й підписок.</p>
+      </div>
+      <div class="closing-actions">
+        <a class="btn btn-primary" href="#download"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Завантажити</a>
+        <a class="btn btn-secondary" href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-github"/></svg>Вихідний код</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="#top"><img src="assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul>
+          <li><a href="guide/">Усі розділи</a></li>
+          <li><a href="guide/failed.html">Невдалі сцени і точні помилки</a></li>
+          <li><a href="guide/assistant.html">Помічник підключення</a></li>
+          <li><a href="guide/connect.html">Підключення будь-якого сервісу</a></li>
+          <li><a href="guide/catalogs.html">Каталоги моделей</a></li>
+          <li><a href="guide/multivoice.html">Мультиголос</a></li>
+          <li><a href="guide/telegram.html">Telegram-бот</a></li>
+          <li><a href="guide/open-source.html">Відкритий код і переробка</a></li>
+          <li><a href="guide/modes.html">Голос у відео і режими</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="#download">Завантажити</a></li>
+          <li><a href="changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="#tutorial">Відео</a></li>
+          <li><a href="#faq">Питання</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

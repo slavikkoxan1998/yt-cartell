@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Експорт у редактори: DaVinci Resolve, Premiere, Final Cut, CapCut — YT Cartell Studio 2.0.1</title>
+<meta name="description" content="Як перенести фільм із YT Cartell Studio в DaVinci Resolve, Premiere Pro, Final Cut Pro, CapCut, Kdenlive, Shotcut чи OpenTimelineIO: що в пакеті й як імпортувати.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/export.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/export.html">
+<meta property="og:title" content="Експорт у редактори: DaVinci Resolve, Premiere, Final Cut, CapCut — YT Cartell Studio 2.0.1">
+<meta property="og:description" content="Як перенести фільм із YT Cartell Studio в DaVinci Resolve, Premiere Pro, Final Cut Pro, CapCut, Kdenlive, Shotcut чи OpenTimelineIO: що в пакеті й як імпортувати.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Експорт у редактори</span></nav>
+    <h1>Експорт у редактори</h1>
+    <p class="lead">Перенеси фільм у свій редактор: кліпи з обрізкою й переходами, голос, музика, текст у кадрі й субтитри — кожне на своїй доріжці. Кредитів не витрачає.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.1</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 6 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#steps">Як експортувати</a></li><li><a href="#package">Що в папці</a></li><li><a href="#editors">Як відкрити в редакторі</a></li><li><a href="#approx">Що переноситься приблизно</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#steps">Як експортувати</a></li><li><a href="#package">Що в папці</a></li><li><a href="#editors">Як відкрити в редакторі</a></li><li><a href="#approx">Що переноситься приблизно</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="steps"><h2 id="steps">Як експортувати</h2>
+<ol class="g-steps"><li><div>Крок <b>«Монтаж»</b> → картка «Фінальне відео» → <b>«Експортувати в…»</b> (або меню ⋯ проєкту → «Експортувати в редактор…») → вибери редактор.</div></li><li><div><b>«Що включити»</b>: «Озвучка», «Музика», «Субтитри», «Текст у кадрі», «Обкладинка», «Звук окремими доріжками» (голос і музика двома WAV на всю довжину; для CapCut і «Лише файли» — завжди).</div></li><li><div><b>«Як зберегти»</b>: «Папка» або «Папка + ZIP». «Куди» — типово папка проєкту › <code>export</code> («Змінити…»).</div></li><li><div><b>«Експортувати»</b>. Не все готово — кнопка «Експортувати те, що є»: сцена без відео піде кадром із рухом.</div></li><li><div><b>«Відкрити папку»</b> — кроки «Як відкрити в …» є прямо у вікні й у <code>README.txt</code>.</div></li></ol>
+<div class="g-duo"><figure class="g-fig g-shot" style="--w:540px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/export-menu-dark-540.webp 540w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/export-menu-light-540.webp" srcset="../assets/img/guide/export-menu-light-540.webp 540w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="540" height="860" alt="Картка «Фінальне відео» з відкритим меню «Експортувати в…»: DaVinci Resolve, Premiere Pro, Final Cut Pro, CapCut, Kdenlive / Shotcut, OpenTimelineIO, «Лише файли»" loading="lazy" decoding="async"></picture><figcaption>Меню «Експортувати в…».</figcaption></figure><figure class="g-fig g-shot" style="--w:498px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/export-sheet-dark-498.webp 498w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/export-sheet-light-498.webp" srcset="../assets/img/guide/export-sheet-light-498.webp 498w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="498" height="1074" alt="Вікно «Експорт у DaVinci Resolve»: редактор, що включити й як зберегти" loading="lazy" decoding="async"></picture><figcaption>Що включити й куди зберегти.</figcaption></figure></div>
+<div class="callout tip"><svg class="i" aria-hidden="true"><use href="#i-bulb"/></svg><div><p>Монтувати фільм у студії перед експортом не обов'язково. Потрібен лише FFmpeg — його студія ставить одним кліком.</p></div></div></section>
+<section aria-labelledby="package"><h2 id="package">Що в папці</h2>
+<div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Що</th><th scope="col">Навіщо</th></tr></thead><tbody><tr><td><code>media/</code></td><td>Кліпи <code>001_scene.mp4</code> (таймлайн тримає обрізку), кадри <code>001_frame.jpg</code> і <code>001_hold.jpg</code>, голос <code>001_voice.*</code>, текст у кадрі <code>001_text.png</code>, музика.</td></tr><tr><td>файл таймлайну</td><td>Для твого редактора (див. нижче).</td></tr><tr><td><code>subtitles.srt</code></td><td>Ті самі субтитри, що в монтажі.</td></tr><tr><td><code>cover.jpg</code></td><td>Обкладинка для YouTube.</td></tr><tr><td><code>edit-list.csv</code></td><td>Монтажний лист: що, звідки й куди.</td></tr><tr><td><code>stems/voice.wav</code>, <code>stems/music.wav</code></td><td>Голос і музика (з приглушенням) на всю довжину фільму.</td></tr><tr><td><code>README.txt</code></td><td>Що в папці, як відкрити, доріжки, частота кадрів і що перенесено приблизно.</td></tr></tbody></table></div>
+<p>Доріжки: V1 — сцени, V2 — текст у кадрі, A1 — звук кліпів, A2 — голос, далі — музика з приглушенням під голосом (−12 дБ). Кліпи на тому ж диску — посиланнями, тож місця не займають.</p></section>
+<section aria-labelledby="editors"><h2 id="editors">Як відкрити в редакторі</h2>
+<h3 id="ed-resolve">DaVinci Resolve 18+</h3><p><b>Таймлайн:</b> <code>timeline.xml</code> — <b>рекомендовано</b>, найточніший; ще <code>timeline.fcpxml</code> і <code>timeline.edl</code> (запасний, лише сцени).</p><ol class="g-steps"><li><div>Створи проєкт у DaVinci Resolve 18 або новішому (частота кадрів — як у фільмі, див. README).</div></li><li><div>File → Import → Timeline… → <code>timeline.xml</code>. Сцени, текст, звук кліпів, голос і музика стануть на свої доріжки.</div></li><li><div>Resolve сам додасть файли з папки <code>media</code> у Media Pool.</div></li><li><div>Субтитри: перетягни <code>subtitles.srt</code> у Media Pool, а звідти — на таймлайн.</div></li></ol><div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>У <code>timeline.fcpxml</code> ті самі кліпи, але звук Resolve розкладає по доріжках як вийде, а кадри без відео — без руху.</p></div></div><h3 id="ed-premiere">Premiere Pro</h3><p><b>Таймлайн:</b> <code>timeline.xml</code> (Final Cut Pro 7 XML).</p><ol class="g-steps"><li><div>File → Import… → <code>timeline.xml</code>.</div></li><li><div>Premiere створить послідовність з кліпами, голосом, музикою й текстом на окремих доріжках.</div></li><li><div>Субтитри: File → Import… → <code>subtitles.srt</code>, потім перетягни на таймлайн (Captions).</div></li></ol><h3 id="ed-finalcut">Final Cut Pro 10.5+</h3><p><b>Таймлайн:</b> <code>timeline.fcpxmld</code> (і <code>timeline.fcpxml</code>).</p><ol class="g-steps"><li><div>Скопіюй усю папку на Mac (разом із <code>media</code>).</div></li><li><div>File → Import → XML… → <code>timeline.fcpxmld</code> (або <code>timeline.fcpxml</code>).</div></li><li><div>Файли не знайшлися — File → Relink Files… → папка <code>media</code>.</div></li><li><div>Субтитри: File → Import → Captions… → <code>subtitles.srt</code>.</div></li></ol><h3 id="ed-capcut">CapCut</h3><p><b>Таймлайн:</b> Без таймлайну — <b>пакет файлів</b>: сцени, вже нарізані точно під фільм, і голос із музикою цілими доріжками.</p><ol class="g-steps"><li><div>Новий проєкт → «Імпорт» → усі файли <code>*_scene.mp4</code> з папки <code>media</code>.</div></li><li><div>Виділи їх у медіатеці (вони вже по порядку) і перетягни на таймлайн — склейки будуть точно як у фільмі.</div></li><li><div>Перетягни <code>stems/voice.wav</code> і <code>stems/music.wav</code> на аудіодоріжки з самого початку (0:00).</div></li><li><div>Субтитри: Текст → Локальні субтитри → <code>subtitles.srt</code>.</div></li></ol><div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>Чому не чернетка: CapCut не імпортує монтажні файли (XML, OTIO), а його чернетки шифруються або змінюються з кожною версією. Сцени склеєні різко — переходи додай у CapCut.</p></div></div><h3 id="ed-kdenlive">Kdenlive 25.04+ / Shotcut</h3><p><b>Таймлайн:</b> <code>timeline.otio</code> і <code>timeline.mlt</code>.</p><ol class="g-steps"><li><div>Kdenlive: File → OpenTimelineIO Import… → <code>timeline.otio</code>.</div></li><li><div>Shotcut: File → Open… → <code>timeline.mlt</code>.</div></li><li><div>Субтитри: у Kdenlive — Project → Subtitles → Import Subtitle File; у Shotcut — панель Subtitles → Import.</div></li></ol><h3 id="ed-otio">OpenTimelineIO</h3><p><b>Таймлайн:</b> <code>timeline.otio</code>.</p><ol class="g-steps"><li><div>Відкрий у програмі, що читає OpenTimelineIO: DaVinci Resolve 18.5+ (File → Import → Timeline), Kdenlive 25.04+, Nuke Studio, Hiero, RV.</div></li><li><div>Або сконвертуй будь-яким конвертером OpenTimelineIO у потрібний формат.</div></li></ol><h3 id="ed-files">Лише файли (папка)</h3><p><b>Таймлайн:</b> <code>edit-list.csv</code> — монтажний лист.</p><ol class="g-steps"><li><div>У папці <code>media</code> — усі файли фільму, пронумеровані за сценами.</div></li><li><div><code>edit-list.csv</code> — що, звідки (вхід/вихід) і куди ставити на таймлайні.</div></li><li><div><code>stems/voice.wav</code> і <code>stems/music.wav</code> — голос і музика на всю довжину: постав їх з 0:00.</div></li></ol>
+<div class="g-duo"><figure class="g-fig g-shot" style="--w:498px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/export-done-dark-498.webp 498w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/export-done-light-498.webp" srcset="../assets/img/guide/export-done-light-498.webp 498w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="498" height="1074" alt="Експорт у DaVinci Resolve готовий: «Відкрити папку», «Показати ZIP», кроки «Як відкрити в DaVinci Resolve» і що перенесено приблизно" loading="lazy" decoding="async"></picture><figcaption>Після експорту — кроки для твого редактора.</figcaption></figure><figure class="g-fig g-shot" style="--w:498px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/export-capcut-dark-498.webp 498w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/export-capcut-light-498.webp" srcset="../assets/img/guide/export-capcut-light-498.webp 498w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="498" height="1074" alt="Вікно «Експорт у CapCut»: сцени вже нарізані, чому це пакет файлів, і кнопка «Експортувати те, що є»" loading="lazy" decoding="async"></picture><figcaption>CapCut — пакет файлів.</figcaption></figure></div></section>
+<section aria-labelledby="approx"><h2 id="approx">Що переноситься приблизно</h2>
+<p>Точно переносяться порядок і довжина сцен, обрізка кліпів, утримання останнього кадру, розчинення й затемнення між сценами, місця реплік і субтитри. Приблизно:</p>
+<ul class="g-list"><li>Переходи-шторки, зсуви тощо стають розчиненням тієї ж тривалості.</li><li>Ефекти руху — ключові кадри масштабу й позиції; «Ручна камера» — нерухоме наближення.</li><li>Кольорові фільтри не переносяться — зроби корекцію кольору в редакторі.</li><li>Анімований текст — прозорі PNG із плавною появою (вліт і лічильник зроби в редакторі).</li><li>Голос — з точністю до кадру; точна до семпла доріжка — <code>stems/voice.wav</code>.</li><li>Приглушення музики — ключові кадри гучності; точна копія — <code>stems/music.wav</code>.</li></ul>
+<p class="muted">Повний список для твого проєкту — у вікні після експорту й у <code>README.txt</code>.</p></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Перемістив папку — редактор не бачить файлів<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Скористайся Relink / «Знайти файли» в редакторі й вкажи папку <code>media</code>. <code>timeline.mlt</code> для Shotcut посилається на файли відносно себе — його можна переносити разом із папкою.</p></div></details><details class="qa"><summary>Яку частоту кадрів ставити в проєкті редактора?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ту, що в <code>README.txt</code> (як у кліпів). Розмір кадру — теж звідти.</p></div></details><details class="qa"><summary>Чи можна експортувати незавершений проєкт?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Так: «Експортувати те, що є». Сцени без відео підуть кадром із рухом, без кадру — пропустяться, а решту долиєш у редакторі.</p></div></details></div></section>
+<nav class="g-next" aria-label="Інші розділи довідника"><a href="telegram.html"><small>← Попередній розділ</small><b>Telegram-бот</b></a><a class="next" href="api.html"><small>Наступний розділ →</small><b>Своє API, RoyalTechno і Google</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

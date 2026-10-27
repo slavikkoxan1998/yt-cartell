@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Своє API, RoyalTechno і Gemini Omni Flash — YT Cartell Studio 2.0.1</title>
+<meta name="description" content="Як підключити будь-який сервіс кадрів і відео в YT Cartell Studio: шаблони, опис API в JSON, налаштування з документації ШІ, пресет RoyalTechno і Gemini Omni Flash.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/api.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/api.html">
+<meta property="og:title" content="Своє API, RoyalTechno і Gemini Omni Flash — YT Cartell Studio 2.0.1">
+<meta property="og:description" content="Як підключити будь-який сервіс кадрів і відео в YT Cartell Studio: шаблони, опис API в JSON, налаштування з документації ШІ, пресет RoyalTechno і Gemini Omni Flash.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Своє API, RoyalTechno і Google</span></nav>
+    <h1>Своє API, RoyalTechno і Google</h1>
+    <p class="lead">Кадри й відео тепер можна знімати через будь-який сервіс: готові пресети, шаблони, опис API в JSON або «Налаштувати з документації (ШІ)». Плюс готовий RoyalTechno і нове API Gemini Omni Flash від Google.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.1</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 7 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#presets">Готові сервіси</a></li><li><a href="#universal">Універсальний: три способи</a></li><li><a href="#ai">Налаштувати з документації</a></li><li><a href="#json">Опис API: основи</a></li><li><a href="#check">Перевірка</a></li><li><a href="#royal">RoyalTechno</a></li><li><a href="#google">Google: Gemini Omni Flash</a></li><li><a href="#speed">Сцен одночасно</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#presets">Готові сервіси</a></li><li><a href="#universal">Універсальний: три способи</a></li><li><a href="#ai">Налаштувати з документації</a></li><li><a href="#json">Опис API: основи</a></li><li><a href="#check">Перевірка</a></li><li><a href="#royal">RoyalTechno</a></li><li><a href="#google">Google: Gemini Omni Flash</a></li><li><a href="#speed">Сцен одночасно</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="presets"><h2 id="presets">Готові сервіси</h2>
+<p><b>Налаштування → Підключення → «Кадри» / «Відео»</b> → «Хто малює кадри» / «Хто знімає відео» → <b>«Своє API»</b> → «Сервіс»:</p>
+<ul class="g-list"><li>Кадри: OpenAI (GPT Image), fal.ai, Replicate, RoyalTechno, OpenAI-сумісний сервер.</li><li>Відео: fal.ai, Replicate, Runway, Luma (Ray), MiniMax (Hailuo), RoyalTechno.</li><li>Будь-який інший сервіс — <b>«Універсальний (будь-яке API)»</b>.</li></ul><div class="callout tip"><svg class="i" aria-hidden="true"><use href="#i-bulb"/></svg><div><p>Не хочеш шукати адресу й назву моделі — <b>«Вибрати з каталогу»</b> в блоці «Своє API»: 199 моделей відео й 188 моделей кадрів із параметрами. <a href="catalogs.html">Каталоги моделей</a>.</p></div></div></section>
+<section aria-labelledby="universal"><h2 id="universal">Універсальний: три способи</h2>
+<ol class="g-steps"><li><div><b>«Шаблон…»</b> — «RoyalTechno (задачі)», «Replicate (predictions)», «fal.ai (черга)», «OpenAI Images (синхронно)» (лише кадри), «Простий синхронний: POST → посилання», «Асинхронні задачі (каркас)». Заміни шляхи й поля під своє API.</div></li><li><div>Або <b>«Налаштувати з документації (ШІ)»</b> — див. нижче.</div></li><li><div>Або встав свій JSON у поле <b>«Опис API (JSON)»</b>.</div></li><li><div>Заповни <b>«Адреса»</b> (корінь API, напр. <code>https://api.example.com/v1</code>), <b>«API-ключ»</b> і <b>«Модель»</b> (іде в <code>{{model}}</code>) → <b>«Перевірити»</b>.</div></li></ol>
+<div class="g-duo"><figure class="g-fig g-shot" style="--w:628px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/api-setup-dark-628.webp 628w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/api-setup-light-628.webp" srcset="../assets/img/guide/api-setup-light-628.webp 628w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="628" height="760" alt="Своє API для відео: сервіс «Універсальний (будь-яке API)», модель, адреса, ключ і блок «Налаштувати з документації (ШІ)»" loading="lazy" decoding="async"></picture><figcaption>Сервіс, адреса, ключ і модель.</figcaption></figure><figure class="g-fig g-shot" style="--w:628px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/api-json-dark-628.webp 628w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/api-json-light-628.webp" srcset="../assets/img/guide/api-json-light-628.webp 628w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="628" height="870" alt="Опис API (JSON) з асинхронним шаблоном, позначка «Опис коректний» і список підстановок" loading="lazy" decoding="async"></picture><figcaption>Опис API з живою перевіркою.</figcaption></figure></div></section>
+<section aria-labelledby="ai"><h2 id="ai">Налаштувати з документації (ШІ)</h2>
+<ol class="g-steps"><li><div>Встав посилання на документацію API (або сам її текст) у «Посилання на документацію або її текст».</div></li><li><div>«Скласти опис». Текстова модель студії читає документацію (спершу шукає OpenAPI чи llms.txt) і складає опис. Ключі їй не передаються.</div></li><li><div>Перевір <b>«Чернетку від ШІ»</b>: адреса, модель і що варто перевірити в документації.</div></li><li><div>«Зберегти опис» (або «Відкинути»). До збереження нічого не змінюється. Потім — «Перевірити».</div></li></ol>
+<figure class="g-fig g-shot" style="--w:596px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/api-ai-dark-596.webp 596w" sizes="(min-width: 860px) 596px, calc(100vw - 40px)"><img src="../assets/img/guide/api-ai-light-596.webp" srcset="../assets/img/guide/api-ai-light-596.webp 596w" sizes="(min-width: 860px) 596px, calc(100vw - 40px)" width="596" height="593" alt="Чернетка від ШІ: адреса API й модель, взято OpenAPI-опис, підказки, кнопки «Зберегти опис» і «Відкинути»" loading="lazy" decoding="async"></picture><figcaption>Чернетка від ШІ — перевір і збережи.</figcaption></figure>
+<div class="callout tip"><svg class="i" aria-hidden="true"><use href="#i-bulb"/></svg><div><p>Сторінка документації, яку малює JavaScript, може бути майже порожньою для студії — тоді встав сам текст документації замість посилання. На все — до 8 хвилин.</p></div></div></section>
+<section aria-labelledby="json"><h2 id="json">Опис API: основи</h2>
+<p>Асинхронне API (задача → статус → файл):</p>
+<pre class="g-code"><code>{
+  &quot;submit&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/v1/tasks&quot;,
+    &quot;body&quot;: {
+      &quot;model&quot;: &quot;{{model}}&quot;,
+      &quot;prompt&quot;: &quot;{{prompt}}&quot;,
+      &quot;aspect_ratio&quot;: &quot;{{aspect}}&quot;,
+      &quot;duration&quot;: &quot;{{seconds}}&quot;,
+      &quot;image&quot;: &quot;{{start_image}}&quot;
+    }
+  },
+  &quot;id&quot;: &quot;id&quot;,
+  &quot;poll&quot;: {&quot;method&quot;: &quot;GET&quot;, &quot;path&quot;: &quot;/v1/tasks/{id}&quot;, &quot;every&quot;: 10},
+  &quot;state&quot;: &quot;status&quot;,
+  &quot;done&quot;: [&quot;succeeded&quot;, &quot;completed&quot;, &quot;success&quot;, &quot;done&quot;],
+  &quot;failed&quot;: [&quot;failed&quot;, &quot;error&quot;, &quot;canceled&quot;, &quot;cancelled&quot;],
+  &quot;queued&quot;: [&quot;queued&quot;, &quot;pending&quot;, &quot;waiting&quot;],
+  &quot;progress&quot;: &quot;progress&quot;,
+  &quot;result&quot;: [&quot;result.url&quot;, &quot;output.url&quot;, &quot;url&quot;, &quot;output&quot;],
+  &quot;error&quot;: [&quot;error.message&quot;, &quot;error&quot;],
+  &quot;cancel&quot;: {&quot;method&quot;: &quot;POST&quot;, &quot;path&quot;: &quot;/v1/tasks/{id}/cancel&quot;},
+  &quot;caps&quot;: {&quot;lengths&quot;: [5, 10], &quot;aspects&quot;: [&quot;16:9&quot;, &quot;9:16&quot;]}
+}</code></pre>
+<div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Поле</th><th scope="col">Що означає</th></tr></thead><tbody><tr><td><code>submit</code></td><td>Запит, що запускає генерацію: <code>path</code> додається до «Адреси», <code>body</code> — з підстановками.</td></tr><tr><td><code>id</code>, <code>poll</code></td><td>Де номер задачі й як питати її стан (<code>{id}</code> у шляху, <code>every</code> — секунд).</td></tr><tr><td><code>state</code>, <code>done</code>, <code>failed</code>, <code>queued</code></td><td>Поле стану і його значення.</td></tr><tr><td><code>progress</code></td><td>Відсоток готовності.</td></tr><tr><td><code>result</code></td><td>Де шукати файл: посилання, <code>data:</code>-URI чи base64; кілька варіантів по черзі.</td></tr><tr><td><code>error</code>, <code>cancel</code></td><td>Де текст помилки; як скасувати задачу, яку студія перестала чекати.</td></tr><tr><td><code>auth</code></td><td>Як передати ключ: <code>bearer</code> (типово), <code>header:Назва</code>, <code>header:Назва:Префікс</code>, <code>query:назва</code>, <code>basic</code>, <code>none</code>.</td></tr><tr><td><code>test</code></td><td>Безкоштовний запит для «Перевірити»: баланс, акаунт чи список моделей.</td></tr><tr><td><code>caps</code></td><td>Що вміє модель: <code>lengths</code> (секунди), <code>maxRefs</code>, <code>aspects</code>, <code>startFrame</code>, <code>size</code>.</td></tr></tbody></table></div>
+<p>Синхронне API — без <code>id</code> і <code>poll</code>, файл приходить одразу у відповіді:</p>
+<pre class="g-code"><code>{
+  &quot;submit&quot;: {
+    &quot;method&quot;: &quot;POST&quot;,
+    &quot;path&quot;: &quot;/v1/generate&quot;,
+    &quot;body&quot;: {
+      &quot;model&quot;: &quot;{{model}}&quot;,
+      &quot;prompt&quot;: &quot;{{prompt}}&quot;,
+      &quot;aspect_ratio&quot;: &quot;{{aspect}}&quot;,
+      &quot;duration&quot;: &quot;{{seconds}}&quot;,
+      &quot;image&quot;: &quot;{{start_image}}&quot;
+    }
+  },
+  &quot;result&quot;: [&quot;url&quot;, &quot;video.url&quot;, &quot;data.0.url&quot;, &quot;output&quot;],
+  &quot;error&quot;: [&quot;error.message&quot;, &quot;error&quot;, &quot;message&quot;],
+  &quot;caps&quot;: {&quot;lengths&quot;: [5, 10], &quot;aspects&quot;: [&quot;16:9&quot;, &quot;9:16&quot;]}
+}</code></pre>
+<p><b>Підстановки:</b> <code>{{prompt}}</code> <code>{{model}}</code> <code>{{aspect}}</code> <code>{{orientation}}</code> <code>{{seconds}}</code> <code>{{width}}</code> <code>{{height}}</code> <code>{{size}}</code> <code>{{start_image}}</code> <code>{{start_image_b64}}</code> <code>{{refs}}</code> <code>{{refs_b64}}</code> <code>{{resolution}}</code> (<code>{{seconds|text}}</code> — як текст). У шляхах після запуску — <code>{id}</code>, <code>{{submit.поле}}</code>, <code>{{status.поле}}</code>. Підстановка без значення (напр., немає кадру сцени) прибирає своє поле із запиту.</p>
+<div class="callout warn"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg><div><p>Сам ключ в опис не пиши — його додає поле <code>auth</code>, і йде він лише на адресу з «Адреси».</p></div></div></section>
+<section aria-labelledby="check"><h2 id="check">Перевірка</h2>
+<ul class="g-list"><li>Опис перевіряється наживо: «Опис коректний» і коротко, як він працює, або «Опис має помилки» зі списком.</li><li>Попередження «Увага: …» підкажуть, чого бракує: напр., кадр сцени не передається — відео зніметься лише з тексту; немає <code>cancel</code> — покинуту задачу сервіс доробить.</li><li>«Перевірити» нічого не генерує: робить лише запит <code>test</code>. Без нього студія перевіряє тільки опис, а ключ і адресу перевірить перша генерація.</li></ul></section>
+<section aria-labelledby="royal"><h2 id="royal">RoyalTechno</h2>
+<ul class="g-list"><li>Пресет «RoyalTechno» у «Своєму API» — і для кадрів, і для відео. Ключ <code>rt_live_…</code> — у Telegram-боті @royaltechno_ai_bot, команда <code>/api_key</code>.</li><li>Кадри: <code>nano-banana-pro</code> (типово), <code>nano-banana-2</code>, <code>seedream-4.6</code>, <code>gpt-image-2</code>.</li><li>Відео: <code>omni-flash</code> (типово), <code>veo-3.1</code>, <code>seedance-2.0</code>, <code>seedance-2.0-fast</code>, <code>seedance-2.0-mini</code>, <code>grok-imagine-1.5</code>, <code>grok-imagine-1.5-720p</code>.</li><li>Довжини: Omni Flash — 4/6/8/10 с (до 7 опорних кадрів), Veo 3.1 — 8 с, Seedance — 2–15 с, Grok Imagine — 6/10 с. Лише 16:9 і 9:16.</li><li>«Перевірити» нічого не генерує: показує тариф, моделі без ліміту, залишок на сьогодні й баланс.</li><li>Розкадровка 3×3 і ланцюжок кадрів працюють через пресет RoyalTechno з моделлю <code>omni-flash</code> (через «Універсальний» шаблон — ні).</li></ul></section>
+<section aria-labelledby="google"><h2 id="google">Google: Gemini Omni Flash</h2>
+<ul class="g-list"><li><b>Налаштування → «Відео» → «Google» → «Модель відео Google»:</b> «Gemini Omni Flash» (типово; кліпи 4/6/8/10 с, до 10 опорних кадрів) або Veo 3.1 / Fast / Lite.</li><li><b>Veo 3.1 preview у Gemini API вимикається 22 жовтня 2026.</b> Студія пише про це біля моделі, а після цієї дати сама перемкне на Gemini Omni Flash.</li><li>Розкадровка 3×3 і ланцюжок кадрів тепер працюють і через Google — з Omni Flash.</li><li>1080p і 4K Omni масштабує з 720p — це довше.</li></ul>
+<figure class="g-fig g-shot" style="--w:628px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/voice-google-dark-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)"><img src="../assets/img/guide/voice-google-light-628.webp" srcset="../assets/img/guide/voice-google-light-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)" width="628" height="628" alt="Картка «Google AI Studio»: додати ключі, моделі тексту й кадрів, модель відео Veo 3.1 з приміткою, що вона вимикається 22 жовтня 2026" loading="lazy" decoding="async"></picture><figcaption>Біля Veo 3.1 — нагадування про 22 жовтня.</figcaption></figure></section>
+<section aria-labelledby="speed"><h2 id="speed">Сцен одночасно</h2>
+<p><b>Налаштування → Підключення → «Сцен одночасно»</b> — скільки кліпів знімати паралельно. Межа залежить від сервісу відео; вище рекомендованого студія попередить: швидше, але частіше впирається в ліміти.</p>
+<div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Сервіс відео</th><th scope="col">Максимум</th><th scope="col">Рекомендовано</th></tr></thead><tbody><tr><td>G-Labs</td><td>10</td><td>6</td></tr><tr><td>Google</td><td>4 (+2 за кожен додатковий ключ, до 10)</td><td>2</td></tr><tr><td>RoyalTechno</td><td>20</td><td>10</td></tr><tr><td>fal.ai</td><td>20</td><td>4</td></tr><tr><td>Replicate</td><td>20</td><td>6</td></tr><tr><td>Runway</td><td>20</td><td>2</td></tr><tr><td>Luma</td><td>10</td><td>3</td></tr><tr><td>MiniMax Hailuo / H3</td><td>10 / 20</td><td>4 / 6</td></tr><tr><td>Інше своє API</td><td>20</td><td>4</td></tr></tbody></table></div>
+<figure class="g-fig g-shot" style="--w:628px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/api-speed-dark-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)"><img src="../assets/img/guide/api-speed-light-628.webp" srcset="../assets/img/guide/api-speed-light-628.webp 628w" sizes="(min-width: 860px) 628px, calc(100vw - 40px)" width="628" height="374" alt="Картка «Сцен одночасно»: 14 сцен, «До 20 для RoyalTechno · рекомендовано до 10» і попередження про ліміти" loading="lazy" decoding="async"></picture><figcaption>Попередження вище рекомендованого.</figcaption></figure>
+<p class="muted">Кадри малюються щонайменше по 4 одночасно (до межі сервісу кадрів), озвучка — за кількістю ключів (до 8). Ланцюжок кадрів завжди знімає сцени по одній.</p></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>«Перевірити» каже, що ключ працює, а генерація падає<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Перевір модель (вона має бути у твоєму тарифі) і поля <code>result</code> та <code>state</code> в описі. Текст помилки сервісу студія показує в «Черзі» й у проєкті.</p></div></details><details class="qa"><summary>Чи бачить ШІ мої ключі, коли складає опис?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні. Перед тим як надіслати документацію текстовій моделі, студія замінює всі свої ключі на «•••».</p></div></details><details class="qa"><summary>Чи працюють розкадровка 3×3 і ланцюжок кадрів зі своїм API?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Лише з Omni Flash: G-Labs, Google або пресет RoyalTechno. Інші моделі оживляють кадр сцени.</p></div></details></div></section>
+<nav class="g-next" aria-label="Інші розділи довідника"><a href="export.html"><small>← Попередній розділ</small><b>Експорт у редактори</b></a><a class="next" href="voice.html"><small>Наступний розділ →</small><b>Озвучка й ключі</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

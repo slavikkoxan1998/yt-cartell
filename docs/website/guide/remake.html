@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Перезняти за прикладом — YT Cartell Studio 2.0.1</title>
+<meta name="description" content="Як зробити новий фільм за прикладом із YouTube: Gemini дивиться відео, розбирає його сцена за сценою, а студія пише сценарій з твоїми змінами.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/remake.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/remake.html">
+<meta property="og:title" content="Перезняти за прикладом — YT Cartell Studio 2.0.1">
+<meta property="og:description" content="Як зробити новий фільм за прикладом із YouTube: Gemini дивиться відео, розбирає його сцена за сценою, а студія пише сценарій з твоїми змінами.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Перезняти за прикладом</span></nav>
+    <h1>Перезняти за прикладом</h1>
+    <p class="lead">Встав посилання на YouTube і опиши, що хочеш. Gemini сам подивиться й послухає відео, розбере його сцена за сценою — і студія зробить новий фільм: точна копія, близько до оригіналу або лише структура й темп.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.1</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 5 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#need">Що потрібно</a></li><li><a href="#steps">Як запустити</a></li><li><a href="#after">Розбір і сценарій</a></li><li><a href="#fidelity">Як працює точність</a></li><li><a href="#phone">З телефона</a></li><li><a href="#limits">Обмеження</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#need">Що потрібно</a></li><li><a href="#steps">Як запустити</a></li><li><a href="#after">Розбір і сценарій</a></li><li><a href="#fidelity">Як працює точність</a></li><li><a href="#phone">З телефона</a></li><li><a href="#limits">Обмеження</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="need"><h2 id="need">Що потрібно</h2>
+<ul class="g-list"><li><b>Ключ Google AI Studio</b> — Налаштування → Підключення → «Google AI Studio». Створити ключ: <a href="https://aistudio.google.com/apikey" rel="noopener">aistudio.google.com/apikey</a>.</li><li>Замість нього може підійти текстовий сервіс, якщо він уміє дивитися YouTube, — студія перевіряє це сама.</li><li>Публічне відео YouTube до 90 хвилин — звичайне або Shorts.</li></ul>
+<div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>Нічого не завантажується на твій комп'ютер: Gemini дивиться відео просто з YouTube. Студія зберігає лише мініатюру й розбір.</p></div></div></section>
+<section aria-labelledby="steps"><h2 id="steps">Як запустити</h2>
+<ol class="g-steps"><li><div><b>Головна → «Швидкі дії» → «За прикладом».</b> Або «Новий проєкт» → «Перезняти за прикладом».</div></li><li><div><b>«Посилання на відео»</b> — <code>youtube.com/watch?v=…</code>, <code>youtu.be/…</code> або Shorts.</div></li><li><div><b>«Наскільки близько до оригіналу»</b> — «Точна копія», «Близько до оригіналу» (типово) або «Лише структура й темп».</div></li><li><div><b>«Що змінити або що хочу бачити»</b> — тема, герої, місця, мова, деталі. Порожньо — та сама тема, але все написано наново.</div></li><li><div><b>«Тривалість»</b> — «Як в оригіналі» (студія сама підбере кількість сцен) або «Своя».</div></li><li><div><b>«Мова фільму»</b> і <b>«Профіль»</b>: «Як у прикладі» — формат, стиль кадрів, темп, звук і камера з оригіналу; твій профіль — стиль кадрів, голос і монтаж із профілю.</div></li><li><div><b>«Хто дивиться відео»</b> — «Авто», «Google AI Studio» або «Текстовий сервіс».</div></li><li><div><b>«Автопілот»</b> — до готового відео. <b>«Покроково»</b> — розбір і сценарій, далі ти сам.</div></li></ol>
+<div class="g-duo"><figure class="g-fig g-shot" style="--w:638px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/remake-dialog-dark-638.webp 638w, ../assets/img/guide/remake-dialog-dark-480.webp 480w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/remake-dialog-light-480.webp" srcset="../assets/img/guide/remake-dialog-light-638.webp 638w, ../assets/img/guide/remake-dialog-light-480.webp 480w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="638" height="874" alt="Вікно «Перезняти за прикладом»: посилання на YouTube, «Точна копія», побажання й тривалість" loading="lazy" decoding="async"></picture><figcaption>Посилання, точність і побажання.</figcaption></figure><figure class="g-fig g-shot" style="--w:638px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/remake-nokey-dark-638.webp 638w, ../assets/img/guide/remake-nokey-dark-480.webp 480w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)"><img src="../assets/img/guide/remake-nokey-light-480.webp" srcset="../assets/img/guide/remake-nokey-light-638.webp 638w, ../assets/img/guide/remake-nokey-light-480.webp 480w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="638" height="874" alt="Те саме вікно без ключа: «Потрібен ключ Google AI Studio» і посилання «Відкрити налаштування»" loading="lazy" decoding="async"></picture><figcaption>Без ключа студія підкаже, де його додати.</figcaption></figure></div></section>
+<section aria-labelledby="after"><h2 id="after">Що далі: розбір і сценарій</h2>
+<p>Відкриється проєкт «Перезйомка за прикладом». На кроці «Сценарій» — картка <b>«Розбір прикладу»</b>:</p>
+<ol class="g-steps"><li><div>«Перевіряю посилання»</div></li><li><div>«Gemini дивиться й слухає відео»</div></li><li><div>«Пишу сценарій за розбором»</div></li></ol>
+<p>Проєкт можна закрити — робота триває у фоні, прогрес є в «Черзі». Коли готово, видно мініатюру, факти (скільки сцен в оригіналі, склейок за хвилину, формат, звук, хто в кадрі) і текст розбору: хук, структура, кожна сцена з кадром, текстом на екрані, голосом і звуком.</p>
+<figure class="g-fig g-shot" style="--w:1440px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/remake-done-dark-1440.webp 1440w, ../assets/img/guide/remake-done-dark-1080.webp 1080w, ../assets/img/guide/remake-done-dark-720.webp 720w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/remake-done-light-720.webp" srcset="../assets/img/guide/remake-done-light-1440.webp 1440w, ../assets/img/guide/remake-done-light-1080.webp 1080w, ../assets/img/guide/remake-done-light-720.webp 720w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="1440" height="900" alt="Крок «Сценарій»: картка «Розбір прикладу» з мініатюрою, фактами й текстом розбору" loading="lazy" decoding="async"></picture><figcaption>Розбір прикладу — його можна правити.</figcaption></figure>
+<ul class="g-list"><li><b>«Переписати сценарій»</b> — студія напише сценарій наново з твоїми правками в розборі.</li><li><b>«Подивитися ще раз»</b> — новий перегляд відео; правки в розборі зникнуть.</li><li>Далі — «Створити план», як у звичайному проєкті. З автопілотом студія йде до готового відео сама.</li></ul></section>
+<section aria-labelledby="fidelity"><h2 id="fidelity">Як працює точність</h2>
+<div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Варіант</th><th scope="col">Що береться з оригіналу</th><th scope="col">Що нове</th></tr></thead><tbody><tr><td>«Точна копія»</td><td>Ті самі сцени, порядок, тривалості, плани, рухи камери, дії, текст на екрані й темп. План іде за сценарієм кадр у кадр.</td><td>Текст — тими самими думками, але своїми словами.</td></tr><tr><td>«Близько до оригіналу»</td><td>Побудова, хук, типи кадрів, темп і подача.</td><td>Тема, деталі, герої й місця — під твій опис.</td></tr><tr><td>«Лише структура й темп»</td><td>Схема хука, ритм склейок і манера подачі.</td><td>Тема, герої й картинка.</td></tr></tbody></table></div>
+<ul class="g-list"><li>Твоє побажання завжди важливіше за приклад.</li><li>Речення не копіюються (цитата — до 8 слів); без реальних впізнаваних людей, логотипів і брендів.</li><li>Сцен = тривалість ÷ довжина кліпу з налаштувань (до 150). Кожна сцена перезнімає свою частину оригіналу.</li></ul></section>
+<section aria-labelledby="phone"><h2 id="phone">З телефона</h2>
+<p>У <a href="telegram.html">Telegram-боті</a> — «🔁 За прикладом» або <code>/remake</code>: посилання → побажання (або «Без побажань») → «🎯 Точність», «⏱ Тривалість», «👤 Профіль», «🔀 Режим» → «▶️ Запуск». Типово — автопілот до готового відео.</p></section>
+<section aria-labelledby="limits"><h2 id="limits">Обмеження</h2>
+<ul class="g-list"><li><b>Лише публічні відео.</b> Приватні, «доступ за посиланням», з віковим обмеженням, видалені й незавершені трансляції не підходять — студія скаже одразу, ще до перегляду.</li><li><b>До 90 хвилин.</b> До 12 хвилин Gemini дивиться за раз, довші — частинами по 10 хвилин (після 30 хвилин — у зниженій якості).</li><li><b>Безкоштовний ключ Google — до 8 годин YouTube на день.</b> Вичерпано — студія візьме інший ключ (вичерпаний відпочиває добу) або попросить спробувати пізніше.</li></ul></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Скільки це коштує?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Перегляд іде на твоєму ключі Google AI Studio (безкоштовний — до 8 годин YouTube на день). Сценарій пише твоя текстова модель. Далі — звичайні кадри, кліпи й озвучка, як у будь-якому проєкті.</p></div></details><details class="qa"><summary>Можна взяти лише частину довгого відео?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні, студія дивиться відео повністю (до 90 хвилин). Хочеш коротший фільм — вибери «Тривалість» → «Своя»: сцени розподіляться по всьому оригіналу.</p></div></details><details class="qa"><summary>Що, як Gemini не зміг подивитися відео?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Перевір, що воно публічне, і натисни «Спробувати ще раз» — студія продовжить з того ж місця. Якщо вже є розбір, лишиться дописати сценарій.</p></div></details></div></section>
+<nav class="g-next" aria-label="Інші розділи довідника"><a href="modes.html"><small>← Попередній розділ</small><b>Голос у відео і режими</b></a><a class="next" href="mic.html"><small>Наступний розділ →</small><b>Мікрофон</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мультиголос — YT Cartell Studio 2.0.3</title>
+<meta name="description" content="Мультиголос у YT Cartell Studio 2.0.3: диктор, Диктор 2 і 3 та свій голос кожному героєві, автоматичний розподіл реплік і голосів, субтитри кольором мовця.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/multivoice.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/multivoice.html">
+<meta property="og:title" content="Мультиголос — YT Cartell Studio 2.0.3">
+<meta property="og:description" content="Мультиголос у YT Cartell Studio 2.0.3: диктор, Диктор 2 і 3 та свій голос кожному героєві, автоматичний розподіл реплік і голосів, субтитри кольором мовця.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Мультиголос</span></nav>
+    <h1>Мультиголос: кожному свій голос</h1>
+    <p class="lead">Диктор, другий і третій диктор і кожен герой читають свої репліки різними голосами. Студія сама розподіляє текст і підбирає голоси, а субтитри можна фарбувати кольором мовця.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.3</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 3 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#on">Як увімкнути</a></li><li><a href="#voices">Голоси</a></li><li><a href="#lines">Репліки за голосами</a></li><li><a href="#subs">Субтитри кольором мовця</a></li><li><a href="#sound">Як звучить</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#on">Як увімкнути</a></li><li><a href="#voices">Голоси</a></li><li><a href="#lines">Репліки за голосами</a></li><li><a href="#subs">Субтитри кольором мовця</a></li><li><a href="#sound">Як звучить</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="on"><h2 id="on">Як увімкнути</h2>
+<ol class="g-steps"><li><div>Відкрий проєкт → крок «Сценарій» (або «План») → картка <b>«Голоси озвучки»</b>.</div></li><li><div>Увімкни <b>«Мультиголос»</b>.</div></li><li><div>Перевір голоси або натисни <b>«Підібрати голоси»</b>.</div></li><li><div>Далі як завжди: план розпише текст між диктором і героями.</div></li></ol><figure class="g-fig g-shot" style="--w:780px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/mv-voices-dark-898.webp 898w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/mv-voices-light-898.webp" srcset="../assets/img/guide/mv-voices-light-898.webp 898w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="898" height="330" alt="Картка «Голоси озвучки»: «Мультиголос» увімкнено, Диктор, Диктор 2 і двоє героїв зі своїми голосами, «Додати диктора», «Підібрати голоси» й «Субтитри кольором мовця»" loading="lazy" decoding="async"></picture><figcaption>Картка «Голоси озвучки».</figcaption></figure><div class="callout"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><div><p>Мультиголос вмикається в самому проєкті, коли фільм озвучує диктор. Зі «Своєю озвучкою» картки немає; у вікні нового проєкту й у профілях цього перемикача теж немає.</p></div></div></section>
+<section aria-labelledby="voices"><h2 id="voices">Голоси</h2>
+<ul class="g-list"><li><b>«Диктор»</b> — головний голос оповіді.</li><li><b>«Додати диктора»</b> — «Диктор 2» і «Диктор 3», до двох додаткових.</li><li><b>Кожен герой, що говорить</b>, — своє поле з голосом; за замовчуванням «Як у диктора».</li></ul><p><b>«Підібрати голоси»</b> — студія сама обере голоси з твого сервісу озвучки за статтю, віком і мовою фільму, по змозі без повторів; «Диктор 2» отримає голос іншої статі. Змінити можна будь-коли.</p></section>
+<section aria-labelledby="lines"><h2 id="lines">Репліки за голосами</h2>
+<p>У плані кожна сцена отримує <b>«Текст озвучки за голосами»</b> — «кожна репліка — своїм голосом». Пряма мова в лапках дістається героєві, що її каже, решта — диктору; текст готового сценарію лишається слово в слово.</p><p>Репліку можна переписати, віддати іншому мовцю, підказати інтонацію в полі «Як сказати (англ.)» або «Додати репліку».</p><figure class="g-fig g-shot" style="--w:780px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/mv-scenes-dark-898.webp 898w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/mv-scenes-light-898.webp" srcset="../assets/img/guide/mv-scenes-light-898.webp 898w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="898" height="584" alt="План: дві сцени з текстом озвучки за голосами — репліки Диктора, Диктора 2 і героя, у кожної свій голос" loading="lazy" decoding="async"></picture><figcaption>Репліки сцен за голосами.</figcaption></figure></section>
+<section aria-labelledby="subs"><h2 id="subs">Субтитри кольором мовця</h2>
+<p>Перемикач <b>«Субтитри кольором мовця»</b> у тій самій картці фарбує репліки в субтитрах кольором мовця — тими кольорами, що позначені біля голосів.</p></section>
+<section aria-labelledby="sound"><h2 id="sound">Як звучить</h2>
+<p>З ElevenLabs і моделлю Eleven v3 сцена озвучується одним запитом-діалогом. З іншими сервісами репліки озвучуються окремо й склеюються з паузами.</p></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Можна лишити один голос?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Так — просто не вмикай «Мультиголос». Перемикач — у кожному проєкті свій.</p></div></details><details class="qa"><summary>Не сподобався голос героя.<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Вибери інший у картці «Голоси озвучки» й переозвуч сцени з ним.</p></div></details><details class="qa"><summary>Скільки дикторів можна додати?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>До трьох: «Диктор», «Диктор 2» і «Диктор 3». Героїв — скільки є в плані.</p></div></details></div></section><nav class="g-next" aria-label="Інші розділи довідника"><a href="catalogs.html"><small>← Попередній розділ</small><b>Каталоги моделей</b></a><a class="next" href="modes.html"><small>Наступний розділ →</small><b>Голос у відео і режими</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

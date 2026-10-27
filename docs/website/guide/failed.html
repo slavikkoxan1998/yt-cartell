@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Невдалі сцени і точні помилки — YT Cartell Studio 2.0.3</title>
+<meta name="description" content="Що робить YT Cartell Studio 2.0.3, коли сцена не вдалася: точна помилка сервісу, вікно перед монтажем, налаштування автопілота, кнопки в Telegram, повтор Omni Flash і «озвучка довша за кліп».">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/failed.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/failed.html">
+<meta property="og:title" content="Невдалі сцени і точні помилки — YT Cartell Studio 2.0.3">
+<meta property="og:description" content="Що робить YT Cartell Studio 2.0.3, коли сцена не вдалася: точна помилка сервісу, вікно перед монтажем, налаштування автопілота, кнопки в Telegram, повтор Omni Flash і «озвучка довша за кліп».">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Невдалі сцени і точні помилки</span></nav>
+    <h1>Невдалі сцени і точні помилки</h1>
+    <p class="lead">Студія більше нічого не підставляє мовчки: сцена, що не вийшла, не зникає з фільму непомітно й не стає застиглим кадром. Ти бачиш, який сервіс відмовив, з яким кодом і що відповів, — і сам вирішуєш, як монтувати.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.3</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 4 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#errors">Точні помилки</a></li><li><a href="#dialog">Перед монтажем</a></li><li><a href="#autopilot">Автопілот</a></li><li><a href="#telegram">З телефона</a></li><li><a href="#retry">Повтор Omni Flash</a></li><li><a href="#longer">Озвучка довша за кліп</a></li><li><a href="#length">Кліпи не обрізає</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="modes.html">Голос у відео і режими</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#errors">Точні помилки</a></li><li><a href="#dialog">Перед монтажем</a></li><li><a href="#autopilot">Автопілот</a></li><li><a href="#telegram">З телефона</a></li><li><a href="#retry">Повтор Omni Flash</a></li><li><a href="#longer">Озвучка довша за кліп</a></li><li><a href="#length">Кліпи не обрізає</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="errors"><h2 id="errors">Точна помилка — там, де ти її шукаєш</h2>
+<p>Коли сервіс відмовляє, студія показує його власну відповідь, а не загальне «щось пішло не так»:</p><ul class="g-list"><li>перший рядок — сервіс і код, напр. «Текстовий ендпоінт відповів помилкою 404: …» або «Текстовий ендпоінт відхилив ключ (401). Перевір API-ключ у Налаштуваннях.»;</li><li><b>«Запит:»</b> — метод, адреса й код відповіді, напр. <code>POST https://…/chat/completions → 404 Not Found</code>;</li><li><b>«Відповідь:»</b> — що повернув сервіс;</li><li><b>«Підказка:»</b> — що найчастіше допомагає;</li><li><b>«Спробувано:»</b> — кожен запит, який студія перепробувала, коли перевіряла підключення.</li></ul><p>Де це видно: на картці сцени («Кадр не вдався», «Кліп не вдався», «Голос не вдався»), у вікні перед монтажем, у «Черзі», у панелі «Перевірити» в налаштуваннях і в Telegram. Ключі всюди замасковані.</p><figure class="g-fig g-shot" style="--w:868px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/connect-text-dark-868.webp 868w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/connect-text-light-868.webp" srcset="../assets/img/guide/connect-text-light-868.webp 868w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="868" height="763" alt="Картка «Текст і сценарій» з помилкою «Не вдалося»: які форми адреси пробували, запит, відповідь 404, підказка й список спроб" loading="lazy" decoding="async"></picture><figcaption>Помилка підключення: запит, відповідь, підказка й усі спроби.</figcaption></figure><p class="muted">Якщо сервіс завершив задачу з помилкою, але не повернув її тексту, студія так і напише: «Сервіс завершив задачу з помилкою, але не повернув її тексту.»</p></section>
+<section aria-labelledby="dialog"><h2 id="dialog">Перед монтажем вирішуєш ти</h2>
+<p>Натискаєш «Змонтувати відео», а якісь сцени не готові, — студія відкриє вікно <b>«Не всі сцени готові»</b>: «Студія нічого не підставляє сама. Ось що не вийшло і чому — обери, як монтувати». Для кожної сцени — що саме бракує («Сцена 3 — немає кліпу»), точна помилка й підказка.</p><div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Кнопка</th><th scope="col">Що буде</th></tr></thead><tbody><tr><td>«Змонтувати без них»</td><td>Ці сцени (і їхній голос) не потраплять у фільм.</td></tr><tr><td>«З кадром замість відео»</td><td>Сцени без кліпу покажуть свій кадр із рухом; сцени без кадру випадуть, без голосу — пройдуть без репліки.</td></tr><tr><td>«Зупинитись»</td><td>Нічого не монтувати — перезняти сцени на кроках 3–4.</td></tr></tbody></table></div><figure class="g-fig g-shot" style="--w:640px"><picture><img src="../assets/img/guide/gaps-dialog-light-640.webp" srcset="../assets/img/guide/gaps-dialog-light-640.webp 640w" sizes="(min-width: 860px) 640px, calc(100vw - 40px)" width="640" height="492" alt="Вікно «Не всі сцени готові — 2 сцени»: сцена 1 без кліпу й сцена 3 без кліпу й кадру, помилки G-Labs з підказками й кнопки «Зупинитись», «Змонтувати без них», «З кадром замість відео»" loading="lazy" decoding="async"></picture><figcaption>Що не вийшло, чому — і три варіанти.</figcaption></figure><p>Ще до монтажу картка «Фінальне відео» показує, яких сцен бракує і чому. А якщо змонтував не всі, готовий фільм нагадає: «У фільмі не всі сцени як у плані:» — з переліком.</p><figure class="g-fig g-shot" style="--w:640px"><picture><img src="../assets/img/guide/gaps-final-light-640.webp" srcset="../assets/img/guide/gaps-final-light-640.webp 640w" sizes="(min-width: 860px) 640px, calc(100vw - 40px)" width="640" height="278" alt="Картка «Фінальне відео»: «2 сцени не готові — перед монтажем студія спитає, як бути» і помилки обох сцен" loading="lazy" decoding="async"></picture><figcaption>Попередження на кроці «Монтаж».</figcaption></figure></section>
+<section aria-labelledby="autopilot"><h2 id="autopilot">Автопілот: що робити з невдалими сценами</h2>
+<p><b>Налаштування → «Автопілот» → «Якщо частина сцен не вдалася»</b> — що робити з ними на монтажі:</p><ul class="g-list"><li><b>«Питати мене»</b> (за замовчуванням) — автопілот зупиниться перед монтажем і покаже, що не вийшло й чому;</li><li><b>«Змонтувати без них»</b>, <b>«З кадром замість відео»</b> або <b>«Зупинитись»</b> — як однойменні кнопки вище, але без питання.</li></ul><p>Коли автопілот чекає, у проєкті з'являється «Автопілот чекає на твоє рішення перед монтажем» з кнопками <b>«Обрати, як змонтувати»</b> і <b>«Перезняти невдалі»</b>.</p><div class="callout warn"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg><div><p>Старий перемикач, з яким автопілот монтував фільм попри невдалі сцени, прибрано. Тепер автопілот спершу спитає. Хочеш, щоб він монтував сам, — вибери в цьому полі «Змонтувати без них» або «З кадром замість відео».</p></div></div></section>
+<section aria-labelledby="telegram"><h2 id="telegram">З телефона</h2>
+<p>Підключений <a href="telegram.html">Telegram-бот</a> пришле список невдалих сцен із помилками й кнопками «🎬 Змонтувати без них», «🖼 З кадром замість відео», «🔁 Перезняти невдалі» і «⏹ Зупинитись». <a href="telegram.html#failed">Як це виглядає</a>.</p></section>
+<section aria-labelledby="retry"><h2 id="retry">Omni Flash через G-Labs: ще одна спроба</h2>
+<p>Якщо G-Labs відхиляє кліп Omni Flash через зміст (наприклад, фільтр безпеки Google), а знімався він з розкадровкою 3×3 чи референсами, студія один раз пробує ще — лише з кадром і простим описом руху, без розкадровки, попереднього кадру й референсів. Не вийшло й так — у помилці буде видно обидві спроби.</p><p>Відхилену розкадровку 3×3 студія замінює одним кадром — на картці сцени буде «Без розкадровки 3×3».</p><p class="muted">Це стосується лише Omni Flash через G-Labs. Для Google Omni і RoyalTechno такого повтору немає.</p></section>
+<section aria-labelledby="longer"><h2 id="longer">Озвучка довша за кліп — «перезняти?»</h2>
+<p>Переозвучив репліку, і нова вийшла довшою за вже знятий кліп? Сцена отримає позначку <b>«Озвучка довша за кліп»</b>, а на картці — «Озвучка довша за кліп — перезняти?». «Повторити» зніме кліп під новий голос; сцена також потрапить у «Перезняти змінені».</p></section>
+<section aria-labelledby="length"><h2 id="length">Кліпи не обрізає в кінці</h2>
+<p>З «Динамічною довжиною сцен» (і зі своєю озвучкою) кліп тепер довший за репліку з запасом: +0,6 с і час на перехід до наступної сцени. Репліки, які герої кажуть у кадрі, студія рахує з повільнішим темпом мови — тож останні слова не обриваються.</p></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Можна, щоб автопілот завжди монтував сам?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Так: Налаштування → «Автопілот» → «Якщо частина сцен не вдалася» → «Змонтувати без них» або «З кадром замість відео».</p></div></details><details class="qa"><summary>Де взяти повний текст помилки?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>На картці сцени на кроках 3–4, у вікні перед монтажем і в «Черзі»; для підключень — «Перевірити» в картці сервісу. Питаєш у <a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">чаті спільноти</a> — додай цей текст і studio.log.</p></div></details><details class="qa"><summary>Помилка каже про фільтр безпеки Google. Що робити?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Прочитай «Підказку» під помилкою — вона пояснює причину. Найчастіше допомагає прибрати імена реальних людей з опису й промптів, спростити опис руху або перемалювати кадр.</p></div></details></div></section><nav class="g-next" aria-label="Інші розділи довідника"><a href="./"><small>← Довідник</small><b>Що нового в 2.0.3</b></a><a class="next" href="assistant.html"><small>Наступний розділ →</small><b>Помічник підключення</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>

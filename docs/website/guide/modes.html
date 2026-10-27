@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uk" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Голос у відео, без людей і моушн-графіка — YT Cartell Studio 2.0.1</title>
+<meta name="description" content="Як зробити фільм, де герої говорять прямо в кадрі, фільм без людей чи з моушн-графікою й анімованим текстом у YT Cartell Studio.">
+<link rel="canonical" href="https://gitkalenyuk.github.io/yt-cartell-studio/guide/modes.html">
+<meta name="theme-color" content="#FFF4E6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1714" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="YT Cartell Studio">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:url" content="https://gitkalenyuk.github.io/yt-cartell-studio/guide/modes.html">
+<meta property="og:title" content="Голос у відео, без людей і моушн-графіка — YT Cartell Studio 2.0.1">
+<meta property="og:description" content="Як зробити фільм, де герої говорять прямо в кадрі, фільм без людей чи з моушн-графікою й анімованим текстом у YT Cartell Studio.">
+<meta property="og:image" content="https://gitkalenyuk.github.io/yt-cartell-studio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/fira-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fira-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  (function () {
+    var d = document.documentElement, t = null;
+    d.className = d.className.replace("no-js", "js");
+    try { t = localStorage.getItem("ytcs-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    d.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/guide.css">
+<script src="../assets/js/site.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">До змісту</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="YT Cartell Studio — на головну сайту">
+      <img src="../assets/img/mark-96.png" width="34" height="34" alt="">
+      <span>YT Cartell Studio</span>
+    </a>
+    <nav class="nav" aria-label="Розділи">
+      <ul><li><a href="../#new">Що нового</a></li><li><a href="./" aria-current="page">Довідник</a></li><li><a href="../changelog/">Історія версій</a></li><li><a href="../#how">Як це працює</a></li><li><a href="../#faq">Питання</a></li></ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Увімкнути темну тему" title="Тема">
+        <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="btn btn-sm btn-secondary header-cta" href="../#download">
+        <svg class="i" aria-hidden="true"><use href="#i-download"/></svg>
+        Завантажити
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap">
+  <div class="g-hero">
+    <nav class="crumbs" aria-label="Шлях"><a href="./">Довідник</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><span aria-current="page">Голос у відео і режими</span></nav>
+    <h1>Голос у відео, без людей і моушн-графіка</h1>
+    <p class="lead">Два нові вибори на кроці «Сценарій»: <b>«Звук»</b> — хто говорить у фільмі, і <b>«Що в кадрі»</b> — герої, місця й предмети чи графіка. Плюс анімований текст поверх сцен.</p>
+    <div class="g-meta"><span class="pill pill-new"><svg class="i" aria-hidden="true"><use href="#i-sparkles"/></svg>Нове в 2.0.1</span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>≈ 5 хв читання</span></div>
+  </div>
+  <div class="g-layout">
+    <aside class="g-toc" aria-label="Зміст сторінки">
+      <h2>На цій сторінці</h2>
+      <ol><li><a href="#sound">Звук: три режими</a></li><li><a href="#invideo">Голос у відео: крок за кроком</a></li><li><a href="#models">Які моделі говорять</a></li><li><a href="#content">Що в кадрі</a></li><li><a href="#overlays">Анімований текст у кадрі</a></li><li><a href="#styles">Нові стилі й жанри</a></li><li><a href="#limits">Обмеження</a></li><li><a href="#faq">Питання</a></li></ol>
+      <div class="g-toc-more"><h2>Інші розділи</h2><ol><li><a href="failed.html">Невдалі сцени і точні помилки</a></li><li><a href="assistant.html">Помічник підключення</a></li><li><a href="connect.html">Підключення будь-якого сервісу</a></li><li><a href="catalogs.html">Каталоги моделей</a></li><li><a href="multivoice.html">Мультиголос</a></li><li><a href="remake.html">Перезняти за прикладом</a></li><li><a href="mic.html">Мікрофон</a></li><li><a href="telegram.html">Telegram-бот</a></li><li><a href="export.html">Експорт у редактори</a></li><li><a href="api.html">Своє API, RoyalTechno і Google</a></li><li><a href="voice.html">Озвучка й ключі</a></li><li><a href="transfer.html">Перенесення налаштувань</a></li><li><a href="open-source.html">Відкритий код і переробка</a></li></ol></div>
+    </aside>
+    <article class="g-article">
+      <details class="g-toc-m"><summary>Зміст сторінки<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><ol><li><a href="#sound">Звук: три режими</a></li><li><a href="#invideo">Голос у відео: крок за кроком</a></li><li><a href="#models">Які моделі говорять</a></li><li><a href="#content">Що в кадрі</a></li><li><a href="#overlays">Анімований текст у кадрі</a></li><li><a href="#styles">Нові стилі й жанри</a></li><li><a href="#limits">Обмеження</a></li><li><a href="#faq">Питання</a></li></ol></details>
+<section aria-labelledby="sound"><h2 id="sound">Звук: три режими</h2>
+<p>Крок <b>«Сценарій»</b> → картка <b>«Звук»</b>. Те саме є у вікні «Новий проєкт», у чипах під історією на Головній, у профілях і в Telegram-боті.</p>
+<div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Режим</th><th scope="col">Що відбувається</th></tr></thead><tbody><tr><td>«Озвучка диктора»</td><td>Диктор читає текст поверх кадрів — як було завжди.</td></tr><tr><td>«Голос у відео»</td><td>Герої говорять прямо в кадрі. ШІ пише репліки, а відеомодель сама озвучує героїв. Окремого кроку озвучки немає, субтитри — з реплік.</td></tr><tr><td>«Без голосу»</td><td>Лише музика й звуки сцен. Замість тексту озвучки в сцені — «Підпис» для субтитрів.</td></tr></tbody></table></div>
+<figure class="g-fig g-shot" style="--w:1440px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/modes-sound-dark-1440.webp 1440w, ../assets/img/guide/modes-sound-dark-960.webp 960w, ../assets/img/guide/modes-sound-dark-640.webp 640w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/modes-sound-light-640.webp" srcset="../assets/img/guide/modes-sound-light-1440.webp 1440w, ../assets/img/guide/modes-sound-light-960.webp 960w, ../assets/img/guide/modes-sound-light-640.webp 640w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="1440" height="780" alt="Крок «Сценарій»: відкрито вибір «Звук» — «Озвучка диктора», «Голос у відео», «Без голосу»" loading="lazy" decoding="async"></picture><figcaption>Картка «Звук» на кроці «Сценарій».</figcaption></figure></section>
+<section aria-labelledby="invideo"><h2 id="invideo">Голос у відео: крок за кроком</h2>
+<ol class="g-steps"><li><div><b>Вибери відеомодель зі звуком.</b> Налаштування → Підключення → «Відео»: Veo 3.1 або Omni Flash — через G-Labs, Google чи RoyalTechno.</div></li><li><div><b>Крок «Сценарій» → «Звук» → «Голос у відео».</b> Картка «Голос оповідача» вимкнеться — у героїв свої голоси у відео.</div></li><li><div><b>«Створити план».</b> У кожній сцені замість «Текст озвучки» — <b>«Репліки в кадрі»</b>: хто говорить (герой або «Голос за кадром»), як («пошепки, радісно…», англійською) і що звучить. До 8 реплік на сцену.</div></li><li><div><b>Перевір довжину.</b> Лічильник «≈ X с із Y с» під репліками скаже, якщо репліка довша за кліп, — скороти її.</div></li><li><div><b>Опиши голоси.</b> У картці героя — «Голос у відео (англ.)», у картці «Загальне» — «Голос за кадром (англ.)». Так відеомодель озвучить репліки.</div></li><li><div><b>Далі як завжди:</b> кадри → «Зняти відео» → монтаж. Звук кліпів грає на повну, музика під ним сама тихішає.</div></li></ol>
+<figure class="g-fig g-shot" style="--w:950px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/modes-lines-dark-950.webp 950w, ../assets/img/guide/modes-lines-dark-640.webp 640w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/modes-lines-light-640.webp" srcset="../assets/img/guide/modes-lines-light-950.webp 950w, ../assets/img/guide/modes-lines-light-640.webp 640w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="950" height="664" alt="План у режимі «Голос у відео»: у сценах блок «Репліки в кадрі» — Olena і Bohdan, як вони говорять і що кажуть" loading="lazy" decoding="async"></picture><figcaption>План: репліки героїв замість тексту озвучки.</figcaption></figure>
+<div class="callout tip"><svg class="i" aria-hidden="true"><use href="#i-bulb"/></svg><div><p>З <b>«Динамічною довжиною сцен»</b> (Налаштування → «Відео») кліп підганяється під репліки — від 4 до 10 секунд.</p></div></div></section>
+<section aria-labelledby="models"><h2 id="models">Які відеомоделі говорять</h2>
+<p>Голос дає сама відеомодель. Якщо вона знімає без звуку, студія попередить ще до зйомки.</p>
+<div class="g-table-wrap" tabindex="0" role="region" aria-label="Таблиця"><table class="g-table"><thead><tr><th scope="col">Відеомодель</th><th scope="col">«Голос у відео»</th></tr></thead><tbody><tr><td>G-Labs (Veo 3.1, Omni Flash), Google (Gemini Omni Flash, Veo 3.1), RoyalTechno (omni-flash, veo-3.1), Sora 2</td><td>так</td></tr><tr><td>Seedance 2.0, Grok Imagine, Kling, Wan та інші моделі свого API</td><td>залежить від моделі — спробуй одну сцену</td></tr><tr><td>Runway Gen-4, Luma Ray, MiniMax Hailuo, Seedance 1, Veo 2</td><td>ні — кліпи без звуку</td></tr></tbody></table></div></section>
+<section aria-labelledby="content"><h2 id="content">Що в кадрі</h2>
+<p>Картка <b>«Що в кадрі»</b> поруч зі «Звуком»:</p>
+<ul class="g-list"><li><b>«Персонажі»</b> — герої, що повторюються в сценах.</li><li><b>«Без людей»</b> — місця, предмети, природа. У плані замість персонажів — «Об'єкти й мотиви», у кожному промті — «без людей». Твої фото героїв і предметів стають об'єктами.</li><li><b>«Моушн-графіка»</b> — інфографіка й анімований текст. Кадри — дизайнерські композиції з місцем під текст («Мотиви графіки», «Фони й локації»).</li><li><b>«Змішано»</b> — герої, b-roll і графіка.</li></ul>
+<figure class="g-fig g-shot" style="--w:1440px"><picture><source data-dark media="(prefers-color-scheme: dark)" srcset="../assets/img/guide/modes-content-dark-1440.webp 1440w, ../assets/img/guide/modes-content-dark-960.webp 960w, ../assets/img/guide/modes-content-dark-640.webp 640w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)"><img src="../assets/img/guide/modes-content-light-640.webp" srcset="../assets/img/guide/modes-content-light-1440.webp 1440w, ../assets/img/guide/modes-content-light-960.webp 960w, ../assets/img/guide/modes-content-light-640.webp 640w" sizes="(min-width: 860px) 780px, calc(100vw - 40px)" width="1440" height="780" alt="Вибір «Що в кадрі»: персонажі, без людей, моушн-графіка, змішано, і перемикач «Анімований текст у кадрі»" loading="lazy" decoding="async"></picture><figcaption>«Що в кадрі» і перемикач анімованого тексту.</figcaption></figure></section>
+<section aria-labelledby="overlays"><h2 id="overlays">Анімований текст у кадрі</h2>
+<p>Перемикач <b>«Анімований текст у кадрі»</b> — у картці «Що в кадрі»: заголовки, числа й підписи студія сама анімує поверх сцен під час монтажу. Для моушн-графіки він увімкнений сам, для інших режимів — вмикаєш ти.</p>
+<ol class="g-steps"><li><div>Увімкни «Анімований текст у кадрі» і створи план.</div></li><li><div>У сцені з'явиться блок <b>«Текст у кадрі»</b>: «Заголовок (до 6 слів)», «Число чи факт: 73%», «Підпис (необов'язково)».</div></li><li><div>Вибери анімацію: «Анімація: авто», «Поява», «Виїзд збоку», «Пружний «поп»», «Лічильник числа» або «Слово за словом». «Авто» — лічильник для числа, інакше поява.</div></li><li><div>«Змонтувати відео» — текст з'явиться поверх сцени. Перезнімати кліп не треба.</div></li></ol>
+<p class="muted">ШІ ставить текст у сцени з ключовими фактами, а в моушн-графіці — у кожну. Текст стоїть унизу кадру, у моушн-графіці — по центру.</p>
+<div class="g-duo"><figure class="g-fig g-shot" style="--w:1280px"><picture><img src="../assets/img/guide/modes-overlay-number-640.webp" srcset="../assets/img/guide/modes-overlay-number-1280.webp 1280w, ../assets/img/guide/modes-overlay-number-860.webp 860w, ../assets/img/guide/modes-overlay-number-640.webp 640w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="1280" height="720" alt="Кадр із текстом по центру: «Населення Землі — 8,1 млрд, станом на 2025 рік»" loading="lazy" decoding="async"></picture><figcaption>Число з лічильником — по центру.</figcaption></figure><figure class="g-fig g-shot" style="--w:1280px"><picture><img src="../assets/img/guide/modes-overlay-lower-640.webp" srcset="../assets/img/guide/modes-overlay-lower-1280.webp 1280w, ../assets/img/guide/modes-overlay-lower-860.webp 860w, ../assets/img/guide/modes-overlay-lower-640.webp 640w" sizes="(min-width: 1100px) 380px, (min-width: 720px) 46vw, calc(100vw - 40px)" width="1280" height="720" alt="Кадр із підписом унизу: «2061 м — Говерла, найвища вершина України»" loading="lazy" decoding="async"></picture><figcaption>Підпис унизу кадру.</figcaption></figure></div></section>
+<section aria-labelledby="styles"><h2 id="styles">Нові стилі й жанри</h2>
+<p>Для цих режимів додано 4 стилі — тепер їх <b>71</b> — і 4 жанри — тепер <b>36</b>:</p>
+<ul class="g-list"><li>Стилі: «Моушн-графіка», «Кінетична типографіка» (категорія «Пояснювальні»), «Документальний b-roll», «Предметна зйомка» («Кіно й фото»).</li><li>Жанри: «Пояснювальне відео», «Топ-список», «Огляд продукту», «Подорожі й місця».</li></ul></section>
+<section aria-labelledby="limits"><h2 id="limits">Обмеження</h2>
+<ul class="g-list"><li>«Голос у відео» працює лише з відеомоделлю, що вміє звук. Голос героя ти описуєш словами — озвучує його сама модель.</li><li>«Перекласти проєкт» перекладе й репліки, але кліпи з репліками треба перезняти: вони говорять мовою оригіналу (студія про це скаже).</li><li>Позицію тексту в кадрі змінити не можна: унизу, а в моушн-графіці — по центру.</li></ul></section>
+<section aria-labelledby="faq"><h2 id="faq">Питання</h2><div class="g-faq"><details class="qa"><summary>Чи можна змішати диктора й репліки героїв?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні, у проєкту один режим звуку. Для фільму з голосами героїв вибери «Голос у відео», а слова від автора напиши репліками «Голосу за кадром».</p></div></details><details class="qa"><summary>Субтитри в «Голосі у відео» — звідки?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>З реплік: кожна стоїть усередині свого кліпу. Вигляд субтитрів — як завжди, на кроці «Монтаж».</p></div></details><details class="qa"><summary>Чи витрачає кредити анімований текст?<svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary><div class="a"><p>Ні. Текст малює сама студія під час монтажу, а «Змонтувати відео» кредитів не витрачає.</p></div></details></div></section>
+<nav class="g-next" aria-label="Інші розділи довідника"><a href="multivoice.html"><small>← Попередній розділ</small><b>Мультиголос</b></a><a class="next" href="remake.html"><small>Наступний розділ →</small><b>Перезняти за прикладом</b></a></nav>
+    </article>
+  </div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid cols-4">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/mark-96.png" width="34" height="34" alt=""><span>YT Cartell Studio</span></a>
+        <p>Студія, де історія стає відео. Безкоштовна, з відкритим кодом (MIT).</p>
+      </div>
+      <div>
+        <h2>Довідник</h2>
+        <ul><li><a href="./">Усі розділи</a></li><li><a href="./failed.html">Невдалі сцени і точні помилки</a></li><li><a href="./assistant.html">Помічник підключення</a></li><li><a href="./connect.html">Підключення будь-якого сервісу</a></li><li><a href="./catalogs.html">Каталоги моделей</a></li><li><a href="./multivoice.html">Мультиголос</a></li><li><a href="./telegram.html">Telegram-бот</a></li><li><a href="./modes.html">Голос у відео і режими</a></li><li><a href="./open-source.html">Відкритий код і переробка</a></li></ul>
+      </div>
+      <div>
+        <h2>Програма</h2>
+        <ul>
+          <li><a href="../#download">Завантажити</a></li>
+          <li><a href="../changelog/">Історія версій</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio/releases" rel="noopener">Усі версії на GitHub</a></li>
+          <li><a href="https://github.com/gitkalenyuk/yt-cartell-studio-source" rel="noopener">Вихідний код (MIT)</a></li>
+          <li><a href="../#tutorial">Відео</a></li>
+          <li><a href="../#faq">Питання</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Спільнота</h2>
+        <ul>
+          <li><a href="https://t.me/YT_cartell" rel="noopener">Telegram-канал YT Cartell</a></li>
+          <li><a href="https://t.me/+Jj06Fbj8-8oyZDQ6" rel="noopener">Чат спільноти</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">© 2026 YT Cartell. Код — ліцензія MIT. Скриншоти — справжні екрани студії. Шрифт Fira Sans — SIL Open Font License.</p>
+  </div>
+</footer>
+</body>
+</html>
