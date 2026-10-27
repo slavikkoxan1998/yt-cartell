@@ -661,6 +661,7 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 				Provider:    c.Stock.Provider,
 				PexelsKey:   c.Stock.PexelsKey,
 				PixabayKey:  c.Stock.PixabayKey,
+				CoverrKey:   c.Stock.CoverrKey,
 				Orientation: c.Stock.Orientation,
 			}
 			prompt := in.scene.MotionPrompt

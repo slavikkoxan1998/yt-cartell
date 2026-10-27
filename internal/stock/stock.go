@@ -10,11 +10,12 @@ import (
 	"time"
 )
 
-// Config holds keys and options for stock video search.
+// Config holds keys and options for stock video search across the 4 providers.
 type Config struct {
-	Provider    string // "pexels", "pixabay", "auto"
+	Provider    string // "pexels", "pixabay", "coverr", "wikimedia", "auto"
 	PexelsKey   string
 	PixabayKey  string
+	CoverrKey   string
 	Orientation string // "landscape", "portrait", "all"
 }
 
@@ -100,46 +101,81 @@ func ExtractKeywords(prompt string) string {
 	return strings.Join(result, " ")
 }
 
-// Search queries the configured stock providers for video clips.
+// Search queries the configured stock providers (Pexels, Pixabay, Coverr, Wikimedia).
 func Search(ctx context.Context, cfg Config, opts SearchOptions) ([]VideoItem, error) {
 	provider := strings.ToLower(strings.TrimSpace(cfg.Provider))
-	if provider == "" || provider == "auto" {
-		if cfg.PexelsKey != "" {
-			provider = "pexels"
-		} else if cfg.PixabayKey != "" {
-			provider = "pixabay"
-		} else {
-			return nil, fmt.Errorf("no stock API key provided (configure Pexels or Pixabay key in settings)")
-		}
+	if provider == "" {
+		provider = "auto"
 	}
 
+	var tryOrder []string
 	switch provider {
 	case "pexels":
-		items, err := SearchPexels(ctx, cfg.PexelsKey, opts)
-		if err == nil && len(items) > 0 {
-			return items, nil
+		tryOrder = []string{"pexels", "pixabay", "coverr", "wikimedia"}
+	case "pixabay":
+		tryOrder = []string{"pixabay", "pexels", "coverr", "wikimedia"}
+	case "coverr":
+		tryOrder = []string{"coverr", "pexels", "pixabay", "wikimedia"}
+	case "wikimedia":
+		tryOrder = []string{"wikimedia", "pexels", "pixabay", "coverr"}
+	default: // "auto"
+		tryOrder = make([]string, 0, 4)
+		if cfg.PexelsKey != "" {
+			tryOrder = append(tryOrder, "pexels")
 		}
 		if cfg.PixabayKey != "" {
-			// Fallback to Pixabay
-			return SearchPixabay(ctx, cfg.PixabayKey, opts)
+			tryOrder = append(tryOrder, "pixabay")
 		}
-		return items, err
-	case "pixabay":
-		items, err := SearchPixabay(ctx, cfg.PixabayKey, opts)
+		if cfg.CoverrKey != "" {
+			tryOrder = append(tryOrder, "coverr")
+		}
+		tryOrder = append(tryOrder, "wikimedia")
+		if cfg.PexelsKey == "" {
+			tryOrder = append(tryOrder, "pexels")
+		}
+		if cfg.PixabayKey == "" {
+			tryOrder = append(tryOrder, "pixabay")
+		}
+		if cfg.CoverrKey == "" {
+			tryOrder = append(tryOrder, "coverr")
+		}
+	}
+
+	var lastErr error
+	for _, p := range tryOrder {
+		var items []VideoItem
+		var err error
+
+		switch p {
+		case "pexels":
+			if cfg.PexelsKey != "" {
+				items, err = SearchPexels(ctx, cfg.PexelsKey, opts)
+			}
+		case "pixabay":
+			if cfg.PixabayKey != "" {
+				items, err = SearchPixabay(ctx, cfg.PixabayKey, opts)
+			}
+		case "coverr":
+			items, err = SearchCoverr(ctx, cfg.CoverrKey, opts)
+		case "wikimedia":
+			items, err = SearchWikimedia(ctx, opts)
+		}
+
 		if err == nil && len(items) > 0 {
 			return items, nil
 		}
-		if cfg.PexelsKey != "" {
-			// Fallback to Pexels
-			return SearchPexels(ctx, cfg.PexelsKey, opts)
+		if err != nil {
+			lastErr = err
 		}
-		return items, err
-	default:
-		return nil, fmt.Errorf("unsupported stock provider: %s", provider)
 	}
+
+	if lastErr != nil {
+		return nil, lastErr
+	}
+	return nil, fmt.Errorf("no stock videos found on providers (%s)", strings.Join(tryOrder, ", "))
 }
 
-// SearchAndDownload searches for a matching clip and downloads the MP4 bytes.
+// SearchAndDownload searches for a matching clip across stock providers and downloads the video bytes.
 func SearchAndDownload(ctx context.Context, cfg Config, rawPrompt string, orientation string) ([]byte, *VideoItem, error) {
 	keywords := ExtractKeywords(rawPrompt)
 	opts := SearchOptions{

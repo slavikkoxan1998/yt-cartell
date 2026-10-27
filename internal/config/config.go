@@ -82,11 +82,12 @@ type Glabs struct {
 	APIKey  string `json:"apiKey"`
 }
 
-// Stock video search services (Pexels, Pixabay).
+// Stock video search services (Pexels, Pixabay, Coverr, Wikimedia).
 type Stock struct {
-	Provider    string `json:"provider"`    // "pexels" | "pixabay" | "auto"
+	Provider    string `json:"provider"`    // "pexels" | "pixabay" | "coverr" | "wikimedia" | "auto"
 	PexelsKey   string `json:"pexelsKey"`   // Pexels API Key
 	PixabayKey  string `json:"pixabayKey"`  // Pixabay API Key
+	CoverrKey   string `json:"coverrKey"`   // Coverr API Key (optional)
 	Orientation string `json:"orientation"` // "landscape" (16:9) | "portrait" (9:16) | "all"
 	Enabled     bool   `json:"enabled"`     // whether stock search is active
 }
