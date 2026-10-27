@@ -158,7 +158,7 @@ type TTSProvider struct {
 }
 
 // TTSProviderIDs are the stored provider ids (never rename them).
-var TTSProviderIDs = []string{"elevenlabs", "cartesia", "openai", "google", "azure", "minimax", "fish", "custom", "lumean"}
+var TTSProviderIDs = []string{"piper", "elevenlabs", "cartesia", "openai", "google", "azure", "minimax", "fish", "custom", "lumean"}
 
 func validTTSProvider(id string) bool {
 	for _, p := range TTSProviderIDs {
@@ -459,6 +459,8 @@ func TTSVoiceOwner(id string) string {
 		return "google"
 	case openAIVoiceNames[strings.ToLower(id)]:
 		return "openai"
+	case id == "tetiana" || id == "mykyta" || id == "lada" || id == "lessac" || id == "amy":
+		return "piper"
 	}
 	return ""
 }
@@ -498,6 +500,8 @@ func ttsModelOwner(model string) string {
 		return "openai"
 	case strings.HasPrefix(m, "speech-"):
 		return "minimax"
+	case strings.HasPrefix(m, "uk_"), strings.HasPrefix(m, "en_"), strings.HasPrefix(m, "piper"):
+		return "piper"
 	}
 	return ""
 }

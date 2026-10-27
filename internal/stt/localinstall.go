@@ -29,7 +29,9 @@ package stt
 // deleted.
 
 import (
+	"archive/tar"
 	"archive/zip"
+	"compress/gzip"
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
@@ -72,11 +74,13 @@ var (
 	// pinnedTag / pinnedAssets: the build used when the releases API cannot
 	// be read — sizes and SHA-256 digests as GitHub publishes them for
 	// release b5130 (2026-09-11).
-	pinnedTag    = "b5130"
+	pinnedTag    = "b5454"
 	pinnedAssets = map[string]fileSpec{
-		"whisper-bin-x64.zip":           {Size: 8573270, SHA256: "f9ec6c52a2e949b62ab51fa21d0d497958f9e41c3010c157c4e42932d5316f3c"},
-		"whisper-bin-Win32.zip":         {Size: 5384054, SHA256: "7c0b2c10a0c30acddcf77c3d72f31a02c3a09a11a2b1e13d6693d3d0f1f7d169"},
-		"whisper-bin-win-cpu-arm64.zip": {Size: 4361895, SHA256: "799543b926ab5b6c2d60cab269a2092e0ae8d27820e9e15429e59de3699546fc"},
+		"whisper-bin-x64.zip":             {Size: 8573270, SHA256: "f9ec6c52a2e949b62ab51fa21d0d497958f9e41c3010c157c4e42932d5316f3c"},
+		"whisper-bin-Win32.zip":           {Size: 5384054, SHA256: "7c0b2c10a0c30acddcf77c3d72f31a02c3a09a11a2b1e13d6693d3d0f1f7d169"},
+		"whisper-bin-win-cpu-arm64.zip":   {Size: 4361895, SHA256: "799543b926ab5b6c2d60cab269a2092e0ae8d27820e9e15429e59de3699546fc"},
+		"whisper-bin-ubuntu-x64.tar.gz":   {Size: 10364195, SHA256: "a72becf15d7917f990f6313867a52638b82b7f9ef237fb0c980dac56a135781c"},
+		"whisper-bin-ubuntu-arm64.tar.gz": {Size: 4608377, SHA256: "6b95ebfc60447df48e70ef00a73bdc3f41679ed2d01ef465827206a2ff325149"},
 	}
 
 	installGOOS, installGOARCH = runtime.GOOS, runtime.GOARCH
@@ -96,19 +100,25 @@ const (
 
 var installMu sync.Mutex // one installation at a time
 
-// assetName is the official Windows CPU build for an architecture ("" = none
-// for this OS: macOS and Linux get the program from a package manager).
+// assetName is the official CPU build for an architecture ("" = none
+// for this OS: macOS gets the program from Homebrew).
 func assetName(goos, goarch string) string {
-	if goos != "windows" {
-		return ""
-	}
-	switch goarch {
-	case "amd64":
-		return "whisper-bin-x64.zip"
-	case "386":
-		return "whisper-bin-Win32.zip"
-	case "arm64":
-		return "whisper-bin-win-cpu-arm64.zip"
+	if goos == "windows" {
+		switch goarch {
+		case "amd64":
+			return "whisper-bin-x64.zip"
+		case "386":
+			return "whisper-bin-Win32.zip"
+		case "arm64":
+			return "whisper-bin-win-cpu-arm64.zip"
+		}
+	} else if goos == "linux" {
+		switch goarch {
+		case "amd64":
+			return "whisper-bin-ubuntu-x64.tar.gz"
+		case "arm64":
+			return "whisper-bin-ubuntu-arm64.tar.gz"
+		}
 	}
 	return ""
 }
@@ -326,8 +336,14 @@ func installProgram(ctx context.Context, dir string, spec fileSpec, prog *instal
 		return "", writeErr(err)
 	}
 	defer os.RemoveAll(staging)
-	if err := extractZip(archive, staging); err != nil {
-		return "", err
+	if strings.HasSuffix(archive, ".tar.gz") || strings.HasSuffix(archive, ".tgz") {
+		if err := extractTarGz(archive, staging); err != nil {
+			return "", err
+		}
+	} else {
+		if err := extractZip(archive, staging); err != nil {
+			return "", err
+		}
 	}
 	cli := findInTree(staging, exe("whisper-cli"), 4)
 	if cli == "" {
@@ -378,6 +394,76 @@ func extractZip(archive, dst string) error {
 		}
 		if err := unzipFile(f, out); err != nil {
 			return err
+		}
+	}
+	return nil
+}
+
+// extractTarGz unpacks .tar.gz archives (whisper.cpp Linux builds) into dst.
+func extractTarGz(archive, dst string) error {
+	f, err := os.Open(archive)
+	if err != nil {
+		return fmt.Errorf("Архів whisper.cpp не відкривається: %v", err)
+	}
+	defer f.Close()
+	gzr, err := gzip.NewReader(f)
+	if err != nil {
+		return fmt.Errorf("Архів whisper.cpp пошкоджений (gzip): %v", err)
+	}
+	defer gzr.Close()
+	tr := tar.NewReader(gzr)
+	var total uint64
+	entries := 0
+	for {
+		header, err := tr.Next()
+		if errors.Is(err, io.EOF) {
+			break
+		}
+		if err != nil {
+			return fmt.Errorf("Архів whisper.cpp пошкоджений (tar): %v", err)
+		}
+		entries++
+		if entries > maxEntries {
+			return errors.New("Архів whisper.cpp має забагато файлів")
+		}
+		name := strings.Trim(strings.ReplaceAll(header.Name, `\`, "/"), "/")
+		if name == "" {
+			continue
+		}
+		rel := filepath.FromSlash(path.Clean(name))
+		if !filepath.IsLocal(rel) {
+			return fmt.Errorf("Архів whisper.cpp містить небезпечний шлях «%s» — встановлення зупинено", header.Name)
+		}
+		out := filepath.Join(dst, rel)
+		switch header.Typeflag {
+		case tar.TypeDir:
+			if err := os.MkdirAll(out, 0o755); err != nil {
+				return writeErr(err)
+			}
+		case tar.TypeReg, tar.TypeRegA:
+			if err := os.MkdirAll(filepath.Dir(out), 0o755); err != nil {
+				return writeErr(err)
+			}
+			if total += uint64(header.Size); total > maxUnpacked {
+				return errors.New("Архів whisper.cpp завеликий — встановлення зупинено")
+			}
+			mode := os.FileMode(header.Mode)
+			if mode&0o111 != 0 {
+				mode = 0o755
+			} else {
+				mode = 0o644
+			}
+			w, err := os.OpenFile(out, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, mode)
+			if err != nil {
+				return writeErr(err)
+			}
+			_, cerr := io.Copy(w, io.LimitReader(tr, header.Size+1))
+			if err := w.Close(); cerr == nil {
+				cerr = err
+			}
+			if cerr != nil {
+				return writeErr(cerr)
+			}
 		}
 	}
 	return nil

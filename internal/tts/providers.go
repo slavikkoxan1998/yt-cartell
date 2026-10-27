@@ -46,6 +46,18 @@ type ProviderInfo struct {
 //	Fish Audio  https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech
 var providers = []ProviderInfo{
 	{
+		ID: "piper", Label: "Piper TTS (Локально / Офлайн)",
+		DefaultModel: "uk_UA-ukrainian_tts-medium",
+		Models:       []string{"uk_UA-ukrainian_tts-medium", "uk_UA-lada-x_low", "en_US-lessac-medium", "en_US-amy-medium"},
+		ModelHint:    "Локальна ONNX-модель. Завантажується автоматично при першому використанні.",
+		KeyHint:      "Ключ не потрібен (працює повністю автономно й безкоштовно на CPU)",
+		KeyOptional:  true,
+		DocsURL:      "https://github.com/rhasspy/piper",
+		Languages:    "Українська (Тетяна, Микита, Лада) та англійська без інтернету",
+		ListsVoices:  true, DefaultVoice: "tetiana", Concurrency: 2,
+		Plans:        "Повністю безкоштовно: локальний нейромережевий синтез мови на вашому комп'ютері.",
+	},
+	{
 		ID: "elevenlabs", Label: "ElevenLabs",
 		Models:      []string{"eleven_multilingual_v2", "eleven_v3", "eleven_v4", "eleven_flash_v2_5", "eleven_v4_turbo"},
 		ModelHint:   "Порожньо — студія сама вибере модель під мову фільму.",

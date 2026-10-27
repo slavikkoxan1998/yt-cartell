@@ -185,6 +185,8 @@ func (c *Client) SynthesizeWith(ctx context.Context, text, voiceID string, opt S
 		return nil, err
 	}
 	switch s.provider {
+	case "piper":
+		return c.piper(ctx, s, text, voice, opt)
 	case "openai":
 		return c.openAI(ctx, s, text, voice, opt)
 	case "custom":
@@ -212,6 +214,8 @@ func (c *Client) SynthesizeWith(ctx context.Context, text, voiceID string, opt S
 func (c *Client) Voices(ctx context.Context, force bool) (VoiceList, error) {
 	s := c.settings()
 	switch s.provider {
+	case "piper":
+		return c.piperVoices(ctx, s)
 	case "custom":
 		return VoiceList{Provider: s.provider, CharsLeft: -1, Voices: []Voice{}}, nil
 	case "openai":
@@ -415,6 +419,8 @@ func (c *Client) probe(ctx context.Context, s settings, k poolKey) probeResult {
 
 func (c *Client) probeOnce(ctx context.Context, s settings, k poolKey) probeResult {
 	switch s.provider {
+	case "piper":
+		return c.piperProbe(ctx, s)
 	case "cartesia":
 		return c.cartesiaProbe(ctx, s, k.key)
 	case "google":

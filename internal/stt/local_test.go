@@ -1201,7 +1201,12 @@ func TestDownloadHelpers(t *testing.T) {
 			t.Errorf("%s: %q", goarch, got)
 		}
 	}
-	if assetName("darwin", "arm64") != "" || assetName("linux", "amd64") != "" {
-		t.Error("no official command-line build outside Windows")
+	for goarch, want := range map[string]string{"amd64": "whisper-bin-ubuntu-x64.tar.gz", "arm64": "whisper-bin-ubuntu-arm64.tar.gz"} {
+		if got := assetName("linux", goarch); got != want {
+			t.Errorf("linux %s: %q", goarch, got)
+		}
+	}
+	if assetName("darwin", "arm64") != "" {
+		t.Error("no official command-line build on darwin (uses brew)")
 	}
 }

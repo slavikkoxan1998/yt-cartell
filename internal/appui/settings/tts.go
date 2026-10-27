@@ -313,9 +313,9 @@ func (p *Page) ttsCard(gtx C, c *core.Ctx, m metrics) D {
 	// Actions and the outcome («Скинути помилки» covers borrowed keys too:
 	// their state lives in the same rotation).
 	body = append(body, actions(
-		checkButton(th, &s.test, &s.check, "", len(keys) == 0 && !borrowed && !pr.NeedsBaseURL),
+		checkButton(th, &s.test, &s.check, "", len(keys) == 0 && !borrowed && !pr.NeedsBaseURL && pr.ID != "piper"),
 		func(gtx C) D {
-			if !pr.ListsVoices || gateway || (len(keys) == 0 && !borrowed && pr.ID != "openai") {
+			if !pr.ListsVoices || gateway || (len(keys) == 0 && !borrowed && pr.ID != "openai" && pr.ID != "piper") {
 				return D{}
 			}
 			return gui.Button{Kind: gui.Ghost, Icon: gui.IconRefreshCw, Text: "Оновити голоси", Busy: loading}.Layout(gtx, th, &s.reload)
@@ -525,6 +525,9 @@ func ttsKeyIndex(t config.TTS) []int {
 // listed apart (states only; they are managed in the Google AI Studio card).
 func (p *Page) ttsKeyList(gtx C, c *core.Ctx, t config.TTS, keys []string, status []tts.KeyStatus, pr tts.ProviderInfo, bad int) D {
 	th := c.Th
+	if pr.ID == "piper" {
+		return note(gtx, th, gui.IconCpu, "Локальний синтез мови: Piper працює безпосередньо на процесорі вашого ПК (CPU). API-ключі та інтернет не потрібні.", nil)
+	}
 	s := &p.tts
 	own := map[int]tts.KeyStatus{}
 	var shared []tts.KeyStatus
