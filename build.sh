@@ -33,7 +33,7 @@ command -v go >/dev/null 2>&1 || {
 
 version=${1:-$(sed -n 's/^[[:space:]]*Version[[:space:]]*=[[:space:]]*"\([^"]*\)".*/\1/p' internal/version/version.go | head -n 1)}
 version=${version:-0.0.0}
-ldflags="-X ytcartell/internal/version.Version=$version -X ytcartell/internal/version.BuildDate=$(date -u +%Y-%m-%d)"
+ldflags="-X ytcartell/internal/version.Version=$version -X ytcartell/internal/version.BuildDate=$(date -u +%Y-%m-%d) -X gioui.org/app.ID=yt-cartell-studio"
 if commit=$(git rev-parse --short HEAD 2>/dev/null); then
 	ldflags="$ldflags -X ytcartell/internal/version.Commit=$commit"
 fi
