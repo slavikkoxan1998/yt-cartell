@@ -6,6 +6,15 @@
 
 ---
 
+### [2026-10-27 22:50] Створено скрипт генерації системного .deb пакунка для Linux Mint / Debian / Ubuntu
+- Розроблено скрипт `build-deb.sh` для автоматичного збирання системного інсталяційного пакунка `yt-cartell-studio_2.1.0_amd64.deb`:
+  - Керуючий файл `DEBIAN/control` із зазначенням системних залежностей (`ffmpeg`, `zenity`, `libwayland-client0`, `libx11-6`, `libxkbcommon0`);
+  - Встановлення бінарника в `/usr/bin/yt-cartell-studio`;
+  - Системний `.desktop` ярлик у `/usr/share/applications/yt-cartell.desktop`;
+  - Системна векторна/PNG іконка у `/usr/share/icons/hicolor/256x256/apps/yt-cartell.png`.
+- Зібраний пакунок (24 МБ) розміщено для прямого завантаження за адресою `https://yt-cartel.n8n-accaisona.site/yt-cartell-studio_2.1.0_amd64.deb`.
+- Після встановлення програма офіційно з'являється у «Менеджері пакунків» (Synaptic) та «Менеджері програм» Linux Mint.
+
 ### [2026-10-27 22:20] Розширення стоків до 4 провайдерів (Pexels, Pixabay, Coverr, Wikimedia) та додавання картки налаштувань у GUI
 - Додано інтеграцію **Coverr API** (`internal/stock/coverr.go`) для атмосферних кінематографічних відео.
 - Додано клієнт **Wikimedia Commons API** (`internal/stock/wikimedia.go`) для безкоштовного пошуку історичних/наукових відео без необхідності вказувати будь-які API-ключі.

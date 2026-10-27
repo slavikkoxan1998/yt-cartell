@@ -71,3 +71,4 @@ $RECYCLE.BIN/
 .idea/
 .vscode/
 *.code-workspace
+*.deb
