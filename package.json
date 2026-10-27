@@ -1,0 +1,9 @@
+{
+  "name": "yt-cartell-studio",
+  "version": "2.1.0",
+  "description": "YT Cartell Studio - Autonomous AI Video Production Studio & Web Documentation",
+  "type": "module",
+  "scripts": {
+    "start": "node serve.js"
+  }
+}
