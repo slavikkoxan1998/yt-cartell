@@ -82,6 +82,15 @@ type Glabs struct {
 	APIKey  string `json:"apiKey"`
 }
 
+// Stock video search services (Pexels, Pixabay).
+type Stock struct {
+	Provider    string `json:"provider"`    // "pexels" | "pixabay" | "auto"
+	PexelsKey   string `json:"pexelsKey"`   // Pexels API Key
+	PixabayKey  string `json:"pixabayKey"`  // Pixabay API Key
+	Orientation string `json:"orientation"` // "landscape" (16:9) | "portrait" (9:16) | "all"
+	Enabled     bool   `json:"enabled"`     // whether stock search is active
+}
+
 // Google AI Studio (Gemini / Veo) — only used when a provider above is "google".
 type Google struct {
 	Keys       []string `json:"keys"`
@@ -192,6 +201,7 @@ type Config struct {
 	Telegram    Telegram  `json:"telegram"`
 	UI          UI        `json:"ui"`
 	Custom      CustomAPI `json:"custom"` // own image/video API (Image/Video.Provider "custom")
+	Stock       Stock     `json:"stock"`  // stock video services (Pexels, Pixabay)
 	// CodeWriters is how many scene specs of a code animation the text
 	// model writes at once (0 = auto: 3, a local Ollama 1; at most
 	// MaxCodeWriters) — studio.SpecConcurrency.
@@ -219,6 +229,11 @@ func Default() Config {
 		STT:         STT{Provider: "elevenlabs"},
 		Telegram:    Telegram{OnDone: true, OnError: true, OnFinal: true, Live: true},
 		UI:          UI{Theme: "light", AutoUpdate: true},
+		Stock: Stock{
+			Provider:    "pexels",
+			Orientation: "landscape",
+			Enabled:     false,
+		},
 	}
 }
 

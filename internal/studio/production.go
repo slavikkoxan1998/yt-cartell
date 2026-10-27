@@ -28,6 +28,7 @@ import (
 	"sync/atomic"
 
 	"ytcartell/internal/gen"
+	"ytcartell/internal/stock"
 )
 
 const (
@@ -653,6 +654,40 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 			})
 		}
 		progress(5, "starting")
+		// Check if Stock video provider is active or selected for this scene
+		if c.Stock.Enabled || c.Video.Provider == "stock" {
+			progress(15, "searching stock videos")
+			stockCfg := stock.Config{
+				Provider:    c.Stock.Provider,
+				PexelsKey:   c.Stock.PexelsKey,
+				PixabayKey:  c.Stock.PixabayKey,
+				Orientation: c.Stock.Orientation,
+			}
+			prompt := in.scene.MotionPrompt
+			if prompt == "" {
+				prompt = in.scene.ImagePrompt
+			}
+			if prompt == "" {
+				prompt = in.scene.Title
+			}
+			stockData, _, sErr := stock.SearchAndDownload(ctx, stockCfg, prompt, c.Stock.Orientation)
+			if sErr == nil && len(stockData) > 0 {
+				progress(90, "processing stock clip")
+				return product{
+					data: stockData, sub: "videos", name: fmt.Sprintf("clip-%s-%d.mp4", safeName(sid), nowMs()), probe: true,
+					after: func(p *Project) []string {
+						if p.Input.ChainFrames {
+							markNextClipStale(p, sid)
+						}
+						if s := findScene(p, sid); s != nil && s.AudioSource == AudioUpload && s.VoiceEnd > s.VoiceStart && s.Video.Duration > 0 {
+							s.TrimOut = clipTrim(s.Video.Duration, s.TrimIn, s.VoiceEnd-s.VoiceStart)
+						}
+						return nil
+					},
+				}, nil
+			}
+			log.Printf("stock search fallback to generation: %v", sErr)
+		}
 		// One safer try after a G-Labs refusal (renderClip), then up to two
 		// rewrites of the plain prompt (rewrite.go).
 		data, rw, err := e.clipRewriting(ctx, st, &in, req, progress)
