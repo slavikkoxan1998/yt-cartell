@@ -231,7 +231,7 @@
     .card-title {
       font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -245,6 +245,54 @@
       padding: 2px 8px;
       border-radius: 12px;
       font-weight: 600;
+    }
+
+    /* Mode Toggle */
+    .mode-toggle-group {
+      display: flex;
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 18px;
+    }
+    .mode-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 10px 14px;
+      border-radius: calc(var(--radius-md) - 4px);
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: var(--font-main);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .mode-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .mode-btn.active {
+      background: rgba(139, 92, 246, 0.22);
+      border-color: rgba(139, 92, 246, 0.5);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
+    }
+    .mode-subtitle {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+    .mode-btn.active .mode-subtitle {
+      color: #DDD6FE;
     }
 
     /* Form Inputs */
@@ -296,7 +344,7 @@
 
     textarea.main-prompt {
       width: 100%;
-      height: 120px;
+      height: 125px;
       background: var(--bg-input);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
@@ -312,6 +360,47 @@
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+    }
+
+    /* Text Stats Bar */
+    .text-stats-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .stats-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stats-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .btn-fit-text {
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: #38BDF8;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    .btn-fit-text:hover {
+      background: rgba(6, 182, 212, 0.28);
+      color: #fff;
+      border-color: var(--accent);
     }
 
     /* Suggestions chips */
@@ -337,6 +426,69 @@
       background: rgba(139, 92, 246, 0.15);
       border-color: rgba(139, 92, 246, 0.3);
       color: var(--text-main);
+    }
+
+    /* Duration Chips Selector */
+    .duration-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .dur-chip {
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .dur-chip:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      color: var(--text-main);
+    }
+    .dur-chip.active {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+    }
+    .dur-chip.fit-chip {
+      background: rgba(6, 182, 212, 0.1);
+      border-color: rgba(6, 182, 212, 0.3);
+      color: var(--accent);
+    }
+    .dur-chip.fit-chip.active {
+      background: rgba(6, 182, 212, 0.25);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.4);
+    }
+    .dur-custom-input-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 5px 10px;
+    }
+    .dur-custom-input {
+      width: 55px;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      outline: none;
+      text-align: center;
+    }
+    .dur-custom-input::-webkit-inner-spin-button {
+      opacity: 0.5;
     }
 
     /* Option Grid Cards */
@@ -439,13 +591,6 @@
       color: #F472B6;
     }
 
-    /* Sub options row */
-    .two-cols {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
     select.studio-select {
       width: 100%;
       background: var(--bg-input);
@@ -465,7 +610,7 @@
 
     /* Big Submit Button */
     .submit-container {
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .btn-launch {
@@ -824,13 +969,25 @@
     <div class="card">
       <div class="card-title">
         <span>Створення відеоролика</span>
-        <span class="badge-count">Автопілот v2.6.3</span>
+        <span class="badge-count">Автопілот v2.6.4</span>
+      </div>
+
+      <!-- Mode Switcher: Story vs Script -->
+      <div class="mode-toggle-group" id="modeToggleGroup">
+        <button type="button" class="mode-btn active" data-mode="story" id="btnModeStory">
+          <span>💡 Ідея / Тема</span>
+          <span class="mode-subtitle">ШІ пише сценарій на вибраний час</span>
+        </button>
+        <button type="button" class="mode-btn" data-mode="script" id="btnModeScript">
+          <span>📜 Готовий сценарій</span>
+          <span class="mode-subtitle">Підігнати відео точно під текст</span>
+        </button>
       </div>
 
       <!-- Topic / Text Input -->
       <div class="form-group">
         <div class="label-row">
-          <label for="promptInput">Тема або історія відео:</label>
+          <label for="promptInput" id="promptInputLabel">Тема або ідея ролика:</label>
           <div class="input-actions">
             <button class="btn-tool" id="btnPastePrompt" title="Вставити скопійований текст">
               📋 Вставити
@@ -847,7 +1004,21 @@
           placeholder="Введіть тему чи ідею для ролика (наприклад: 'Таємниці океанських глибин' або 'Чому Біткоїн став цифровим золотом'). ШІ сам напише план, сцени, дикторський текст і підбере відеоряд!"
         ></textarea>
 
-        <!-- Quick Idea Chips -->
+        <!-- Live text stats bar -->
+        <div class="text-stats-bar" id="textStatsBar">
+          <div class="stats-info">
+            <span>Слів: <strong class="stats-highlight" id="statWords">0</strong></span>
+            <span>•</span>
+            <span>Символів: <strong class="stats-highlight" id="statChars">0</strong></span>
+            <span>•</span>
+            <span>Орієнтовна начитка: <strong class="stats-highlight" id="statDuration">≈ 0 с</strong></span>
+          </div>
+          <button type="button" class="btn-fit-text" id="btnFitDurationAction">
+            🎯 Підігнати довжину під цей текст
+          </button>
+        </div>
+
+        <!-- Quick Idea Chips (shown in Story mode) -->
         <div class="chips-cloud" id="chipsCloud">
           <span class="chip" data-topic="Таємниці Маріанської западини: що приховує найглибше місце Землі?">🌊 Маріанська западина</span>
           <span class="chip" data-topic="Як працює Біткоїн та блокчейн простими словами за 60 секунд.">💰 Біткоїн та крипта</span>
@@ -858,18 +1029,44 @@
         </div>
       </div>
 
+      <!-- Duration Selector with custom input & fit to text -->
+      <div class="form-group">
+        <div class="label-row">
+          <label>Хронометраж / Довжина відео:</label>
+          <span class="label-hint" id="durModeHint">Виберіть тривалість або підженіть під текст</span>
+        </div>
+
+        <div class="duration-chips-wrap" id="durationChipsWrap">
+          <div class="dur-chip" data-secs="15">⚡ 15 с (TikTok)</div>
+          <div class="dur-chip" data-secs="30">📱 30 с (Shorts)</div>
+          <div class="dur-chip active" data-secs="60">⏱️ 60 с (1 хв)</div>
+          <div class="dur-chip" data-secs="90">🎬 90 с (1.5 хв)</div>
+          <div class="dur-chip" data-secs="120">⏳ 120 с (2 хв)</div>
+          <div class="dur-chip" data-secs="180">🎥 180 с (3 хв)</div>
+          <div class="dur-chip" data-secs="300">🎞️ 300 с (5 хв)</div>
+          <div class="dur-chip fit-chip" data-secs="auto" id="chipFitToText" title="ШІ піджене хронометраж точно під кількість слів у тексті">
+            🎯 Підігнати під текст (Авто)
+          </div>
+          <div class="dur-custom-input-wrap" title="Введіть власну кількість секунд">
+            <span style="font-size:0.78rem; color:var(--text-dim);">Своя:</span>
+            <input type="number" id="customDurationInput" class="dur-custom-input" min="10" max="600" placeholder="сек">
+            <span style="font-size:0.78rem; color:var(--text-dim);">с</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Visual Source (Stock vs AI) -->
       <div class="form-group">
         <div class="label-row">
           <label>Відеоряд (Візуальний рушій):</label>
-          <span class="label-hint">Вибери джерело відео</span>
+          <span class="label-hint">Джерело відеоряду</span>
         </div>
 
         <div class="pipeline-grid" id="pipelineGrid">
           <div class="pipeline-card active" data-pipeline="stock">
             <div class="pipeline-badge">Рекомендовано</div>
             <div class="option-header">🎬 Стокові відео</div>
-            <div class="option-desc">Pexels & Pixabay: живі професійні відеокліпи під темп кожної сцени. Швидко і безкоштовно!</div>
+            <div class="option-desc">Pexels & Pixabay: живі ліцензійні футажі під довжину кожної фрази. Швидко і безкоштовно!</div>
           </div>
 
           <div class="pipeline-card" data-pipeline="">
@@ -881,7 +1078,7 @@
           <div class="pipeline-card" data-pipeline="stills">
             <div class="pipeline-badge">Швидко</div>
             <div class="option-header">🎨 Картинки + Зум</div>
-            <div class="option-desc">Красиві згенеровані кадри з плавним кінематографічним наближенням (Ken Burns).</div>
+            <div class="option-desc">Генерація естетичних кадрів із плавним кінематографічним наближенням (Ken Burns).</div>
           </div>
         </div>
       </div>
@@ -905,27 +1102,17 @@
         </div>
       </div>
 
-      <!-- Duration & Voice Settings -->
-      <div class="two-cols">
-        <!-- Duration -->
-        <div class="form-group">
-          <label for="durationSelect">Тривалість ролика:</label>
-          <select id="durationSelect" class="studio-select">
-            <option value="30">⚡ 30 секунд (короткий dynamic)</option>
-            <option value="60" selected>⏱️ 60 секунд (стандартний Short)</option>
-            <option value="120">⏳ 120 секунд (детальний розбір)</option>
-          </select>
-        </div>
-
-        <!-- Voice Select -->
-        <div class="form-group">
+      <!-- Voice Settings -->
+      <div class="form-group">
+        <div class="label-row">
           <label for="voiceSelect">Голос диктора (Piper TTS):</label>
-          <select id="voiceSelect" class="studio-select">
-            <option value="tetiana" selected>👩 Тетяна (Українська, природний)</option>
-            <option value="mykyta">👨 Микита (Українська, впевнений)</option>
-            <option value="lada">👧 Лада (Українська, м'який)</option>
-          </select>
+          <span class="label-hint">Озвучення українською мовою</span>
         </div>
+        <select id="voiceSelect" class="studio-select">
+          <option value="tetiana" selected>👩 Тетяна (Українська, природний жіночий)</option>
+          <option value="mykyta">👨 Микита (Українська, впевнений чоловічий)</option>
+          <option value="lada">👧 Лада (Українська, м'який жіночий)</option>
+        </select>
       </div>
 
       <!-- Launch Button -->
@@ -1067,14 +1254,16 @@
 
   <script>
     // State
+    let activeMode = "story"; // "story" or "script"
     let activeAspect = "9:16";
     let activePipeline = "stock";
+    let selectedDuration = 60; // seconds or "auto"
     let activeProjectId = null;
     let sseSource = null;
 
     // Elements
     const promptInput = document.getElementById('promptInput');
-    const durationSelect = document.getElementById('durationSelect');
+    const promptInputLabel = document.getElementById('promptInputLabel');
     const voiceSelect = document.getElementById('voiceSelect');
     const btnLaunch = document.getElementById('btnLaunchAutopilot');
     const btnPaste = document.getElementById('btnPastePrompt');
@@ -1082,6 +1271,22 @@
     const chipsCloud = document.getElementById('chipsCloud');
     const aspectCards = document.querySelectorAll('#aspectGrid .option-card');
     const pipelineCards = document.querySelectorAll('#pipelineGrid .pipeline-card');
+
+    // Mode Toggle Elements
+    const btnModeStory = document.getElementById('btnModeStory');
+    const btnModeScript = document.getElementById('btnModeScript');
+
+    // Text stats elements
+    const statWords = document.getElementById('statWords');
+    const statChars = document.getElementById('statChars');
+    const statDuration = document.getElementById('statDuration');
+    const btnFitDurationAction = document.getElementById('btnFitDurationAction');
+
+    // Duration Chips
+    const durChips = document.querySelectorAll('#durationChipsWrap .dur-chip');
+    const customDurationInput = document.getElementById('customDurationInput');
+    const chipFitToText = document.getElementById('chipFitToText');
+    const durModeHint = document.getElementById('durModeHint');
 
     // Monitor elements
     const badgeStatusText = document.getElementById('badgeStatusText');
@@ -1155,6 +1360,114 @@
       }[tag] || tag));
     }
 
+    // Live Text Statistics Calculation
+    function updateTextStats() {
+      const text = promptInput.value.trim();
+      const chars = text.length;
+      const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+      // Average speaking pace: ~2.5 words per second (150 words/min)
+      const estimatedSecs = Math.max(0, Math.round(words / 2.5));
+
+      statWords.textContent = words;
+      statChars.textContent = chars;
+      statDuration.textContent = `≈ ${estimatedSecs} с`;
+
+      // If text is long (> 30 words) and user hasn't switched mode, suggest script mode
+      if (words >= 35 && activeMode === 'story') {
+        btnFitDurationAction.style.display = 'inline-block';
+        btnFitDurationAction.textContent = `🎯 Підігнати тривалість під цей текст (~${estimatedSecs} с)`;
+      } else if (activeMode === 'script') {
+        btnFitDurationAction.style.display = 'none';
+      }
+    }
+
+    promptInput.addEventListener('input', updateTextStats);
+
+    // Mode Switching
+    function setMode(mode) {
+      activeMode = mode;
+      if (mode === 'story') {
+        btnModeStory.classList.add('active');
+        btnModeScript.classList.remove('active');
+        promptInputLabel.textContent = 'Тема або ідея ролика:';
+        promptInput.placeholder = "Введіть тему чи ідею для ролика (наприклад: 'Таємниці океанських глибин' або 'Чому Біткоїн став цифровим золотом'). ШІ сам напише план, сцени, дикторський текст і підбере відеоряд!";
+        chipsCloud.style.display = 'flex';
+        btnRandom.style.display = 'inline-flex';
+        durModeHint.textContent = 'ШІ підлаштує сценарій під обрану тривалість';
+        
+        // Reset from auto if needed
+        if (selectedDuration === 'auto') {
+          setDuration(60);
+        }
+      } else {
+        btnModeScript.classList.add('active');
+        btnModeStory.classList.remove('active');
+        promptInputLabel.textContent = 'Ваш готовий текст / сценарій:';
+        promptInput.placeholder = "Вставте сюди готовий текст або сценарій ролика. ШІ розіб'є його на логічні сцени слово в слово, синтезує дикторський голос і точно підгонить тривалість відео під цей текст!";
+        chipsCloud.style.display = 'none';
+        btnRandom.style.display = 'none';
+        durModeHint.textContent = '🔒 Тривалість автоматично відповідає довжині тексту';
+        
+        // Auto fit duration
+        setDuration('auto');
+      }
+      updateTextStats();
+    }
+
+    btnModeStory.addEventListener('click', () => setMode('story'));
+    btnModeScript.addEventListener('click', () => setMode('script'));
+
+    // Duration Selection
+    function setDuration(val) {
+      selectedDuration = val;
+      durChips.forEach(c => c.classList.remove('active'));
+
+      if (val === 'auto') {
+        chipFitToText.classList.add('active');
+        customDurationInput.value = '';
+        durModeHint.textContent = '🎯 Тривалість автоматично підганяється під слова';
+      } else {
+        const matchingChip = Array.from(durChips).find(c => c.dataset.secs === String(val));
+        if (matchingChip) {
+          matchingChip.classList.add('active');
+          customDurationInput.value = '';
+        } else {
+          customDurationInput.value = val;
+        }
+        durModeHint.textContent = `Обрана тривалість: ${val} секунд`;
+      }
+    }
+
+    durChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const secs = chip.dataset.secs;
+        if (secs === 'auto') {
+          setDuration('auto');
+          if (activeMode !== 'script') {
+            showToast('Увімкнено підгонку під текст! Якщо у вас готовий сценарій — перемкніться на «Готовий сценарій».', 'info');
+          }
+        } else {
+          const num = parseInt(secs, 10);
+          setDuration(num);
+        }
+      });
+    });
+
+    customDurationInput.addEventListener('input', () => {
+      const val = parseInt(customDurationInput.value, 10);
+      if (val > 0) {
+        durChips.forEach(c => c.classList.remove('active'));
+        selectedDuration = val;
+        durModeHint.textContent = `Власна тривалість: ${val} секунд`;
+      }
+    });
+
+    btnFitDurationAction.addEventListener('click', () => {
+      setMode('script');
+      setDuration('auto');
+      showToast('Режим змінено на «Готовий сценарій»: відео буде точно підігнано під ваш текст!', 'success');
+    });
+
     // Aspect ratio selection
     aspectCards.forEach(card => {
       card.addEventListener('click', () => {
@@ -1179,6 +1492,7 @@
       if (chip && chip.dataset.topic) {
         promptInput.value = chip.dataset.topic;
         promptInput.focus();
+        updateTextStats();
       }
     });
 
@@ -1187,6 +1501,7 @@
       const randomTopic = sampleIdeas[Math.floor(Math.random() * sampleIdeas.length)];
       promptInput.value = randomTopic;
       promptInput.focus();
+      updateTextStats();
     });
 
     // Paste prompt button
@@ -1197,6 +1512,12 @@
           if (text) {
             promptInput.value = text;
             showToast('Текст вставлено з буфера обміну!', 'success');
+            updateTextStats();
+            
+            // If pasted text is long, suggest fit to text
+            if (text.split(/\s+/).length > 25) {
+              showToast('Помічено готовий текст! Можете обрати «Підігнати під текст», щоб відео відповідало йому.', 'info');
+            }
             return;
           }
         }
@@ -1206,6 +1527,7 @@
       const fallback = prompt('Вставте текст сюди:');
       if (fallback) {
         promptInput.value = fallback;
+        updateTextStats();
       }
     });
 
@@ -1305,10 +1627,18 @@
       appendLog(`Створення проєкту: "${text.substring(0, 40)}..."`);
 
       try {
+        const isFitToText = (activeMode === 'script' || selectedDuration === 'auto');
+        let durToSend = 0;
+        if (!isFitToText) {
+          durToSend = typeof selectedDuration === 'number' ? selectedDuration : parseInt(selectedDuration, 10) || 60;
+        }
+
         const payload = {
           text: text,
+          mode: activeMode,
+          fitToText: isFitToText,
+          duration: durToSend,
           aspect: activeAspect,
-          duration: parseInt(durationSelect.value, 10) || 60,
           pipeline: activePipeline,
           language: 'uk',
           autopilot: true
@@ -1326,7 +1656,8 @@
         }
 
         activeProjectId = data.id;
-        appendLog(`Проєкт створено успішно! ID: ${data.id}`);
+        const durDesc = isFitToText ? 'підігнано під текст' : `${durToSend} с`;
+        appendLog(`Проєкт створено успішно! ID: ${data.id} (${durDesc}, ${activeAspect})`);
         showToast('Автопілот запущено!', 'success');
         
         // Start Event Stream Listener
@@ -1389,7 +1720,6 @@
         appendLog(data.message);
       }
 
-      // Step highlight based on step index (1: plan, 2: refs/frames, 3: video, 4: audio, 5: montage)
       resetSteps();
       const step = data.step || 1;
       if (step === 1) {
@@ -1454,6 +1784,7 @@
       badgeStatusText.textContent = 'Готово до запуску';
       progressBarFill.style.width = '0%';
       progressPct.textContent = '0%';
+      updateTextStats();
     });
 
     // History list loading
@@ -1515,6 +1846,7 @@
 
         if (proj.input && proj.input.text) {
           promptInput.value = proj.input.text;
+          updateTextStats();
         }
 
         if (proj.montage && proj.montage.output && proj.montage.output.status === 'done') {
@@ -1540,6 +1872,7 @@
     // Initial load
     loadStatus();
     loadProjectsList();
+    updateTextStats();
   </script>
 </body>
 </html>

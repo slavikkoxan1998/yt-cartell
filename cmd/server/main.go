@@ -248,6 +248,8 @@ func (s *Server) handleProjectCreate(w http.ResponseWriter, r *http.Request) {
 		Text      string `json:"text"`
 		Aspect    string `json:"aspect"`
 		Duration  int    `json:"duration"`
+		Mode      string `json:"mode"`      // "story" or "script"
+		FitToText bool   `json:"fitToText"` // fit video duration to text
 		Pipeline  string `json:"pipeline"`
 		Language  string `json:"language"`
 		Autopilot bool   `json:"autopilot"`
@@ -274,9 +276,26 @@ func (s *Server) handleProjectCreate(w http.ResponseWriter, r *http.Request) {
 		pipeline = "stock"
 	}
 
+	mode := studio.ModeStory
+	if req.Mode == "script" || req.FitToText {
+		mode = studio.ModeScript
+	}
+
 	duration := req.Duration
-	if duration <= 0 {
-		duration = 60
+	if mode == studio.ModeStory {
+		if duration <= 0 {
+			duration = 60
+		}
+	} else {
+		// In script mode (fit to text), if duration is not explicitly specified,
+		// estimate it from word count (~2.5 words per second spoken pace)
+		if duration <= 0 {
+			wordCount := len(strings.Fields(text))
+			duration = int(float64(wordCount) / 2.5)
+			if duration < 10 {
+				duration = 10
+			}
+		}
 	}
 
 	lang := req.Language
@@ -297,6 +316,7 @@ func (s *Server) handleProjectCreate(w http.ResponseWriter, r *http.Request) {
 	opt := studio.NewProjectOptions{
 		Title:         title,
 		Text:          text,
+		Mode:          mode,
 		Aspect:        aspect,
 		TargetSeconds: duration,
 		Pipeline:      pipeline,
