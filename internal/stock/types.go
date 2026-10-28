@@ -26,9 +26,11 @@ type VideoItem struct {
 
 // SearchOptions holds criteria for finding stock videos.
 type SearchOptions struct {
-	Query       string // search terms or scene prompt
-	Orientation string // "landscape", "portrait", "square", "all"
-	MinDuration int    // in seconds
-	MaxDuration int    // in seconds
-	PerPage     int    // count of results to return
+	Query          string   // search terms or scene prompt
+	Orientation    string   // "landscape", "portrait", "square", "all"
+	MinDuration    int      // in seconds
+	MaxDuration    int      // in seconds
+	TargetDuration float64  // desired target duration in seconds
+	ExcludeIDs     []string // IDs or filenames of videos to avoid reusing
+	PerPage        int      // count of results to return
 }

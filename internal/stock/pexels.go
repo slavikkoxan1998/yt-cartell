@@ -65,6 +65,12 @@ func SearchPexels(ctx context.Context, apiKey string, opts SearchOptions) ([]Vid
 	if opts.Orientation == "landscape" || opts.Orientation == "portrait" || opts.Orientation == "square" {
 		q.Set("orientation", opts.Orientation)
 	}
+	if opts.MinDuration > 0 {
+		q.Set("min_duration", strconv.Itoa(opts.MinDuration))
+	}
+	if opts.MaxDuration > 0 {
+		q.Set("max_duration", strconv.Itoa(opts.MaxDuration))
+	}
 	u.RawQuery = q.Encode()
 
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, u.String(), nil)

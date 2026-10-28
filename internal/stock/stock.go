@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"math"
 	"net/http"
 	"net/url"
 	"regexp"
@@ -71,6 +72,83 @@ func PickBestFile(item VideoItem) *VideoFile {
 		}
 	}
 	return best
+}
+
+// PickBestItem selects the most suitable video item matching target duration and avoiding excludeIDs.
+func PickBestItem(items []VideoItem, targetDur float64, excludeIDs []string) *VideoItem {
+	if len(items) == 0 {
+		return nil
+	}
+
+	excluded := make(map[string]bool, len(excludeIDs))
+	for _, id := range excludeIDs {
+		excluded[id] = true
+	}
+
+	// Filter down to items with playable files
+	var valid []*VideoItem
+	for i := range items {
+		item := &items[i]
+		if PickBestFile(*item) != nil {
+			valid = append(valid, item)
+		}
+	}
+	if len(valid) == 0 {
+		return nil
+	}
+
+	// Prefer items not in excluded
+	nonExcluded := make([]*VideoItem, 0, len(valid))
+	for _, it := range valid {
+		if !excluded[it.ID] {
+			nonExcluded = append(nonExcluded, it)
+		}
+	}
+	pool := nonExcluded
+	if len(pool) == 0 {
+		pool = valid // fallback if all were excluded
+	}
+
+	if targetDur <= 0 {
+		return pool[0]
+	}
+
+	// Among items, find the one with best duration match:
+	// 1. First priority: items with Duration >= int(math.Ceil(targetDur))
+	//    Closest duration to targetDur wins.
+	// 2. Second priority: if all are shorter, pick the longest one.
+	var bestGte *VideoItem
+	bestGteDiff := 999999.0
+
+	var longestShorter *VideoItem
+	maxShortDur := -1
+
+	for _, it := range pool {
+		dur := float64(it.Duration)
+		if dur <= 0 {
+			dur = 10 // fallback assumed duration if unknown
+		}
+		if dur >= targetDur {
+			diff := dur - targetDur
+			if diff < bestGteDiff {
+				bestGteDiff = diff
+				bestGte = it
+			}
+		} else {
+			if it.Duration > maxShortDur {
+				maxShortDur = it.Duration
+				longestShorter = it
+			}
+		}
+	}
+
+	if bestGte != nil {
+		return bestGte
+	}
+	if longestShorter != nil {
+		return longestShorter
+	}
+	return pool[0]
 }
 
 var nonAlphanumeric = regexp.MustCompile(`[^a-zA-Z0-9\sа-яА-ЯіІїЇєЄґҐ]`)
@@ -224,17 +302,33 @@ func Search(ctx context.Context, cfg Config, opts SearchOptions) ([]VideoItem, e
 
 // SearchAndDownload searches for a matching clip across stock providers and downloads the video bytes.
 func SearchAndDownload(ctx context.Context, cfg Config, rawPrompt string, orientation string) ([]byte, *VideoItem, error) {
+	return SearchAndDownloadTarget(ctx, cfg, rawPrompt, orientation, 0, nil)
+}
+
+// SearchAndDownloadTarget searches for stock clips of the desired duration and downloads the best matching stream.
+func SearchAndDownloadTarget(ctx context.Context, cfg Config, rawPrompt string, orientation string, targetDur float64, excludeIDs []string) ([]byte, *VideoItem, error) {
 	cleanPrompt := strings.ReplaceAll(rawPrompt, "@", "")
 	translated := translateCyrillic(ctx, cleanPrompt)
 
 	keywords := ExtractKeywords(translated)
 	opts := SearchOptions{
-		Query:       keywords,
-		Orientation: orientation,
-		PerPage:     10,
+		Query:          keywords,
+		Orientation:    orientation,
+		TargetDuration: targetDur,
+		ExcludeIDs:     excludeIDs,
+		PerPage:        20,
+	}
+	if targetDur > 0 {
+		opts.MinDuration = max(2, int(math.Floor(targetDur-3)))
+		opts.MaxDuration = max(int(math.Ceil(targetDur+25)), 35)
 	}
 
 	items, err := Search(ctx, cfg, opts)
+	if (err != nil || len(items) == 0) && (opts.MinDuration > 0 || opts.MaxDuration > 0) {
+		// Retry without duration constraints in API query; PickBestItem will score duration client-side
+		opts.MinDuration, opts.MaxDuration = 0, 0
+		items, err = Search(ctx, cfg, opts)
+	}
 	if (err != nil || len(items) == 0) && orientation != "" {
 		opts.Orientation = ""
 		items, err = Search(ctx, cfg, opts)
@@ -259,12 +353,28 @@ func SearchAndDownload(ctx context.Context, cfg Config, rawPrompt string, orient
 		return nil, nil, fmt.Errorf("стокове відео не знайдено за запитом %q", keywords)
 	}
 
-	// Pick first item that has playable files
+	bestItem := PickBestItem(items, targetDur, excludeIDs)
+	if bestItem == nil {
+		bestItem = &items[0]
+	}
+
+	bestFile := PickBestFile(*bestItem)
+	if bestFile != nil && bestFile.Link != "" {
+		data, err := DownloadFile(ctx, bestFile.Link)
+		if err == nil && len(data) > 0 {
+			return data, bestItem, nil
+		}
+	}
+
+	// Fallback: try any other item from results if primary bestItem failed to download
 	for i := range items {
 		item := &items[i]
-		bestFile := PickBestFile(*item)
-		if bestFile != nil && bestFile.Link != "" {
-			data, err := DownloadFile(ctx, bestFile.Link)
+		if item.ID == bestItem.ID {
+			continue
+		}
+		bf := PickBestFile(*item)
+		if bf != nil && bf.Link != "" {
+			data, err := DownloadFile(ctx, bf.Link)
 			if err == nil && len(data) > 0 {
 				return data, item, nil
 			}

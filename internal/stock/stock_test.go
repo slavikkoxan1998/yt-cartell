@@ -45,3 +45,29 @@ func TestMockDownloadFile(t *testing.T) {
 		t.Fatalf("unexpected content: %s", string(data))
 	}
 }
+
+func TestPickBestItem(t *testing.T) {
+	items := []VideoItem{
+		{ID: "vid1", Duration: 3, Files: []VideoFile{{Width: 1920, Link: "http://example.com/1.mp4"}}},
+		{ID: "vid2", Duration: 15, Files: []VideoFile{{Width: 1920, Link: "http://example.com/2.mp4"}}},
+		{ID: "vid3", Duration: 8, Files: []VideoFile{{Width: 1920, Link: "http://example.com/3.mp4"}}},
+	}
+
+	// 1. Scene needs 7 seconds: vid3 (8s) should win over vid2 (15s) and vid1 (3s)
+	best := PickBestItem(items, 7.0, nil)
+	if best == nil || best.ID != "vid3" {
+		t.Fatalf("expected vid3 (8s) for 7s target, got %v", best)
+	}
+
+	// 2. Scene needs 12 seconds: vid2 (15s) should win
+	best = PickBestItem(items, 12.0, nil)
+	if best == nil || best.ID != "vid2" {
+		t.Fatalf("expected vid2 (15s) for 12s target, got %v", best)
+	}
+
+	// 3. Exclude vid3: should pick vid2
+	best = PickBestItem(items, 7.0, []string{"vid3"})
+	if best == nil || best.ID != "vid2" {
+		t.Fatalf("expected vid2 when vid3 is excluded, got %v", best)
+	}
+}

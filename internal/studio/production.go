@@ -671,7 +671,34 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 			if prompt == "" {
 				prompt = in.scene.Narration
 			}
-			stockData, stockItem, sErr := stock.SearchAndDownload(ctx, stockCfg, prompt, c.Stock.Orientation)
+
+			// Target duration for this scene
+			targetDur := in.scene.Audio.Duration
+			if in.scene.AudioSource == AudioUpload && in.scene.VoiceEnd > in.scene.VoiceStart {
+				targetDur = in.scene.VoiceEnd - in.scene.VoiceStart
+			}
+			if targetDur <= 0 && in.scene.Narration != "" {
+				targetDur = SpeechSeconds(in.scene.Narration)
+			}
+			if targetDur <= 0 {
+				targetDur = float64(e.ClipSeconds())
+			}
+			if targetDur <= 0 {
+				targetDur = 6.0
+			}
+
+			// Collect IDs of stock videos already used in other scenes
+			var usedStockIDs []string
+			e.read(st, func(p *Project) bool {
+				for _, sc := range p.Scenes {
+					if sc.ID != sid && sc.Video.Status == StatusDone && sc.Video.Path != "" {
+						usedStockIDs = append(usedStockIDs, sc.Video.Path)
+					}
+				}
+				return true
+			})
+
+			stockData, stockItem, sErr := stock.SearchAndDownloadTarget(ctx, stockCfg, prompt, c.Stock.Orientation, targetDur, usedStockIDs)
 			if sErr == nil && len(stockData) > 0 {
 				progress(90, "processing stock clip")
 				var frameRel string
@@ -709,6 +736,8 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 							}
 							if s.AudioSource == AudioUpload && s.VoiceEnd > s.VoiceStart && s.Video.Duration > 0 {
 								s.TrimOut = clipTrim(s.Video.Duration, s.TrimIn, s.VoiceEnd-s.VoiceStart)
+							} else if targetDur > 0 && s.Video.Duration > targetDur {
+								s.TrimOut = clipTrim(s.Video.Duration, s.TrimIn, targetDur)
 							}
 						}
 						return nil
