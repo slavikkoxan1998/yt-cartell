@@ -239,6 +239,7 @@ func usableBin(ctx context.Context, dir string) string {
 		if c == "" {
 			continue
 		}
+		ensureSharedLibSymlinks(filepath.Dir(c))
 		if _, err := probeWhisper(ctx, c, true); err == nil {
 			return c
 		}
@@ -353,6 +354,7 @@ func installProgram(ctx context.Context, dir string, spec fileSpec, prog *instal
 	if err := replaceDir(filepath.Dir(cli), final); err != nil {
 		return "", err
 	}
+	ensureSharedLibSymlinks(final)
 	_ = os.RemoveAll(filepath.Join(dir, ".download"))
 	return filepath.Join(final, filepath.Base(cli)), nil
 }
@@ -440,6 +442,16 @@ func extractTarGz(archive, dst string) error {
 			if err := os.MkdirAll(out, 0o755); err != nil {
 				return writeErr(err)
 			}
+		case tar.TypeSymlink:
+			if err := os.MkdirAll(filepath.Dir(out), 0o755); err != nil {
+				return writeErr(err)
+			}
+			link := strings.Trim(strings.ReplaceAll(header.Linkname, `\`, "/"), "/")
+			cleanLink := filepath.Clean(filepath.FromSlash(link))
+			if !strings.HasPrefix(cleanLink, "/") && !strings.HasPrefix(cleanLink, `\`) {
+				_ = os.Remove(out)
+				_ = os.Symlink(header.Linkname, out)
+			}
 		case tar.TypeReg, tar.TypeRegA:
 			if err := os.MkdirAll(filepath.Dir(out), 0o755); err != nil {
 				return writeErr(err)
@@ -495,6 +507,75 @@ func unzipFile(f *zip.File, out string) error {
 		return errors.New("Архів whisper.cpp пошкоджений: неправильний розмір файлу")
 	}
 	return nil
+}
+
+func copyFile(src, dst string) error {
+	in, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer in.Close()
+	out, err := os.OpenFile(dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o755)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+	_, err = io.Copy(out, in)
+	return err
+}
+
+func ensureSharedLibSymlinks(dir string) {
+	if installGOOS != "linux" {
+		return
+	}
+	ents, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	fileNames := make([]string, 0, len(ents))
+	for _, e := range ents {
+		fileNames = append(fileNames, e.Name())
+	}
+
+	targets := []struct {
+		prefix string
+		links  []string
+	}{
+		{"libwhisper.so.", []string{"libwhisper.so", "libwhisper.so.1"}},
+		{"libggml.so.", []string{"libggml.so", "libggml.so.0"}},
+		{"libggml-base.so.", []string{"libggml-base.so", "libggml-base.so.0"}},
+		{"libparakeet.so.", []string{"libparakeet.so", "libparakeet.so.1"}},
+	}
+
+	for _, t := range targets {
+		var realFile string
+		for _, name := range fileNames {
+			if strings.HasPrefix(name, t.prefix) && !strings.HasSuffix(name, ".so") && !strings.HasSuffix(name, ".0") && !strings.HasSuffix(name, ".1") {
+				realFile = name
+				break
+			}
+		}
+		if realFile == "" {
+			for _, name := range fileNames {
+				if strings.HasPrefix(name, t.prefix) {
+					realFile = name
+					break
+				}
+			}
+		}
+		if realFile == "" {
+			continue
+		}
+		for _, linkName := range t.links {
+			linkPath := filepath.Join(dir, linkName)
+			if _, err := os.Stat(linkPath); err != nil {
+				_ = os.Remove(linkPath)
+				if err := os.Symlink(realFile, linkPath); err != nil {
+					_ = copyFile(filepath.Join(dir, realFile), linkPath)
+				}
+			}
+		}
+	}
 }
 
 // findInTree is the shallowest file called name under root (case-insensitive

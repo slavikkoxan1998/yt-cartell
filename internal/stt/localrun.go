@@ -124,7 +124,7 @@ func (c *Client) transcribeLocal(ctx context.Context, path, lang string, progres
 		rep.report(min(99, max(1, p)), fmt.Sprintf("Розпізнаємо мову на цьому комп'ютері · %d%%", p))
 	}}
 	stdout := &tailBuf{max: 4 << 10}
-	cmd := sysx.Command(ctx, bin, args...)
+	cmd := whisperCmd(ctx, bin, args...)
 	cmd.Dir = work
 	cmd.Stdout, cmd.Stderr = stdout, stderr
 	cmd.WaitDelay = 3 * time.Second
@@ -421,10 +421,27 @@ func probeWhisper(ctx context.Context, bin string, fresh bool) (whisperInfo, err
 
 var versionRe = regexp.MustCompile(`\d+\.\d+(\.\d+)?`)
 
+// whisperCmd creates a command configured with LD_LIBRARY_PATH so dynamic shared
+// libraries in the binary's directory are always loaded on Linux.
+func whisperCmd(ctx context.Context, bin string, args ...string) *exec.Cmd {
+	cmd := sysx.Command(ctx, bin, args...)
+	if runtime.GOOS == "linux" {
+		binDir := filepath.Dir(bin)
+		ldPath := os.Getenv("LD_LIBRARY_PATH")
+		if ldPath != "" {
+			ldPath = binDir + ":" + ldPath
+		} else {
+			ldPath = binDir
+		}
+		cmd.Env = append(os.Environ(), "LD_LIBRARY_PATH="+ldPath)
+	}
+	return cmd
+}
+
 // runQuick runs bin with args and returns stdout and stderr together.
 func runQuick(ctx context.Context, bin string, args ...string) ([]byte, error) {
 	buf := &tailBuf{max: 64 << 10}
-	cmd := sysx.Command(ctx, bin, args...)
+	cmd := whisperCmd(ctx, bin, args...)
 	cmd.Stdout, cmd.Stderr = buf, buf
 	cmd.WaitDelay = 2 * time.Second
 	err := sysx.Run(cmd)
