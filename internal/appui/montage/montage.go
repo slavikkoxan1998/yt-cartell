@@ -442,9 +442,19 @@ func (v *view) Next(c *core.Ctx, pv *core.ProjectView) core.Next {
 		return core.Next{Icon: gui.IconHourglass, Title: core.JobLabel(j.Kind) + " — триває", Text: jobLine(j, "Монтаж можна запустити, щойно етап завершиться"), Busy: true}
 	}
 	if len(s.film.items) == 0 {
-		return core.Next{Icon: gui.IconImages, Title: "Спершу потрібні кадри",
-			Text: "Монтувати поки нема чого: згенеруй кадри сцен на кроці «Розкадровка».",
-			Do:   func() { c.Navigate(core.Route{Page: core.PageProject, ProjectID: id, Step: 3}) }}
+		cfg := c.E.Config().Get()
+		stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || p.Input.Pipeline == "stock"
+		title := "Спершу потрібні кадри"
+		text := "Монтувати поки нема чого: згенеруй кадри сцен на кроці «Розкадровка»."
+		step := 3
+		if stockMode {
+			title = "Спершу знайди відео"
+			text = "Монтувати поки нема чого: знайди стокові відео на кроці «Відео й озвучка»."
+			step = 4
+		}
+		return core.Next{Icon: gui.IconImages, Title: title,
+			Text: text,
+			Do:   func() { c.Navigate(core.Route{Page: core.PageProject, ProjectID: id, Step: step}) }}
 	}
 	out := p.Montage.Output
 	if out.Status == studio.StatusDone && out.Path != "" && s.fin.size.get(pv.Abs(out.Path), out.UpdatedAt) > 0 {

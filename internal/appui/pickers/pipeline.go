@@ -12,6 +12,7 @@ import (
 // PipelineModes are the production modes (studio.Input.Pipeline) in display order.
 var PipelineModes = []ModeInfo{
 	{studio.PipelineFull, studio.PipelineLabel(studio.PipelineFull), "референси, кадри, відео й монтаж", gui.IconFilm},
+	{studio.PipelineStock, studio.PipelineLabel(studio.PipelineStock), "без ШІ-картинок: кліпи зі стоків (Pexels, Pixabay, Wikimedia)", gui.IconVideo},
 	{studio.PipelineNoRefs, studio.PipelineLabel(studio.PipelineNoRefs), "без портретів героїв і місць — вигляд словами", gui.IconZap},
 	{studio.PipelineStills, studio.PipelineLabel(studio.PipelineStills), "без відео: кадри оживають рухом камери", gui.IconImages},
 	{studio.PipelineNoRefsStills, studio.PipelineLabel(studio.PipelineNoRefsStills), "найшвидше й найдешевше: лише кадри", gui.IconGauge},
@@ -20,7 +21,8 @@ var PipelineModes = []ModeInfo{
 }
 
 // PipelineHelp explains the production modes (the panel's foot note).
-const PipelineHelp = "Повний: студія малює героїв і місця, кадри й знімає відео. «Без референсів»: героїв і місця не малюють окремо — їхній вигляд описано в кожному промті (стабільність трохи нижча). " +
+const PipelineHelp = "Повний: студія малює героїв і місця, кадри й знімає відео. «Стокові відео»: безкоштовні відео зі стоків (Pexels, Pixabay, Wikimedia, Coverr) — генерація ШІ-картинок не потрібна. " +
+	"«Без референсів»: героїв і місця не малюють окремо — їхній вигляд описано в кожному промті (стабільність трохи нижча). " +
 	"«Тільки картинки»: відео не знімається — кожна сцена це її кадр із рухом камери (наближення, панорама, Кен Бернс, дрейф, легке тремтіння), " +
 	"завдовжки як її озвучка; рух можна змінити на кроці «Монтаж». " +
 	"«Анімація кодом»: анімація малюється кодом — графіки, мапи, текст, схеми — без генерації відео; персонажі — картинками. " +
@@ -38,7 +40,7 @@ type Pipeline struct {
 	chev gui.Anim
 	fx   flatFX
 	pop  panel
-	rows [6]gui.Clickable
+	rows [7]gui.Clickable
 }
 
 // Layout draws the field.

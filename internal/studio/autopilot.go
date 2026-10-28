@@ -161,15 +161,19 @@ func (e *Engine) runAutopilot(j *jobCtx, force bool, coverPrompt string) (string
 	}
 
 	// 2–4. references, frames, clips + voices
-	phase(apRefsFrom, apRefsSpan, apPrefix, "Референси")
-	e.runRefs(j, false, 0, 100)
-	if j.cancelled() {
-		return stopped, nil
-	}
-	phase(apFramesFrom, apFramesSpan, apPrefix, "Кадри")
-	e.runFrames(j, false)
-	if j.cancelled() {
-		return stopped, nil
+	cfg := e.cfg.Get()
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || j.snapshot().Input.Pipeline == "stock"
+	if !stockMode {
+		phase(apRefsFrom, apRefsSpan, apPrefix, "Референси")
+		e.runRefs(j, false, 0, 100)
+		if j.cancelled() {
+			return stopped, nil
+		}
+		phase(apFramesFrom, apFramesSpan, apPrefix, "Кадри")
+		e.runFrames(j, false)
+		if j.cancelled() {
+			return stopped, nil
+		}
 	}
 	phase(apRenderFrom, apRenderSpan, apPrefix, "Відео й озвучка")
 	e.runRender(j, true, true, false)
@@ -193,11 +197,11 @@ func (e *Engine) runAutopilot(j *jobCtx, force bool, coverPrompt string) (string
 		prefix := fmt.Sprintf("%sПовтор %d/%d · ", apPrefix, round, ap.Retries)
 		phase(from, span, prefix, "повторюємо невдалі ("+f.String()+")")
 		third := span / 3
-		if f.refs > 0 {
+		if f.refs > 0 && !stockMode {
 			j.within(from, third, prefix)
 			e.runRefs(j, false, 0, 100)
 		}
-		if f.frames > 0 && !j.cancelled() {
+		if f.frames > 0 && !stockMode && !j.cancelled() {
 			j.within(from+third, third, prefix)
 			e.runFrames(j, false)
 		}

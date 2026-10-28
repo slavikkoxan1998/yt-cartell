@@ -1327,6 +1327,12 @@ func (v *storyboard) Next(c *core.Ctx, pv *core.ProjectView) core.Next {
 	}
 	n := countFrames(p)
 	st := v.state(id)
+	cfg := c.E.Config().Get()
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || p.Input.Pipeline == "stock"
+	if stockMode {
+		return core.Next{Icon: gui.IconVideo, Title: "Далі: стокові відео",
+			Text: "У режимі стоків кадри ШІ не потрібні — переходимо до пошуку відео.", Do: func() { goStep(c, id, 4) }}
+	}
 	switch {
 	case st.batch.active():
 		done, total := st.batch.progress()

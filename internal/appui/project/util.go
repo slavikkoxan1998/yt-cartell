@@ -38,6 +38,7 @@ type facts struct {
 	hasPlan  bool
 	anyFrame bool
 	planning bool // a plan job runs
+	anyVideo bool
 	// done/enabled are indexed by step 1–5 (0 unused).
 	done    [6]bool
 	enabled [6]bool
@@ -54,18 +55,25 @@ func factsOf(c *core.Ctx, pv *core.ProjectView) facts {
 	clip := float64(f.clip)
 	f.hasPlan = len(p.Scenes) > 0
 	allFrames, allVideos, allPrompts := f.hasPlan, f.hasPlan, f.hasPlan
+	cfg := c.E.Config().Get()
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || p.Input.Pipeline == "stock"
 	for _, s := range p.Scenes {
 		if s.Frame.Path != "" {
 			f.anyFrame = true
 		}
-		allFrames = allFrames && s.Frame.Status == studio.StatusDone
+		if s.Video.Path != "" {
+			f.anyVideo = true
+		}
+		allFrames = allFrames && (s.Frame.Status == studio.StatusDone || stockMode)
 		allVideos = allVideos && s.Video.Status == studio.StatusDone
 		allPrompts = allPrompts && strings.TrimSpace(s.ImagePrompt) != ""
 		f.total += sceneSeconds(s, clip)
 	}
 	f.planning = pv.RunningKind() == studio.JobPlan || (pv.RunningKind() == studio.JobAutopilot && !f.hasPlan)
 	f.done = [6]bool{false, f.hasPlan, allPrompts, allFrames, allVideos, p.Montage.Output.Status == studio.StatusDone}
-	f.enabled = [6]bool{false, true, f.hasPlan || f.planning, f.hasPlan, f.anyFrame, f.anyFrame}
+	canVideo := f.anyFrame || f.hasPlan
+	canMontage := f.anyFrame || f.anyVideo
+	f.enabled = [6]bool{false, true, f.hasPlan || f.planning, f.hasPlan, canVideo, canMontage}
 	for n := 1; n <= 5; n++ {
 		if f.done[n] {
 			f.ndone++

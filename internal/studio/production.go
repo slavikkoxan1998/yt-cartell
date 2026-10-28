@@ -675,9 +675,24 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 			if sErr == nil && len(stockData) > 0 {
 				progress(90, "processing stock clip")
 				var frameRel string
-				if in.scene.Frame.Path == "" && stockItem != nil && stockItem.Thumbnail != "" {
-					if thumbData, tErr := stock.DownloadFile(ctx, stockItem.Thumbnail); tErr == nil && len(thumbData) > 0 {
-						frameRel, _ = e.writeAsset(st, "frames", fmt.Sprintf("frame-%s-%d.jpg", safeName(sid), nowMs()), thumbData)
+				if in.scene.Frame.Path == "" {
+					if stockItem != nil && stockItem.Thumbnail != "" {
+						if thumbData, tErr := stock.DownloadFile(ctx, stockItem.Thumbnail); tErr == nil && len(thumbData) > 0 {
+							frameRel, _ = e.writeAsset(st, "frames", fmt.Sprintf("frame-%s-%d.jpg", safeName(sid), nowMs()), thumbData)
+						}
+					}
+					if frameRel == "" {
+						tmpVid := filepath.Join(os.TempDir(), fmt.Sprintf("stock-tmp-%s-%d.mp4", safeName(sid), nowMs()))
+						if err := os.WriteFile(tmpVid, stockData, 0644); err == nil {
+							tmpJpg := filepath.Join(os.TempDir(), fmt.Sprintf("stock-thumb-%s-%d.jpg", safeName(sid), nowMs()))
+							if err := e.ffNow().StillFrame(ctx, tmpVid, 0, 0, 0, tmpJpg); err == nil {
+								if thumbBytes, err := os.ReadFile(tmpJpg); err == nil {
+									frameRel, _ = e.writeAsset(st, "frames", fmt.Sprintf("frame-%s-%d.jpg", safeName(sid), nowMs()), thumbBytes)
+								}
+								_ = os.Remove(tmpJpg)
+							}
+							_ = os.Remove(tmpVid)
+						}
 					}
 				}
 				return product{

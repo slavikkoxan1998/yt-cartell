@@ -223,6 +223,7 @@ const (
 	PipelineNoRefs       = "norefs"        // no reference images: looks in the prompts' words
 	PipelineStills       = "stills"        // no video: frames animated by the montage
 	PipelineNoRefsStills = "norefs+stills" // both
+	PipelineStock        = "stock"         // стокові відео (Pexels, Pixabay, Wikimedia, Coverr)
 	// PipelineCode («Анімація кодом»): no video model — every scene is an
 	// animation drawn by code (codeanim: charts, maps, text, diagrams),
 	// written by the text model after the voice and timed to its words;
@@ -232,7 +233,7 @@ const (
 )
 
 // Pipelines lists the pipeline modes in display order.
-var Pipelines = []string{PipelineFull, PipelineNoRefs, PipelineStills, PipelineNoRefsStills, PipelineCode, PipelineNoRefsCode}
+var Pipelines = []string{PipelineFull, PipelineStock, PipelineNoRefs, PipelineStills, PipelineNoRefsStills, PipelineCode, PipelineNoRefsCode}
 
 // ValidPipeline reports a known Input.Pipeline value.
 func ValidPipeline(v string) bool {
@@ -247,6 +248,8 @@ func ValidPipeline(v string) bool {
 // PipelineLabel is the Ukrainian name of a pipeline mode.
 func PipelineLabel(v string) string {
 	switch v {
+	case PipelineStock:
+		return "Стокові відео"
 	case PipelineNoRefs:
 		return "Без референсів"
 	case PipelineStills:
@@ -264,7 +267,7 @@ func PipelineLabel(v string) string {
 // SkipRefs: the film draws no character/location reference images (the
 // user's own material pictures are still used — they cost nothing).
 func (in Input) SkipRefs() bool {
-	return in.Pipeline == PipelineNoRefs || in.Pipeline == PipelineNoRefsStills || in.Pipeline == PipelineNoRefsCode
+	return in.Pipeline == PipelineStock || in.Pipeline == PipelineNoRefs || in.Pipeline == PipelineNoRefsStills || in.Pipeline == PipelineNoRefsCode
 }
 
 // CodeAnim: «Анімація кодом» — the scenes are animations drawn by code
@@ -395,6 +398,11 @@ func (e *Engine) PipelineCostOf(p Project, pipeline string) PipelineCost {
 		refs = 3 // a typical plan: two characters and a place
 	}
 	cost := PipelineCost{Frames: scenes, Clips: scenes, Refs: refs}
+	if in.Pipeline == PipelineStock {
+		cost.Refs = 0
+		cost.Frames = 0
+		cost.Clips = scenes
+	}
 	if in.SkipRefs() {
 		cost.Refs = 0 // the user's own material pictures are bound, never drawn
 	}

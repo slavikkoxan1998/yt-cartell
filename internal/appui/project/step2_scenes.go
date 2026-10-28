@@ -628,6 +628,16 @@ func (s *step2) Next(c *core.Ctx, pv *core.ProjectView) core.Next {
 		return core.Next{Icon: gui.IconScrollText, Title: "Спершу — сценарій", Text: "Напиши історію й створи план на кроці 1.",
 			Do: func() { c.Navigate(core.Route{Page: core.PageProject, ProjectID: id, Step: 1}) }}
 	}
+	cfg := c.E.Config().Get()
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || pv.P.Input.Pipeline == "stock"
+	if stockMode {
+		return core.Next{Icon: gui.IconVideo, Title: "Далі: стокові відео",
+			Text: "Кадри ШІ не потрібні — переходимо до пошуку та завантаження стокових відео.",
+			Do: func() {
+				s.ps.bind.flushAll()
+				c.Navigate(core.Route{Page: core.PageProject, ProjectID: id, Step: 4})
+			}}
+	}
 	text := "Перевір текст і промти — далі герої, місця й кадри."
 	if n := noPrompt(pv); n > 0 {
 		text = scenesN(n) + " без промту кадру — допиши або перепиши ШІ."

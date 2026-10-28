@@ -142,6 +142,10 @@ func StepLabel(in studio.Input, n int) (label, badge string) {
 	}
 	label = StepNames[n-1]
 	switch {
+	case n == 3 && in.Pipeline == studio.PipelineStock:
+		badge = "стоки (без кадрів)"
+	case n == 4 && in.Pipeline == studio.PipelineStock:
+		label, badge = "Стокові відео", "Pexels/Pixabay/Wikimedia"
 	case n == 3 && in.CodeAnim():
 		label, badge = "Анімація", "озвучка й код"
 	case n == 4 && in.CodeAnim():
