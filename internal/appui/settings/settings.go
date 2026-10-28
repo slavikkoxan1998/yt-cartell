@@ -371,9 +371,9 @@ func (p *Page) content(gtx C, c *core.Ctx, m metrics) D {
 	card := func(id string, f func(gtx C, c *core.Ctx, m metrics) D) block {
 		return block{id: id, w: func(gtx C) D { return f(gtx, c, m) }}
 	}
-	left := []block{card("text", p.textCard), card("frames", p.framesCard), card("video", p.videoCard), card("stock", p.stockCard), card("glabs", p.glabsCard),
+	left := []block{card("text", p.textCard), card("frames", p.framesCard), card("video", p.videoCard), card("glabs", p.glabsCard),
 		card("speed", p.speedCard), card("ffmpeg", p.ffCard)}
-	right := []block{card("tts", p.ttsCard), card("google", p.googleCard), card("stt", p.sttCard), card("dictate", p.dictCard)}
+	right := []block{card("stock", p.stockCard), card("tts", p.ttsCard), card("google", p.googleCard), card("stt", p.sttCard), card("dictate", p.dictCard)}
 	if m.cols < 2 {
 		// One column: the services in the order a film needs them.
 		left = []block{left[0], left[1], left[2], left[3], left[4], right[1], right[0], right[2], right[3], left[5], left[6]}

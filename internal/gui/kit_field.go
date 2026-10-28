@@ -4,9 +4,12 @@ import (
 	"fmt"
 	"image"
 	"image/color"
+	"strings"
 	"unicode/utf8"
 
 	"gioui.org/gesture"
+	"gioui.org/io/clipboard"
+	"gioui.org/io/event"
 	"gioui.org/io/key"
 	"gioui.org/io/pointer"
 	"gioui.org/layout"
@@ -28,6 +31,8 @@ type FieldStyle struct {
 	Counter bool
 	// Password masks the text and adds a show/hide button.
 	Password bool
+	// PasteButton shows a clipboard paste button on the right side of the box.
+	PasteButton bool
 	// MinLines > 0 makes a multi-line TextArea that grows with its text up to
 	// MaxLines (0 = no limit) and then scrolls.
 	MinLines, MaxLines int
@@ -60,6 +65,7 @@ type TextField struct {
 	focusA    Anim
 	hoverA    Anim
 	reveal    Clickable
+	pasteBtn  Clickable
 	shown     bool
 }
 
@@ -132,6 +138,49 @@ func (f *TextField) update(gtx C) {
 	}
 	if f.reveal.Clicked(gtx) {
 		f.shown = !f.shown
+	}
+	if f.pasteBtn.Clicked(gtx) {
+		gtx.Execute(key.FocusCmd{Tag: &f.Editor})
+		if cb := ReadSystemClipboard(); cb != "" {
+			f.Editor.Insert(cb)
+			t := f.Editor.Text()
+			f.last = t
+			f.pend.set(gtx, t)
+			f.submitted = true
+			gtx.Execute(op.InvalidateCmd{})
+		} else {
+			gtx.Execute(clipboard.ReadCmd{Tag: &f.Editor})
+		}
+	}
+	// Cyrillic & universal shortcuts for layout-independent paste & select all
+	filters := []event.Filter{
+		key.Filter{Focus: &f.Editor, Name: "М", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "м", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "V", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "v", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "Ф", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "ф", Required: key.ModShortcut},
+	}
+	for {
+		ke, ok := gtx.Event(filters...)
+		if !ok {
+			break
+		}
+		if k, ok := ke.(key.Event); ok && k.State == key.Press {
+			switch strings.ToUpper(string(k.Name)) {
+			case "М", "V":
+				if cb := ReadSystemClipboard(); cb != "" {
+					f.Editor.Insert(cb)
+					t := f.Editor.Text()
+					f.last = t
+					f.pend.set(gtx, t)
+				} else {
+					gtx.Execute(clipboard.ReadCmd{Tag: &f.Editor})
+				}
+			case "Ф":
+				f.Editor.SetCaret(0, f.Editor.Len())
+			}
+		}
 	}
 }
 
@@ -256,7 +305,10 @@ func (f *TextField) layoutBox(gtx C, th *Theme, st FieldStyle, radius unit.Dp, t
 	}
 	trail := trailW
 	if st.Password {
-		trail = gtx.Dp(32) + gtx.Dp(4)
+		trail += gtx.Dp(32) + gtx.Dp(4)
+	}
+	if st.PasteButton {
+		trail += gtx.Dp(32) + gtx.Dp(4)
 	}
 	innerW := max(0, w-2*padX-lead-trail)
 	eg := gtx
@@ -338,6 +390,16 @@ func (f *TextField) layoutBox(gtx C, th *Theme, st FieldStyle, radius unit.Dp, t
 			ic, tip = IconEyeOff, "Сховати"
 		}
 		IconButton{Icon: ic, Size: 32, IconSize: 18, Tip: tip, Disabled: st.Disabled}.Layout(gtx, th, &f.reveal)
+		o.Pop()
+	}
+	if st.PasteButton {
+		b := gtx.Dp(32)
+		xPos := w - padX/2 - b
+		if st.Password {
+			xPos -= gtx.Dp(34)
+		}
+		o := op.Offset(pt(xPos, (h-b)/2)).Push(gtx.Ops)
+		IconButton{Icon: IconClipboardPaste, Size: 32, IconSize: 18, Tip: "Вставити з буфера обміну", Disabled: st.Disabled}.Layout(gtx, th, &f.pasteBtn)
 		o.Pop()
 	}
 	return D{Size: size, Baseline: h - yoff - (ed.Size.Y - ed.Baseline)}

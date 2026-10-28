@@ -572,6 +572,7 @@ func (p *Page) ttsKeyList(gtx C, c *core.Ctx, t config.TTS, keys []string, statu
 						Placeholder: "Встав ключі — кожен з нового рядка, через кому чи пробіл",
 						Hint:        "Підписи на кшталт «key1:» студія пропустить. Ключі видно лише тут, доки їх не додаси.",
 						MinLines:    4, MaxLines: 8,
+						PasteButton: true,
 					})
 				},
 				func(gtx C) D {
@@ -593,7 +594,7 @@ func (p *Page) ttsKeyList(gtx C, c *core.Ctx, t config.TTS, keys []string, statu
 					if len(keys) > 0 {
 						ph = "Додати ще один ключ"
 					}
-					return s.add.Layout(gtx, th, gui.FieldStyle{Placeholder: ph, Password: true})
+					return s.add.Layout(gtx, th, gui.FieldStyle{Placeholder: ph, Password: true, PasteButton: true})
 				}),
 				layout.Rigid(layout.Spacer{Width: gui.Sp8}.Layout),
 				layout.Rigid(func(gtx C) D {

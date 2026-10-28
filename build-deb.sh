@@ -125,7 +125,7 @@ Version: $VERSION
 Architecture: $ARCH
 Maintainer: slavikkoxan1998 <slavikkoxan1998@gmail.com>
 Installed-Size: $INSTALLED_SIZE
-Depends: ffmpeg, zenity, libwayland-client0, libx11-6, libxkbcommon0
+Depends: ffmpeg, zenity, xclip, libwayland-client0, libx11-6, libxkbcommon0
 Section: video
 Priority: optional
 Homepage: https://github.com/slavikkoxan1998/yt-cartell

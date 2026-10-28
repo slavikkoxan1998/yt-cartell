@@ -42,14 +42,14 @@ func (k *keyInput) layout(gtx C, th *gui.Theme, label, stored, fresh string, sav
 	if strings.TrimSpace(stored) != "" {
 		hint, ph = "Збережено: "+config.Mask(stored), "Встав новий, щоб замінити"
 	}
-	return k.Layout(gtx, th, gui.FieldStyle{Label: label, Placeholder: ph, Hint: hint, Password: true})
+	return k.Layout(gtx, th, gui.FieldStyle{Label: label, Placeholder: ph, Hint: hint, Password: true, PasteButton: true})
 }
 
 // textIn is a plain bound text field with a label.
 func textIn(f *field, th *gui.Theme, label, hint, placeholder, value string, save func(string)) layout.Widget {
 	return func(gtx C) D {
 		f.bind(gtx, value, save)
-		return f.Layout(gtx, th, gui.FieldStyle{Label: label, Hint: hint, Placeholder: placeholder})
+		return f.Layout(gtx, th, gui.FieldStyle{Label: label, Hint: hint, Placeholder: placeholder, PasteButton: true})
 	}
 }
 
