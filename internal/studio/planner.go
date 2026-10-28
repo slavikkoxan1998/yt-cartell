@@ -1038,6 +1038,9 @@ func (e *Engine) runPlan(j *jobCtx) (string, error) {
 	var raw json.RawMessage
 	var bible any
 	if err := e.text.JSON(j.ctx, llm.Request{System: system, Prompt: prompt, Temperature: 0.85, Timeout: 300 * time.Second}, &raw); err != nil {
+		if j.cancelled() || errors.Is(err, context.Canceled) {
+			return "Зупинено", nil
+		}
 		log.Printf("[studio:%s] plan: LLM text model unavailable (%v), constructing local plan from text", j.st.id, err)
 		bible = buildFallbackBible(&prompted, count, chunks)
 	} else {
