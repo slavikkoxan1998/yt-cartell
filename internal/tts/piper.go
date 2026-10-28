@@ -126,11 +126,13 @@ func FindPiper(customPath string) (string, error) {
 	if strings.TrimSpace(customPath) != "" {
 		p := strings.Trim(strings.TrimSpace(customPath), `"`)
 		if st, err := os.Stat(p); err == nil && !st.IsDir() {
+			ensurePiperSharedLibs(filepath.Dir(p))
 			return p, nil
 		}
 		if st, err := os.Stat(p); err == nil && st.IsDir() {
 			cand := filepath.Join(p, exeName("piper"))
 			if _, err := os.Stat(cand); err == nil {
+				ensurePiperSharedLibs(filepath.Dir(cand))
 				return cand, nil
 			}
 		}
@@ -138,6 +140,7 @@ func FindPiper(customPath string) (string, error) {
 
 	for _, cand := range []string{"piper", "piper-tts"} {
 		if path, err := exec.LookPath(cand); err == nil {
+			ensurePiperSharedLibs(filepath.Dir(path))
 			return path, nil
 		}
 	}
@@ -150,6 +153,7 @@ func FindPiper(customPath string) (string, error) {
 	}
 	for _, c := range appCands {
 		if _, err := os.Stat(c); err == nil {
+			ensurePiperSharedLibs(filepath.Dir(c))
 			return c, nil
 		}
 	}
@@ -178,6 +182,7 @@ func FindPiper(customPath string) (string, error) {
 
 	for _, c := range append(userCands, systemCands...) {
 		if _, err := os.Stat(c); err == nil {
+			ensurePiperSharedLibs(filepath.Dir(c))
 			return c, nil
 		}
 	}
@@ -519,11 +524,14 @@ func InstallPiper(ctx context.Context, progress func(pct int, msg string)) (stri
 
 	// Ensure executable permission
 	_ = os.Chmod(binPath, 0o755)
+	ensurePiperSharedLibs(filepath.Dir(binPath))
 
 	// Quick execution probe
-	probeCmd := exec.CommandContext(ctx, binPath, "--help")
+	probeCmd := piperCmd(ctx, binPath, "--help")
+	var probeErrBuf strings.Builder
+	probeCmd.Stderr = &probeErrBuf
 	if err := probeCmd.Run(); err != nil {
-		return "", fmt.Errorf("помилка перевірки запуску Piper (%s): %w", binPath, err)
+		return "", fmt.Errorf("помилка перевірки запуску Piper (%s): %w (%s)", binPath, err, strings.TrimSpace(probeErrBuf.String()))
 	}
 
 	rep(92, "Перевіряємо модель голосу…")
@@ -572,6 +580,16 @@ func extractTarGzPiper(archive, dst string) error {
 		case tar.TypeDir:
 			if err := os.MkdirAll(target, 0o755); err != nil {
 				return err
+			}
+		case tar.TypeSymlink:
+			if err := os.MkdirAll(filepath.Dir(target), 0o755); err != nil {
+				return err
+			}
+			link := strings.Trim(strings.ReplaceAll(header.Linkname, `\`, "/"), "/")
+			cleanLink := filepath.Clean(filepath.FromSlash(link))
+			if !strings.HasPrefix(cleanLink, "/") && !strings.HasPrefix(cleanLink, `\`) {
+				_ = os.Remove(target)
+				_ = os.Symlink(header.Linkname, target)
 			}
 		case tar.TypeReg, tar.TypeRegA:
 			if err := os.MkdirAll(filepath.Dir(target), 0o755); err != nil {
@@ -637,6 +655,95 @@ func extractZipPiper(archive, dst string) error {
 	return nil
 }
 
+func ensurePiperSharedLibs(dir string) {
+	if runtime.GOOS != "linux" {
+		return
+	}
+	ents, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	fileNames := make([]string, 0, len(ents))
+	for _, e := range ents {
+		fileNames = append(fileNames, e.Name())
+	}
+
+	targets := []struct {
+		prefix string
+		links  []string
+	}{
+		{"libespeak-ng.so.", []string{"libespeak-ng.so", "libespeak-ng.so.1"}},
+		{"libpiper_phonemize.so.", []string{"libpiper_phonemize.so", "libpiper_phonemize.so.1"}},
+		{"libonnxruntime.so.", []string{"libonnxruntime.so", "libonnxruntime.so.1.14.1"}},
+	}
+
+	for _, t := range targets {
+		var realFile string
+		for _, name := range fileNames {
+			if strings.HasPrefix(name, t.prefix) && !strings.HasSuffix(name, ".so") && !strings.HasSuffix(name, ".1") {
+				realFile = name
+				break
+			}
+		}
+		if realFile == "" {
+			for _, name := range fileNames {
+				if strings.HasPrefix(name, t.prefix) {
+					realFile = name
+					break
+				}
+			}
+		}
+		if realFile == "" {
+			continue
+		}
+		for _, linkName := range t.links {
+			linkPath := filepath.Join(dir, linkName)
+			if _, err := os.Stat(linkPath); err != nil {
+				_ = os.Remove(linkPath)
+				if err := os.Symlink(realFile, linkPath); err != nil {
+					_ = copyPiperFile(filepath.Join(dir, realFile), linkPath)
+				}
+			}
+		}
+	}
+}
+
+func copyPiperFile(src, dst string) error {
+	in, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer in.Close()
+	out, err := os.OpenFile(dst, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0o755)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+	_, err = io.Copy(out, in)
+	return err
+}
+
+func piperCmd(ctx context.Context, bin string, args ...string) *exec.Cmd {
+	cmd := exec.CommandContext(ctx, bin, args...)
+	if runtime.GOOS == "linux" {
+		binDir := filepath.Dir(bin)
+		ensurePiperSharedLibs(binDir)
+		cmd.Env = os.Environ()
+		var newLd string
+		if curLd := os.Getenv("LD_LIBRARY_PATH"); curLd != "" {
+			newLd = binDir + ":" + curLd
+		} else {
+			newLd = binDir
+		}
+		cmd.Env = append(cmd.Env, "LD_LIBRARY_PATH="+newLd)
+		espeakData := filepath.Join(binDir, "espeak-ng-data")
+		if _, err := os.Stat(espeakData); err == nil {
+			cmd.Env = append(cmd.Env, "ESPEAK_DATA_PATH="+espeakData)
+		}
+	}
+	return cmd
+}
+
 func (c *Client) piperVoices(ctx context.Context, s settings) (VoiceList, error) {
 	voices := make([]Voice, 0, len(piperVoiceCatalog))
 	for _, v := range piperVoiceCatalog {
@@ -692,7 +799,7 @@ func (c *Client) piper(ctx context.Context, s settings, text, voiceID string, op
 		args = append(args, "--length-scale", fmt.Sprintf("%.2f", lengthScale))
 	}
 
-	cmd := exec.CommandContext(ctx, piperBin, args...)
+	cmd := piperCmd(ctx, piperBin, args...)
 	cmd.Stdin = strings.NewReader(text)
 	var errBuf strings.Builder
 	cmd.Stderr = &errBuf

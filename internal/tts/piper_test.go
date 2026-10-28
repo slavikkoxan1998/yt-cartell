@@ -111,3 +111,20 @@ func TestPiperSynthesizeLive(t *testing.T) {
 	}
 	t.Logf("Synthesized %d bytes of audio with Piper (%s)", len(data), bin)
 }
+
+func TestEnsurePiperSharedLibs(t *testing.T) {
+	tmpDir := t.TempDir()
+	// Create dummy real files
+	_ = os.WriteFile(filepath.Join(tmpDir, "libespeak-ng.so.1.52.0.1"), []byte("espeak"), 0o644)
+	_ = os.WriteFile(filepath.Join(tmpDir, "libpiper_phonemize.so.1.2.0"), []byte("phonemize"), 0o644)
+	_ = os.WriteFile(filepath.Join(tmpDir, "libonnxruntime.so.1.14.1"), []byte("onnx"), 0o644)
+
+	ensurePiperSharedLibs(tmpDir)
+
+	for _, req := range []string{"libespeak-ng.so.1", "libespeak-ng.so", "libpiper_phonemize.so.1", "libpiper_phonemize.so", "libonnxruntime.so"} {
+		p := filepath.Join(tmpDir, req)
+		if _, err := os.Stat(p); err != nil {
+			t.Errorf("expected %s to exist after ensurePiperSharedLibs, got err: %v", req, err)
+		}
+	}
+}
