@@ -94,8 +94,8 @@ func ready(pv *core.ProjectView) (bool, string) {
 		}
 		return true, ""
 	}
-	if utf8.RuneCountInString(strings.TrimSpace(in.Text)) < 20 {
-		return false, "Напиши хоча б кілька речень — тоді ШІ складе план."
+	if utf8.RuneCountInString(strings.TrimSpace(in.Text)) < 2 {
+		return false, "Введи тему або історію — тоді ШІ складе план."
 	}
 	return true, ""
 }

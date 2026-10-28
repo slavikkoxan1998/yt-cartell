@@ -3,6 +3,7 @@
 *.exe
 *.exe~
 /YT-Cartell-Studio
+/yt-cartell-server
 *.app/
 *.dmg
 *.zip
