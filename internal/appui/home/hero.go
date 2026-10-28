@@ -19,9 +19,10 @@ import (
 // hero is the story card ("Нова історія"): the quickest way from a story to
 // a film.
 type hero struct {
-	story  gui.TextField
-	imp    gui.Clickable
-	manage gui.Clickable
+	story    gui.TextField
+	pasteBtn gui.Clickable
+	imp      gui.Clickable
+	manage   gui.Clickable
 	chips  map[string]*gui.Clickable
 	// oneProfile is the phone layout's single profile chip.
 	oneProfile gui.Clickable
@@ -102,6 +103,13 @@ func (p *Page) heroCard(gtx C, c *core.Ctx) D {
 	p.micUpdate(gtx, c) // dictation: clicks, Esc, the recognised words (mic.go)
 	if _, ok := h.story.Changed(gtx); ok {
 		h.err = ""
+	}
+	if h.pasteBtn.Clicked(gtx) {
+		if cb := gui.ReadSystemClipboard(); cb != "" {
+			h.story.SetText(cb)
+			h.err = ""
+			c.Toast(gui.ToneSuccess, "Вставлено з буфера обміну")
+		}
 	}
 	if h.imp.Clicked(gtx) {
 		h.importTxt(c)
@@ -186,6 +194,11 @@ func (h *hero) head(gtx C, th *gui.Theme, narrow bool) D {
 				gui.Text{Style: th.Small, Color: th.Pal.Text3, MaxLines: 1}.Widget(th, "Встав текст або опиши ідею — решту зробить студія"))
 		}),
 		layout.Rigid(func(gtx C) D { return h.micButton(gtx, th) }), // mic.go
+		layout.Rigid(layout.Spacer{Width: gui.Sp4}.Layout),
+		layout.Rigid(func(gtx C) D {
+			return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Icon: gui.IconClipboardPaste, Text: "Вставити",
+				Tip: "Вставити текст із буфера обміну"}.Layout(gtx, th, &h.pasteBtn)
+		}),
 		layout.Rigid(layout.Spacer{Width: gui.Sp4}.Layout),
 		layout.Rigid(func(gtx C) D {
 			return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Icon: gui.IconUpload, Text: "Імпорт .txt", Busy: h.importing,

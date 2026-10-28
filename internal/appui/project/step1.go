@@ -30,6 +30,7 @@ type step1 struct {
 
 	text      bound
 	mode      gui.Segmented
+	pasteBtn  gui.Clickable
 	importBtn gui.Clickable
 	voice     voicePanel
 	mats      materialsCard
@@ -227,6 +228,13 @@ func (s *step1) handle(gtx C, c *core.Ctx, pv *core.ProjectView) {
 		s.custom.SetText("")
 		editInput(c, id, func(in *studio.Input) { in.CustomStyle = "" })
 	}
+	if s.pasteBtn.Clicked(gtx) {
+		if cb := gui.ReadSystemClipboard(); cb != "" {
+			editInput(c, id, func(in *studio.Input) { in.Text = cb })
+			s.text.SetText(cb)
+			c.Toast(gui.ToneSuccess, "Вставито з буфера обміну")
+		}
+	}
 	if s.importBtn.Clicked(gtx) {
 		s.importText(c, id)
 	}
@@ -307,7 +315,14 @@ func (s *step1) story(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 		if mode == studio.ModeVoice {
 			return D{}
 		}
-		return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Icon: gui.IconUpload, Text: "Імпорт .txt", Tip: "Вставити текст із файлу .txt"}.Layout(gtx, th, &s.importBtn)
+		return gui.HStack(gtx, gui.Sp8,
+			func(gtx C) D {
+				return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Icon: gui.IconClipboardPaste, Text: "Вставити", Tip: "Вставити скопійований текст із буфера обміну"}.Layout(gtx, th, &s.pasteBtn)
+			},
+			func(gtx C) D {
+				return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Icon: gui.IconUpload, Text: "Імпорт .txt", Tip: "Вставити текст із файлу .txt"}.Layout(gtx, th, &s.importBtn)
+			},
+		)
 	}
 	head := func(gtx C) D {
 		title := gui.Text{Style: th.H3, MaxLines: 1}.Widget(th, "Історія")

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"image"
 	"image/color"
+	"io"
 	"strings"
 	"unicode/utf8"
 
@@ -152,14 +153,28 @@ func (f *TextField) update(gtx C) {
 			gtx.Execute(clipboard.ReadCmd{Tag: &f.Editor})
 		}
 	}
-	// Cyrillic & universal shortcuts for layout-independent paste & select all
+	// Cyrillic & Latin shortcuts for layout-independent copy, paste, cut & select all
 	filters := []event.Filter{
+		// Paste (Ctrl+V / Ctrl+М)
 		key.Filter{Focus: &f.Editor, Name: "М", Required: key.ModShortcut},
 		key.Filter{Focus: &f.Editor, Name: "м", Required: key.ModShortcut},
 		key.Filter{Focus: &f.Editor, Name: "V", Required: key.ModShortcut},
 		key.Filter{Focus: &f.Editor, Name: "v", Required: key.ModShortcut},
+		// Copy (Ctrl+C / Ctrl+С)
+		key.Filter{Focus: &f.Editor, Name: "С", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "с", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "C", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "c", Required: key.ModShortcut},
+		// Cut (Ctrl+X / Ctrl+Ч)
+		key.Filter{Focus: &f.Editor, Name: "Ч", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "ч", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "X", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "x", Required: key.ModShortcut},
+		// Select All (Ctrl+A / Ctrl+Ф)
 		key.Filter{Focus: &f.Editor, Name: "Ф", Required: key.ModShortcut},
 		key.Filter{Focus: &f.Editor, Name: "ф", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "A", Required: key.ModShortcut},
+		key.Filter{Focus: &f.Editor, Name: "a", Required: key.ModShortcut},
 	}
 	for {
 		ke, ok := gtx.Event(filters...)
@@ -169,16 +184,39 @@ func (f *TextField) update(gtx C) {
 		if k, ok := ke.(key.Event); ok && k.State == key.Press {
 			switch strings.ToUpper(string(k.Name)) {
 			case "М", "V":
-				if cb := ReadSystemClipboard(); cb != "" {
-					f.Editor.Insert(cb)
-					t := f.Editor.Text()
-					f.last = t
-					f.pend.set(gtx, t)
-				} else {
-					gtx.Execute(clipboard.ReadCmd{Tag: &f.Editor})
+				if !f.Editor.ReadOnly {
+					if cb := ReadSystemClipboard(); cb != "" {
+						f.Editor.Insert(cb)
+						t := f.Editor.Text()
+						f.last = t
+						f.pend.set(gtx, t)
+						gtx.Execute(op.InvalidateCmd{})
+					} else {
+						gtx.Execute(clipboard.ReadCmd{Tag: &f.Editor})
+					}
 				}
-			case "Ф":
+			case "С", "C":
+				sel := f.Editor.SelectedText()
+				if sel != "" {
+					WriteSystemClipboard(sel)
+					gtx.Execute(clipboard.WriteCmd{Type: "application/text", Data: io.NopCloser(strings.NewReader(sel))})
+				}
+			case "Ч", "X":
+				if !f.Editor.ReadOnly {
+					sel := f.Editor.SelectedText()
+					if sel != "" {
+						WriteSystemClipboard(sel)
+						gtx.Execute(clipboard.WriteCmd{Type: "application/text", Data: io.NopCloser(strings.NewReader(sel))})
+						f.Editor.Delete(1)
+						t := f.Editor.Text()
+						f.last = t
+						f.pend.set(gtx, t)
+						gtx.Execute(op.InvalidateCmd{})
+					}
+				}
+			case "Ф", "A":
 				f.Editor.SetCaret(0, f.Editor.Len())
+				gtx.Execute(op.InvalidateCmd{})
 			}
 		}
 	}
