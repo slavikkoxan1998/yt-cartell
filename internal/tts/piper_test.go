@@ -94,3 +94,20 @@ func TestPiperProbe(t *testing.T) {
 		}
 	}
 }
+
+func TestPiperSynthesizeLive(t *testing.T) {
+	bin, err := FindPiper("")
+	if err != nil {
+		t.Skip("Piper not installed, skipping live synthesis test")
+	}
+	c := &Client{}
+	s := settings{provider: "piper", base: bin}
+	data, err := c.piper(context.Background(), s, "Привіт, це перевірка озвучки.", "tetiana", SynthOptions{})
+	if err != nil {
+		t.Fatalf("Live synthesis failed: %v", err)
+	}
+	if len(data) == 0 {
+		t.Fatal("Synthesized data is empty")
+	}
+	t.Logf("Synthesized %d bytes of audio with Piper (%s)", len(data), bin)
+}

@@ -22,7 +22,7 @@ const (
 	GoogleAuthEndpoint = "https://accounts.google.com/o/oauth2/v2/auth"
 	GoogleTokenEndpoint = "https://oauth2.googleapis.com/token"
 	GoogleUserinfoURL  = "https://www.googleapis.com/oauth2/v3/userinfo"
-	GoogleScope        = "https://www.googleapis.com/auth/generative-language https://www.googleapis.com/auth/cloud-platform email profile"
+	GoogleScope        = "openid https://www.googleapis.com/auth/cloud-platform email"
 )
 
 type TokenResponse struct {
