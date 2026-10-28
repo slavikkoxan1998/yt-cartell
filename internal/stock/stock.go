@@ -2,9 +2,11 @@ package stock
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"regexp"
 	"strings"
 	"time"
@@ -29,7 +31,7 @@ func DownloadFile(ctx context.Context, downloadURL string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("User-Agent", "Mozilla/5.0 (compatible; YTCartellStudio/2.1)")
+	req.Header.Set("User-Agent", "Mozilla/5.0 (compatible; YTCartellStudio/2.4)")
 
 	client := &http.Client{Timeout: 60 * time.Second}
 	resp, err := client.Do(req)
@@ -79,6 +81,52 @@ var fluffWords = map[string]bool{
 	"scene": true, "frame": true, "clip": true, "camera": true, "lens": true,
 	"masterpiece": true, "trending": true, "award": true, "winning": true,
 	"detailed": true, "high": true, "quality": true, "slow": true, "motion": true,
+	"pan": true, "zoom": true, "tilt": true, "tracking": true, "push": true, "pull": true,
+	"view": true, "style": true, "aesthetic": true, "render": true, "octane": true,
+	"unreal": true, "engine": true,
+}
+
+func hasCyrillic(s string) bool {
+	for _, r := range s {
+		if (r >= 0x0400 && r <= 0x04FF) || (r >= 0x0500 && r <= 0x052F) {
+			return true
+		}
+	}
+	return false
+}
+
+func translateCyrillic(ctx context.Context, text string) string {
+	if !hasCyrillic(text) {
+		return text
+	}
+	tCtx, cancel := context.WithTimeout(ctx, 3*time.Second)
+	defer cancel()
+
+	u := "https://api.mymemory.translated.net/get?q=" + url.QueryEscape(text) + "&langpair=uk|en"
+	req, err := http.NewRequestWithContext(tCtx, http.MethodGet, u, nil)
+	if err != nil {
+		return text
+	}
+	req.Header.Set("User-Agent", "Mozilla/5.0 (compatible; YTCartellStudio/2.4)")
+
+	client := &http.Client{Timeout: 3 * time.Second}
+	resp, err := client.Do(req)
+	if err != nil {
+		return text
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode == http.StatusOK {
+		var res struct {
+			ResponseData struct {
+				TranslatedText string `json:"translatedText"`
+			} `json:"responseData"`
+		}
+		if err := json.NewDecoder(resp.Body).Decode(&res); err == nil && strings.TrimSpace(res.ResponseData.TranslatedText) != "" {
+			return res.ResponseData.TranslatedText
+		}
+	}
+	return text
 }
 
 // ExtractKeywords simplifies complex AI prompts into 2-5 essential stock search keywords.
@@ -111,34 +159,25 @@ func Search(ctx context.Context, cfg Config, opts SearchOptions) ([]VideoItem, e
 	var tryOrder []string
 	switch provider {
 	case "pexels":
-		tryOrder = []string{"pexels", "pixabay", "coverr", "wikimedia"}
+		tryOrder = []string{"pexels"}
 	case "pixabay":
-		tryOrder = []string{"pixabay", "pexels", "coverr", "wikimedia"}
+		tryOrder = []string{"pixabay"}
 	case "coverr":
-		tryOrder = []string{"coverr", "pexels", "pixabay", "wikimedia"}
+		tryOrder = []string{"coverr"}
 	case "wikimedia":
-		tryOrder = []string{"wikimedia", "pexels", "pixabay", "coverr"}
+		tryOrder = []string{"wikimedia"}
 	default: // "auto"
 		tryOrder = make([]string, 0, 4)
-		if cfg.PexelsKey != "" {
+		if strings.TrimSpace(cfg.PexelsKey) != "" {
 			tryOrder = append(tryOrder, "pexels")
 		}
-		if cfg.PixabayKey != "" {
+		if strings.TrimSpace(cfg.PixabayKey) != "" {
 			tryOrder = append(tryOrder, "pixabay")
 		}
-		if cfg.CoverrKey != "" {
+		if strings.TrimSpace(cfg.CoverrKey) != "" {
 			tryOrder = append(tryOrder, "coverr")
 		}
 		tryOrder = append(tryOrder, "wikimedia")
-		if cfg.PexelsKey == "" {
-			tryOrder = append(tryOrder, "pexels")
-		}
-		if cfg.PixabayKey == "" {
-			tryOrder = append(tryOrder, "pixabay")
-		}
-		if cfg.CoverrKey == "" {
-			tryOrder = append(tryOrder, "coverr")
-		}
 	}
 
 	var lastErr error
@@ -148,15 +187,23 @@ func Search(ctx context.Context, cfg Config, opts SearchOptions) ([]VideoItem, e
 
 		switch p {
 		case "pexels":
-			if cfg.PexelsKey != "" {
-				items, err = SearchPexels(ctx, cfg.PexelsKey, opts)
+			if strings.TrimSpace(cfg.PexelsKey) != "" {
+				items, err = SearchPexels(ctx, strings.TrimSpace(cfg.PexelsKey), opts)
+			} else if provider == "pexels" {
+				err = fmt.Errorf("pexels: потрібен API ключ у налаштуваннях")
 			}
 		case "pixabay":
-			if cfg.PixabayKey != "" {
-				items, err = SearchPixabay(ctx, cfg.PixabayKey, opts)
+			if strings.TrimSpace(cfg.PixabayKey) != "" {
+				items, err = SearchPixabay(ctx, strings.TrimSpace(cfg.PixabayKey), opts)
+			} else if provider == "pixabay" {
+				err = fmt.Errorf("pixabay: потрібен API ключ у налаштуваннях")
 			}
 		case "coverr":
-			items, err = SearchCoverr(ctx, cfg.CoverrKey, opts)
+			if strings.TrimSpace(cfg.CoverrKey) != "" {
+				items, err = SearchCoverr(ctx, strings.TrimSpace(cfg.CoverrKey), opts)
+			} else if provider == "coverr" {
+				err = fmt.Errorf("coverr: потрібен API ключ у налаштуваннях")
+			}
 		case "wikimedia":
 			items, err = SearchWikimedia(ctx, opts)
 		}
@@ -172,12 +219,15 @@ func Search(ctx context.Context, cfg Config, opts SearchOptions) ([]VideoItem, e
 	if lastErr != nil {
 		return nil, lastErr
 	}
-	return nil, fmt.Errorf("no stock videos found on providers (%s)", strings.Join(tryOrder, ", "))
+	return nil, fmt.Errorf("не знайдено стокових відео за запитом %q", opts.Query)
 }
 
 // SearchAndDownload searches for a matching clip across stock providers and downloads the video bytes.
 func SearchAndDownload(ctx context.Context, cfg Config, rawPrompt string, orientation string) ([]byte, *VideoItem, error) {
-	keywords := ExtractKeywords(rawPrompt)
+	cleanPrompt := strings.ReplaceAll(rawPrompt, "@", "")
+	translated := translateCyrillic(ctx, cleanPrompt)
+
+	keywords := ExtractKeywords(translated)
 	opts := SearchOptions{
 		Query:       keywords,
 		Orientation: orientation,
@@ -185,19 +235,28 @@ func SearchAndDownload(ctx context.Context, cfg Config, rawPrompt string, orient
 	}
 
 	items, err := Search(ctx, cfg, opts)
-	if err != nil {
-		return nil, nil, err
+	if (err != nil || len(items) == 0) && orientation != "" {
+		opts.Orientation = ""
+		items, err = Search(ctx, cfg, opts)
 	}
 	if len(items) == 0 {
-		// Fallback search with single main keyword
 		words := strings.Fields(keywords)
 		if len(words) > 1 {
 			opts.Query = words[0]
+			opts.Orientation = ""
 			items, err = Search(ctx, cfg, opts)
 		}
 	}
 	if len(items) == 0 {
-		return nil, nil, fmt.Errorf("no stock videos found for query: %q", keywords)
+		opts.Query = "nature landscape"
+		opts.Orientation = ""
+		items, err = Search(ctx, cfg, opts)
+	}
+	if len(items) == 0 {
+		if err != nil {
+			return nil, nil, err
+		}
+		return nil, nil, fmt.Errorf("стокове відео не знайдено за запитом %q", keywords)
 	}
 
 	// Pick first item that has playable files
@@ -212,5 +271,5 @@ func SearchAndDownload(ctx context.Context, cfg Config, rawPrompt string, orient
 		}
 	}
 
-	return nil, nil, fmt.Errorf("failed to download video stream from search results")
+	return nil, nil, fmt.Errorf("не вдалося завантажити потік відео зі знайдених результатів")
 }

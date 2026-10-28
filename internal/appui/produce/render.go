@@ -107,11 +107,12 @@ type clipStats struct {
 	code bool
 }
 
-func countClips(p *studio.Project) clipStats {
+func countClips(p *studio.Project, isStock ...bool) clipStats {
+	stock := len(isStock) > 0 && isStock[0]
 	n := clipStats{scenes: len(p.Scenes), vo: p.Input.Voiceover, stills: p.Input.StillsOnly(), code: p.Input.CodeAnim()}
 	for i := range p.Scenes {
 		s := &p.Scenes[i]
-		if s.Frame.Path != "" || (n.code && !s.Code.Fallback) {
+		if s.Frame.Path != "" || (n.code && !s.Code.Fallback) || stock {
 			n.withFrame++
 		}
 		switch {
@@ -122,7 +123,7 @@ func countClips(p *studio.Project) clipStats {
 		case s.Video.Status == studio.StatusError:
 			n.vidErr++
 		}
-		if s.Frame.Path != "" && s.Video.Status != studio.StatusDone && !busy(s.Video) && !n.stills && !n.code {
+		if (s.Frame.Path != "" || stock) && s.Video.Status != studio.StatusDone && !busy(s.Video) && !n.stills && !n.code {
 			n.vidLeft++
 		}
 		if n.code && !s.Code.Fallback && (s.Video.Status != studio.StatusDone || s.Video.Stale) && !busy(s.Video) {
@@ -280,7 +281,8 @@ func (v *render) Layout(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 			})
 	}
 	cfg := c.E.Config().Get()
-	n := countClips(p)
+	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	n := countClips(p, stock)
 	tl, total, tlOK := st.tl.get(gtx, c, pv)
 	u := c.UI(pv.ID)
 	inset := gtx.Dp(bleed)
@@ -307,7 +309,7 @@ func (v *render) Layout(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 			})
 		})
 	})
-	if n.noFrames > 0 {
+	if n.noFrames > 0 && !stock {
 		txt := "Відео знімається з кадру сцени, тож для них кліпів поки не буде."
 		if n.vo {
 			txt += " Озвучити їх можна вже зараз."
@@ -439,7 +441,15 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 	}
 	actions := func(gtx C) D {
 		left := func(gtx C) D {
+			stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
 			txt := modelLabel(cfg)
+			if stock {
+				provName := cfg.Stock.Provider
+				if provName == "" || provName == "auto" {
+					provName = "Авто"
+				}
+				txt = "Стокові відео · " + strings.Title(provName)
+			}
 			if n.code {
 				txt = "Анімація кодом · рендер на цьому комп'ютері"
 			}
@@ -463,7 +473,7 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 				layout.Rigid(layout.Spacer{Height: 2}.Layout),
 				layout.Rigid(func(gtx C) D {
 					return gui.Flow{Gap: gui.Sp8, RowGap: 2}.Layout(gtx,
-						label(th, th.Small, th.Pal.Text2, 2, clipsCostLine(n)),
+						label(th, th.Small, th.Pal.Text2, 2, clipsCostLine(n, stock)),
 						func(gtx C) D {
 							if n.code {
 								return D{}
@@ -475,6 +485,7 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 			)
 		}
 		right := func(gtx C) D {
+			stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
 			dis := running || batchOn
 			var ws []layout.Widget
 			left := n.vidLeft + n.voiceLeft
@@ -502,8 +513,11 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 				return gui.Flow{Gap: gui.Sp12}.Layout(gtx, ws...)
 			}
 			vtxt := "Зняти відео"
+			if stock {
+				vtxt = "Знайти відео"
+			}
 			if n.vidLeft > 0 {
-				vtxt = fmt.Sprintf("Зняти відео · %d", n.vidLeft)
+				vtxt = fmt.Sprintf("%s · %d", vtxt, n.vidLeft)
 			}
 			if n.code {
 				vtxt = "Відрендерити анімації"
@@ -518,7 +532,9 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 			if n.redo > 0 && !running {
 				ws = append(ws, func(gtx C) D {
 					txt := fmt.Sprintf("Перезняти змінені · %d", n.redo)
-					if n.code {
+					if stock {
+						txt = fmt.Sprintf("Оновити стокові · %d", n.redo)
+					} else if n.code {
 						txt = fmt.Sprintf("Оновити змінені · %d", n.redo)
 					}
 					return gui.Button{Kind: gui.Tinted, Text: txt, Icon: gui.IconRefreshCw, Busy: batchOn,
@@ -526,9 +542,15 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 				})
 			}
 			if left > 0 {
+				allTxt := "Все разом"
+				allTip := "Зняти кліпи й озвучити репліки одночасно"
+				if stock {
+					allTxt = "Стокові відео й озвучка"
+					allTip = "Знайти стокові відео та озвучити репліки одночасно"
+				}
 				ws = append(ws, func(gtx C) D {
-					return gui.Button{Kind: gui.Primary, Text: "Все разом", Icon: gui.IconSparkles, Busy: kind == studio.JobRender,
-						Disabled: dis, Tip: "Зняти кліпи й озвучити репліки одночасно"}.Layout(gtx, th, &h.all)
+					return gui.Button{Kind: gui.Primary, Text: allTxt, Icon: gui.IconSparkles, Busy: kind == studio.JobRender,
+						Disabled: dis, Tip: allTip}.Layout(gtx, th, &h.all)
 				})
 			}
 			return gui.Flow{Gap: gui.Sp12}.Layout(gtx, ws...)
@@ -694,7 +716,9 @@ func (v *render) clipCard(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState,
 				inset(func(gtx C) D { return narration(gtx, th, s) }),
 				func(gtx C) D { return v.voiceRow(gtx, c, pv, cc, s) },
 				inset(func(gtx C) D { return v.hints(gtx, th, &pv.P, s, i, env) }),
-				func(gtx C) D { return v.motionEditor(gtx, th, cc, s, false) },
+				func(gtx C) D {
+					return v.motionEditor(gtx, th, cc, s, false, env.cfg.Stock.Enabled || env.cfg.Video.Provider == "stock")
+				},
 				func(gtx C) D { return clipNotices(gtx, th, &pv.P, s) },
 				func(gtx C) D { return cc.rw.Layout(gtx, th, s.Video.Rewrite) },
 			}
@@ -733,7 +757,9 @@ func (v *render) clipRow(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, 
 						return v.voiceRow(gtx, c, pv, cc, s)
 					},
 					func(gtx C) D { return v.hints(gtx, th, &pv.P, s, i, env) },
-					func(gtx C) D { return v.motionEditor(gtx, th, cc, s, true) },
+					func(gtx C) D {
+						return v.motionEditor(gtx, th, cc, s, true, env.cfg.Stock.Enabled || env.cfg.Video.Provider == "stock")
+					},
 					func(gtx C) D { return clipNotices(gtx, th, &pv.P, s) },
 					func(gtx C) D { return cc.rw.Layout(gtx, th, s.Video.Rewrite) },
 				}, func(gtx C) D {
@@ -778,10 +804,14 @@ func (v *render) clipMedia(gtx C, c *core.Ctx, pv *core.ProjectView, cc *clipCar
 		size := gtx.Constraints.Max
 		m := gtx.Dp(10)
 		cc.veil.Layout(gtx, th, size, busy(vid), busyPct(vid))
+		cfg := c.E.Config().Get()
+		stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
 		switch {
 		case code && vid.Path == "" && !busy(vid) && s.Code.Preview.Path == "":
 			emptyCaption(gtx, th, size, "Анімацію ще не відрендерено")
-		case !code && s.Frame.Path == "" && !busy(vid):
+		case stock && s.Frame.Path == "" && vid.Path == "" && !busy(vid):
+			emptyCaption(gtx, th, size, "Стокове відео ще не знайдено")
+		case !code && !stock && s.Frame.Path == "" && !busy(vid):
 			emptyCaption(gtx, th, size, "Спершу потрібен кадр")
 		}
 		corner(gtx, size, m, false, false, func(gtx C) D { return numBadge(gtx, th, i+1) })
@@ -1034,7 +1064,8 @@ func lengthHint(p *studio.Project, s *studio.Scene, env clipEnv) (string, bool) 
 // motionEditor is the motion prompt: hidden in grid cards until opened
 // (list rows show a line of it), an editor committing through c.Edit with
 // "re-shoot with this motion".
-func (v *render) motionEditor(gtx C, th *gui.Theme, cc *clipCard, s *studio.Scene, preview bool) D {
+func (v *render) motionEditor(gtx C, th *gui.Theme, cc *clipCard, s *studio.Scene, preview bool, isStock ...bool) D {
+	stock := len(isStock) > 0 && isStock[0]
 	return cc.exp.Layout(gtx, func(gtx C) D {
 		if !cc.editing {
 			if !preview {
@@ -1063,10 +1094,14 @@ func (v *render) motionEditor(gtx C, th *gui.Theme, cc *clipCard, s *studio.Scen
 					Hint:        "Зміна позначить кліп як застарілий"})
 			},
 			func(gtx C) D {
+				btnText := "Перезняти з цим рухом"
+				if stock {
+					btnText = "Знайти відео за описом"
+				}
 				return gui.Flow{Gap: gui.Sp8}.Layout(gtx,
 					func(gtx C) D {
-						return gui.Button{Kind: gui.Primary, Size: gui.Sm, Text: "Перезняти з цим рухом", Icon: gui.IconVideo,
-							Busy: busy(s.Video), Disabled: s.Frame.Path == ""}.Layout(gtx, th, &cc.redo)
+						return gui.Button{Kind: gui.Primary, Size: gui.Sm, Text: btnText, Icon: gui.IconVideo,
+							Busy: busy(s.Video), Disabled: s.Frame.Path == "" && !stock}.Layout(gtx, th, &cc.redo)
 					},
 					func(gtx C) D {
 						return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Text: "Згорнути"}.Layout(gtx, th, &cc.collapse)
@@ -1118,15 +1153,27 @@ func (v *render) clipActions(gtx C, c *core.Ctx, pv *core.ProjectView, cc *clipC
 	th := c.Th
 	p := &pv.P
 	running := pv.Running()
-	vb := gui.Button{Kind: gui.Tinted, Size: gui.Sm, Icon: gui.IconVideo, Text: "Зняти", Busy: busy(s.Video),
-		Disabled: running || s.Frame.Path == "", Full: true}
+	cfg := c.E.Config().Get()
+	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	vLabel := "Зняти"
+	if stock {
+		vLabel = "Знайти відео"
+	}
+	vb := gui.Button{Kind: gui.Tinted, Size: gui.Sm, Icon: gui.IconVideo, Text: vLabel, Busy: busy(s.Video),
+		Disabled: running || (s.Frame.Path == "" && !stock), Full: true}
 	switch {
 	case busy(s.Video):
-		vb.Text = "Знімається…"
+		vb.Text = "Шукаємо…"
+		if !stock {
+			vb.Text = "Знімається…"
+		}
 	case s.Video.Status == studio.StatusError:
 		vb.Text, vb.Icon = "Повторити", gui.IconRotateCcw
 	case s.Video.Path != "":
 		vb.Text = "Перезняти"
+		if stock {
+			vb.Text = "Переобрати"
+		}
 		if clipStale(s) {
 			vb.Kind = gui.Primary
 		}
@@ -1134,7 +1181,7 @@ func (v *render) clipActions(gtx C, c *core.Ctx, pv *core.ProjectView, cc *clipC
 			vb.Tip = "Озвучка довша за кліп — зняти кліп під новий голос"
 		}
 	}
-	if s.Frame.Path == "" {
+	if s.Frame.Path == "" && !stock {
 		vb.Tip = "Спершу потрібен кадр сцени"
 	}
 	if p.Input.CodeAnim() { // «Анімація кодом»: rendered here, no frame needed
@@ -1196,7 +1243,8 @@ func (v *render) Side(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 			Text: "Кожен кадр оживе в коротке відео, а кожна репліка отримає голос. Потім — монтаж."}.Layout(gtx, th, nil)
 	}
 	cfg := c.E.Config().Get()
-	n := countClips(p)
+	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	n := countClips(p, stock)
 	u := c.UI(pv.ID)
 	first := func(pred func(s *studio.Scene) bool) string {
 		for i := range p.Scenes {
@@ -1288,33 +1336,48 @@ func (v *render) Next(c *core.Ctx, pv *core.ProjectView) core.Next {
 		return core.Next{Icon: gui.IconClapperboard, Title: jobTitle(pv.RunningKind(), false) + "…",
 			Text: firstText(p.Job.Message, "Студія працює — кліпи з'являтимуться по одному."), Busy: true}
 	}
-	n := countClips(p)
+	cfg := c.E.Config().Get()
+	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	n := countClips(p, stock)
 	st := v.state(id)
 	switch {
 	case st.batch.active():
 		done, total := st.batch.progress()
 		return core.Next{Icon: gui.IconRefreshCw, Title: st.batch.label + "…", Text: fmt.Sprintf("Готово %d з %d.", done, total), Busy: true}
-	case n.withFrame == 0:
+	case n.withFrame == 0 && !stock:
 		return core.Next{Icon: gui.IconImages, Title: "Спершу — кадри сцен",
 			Text: "Відео знімається з кадрів. Намалюй їх на кроці «Розкадровка».", Do: func() { goStep(c, id, 3) }}
 	case n.vidLeft > 0 || n.voiceLeft > 0:
 		title := "Зняти відео й озвучити"
+		if stock {
+			title = "Знайти відео й озвучити"
+		}
 		stage := studio.StageRender
 		switch {
 		case n.voiceLeft == 0:
-			title, stage = fmt.Sprintf("Зняти відео · %d", n.vidLeft), studio.StageVideos
+			if stock {
+				title, stage = fmt.Sprintf("Знайти відео · %d", n.vidLeft), studio.StageVideos
+			} else {
+				title, stage = fmt.Sprintf("Зняти відео · %d", n.vidLeft), studio.StageVideos
+			}
 		case n.vidLeft == 0:
 			title, stage = fmt.Sprintf("Озвучити · %d", n.voiceLeft), studio.StageVoices
 		}
-		cfg := c.E.Config().Get()
 		text := "Кожен кліп витрачає кредити (" + modelLabel(cfg) + ")."
+		if stock {
+			text = "Пошук безкоштовних стокових відео без витрати кредитів ШІ."
+		}
 		if n.code {
 			title = strings.ReplaceAll(title, "Зняти відео", "Відрендерити анімації")
 			text = "Анімації малює код на цьому комп'ютері — без кредитів на відео."
 		}
 		return core.Next{Icon: gui.IconClapperboard, Title: title, Text: text, Do: func() { c.Run(id, stage, false, "") }}
 	case n.redo > 0:
-		return core.Next{Icon: gui.IconRefreshCw, Title: fmt.Sprintf("Перезняти змінені · %d", n.redo),
+		title := fmt.Sprintf("Перезняти змінені · %d", n.redo)
+		if stock {
+			title = fmt.Sprintf("Оновити стокові · %d", n.redo)
+		}
+		return core.Next{Icon: gui.IconRefreshCw, Title: title,
 			Text: "Промти чи текст змінились після зйомки.", Do: func() { v.redoStale(c, pv, st) }}
 	}
 	return core.Next{Icon: gui.IconScissors, Title: "Змонтувати",
@@ -1322,7 +1385,10 @@ func (v *render) Next(c *core.Ctx, pv *core.ProjectView) core.Next {
 }
 
 // clipsCostLine is the header's line about what the clips cost.
-func clipsCostLine(n clipStats) string {
+func clipsCostLine(n clipStats, isStock ...bool) string {
+	if len(isStock) > 0 && isStock[0] {
+		return "Стокові відео безкоштовні — без витрати кредитів на ШІ."
+	}
 	if n.code {
 		return "Анімації малює код на цьому комп'ютері — без кредитів на відео; ШІ лише пише їх під слова диктора."
 	}

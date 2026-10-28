@@ -626,11 +626,12 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 		return false
 	}
 	ref := assetRef{slotVideo, sid}
-	if in.scene.Frame.Path == "" {
+	c := e.cfg.Get()
+	stockMode := c.Stock.Enabled || c.Video.Provider == "stock"
+	if in.scene.Frame.Path == "" && !stockMode {
 		e.fail(st, ref, errors.New("Спершу потрібен кадр сцени"))
 		return false
 	}
-	c := e.cfg.Get()
 	// Dynamic lengths / a slice of the recording: the clip is as long as the
 	// scene needs; the choice is kept in Scene.ClipLen (videoRequest sends it).
 	if l := sceneClipPad(c, &in.scene, in.pad); (c.Video.Dynamic || in.scene.AudioSource == AudioUpload) && l != in.scene.ClipLen {
@@ -642,10 +643,6 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 		})
 	}
 	ok := e.produce(st, ref, func() (product, error) {
-		req, err := e.videoRequest(ctx, st, c, &in)
-		if err != nil {
-			return product{}, err
-		}
 		progress := func(pct int, _ string) {
 			e.update(st, func(p *Project) {
 				if a := ref.in(p); a != nil && a.Status == StatusRunning {
@@ -655,7 +652,7 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 		}
 		progress(5, "starting")
 		// Check if Stock video provider is active or selected for this scene
-		if c.Stock.Enabled || c.Video.Provider == "stock" {
+		if stockMode {
 			progress(15, "searching stock videos")
 			stockCfg := stock.Config{
 				Provider:    c.Stock.Provider,
@@ -664,30 +661,56 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 				CoverrKey:   c.Stock.CoverrKey,
 				Orientation: c.Stock.Orientation,
 			}
-			prompt := in.scene.MotionPrompt
+			prompt := in.scene.ImagePrompt
 			if prompt == "" {
-				prompt = in.scene.ImagePrompt
+				prompt = in.scene.MotionPrompt
 			}
 			if prompt == "" {
 				prompt = in.scene.Title
 			}
-			stockData, _, sErr := stock.SearchAndDownload(ctx, stockCfg, prompt, c.Stock.Orientation)
+			if prompt == "" {
+				prompt = in.scene.Narration
+			}
+			stockData, stockItem, sErr := stock.SearchAndDownload(ctx, stockCfg, prompt, c.Stock.Orientation)
 			if sErr == nil && len(stockData) > 0 {
 				progress(90, "processing stock clip")
+				var frameRel string
+				if in.scene.Frame.Path == "" && stockItem != nil && stockItem.Thumbnail != "" {
+					if thumbData, tErr := stock.DownloadFile(ctx, stockItem.Thumbnail); tErr == nil && len(thumbData) > 0 {
+						frameRel, _ = e.writeAsset(st, "frames", fmt.Sprintf("frame-%s-%d.jpg", safeName(sid), nowMs()), thumbData)
+					}
+				}
 				return product{
 					data: stockData, sub: "videos", name: fmt.Sprintf("clip-%s-%d.mp4", safeName(sid), nowMs()), probe: true,
 					after: func(p *Project) []string {
 						if p.Input.ChainFrames {
 							markNextClipStale(p, sid)
 						}
-						if s := findScene(p, sid); s != nil && s.AudioSource == AudioUpload && s.VoiceEnd > s.VoiceStart && s.Video.Duration > 0 {
-							s.TrimOut = clipTrim(s.Video.Duration, s.TrimIn, s.VoiceEnd-s.VoiceStart)
+						if s := findScene(p, sid); s != nil {
+							if frameRel != "" && s.Frame.Path == "" {
+								s.Frame.Path = frameRel
+								s.Frame.Status = StatusDone
+								s.Frame.UpdatedAt = nowMs()
+							}
+							if s.AudioSource == AudioUpload && s.VoiceEnd > s.VoiceStart && s.Video.Duration > 0 {
+								s.TrimOut = clipTrim(s.Video.Duration, s.TrimIn, s.VoiceEnd-s.VoiceStart)
+							}
 						}
 						return nil
 					},
 				}, nil
 			}
 			log.Printf("stock search fallback to generation: %v", sErr)
+			if in.scene.Frame.Path == "" {
+				if sErr != nil {
+					return product{}, fmt.Errorf("стокове відео не знайдено: %w", sErr)
+				}
+				return product{}, errors.New("стокове відео не знайдено, а для ШІ-генерації потрібен кадр сцени")
+			}
+		}
+		req, err := e.videoRequest(ctx, st, c, &in)
+		if err != nil {
+			return product{}, err
 		}
 		// One safer try after a G-Labs refusal (renderClip), then up to two
 		// rewrites of the plain prompt (rewrite.go).
@@ -925,9 +948,12 @@ func (e *Engine) runRender(j *jobCtx, videos, voices, force bool) string {
 		videos = false
 	}
 	var vids, vcs []string
+	cfg := e.cfg.Get()
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
 	if videos {
 		for _, s := range snap.Scenes {
-			if s.Frame.Path != "" && (force || s.Video.Status != StatusDone && !j.skip(s.Video)) {
+			canVideo := s.Frame.Path != "" || stockMode
+			if canVideo && (force || s.Video.Status != StatusDone && !j.skip(s.Video)) {
 				vids = append(vids, s.ID)
 			}
 		}
@@ -951,7 +977,6 @@ func (e *Engine) runRender(j *jobCtx, videos, voices, force bool) string {
 	tick := counter(j, total, "Відео й озвучка", 0, 100)
 	var failed atomic.Int64
 	var wg sync.WaitGroup
-	cfg := e.cfg.Get()
 	chain := snap.Input.ChainFrames && omniFlash(cfg)
 	clipLimit := ClipConcurrency(cfg) // concurrency.go: the setting, clamped per video service
 	if chain {
