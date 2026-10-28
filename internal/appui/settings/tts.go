@@ -13,7 +13,10 @@ package settings
 // into one summary line (keylist.go).
 
 import (
+	"context"
 	"fmt"
+	"runtime"
+	"strconv"
 	"strings"
 	"time"
 
@@ -54,6 +57,38 @@ type ttsCard struct {
 	saved   savedNote
 	catalog catalogUI // «Вибрати з каталогу» (catalogpick.go)
 	spec    specPanel // «Власний сервер» described by a spec (audiospec.go)
+
+	// Piper local state & widgets
+	piperStatus     piperLocalStatus
+	piperBin        field
+	piperPickBin    gui.Clickable
+	piperInstall    gui.Clickable
+	piperCancel     gui.Clickable
+	piperAdvToggle  gui.Clickable
+	piperAdvanced   bool
+	piperInstalling bool
+	piperInstallErr string
+	piperPct        float32
+	piperMsg        string
+	piperBar        gui.Anim
+	piperStop       context.CancelFunc
+}
+
+type piperLocalStatus struct {
+	sig  string
+	at   time.Time
+	bin  string
+	ok   bool
+	hint string
+}
+
+func (s *ttsCard) piperLocalState(c *core.Ctx, cfg config.Config, now time.Time) piperLocalStatus {
+	sig := cfg.TTS.BaseURL
+	if s.piperStatus.sig != sig || now.Sub(s.piperStatus.at) > 3*time.Second || s.piperStatus.at.IsZero() {
+		bin, ok, hint := c.E.PiperStatus()
+		s.piperStatus = piperLocalStatus{sig: sig, at: now, bin: bin, ok: ok, hint: hint}
+	}
+	return s.piperStatus
 }
 
 // pasteNote is the outcome of the last add («Додано 7 ключів · 2 вже були ·
@@ -336,7 +371,17 @@ func (p *Page) ttsCard(gtx C, c *core.Ctx, m metrics) D {
 		return s.check.result(gtx, th, advice)
 	})
 	status := s.check.statusPill(th)
-	if (len(keys) > 0 || borrowed) && pr.ListsVoices && !gateway && !s.check.busy && !s.check.done {
+	if pr.ID == "piper" {
+		st := s.piperLocalState(c, cfg, gtx.Now)
+		switch {
+		case s.piperInstalling:
+			status = gui.StatusPill{State: gui.StateRunning, Percent: int(s.piperPct * 100), Text: "Встановлюємо " + strconv.Itoa(int(s.piperPct*100)) + "%", Small: true}.Widget(th)
+		case st.ok:
+			status = gui.StatusPill{State: gui.StateDone, Text: "Готово до роботи", Small: true}.Widget(th)
+		default:
+			status = gui.StatusPill{State: gui.StateEmpty, Text: "Не встановлено", Small: true}.Widget(th)
+		}
+	} else if (len(keys) > 0 || borrowed) && pr.ListsVoices && !gateway && !s.check.busy && !s.check.done {
 		switch {
 		case loading:
 			status = gui.StatusPill{State: gui.StateRunning, Percent: -1, Text: "Перевіряємо", Small: true}.Widget(th)
@@ -526,7 +571,7 @@ func ttsKeyIndex(t config.TTS) []int {
 func (p *Page) ttsKeyList(gtx C, c *core.Ctx, t config.TTS, keys []string, status []tts.KeyStatus, pr tts.ProviderInfo, bad int) D {
 	th := c.Th
 	if pr.ID == "piper" {
-		return note(gtx, th, gui.IconCpu, "Локальний синтез мови: Piper працює безпосередньо на процесорі вашого ПК (CPU). API-ключі та інтернет не потрібні.", nil)
+		return p.ttsPiperPanel(gtx, c, p.now, func() { p.tts.saved.want = true })
 	}
 	s := &p.tts
 	own := map[int]tts.KeyStatus{}
@@ -740,4 +785,159 @@ func dayMonth(t time.Time) string {
 	months := [...]string{"січ", "лют", "бер", "кві", "тра", "чер", "лип", "сер", "вер", "жов", "лис", "гру"}
 	t = t.Local()
 	return fmt.Sprintf("%d %s", t.Day(), months[t.Month()-1])
+}
+
+func (p *Page) ttsPiperPanel(gtx C, c *core.Ctx, cfg config.Config, flash func()) D {
+	th := c.Th
+	s := &p.tts
+	st := s.piperLocalState(c, cfg, gtx.Now)
+
+	if s.piperInstall.Clicked(gtx) {
+		p.installPiper(c)
+	}
+	if s.piperCancel.Clicked(gtx) && s.piperStop != nil {
+		s.piperStop()
+	}
+	if s.piperAdvToggle.Clicked(gtx) {
+		s.piperAdvanced = !s.piperAdvanced
+	}
+	if s.piperPickBin.Clicked(gtx) {
+		var exts []string
+		if runtime.GOOS == "windows" {
+			exts = []string{"exe"}
+		}
+		c.PickFile("Програма Piper TTS (piper)", exts, func(path string) {
+			s.base.SetText(path)
+			p.cfg.set(c, func(cf *config.Config) { cf.TTS.BaseURL = path }, flash)
+		})
+	}
+
+	state := func(gtx C) D {
+		pill := gui.StatusPill{State: gui.StateEmpty, Text: "Не знайдено", Small: true}
+		if st.ok {
+			pill = gui.StatusPill{State: gui.StateDone, Text: "Готово до роботи", Small: true}
+		}
+		if s.piperInstalling {
+			pill = gui.StatusPill{State: gui.StateRunning, Percent: int(s.piperPct * 100), Small: true, Text: "Встановлюємо " + strconv.Itoa(int(s.piperPct*100)) + "%"}
+		}
+		hint := st.hint
+		if hint == "" {
+			hint = "Локальний синтез мови на CPU без інтернету (Linux Mint)."
+		}
+		return insetHead(gtx, th, gui.IconCpu, "Piper TTS на цьому комп'ютері", hint, pill.Widget(th))
+	}
+
+	installRow := func(gtx C) D {
+		text := "Завантажити Piper"
+		kind := gui.Primary
+		if st.ok {
+			text = "Перевстановити Piper"
+			kind = gui.Secondary
+		}
+		return gui.Flow{Gap: gui.Sp12}.Layout(gtx,
+			func(gtx C) D {
+				return gui.Button{Kind: kind, Icon: gui.IconDownload, Text: text, Busy: s.piperInstalling}.Layout(gtx, th, &s.piperInstall)
+			},
+			func(gtx C) D {
+				if !s.piperInstalling {
+					return D{}
+				}
+				return gui.Button{Kind: gui.Ghost, Icon: gui.IconX, Text: "Скасувати"}.Layout(gtx, th, &s.piperCancel)
+			},
+		)
+	}
+
+	progress := func(gtx C) D {
+		if !s.piperInstalling {
+			return D{}
+		}
+		return gui.VStack(gtx, gui.Sp8,
+			func(gtx C) D {
+				return gui.ProgressBar{Value: s.piperPct, Tone: gui.ToneRunning, Anim: &s.piperBar}.Layout(gtx, th)
+			},
+			gui.Text{Style: th.Small, Color: th.Pal.Text2, MaxLines: 2}.Widget(th, s.piperMsg),
+		)
+	}
+
+	installErr := func(gtx C) D {
+		if s.piperInstallErr == "" || s.piperInstalling {
+			return D{}
+		}
+		return resultPanel(gtx, th, false, false, s.piperInstallErr, "Перевір підключення до мережі та спробуй ще раз.", "")
+	}
+
+	advanced := func(gtx C) D {
+		chev := gui.IconChevronDown
+		if s.piperAdvanced {
+			chev = gui.IconChevronUp
+		}
+		head := func(gtx C) D {
+			return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Text: "Додатково: власний шлях до програми Piper", Trail: chev}.Layout(gtx, th, &s.piperAdvToggle)
+		}
+		if !s.piperAdvanced {
+			return head(gtx)
+		}
+		return gui.VStack(gtx, gui.Sp12, head,
+			labeled(th, "Шлях до Piper", "Порожньо — шукати автоматично в системі, PATH та ~/.local/bin.", func(gtx C) D {
+				s.base.bind(gtx, cfg.TTS.BaseURL, func(v string) {
+					p.cfg.set(c, func(cf *config.Config) { cf.TTS.BaseURL = strings.Trim(strings.TrimSpace(v), `"`) }, flash)
+				})
+				return layout.Flex{Alignment: layout.Middle}.Layout(gtx,
+					layout.Flexed(1, func(gtx C) D { return s.base.Layout(gtx, th, gui.FieldStyle{Placeholder: "Автоматично"}) }),
+					layout.Rigid(layout.Spacer{Width: gui.Sp8}.Layout),
+					layout.Rigid(func(gtx C) D {
+						return gui.Button{Kind: gui.Tinted, Icon: gui.IconFolderOpen, Tip: "Вибрати файл"}.Layout(gtx, th, &s.piperPickBin)
+					}),
+				)
+			}),
+		)
+	}
+
+	ws := []layout.Widget{state, installRow}
+	if s.piperInstalling {
+		ws = append(ws, progress)
+	}
+	if s.piperInstallErr != "" && !s.piperInstalling {
+		ws = append(ws, installErr)
+	}
+	ws = append(ws, advanced)
+	return inset(gtx, th, func(gtx C) D { return gui.VStack(gtx, gui.Sp16, ws...) })
+}
+
+func (p *Page) installPiper(c *core.Ctx) {
+	s := &p.tts
+	if s.piperInstalling {
+		return
+	}
+	if c.Offline {
+		s.piperInstallErr = "Встановлення недоступне в демо-режимі."
+		return
+	}
+	ctx, cancel := context.WithCancel(context.Background())
+	s.piperInstalling, s.piperStop, s.piperPct, s.piperMsg, s.piperInstallErr = true, cancel, 0, "Шукаємо та завантажуємо Piper…", ""
+	c.Background(func() {
+		bin, err := c.E.InstallPiper(ctx, func(pct int, msg string) {
+			c.Post(func() {
+				s.piperPct = float32(max(0, min(100, pct))) / 100
+				if msg != "" {
+					s.piperMsg = msg
+				}
+			})
+		})
+		cancel()
+		c.Post(func() {
+			s.piperInstalling, s.piperStop = false, nil
+			if err != nil {
+				s.piperInstallErr = core.ErrorText(err)
+				c.Toast(gui.ToneError, "Помилка встановлення Piper")
+				return
+			}
+			p.cfg.set(c, func(cf *config.Config) {
+				cf.TTS.BaseURL = bin
+			}, func() {
+				c.Toast(gui.ToneSuccess, "Piper TTS успішно встановлено!")
+				c.ReloadVoices()
+			})
+		})
+	})
 }
