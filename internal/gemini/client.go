@@ -69,9 +69,14 @@ func (c *Client) sync() config.Config {
 		cfg = config.Default()
 		cfg.Normalize()
 	}
+	var allKeys []string
+	if cfg.Google.OAuthToken != "" {
+		allKeys = append(allKeys, cfg.Google.OAuthToken)
+	}
+	allKeys = append(allKeys, cfg.Google.Keys...)
 	c.mu.Lock()
-	if !slices.Equal(c.keys, cfg.Google.Keys) {
-		c.keys = append([]string(nil), cfg.Google.Keys...)
+	if !slices.Equal(c.keys, allKeys) {
+		c.keys = append([]string(nil), allKeys...)
 		c.pool.SetKeys(c.keys)
 	}
 	c.mu.Unlock()
@@ -178,7 +183,11 @@ func (c *Client) call(ctx context.Context, method, u, key string, body []byte, l
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set("x-goog-api-key", key)
+	if strings.HasPrefix(key, "ya29.") {
+		req.Header.Set("Authorization", "Bearer "+key)
+	} else {
+		req.Header.Set("x-goog-api-key", key)
+	}
 	if body != nil {
 		req.Header.Set("Content-Type", "application/json")
 	}

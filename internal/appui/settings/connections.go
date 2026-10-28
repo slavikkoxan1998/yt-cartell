@@ -275,7 +275,7 @@ func (p *Page) textCard(gtx C, c *core.Ctx, m metrics) D {
 				p.cfg.set(c, func(cf *config.Config) { cf.Google.StoryModel = strings.TrimSpace(v) }, flash)
 			})
 		body = append(body, func(gtx C) D { return fieldRow(gtx, 240, model) })
-		if n := len(cfg.Google.Keys); n == 0 {
+		if n := len(cfg.Google.Keys); n == 0 && cfg.Google.OAuthToken == "" {
 			text := "Текст вибрано писати через Google Gemini, але ключів Google немає — план і сценарій не складуться."
 			if textOpenAISet(cfg.Text) {
 				text += " Твій OpenAI-сумісний сервіс (" + cfg.Text.BaseURL + ") збережено — його можна повернути одним натиском."
@@ -290,6 +290,14 @@ func (p *Page) textCard(gtx C, c *core.Ctx, m metrics) D {
 				return warnBox(gtx, th, "Ключів Google немає", text, back, func(gtx C) D {
 					return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Icon: gui.IconKeyRound, Text: "Додати ключі Google"}.Layout(gtx, th, &s.toGoogle)
 				})
+			})
+		} else if cfg.Google.OAuthToken != "" {
+			body = append(body, func(gtx C) D {
+				who := cfg.Google.OAuthEmail
+				if who == "" {
+					who = "OAuth активний"
+				}
+				return hintLine(gtx, th, gui.IconCheckCircle, "Підключено через браузер Google OAuth: "+who)
 			})
 		} else {
 			body = append(body, func(gtx C) D {

@@ -14,15 +14,19 @@ package settings
 // Enter or «Додати» takes whatever it holds.
 
 import (
+	"context"
+	"image"
 	"strings"
 	"time"
 
 	"gioui.org/layout"
+	"gioui.org/op"
 
 	"ytcartell/internal/appui/core"
 	"ytcartell/internal/config"
 	"ytcartell/internal/gemini"
 	"ytcartell/internal/gui"
+	"ytcartell/internal/oauth"
 	"ytcartell/internal/tts"
 )
 
@@ -30,9 +34,12 @@ import (
 const googleKeysURL = "https://aistudio.google.com/apikey"
 
 type googleCard struct {
-	add      field // one key, several on a line, or (bulk) a pasted list
-	addBtn   gui.Clickable
-	bulk     bool
+	oauthBtn  gui.Clickable
+	logoutBtn gui.Clickable
+	oauthBusy bool
+	add       field // one key, several on a line, or (bulk) a pasted list
+	addBtn    gui.Clickable
+	bulk      bool
 	bulkBtn  gui.Clickable
 	cancel   gui.Clickable
 	pasted   pasteNote
@@ -247,6 +254,51 @@ func (p *Page) googleCard(gtx C, c *core.Ctx, m metrics) D {
 	if s.test.Clicked(gtx) {
 		p.runCheck(c, &s.check, c.E.CheckGoogleKeys)
 	}
+	if s.oauthBtn.Clicked(gtx) && !s.oauthBusy {
+		s.oauthBusy = true
+		c.Toast(gui.ToneInfo, "Відкриваємо браузер для авторизації Google…")
+		go func() {
+			err := oauth.StartGoogleLogin(context.Background(), func(token *oauth.TokenResponse, email string, err error) {
+				s.oauthBusy = false
+				if err != nil {
+					c.Toast(gui.ToneError, "Помилка авторизації: "+err.Error())
+					return
+				}
+				if token != nil {
+					p.cfg.set(c, func(cf *config.Config) {
+						cf.Google.OAuthToken = token.AccessToken
+						cf.Google.OAuthRefresh = token.RefreshToken
+						cf.Google.OAuthExpiry = time.Now().Unix() + token.ExpiresIn
+						cf.Google.OAuthEmail = email
+					}, func() {
+						flash()
+						s.check.reset()
+					})
+					msg := "Авторизація успішна!"
+					if email != "" {
+						msg += " Увійшли як " + email
+					}
+					c.Toast(gui.ToneSuccess, msg)
+				}
+			})
+			if err != nil {
+				s.oauthBusy = false
+				c.Toast(gui.ToneError, "Не вдалося запустити авторизацію: "+err.Error())
+			}
+		}()
+	}
+	if s.logoutBtn.Clicked(gtx) {
+		p.cfg.set(c, func(cf *config.Config) {
+			cf.Google.OAuthToken = ""
+			cf.Google.OAuthRefresh = ""
+			cf.Google.OAuthExpiry = 0
+			cf.Google.OAuthEmail = ""
+		}, func() {
+			flash()
+			s.check.reset()
+		})
+		c.Toast(gui.ToneInfo, "Вихід виконано")
+	}
 
 	uses := googleUses(cfg)
 	usage := "Зараз не використовується — потрібні, лише якщо в картках вище вибрано Google."
@@ -254,6 +306,53 @@ func (p *Page) googleCard(gtx C, c *core.Ctx, m metrics) D {
 		usage = "Використовується для: " + strings.Join(uses, ", ") + "."
 	}
 	empty := s.add.Editor.Len() == 0
+	oauthSection := func(gtx C) D {
+		if cfg.Google.OAuthToken != "" {
+			email := cfg.Google.OAuthEmail
+			if email == "" {
+				email = "Google акаунт"
+			}
+			return gui.Card{Tint: true, Padding: gui.Sp12}.Layout(gtx, th, func(gtx C) D {
+				return layout.Flex{Alignment: layout.Middle}.Layout(gtx,
+					layout.Rigid(gui.IconCheckCircle.Widget(20, th.Pal.SuccessInk)),
+					layout.Rigid(layout.Spacer{Width: gui.Sp12}.Layout),
+					layout.Flexed(1, func(gtx C) D {
+						return gui.VStack(gtx, 2,
+							gui.Text{Style: th.Label.Weighted(gui.FontSemiBold)}.Widget(th, "Підключено через браузер (Google OAuth)"),
+							gui.Text{Style: th.Small, Color: th.Pal.Text2}.Widget(th, email),
+						)
+					}),
+					layout.Rigid(func(gtx C) D {
+						return gui.Button{Kind: gui.Ghost, Size: gui.Sm, Icon: gui.IconLogOut, Text: "Вийти"}.Layout(gtx, th, &s.logoutBtn)
+					}),
+				)
+			})
+		}
+		return gui.Card{Tint: true, Padding: gui.Sp16}.Layout(gtx, th, func(gtx C) D {
+			return layout.Flex{Alignment: layout.Middle}.Layout(gtx,
+				layout.Rigid(func(gtx C) D {
+					sz := gtx.Dp(40)
+					gui.FillCircle(gtx, 40, th.Pal.ActionSoft)
+					is := gtx.Dp(20)
+					o := op.Offset(image.Pt((sz-is)/2, (sz-is)/2)).Push(gtx.Ops)
+					gui.IconGlobe.Layout(gtx, 20, th.Pal.Action)
+					o.Pop()
+					return D{Size: image.Pt(sz, sz)}
+				}),
+				layout.Rigid(layout.Spacer{Width: gui.Sp16}.Layout),
+				layout.Flexed(1, func(gtx C) D {
+					return gui.VStack(gtx, 2,
+						gui.Text{Style: th.Label.Weighted(gui.FontSemiBold)}.Widget(th, "Вхід через браузер (Google OAuth)"),
+						gui.Text{Style: th.Small, Color: th.Pal.Text2}.Widget(th, "Підключіть підписку Gemini Advanced / Google One в 1 клік без копіювання ключів."),
+					)
+				}),
+				layout.Rigid(layout.Spacer{Width: gui.Sp12}.Layout),
+				layout.Rigid(func(gtx C) D {
+					return gui.Button{Size: gui.Sm, Icon: gui.IconGlobe, Text: "Увійти через браузер", Busy: s.oauthBusy}.Layout(gtx, th, &s.oauthBtn)
+				}),
+			)
+		})
+	}
 	header := func(gtx C) D {
 		return layout.Flex{Alignment: layout.Middle}.Layout(gtx,
 			layout.Flexed(1, func(gtx C) D {
@@ -285,6 +384,7 @@ func (p *Page) googleCard(gtx C, c *core.Ctx, m metrics) D {
 						Placeholder: "Встав ключі AQ.… або AIza… — кожен з нового рядка, через кому чи пробіл",
 						Hint:        "Підписи на кшталт «key1:» і лапки студія пропустить. Ключі видно лише тут, доки їх не додаси.",
 						MinLines:    4, MaxLines: 8,
+						PasteButton: true,
 					})
 				},
 				func(gtx C) D {
@@ -306,7 +406,7 @@ func (p *Page) googleCard(gtx C, c *core.Ctx, m metrics) D {
 					if len(keys) > 0 {
 						ph = "Додати ще один ключ AQ.… або AIza…"
 					}
-					return s.add.Layout(gtx, th, gui.FieldStyle{Placeholder: ph, Password: true})
+					return s.add.Layout(gtx, th, gui.FieldStyle{Placeholder: ph, Password: true, PasteButton: true})
 				}),
 				layout.Rigid(layout.Spacer{Width: gui.Sp8}.Layout),
 				layout.Rigid(func(gtx C) D {
@@ -344,7 +444,9 @@ func (p *Page) googleCard(gtx C, c *core.Ctx, m metrics) D {
 		}
 	}
 	title := "Google AI Studio"
-	if n := len(keys); n > 0 {
+	if cfg.Google.OAuthToken != "" {
+		title += " · OAuth активний"
+	} else if n := len(keys); n > 0 {
 		title += " · " + core.Count(n, "ключ", "ключі", "ключів")
 	}
 	checkText := "Перевірити ключі"
@@ -355,8 +457,8 @@ func (p *Page) googleCard(gtx C, c *core.Ctx, m metrics) D {
 		Icon: gui.IconSparkles, Title: title, Text: usage,
 		Trail: trails(s.saved.widget(th), s.check.statusPill(th)),
 	},
-		func(gtx C) D { return gui.VStack(gtx, gui.Sp8, header, rule, keyList, addRow, pasted) },
-		actions(checkButton(th, &s.test, &s.check, checkText, len(keys) == 0), clearBtn),
+		func(gtx C) D { return gui.VStack(gtx, gui.Sp12, oauthSection, header, rule, keyList, addRow, pasted) },
+		actions(checkButton(th, &s.test, &s.check, checkText, len(keys) == 0 && cfg.Google.OAuthToken == ""), clearBtn),
 		func(gtx C) D {
 			if s.check.done && s.check.ok && len(bad) > 0 {
 				return resultPanel(gtx, th, false, true, s.check.msg, "", "Працюють не всі ключі")

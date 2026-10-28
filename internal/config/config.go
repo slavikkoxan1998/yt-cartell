@@ -101,7 +101,11 @@ type Google struct {
 	// (Gemini Omni Flash); the Veo 3.1 previews until their shutdown (google.go).
 	VeoModel string `json:"veoModel"`
 	// OmniMigrated: the one-time move from the old Veo default to Omni is done.
-	OmniMigrated bool `json:"omniMigrated,omitempty"`
+	OmniMigrated bool   `json:"omniMigrated,omitempty"`
+	OAuthToken   string `json:"oauthToken,omitempty"`
+	OAuthRefresh string `json:"oauthRefresh,omitempty"`
+	OAuthExpiry  int64  `json:"oauthExpiry,omitempty"`
+	OAuthEmail   string `json:"oauthEmail,omitempty"`
 }
 
 // TTS (voiceover): see tts.go — settings per provider, the flat fields are
