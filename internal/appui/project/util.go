@@ -73,7 +73,7 @@ func factsOf(c *core.Ctx, pv *core.ProjectView) facts {
 	f.done = [6]bool{false, f.hasPlan, allPrompts, allFrames, allVideos, p.Montage.Output.Status == studio.StatusDone}
 	canVideo := f.anyFrame || f.hasPlan
 	canMontage := f.anyFrame || f.anyVideo
-	f.enabled = [6]bool{false, true, f.hasPlan || f.planning, f.hasPlan, canVideo, canMontage}
+	f.enabled = [6]bool{false, true, true, f.hasPlan, canVideo, canMontage}
 	for n := 1; n <= 5; n++ {
 		if f.done[n] {
 			f.ndone++

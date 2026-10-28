@@ -627,7 +627,7 @@ func (e *Engine) genVideo(ctx context.Context, st *proj, sid string) bool {
 	}
 	ref := assetRef{slotVideo, sid}
 	c := e.cfg.Get()
-	stockMode := c.Stock.Enabled || c.Video.Provider == "stock"
+	stockMode := c.Stock.Enabled || c.Video.Provider == "stock" || st.p.Input.Pipeline == "stock"
 	if in.scene.Frame.Path == "" && !stockMode {
 		e.fail(st, ref, errors.New("Спершу потрібен кадр сцени"))
 		return false
@@ -964,7 +964,7 @@ func (e *Engine) runRender(j *jobCtx, videos, voices, force bool) string {
 	}
 	var vids, vcs []string
 	cfg := e.cfg.Get()
-	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || snap.Input.Pipeline == "stock"
 	if videos {
 		for _, s := range snap.Scenes {
 			canVideo := s.Frame.Path != "" || stockMode

@@ -212,7 +212,9 @@ func (e *Engine) RunWith(id string, stage Stage, opt RunOptions) error {
 		kind = JobKind(stage)
 		if stage != StageVoices {
 			check = func(p *Project) error {
-				if p.Input.CodeAnim() { // drawn by code: no frames needed
+				cfg := e.cfg.Get()
+				stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || p.Input.Pipeline == "stock"
+				if p.Input.CodeAnim() || stockMode {
 					if len(p.Scenes) == 0 {
 						return errors.New("Немає сцен — спершу створи план")
 					}

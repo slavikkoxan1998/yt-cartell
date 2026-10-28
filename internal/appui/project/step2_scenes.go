@@ -77,8 +77,16 @@ func (s *step2) scenesHead(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 			})
 		},
 		func(gtx C) D {
-			return gui.Button{Kind: gui.Secondary, Size: gui.Sm, Icon: gui.IconRefreshCw, Text: "Перепланувати",
-				Disabled: pv.Running(), Tip: "Написати план заново за поточною історією"}.Layout(gtx, th, &s.replanBtn)
+			return gui.HStack(gtx, gui.Sp8,
+				func(gtx C) D {
+					return gui.Button{Kind: gui.Secondary, Size: gui.Sm, Icon: gui.IconPlus, Text: "Додати сцену",
+						Disabled: pv.Running(), Tip: "Додати нову сцену"}.Layout(gtx, th, &s.addSceneBtn)
+				},
+				func(gtx C) D {
+					return gui.Button{Kind: gui.Secondary, Size: gui.Sm, Icon: gui.IconRefreshCw, Text: "Перепланувати",
+						Disabled: pv.Running(), Tip: "Написати план заново за поточною історією"}.Layout(gtx, th, &s.replanBtn)
+				},
+			)
 		})
 }
 
@@ -629,7 +637,7 @@ func (s *step2) Next(c *core.Ctx, pv *core.ProjectView) core.Next {
 			Do: func() { c.Navigate(core.Route{Page: core.PageProject, ProjectID: id, Step: 1}) }}
 	}
 	cfg := c.E.Config().Get()
-	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || pv.P.Input.Pipeline == "stock"
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || pv.P.Input.Pipeline == "stock" || len(cfg.Google.Keys) == 0
 	if stockMode {
 		return core.Next{Icon: gui.IconVideo, Title: "Далі: стокові відео",
 			Text: "Кадри ШІ не потрібні — переходимо до пошуку та завантаження стокових відео.",

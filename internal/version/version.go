@@ -17,7 +17,7 @@ import (
 
 var (
 	// Version is the semantic version without the "v" ("2.0.0").
-	Version = "2.5.0"
+	Version = "2.5.1"
 	// Commit is the source revision ("" when unknown).
 	Commit = ""
 	// BuildDate is the build day, "2006-01-02" or RFC 3339 ("" when unknown).

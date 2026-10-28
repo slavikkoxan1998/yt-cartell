@@ -107,6 +107,13 @@ type clipStats struct {
 	code bool
 }
 
+func isStockMode(cfg config.Config, p *studio.Project) bool {
+	if p != nil && p.Input.Pipeline == "stock" {
+		return true
+	}
+	return cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+}
+
 func countClips(p *studio.Project, isStock ...bool) clipStats {
 	stock := len(isStock) > 0 && isStock[0]
 	n := clipStats{scenes: len(p.Scenes), vo: p.Input.Voiceover, stills: p.Input.StillsOnly(), code: p.Input.CodeAnim()}
@@ -281,7 +288,7 @@ func (v *render) Layout(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 			})
 	}
 	cfg := c.E.Config().Get()
-	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	stock := isStockMode(cfg, p)
 	n := countClips(p, stock)
 	tl, total, tlOK := st.tl.get(gtx, c, pv)
 	u := c.UI(pv.ID)
@@ -441,7 +448,7 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 	}
 	actions := func(gtx C) D {
 		left := func(gtx C) D {
-			stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+			stock := isStockMode(cfg, p)
 			txt := modelLabel(cfg)
 			if stock {
 				provName := cfg.Stock.Provider
@@ -485,7 +492,7 @@ func (v *render) header(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, n
 			)
 		}
 		right := func(gtx C) D {
-			stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+			stock := isStockMode(cfg, p)
 			dis := running || batchOn
 			var ws []layout.Widget
 			left := n.vidLeft + n.voiceLeft
@@ -717,7 +724,7 @@ func (v *render) clipCard(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState,
 				func(gtx C) D { return v.voiceRow(gtx, c, pv, cc, s) },
 				inset(func(gtx C) D { return v.hints(gtx, th, &pv.P, s, i, env) }),
 				func(gtx C) D {
-					return v.motionEditor(gtx, th, cc, s, false, env.cfg.Stock.Enabled || env.cfg.Video.Provider == "stock")
+					return v.motionEditor(gtx, th, cc, s, false, isStockMode(env.cfg, &pv.P))
 				},
 				func(gtx C) D { return clipNotices(gtx, th, &pv.P, s) },
 				func(gtx C) D { return cc.rw.Layout(gtx, th, s.Video.Rewrite) },
@@ -758,7 +765,7 @@ func (v *render) clipRow(gtx C, c *core.Ctx, pv *core.ProjectView, st *rdState, 
 					},
 					func(gtx C) D { return v.hints(gtx, th, &pv.P, s, i, env) },
 					func(gtx C) D {
-						return v.motionEditor(gtx, th, cc, s, true, env.cfg.Stock.Enabled || env.cfg.Video.Provider == "stock")
+						return v.motionEditor(gtx, th, cc, s, true, isStockMode(env.cfg, &pv.P))
 					},
 					func(gtx C) D { return clipNotices(gtx, th, &pv.P, s) },
 					func(gtx C) D { return cc.rw.Layout(gtx, th, s.Video.Rewrite) },
@@ -805,7 +812,7 @@ func (v *render) clipMedia(gtx C, c *core.Ctx, pv *core.ProjectView, cc *clipCar
 		m := gtx.Dp(10)
 		cc.veil.Layout(gtx, th, size, busy(vid), busyPct(vid))
 		cfg := c.E.Config().Get()
-		stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+		stock := isStockMode(cfg, p)
 		switch {
 		case code && vid.Path == "" && !busy(vid) && s.Code.Preview.Path == "":
 			emptyCaption(gtx, th, size, "Анімацію ще не відрендерено")
@@ -1154,7 +1161,7 @@ func (v *render) clipActions(gtx C, c *core.Ctx, pv *core.ProjectView, cc *clipC
 	p := &pv.P
 	running := pv.Running()
 	cfg := c.E.Config().Get()
-	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	stock := isStockMode(cfg, p)
 	vLabel := "Зняти"
 	if stock {
 		vLabel = "Знайти відео"
@@ -1243,7 +1250,7 @@ func (v *render) Side(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 			Text: "Кожен кадр оживе в коротке відео, а кожна репліка отримає голос. Потім — монтаж."}.Layout(gtx, th, nil)
 	}
 	cfg := c.E.Config().Get()
-	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	stock := isStockMode(cfg, p)
 	n := countClips(p, stock)
 	u := c.UI(pv.ID)
 	first := func(pred func(s *studio.Scene) bool) string {
@@ -1337,7 +1344,7 @@ func (v *render) Next(c *core.Ctx, pv *core.ProjectView) core.Next {
 			Text: firstText(p.Job.Message, "Студія працює — кліпи з'являтимуться по одному."), Busy: true}
 	}
 	cfg := c.E.Config().Get()
-	stock := cfg.Stock.Enabled || cfg.Video.Provider == "stock"
+	stock := isStockMode(cfg, p)
 	n := countClips(p, stock)
 	st := v.state(id)
 	switch {

@@ -1,6 +1,7 @@
 package project
 
 import (
+	"fmt"
 	"image"
 	"math/rand/v2"
 	"strings"
@@ -31,10 +32,13 @@ type step2 struct {
 	chars           map[string]*charUI
 	locs            map[string]*locUI
 
-	view      gui.Segmented
-	replanBtn gui.Clickable
-	backBtn   gui.Clickable
-	scenes    map[string]*sceneUI
+	view                         gui.Segmented
+	replanBtn                    gui.Clickable
+	backBtn                      gui.Clickable
+	startPlanBtn                 gui.Clickable
+	addFirstBtn                  gui.Clickable
+	addSceneBtn                  gui.Clickable
+	scenes                       map[string]*sceneUI
 
 	jumpLong gui.Clickable
 	flashID  string
@@ -163,6 +167,24 @@ func (s *step2) handle(gtx C, c *core.Ctx, pv *core.ProjectView) {
 	if s.replanBtn.Clicked(gtx) && !pv.Running() {
 		replan(c, s.ps, id)
 	}
+	if s.addSceneBtn.Clicked(gtx) {
+		nid := newUID()
+		c.Edit(id, func(p *studio.Project) {
+			p.Scenes = append(p.Scenes, studio.Scene{
+				ID:           nid,
+				Title:        fmt.Sprintf("Сцена %d", len(p.Scenes)+1),
+				Speaker:      "narrator",
+				CharacterIDs: []string{},
+				Frame:        studio.EmptyAsset(),
+				Board:        studio.EmptyAsset(),
+				Video:        studio.EmptyAsset(),
+				Audio:        studio.EmptyAsset(),
+			})
+		})
+		u := s.sceneState(nid)
+		u.open = true
+		c.UI(id).Scene = nid
+	}
 }
 
 // noPlan is the page before a plan exists: the plan being written (skeleton
@@ -172,14 +194,72 @@ func (s *step2) noPlan(gtx C, c *core.Ctx, pv *core.ProjectView) D {
 	if s.backBtn.Clicked(gtx) {
 		c.Navigate(core.Route{Page: core.PageProject, ProjectID: pv.ID, Step: 1})
 	}
+	if s.startPlanBtn.Clicked(gtx) && !pv.Running() {
+		startPlan(c, s.ps, pv.ID)
+	}
+	if s.addFirstBtn.Clicked(gtx) {
+		nid := newUID()
+		c.Edit(pv.ID, func(p *studio.Project) {
+			narr := strings.TrimSpace(p.Input.Text)
+			p.Scenes = []studio.Scene{{
+				ID:           nid,
+				Title:        "Сцена 1",
+				Narration:    narr,
+				ImagePrompt:  narr,
+				Speaker:      "narrator",
+				CharacterIDs: []string{},
+				Frame:        studio.EmptyAsset(),
+				Board:        studio.EmptyAsset(),
+				Video:        studio.EmptyAsset(),
+				Audio:        studio.EmptyAsset(),
+			}}
+		})
+		u := s.sceneState(nid)
+		u.open = true
+		c.UI(pv.ID).Scene = nid
+	}
 	b := gtx.Dp(bleed)
 	if !s.ps.f.planning {
 		s.skel.Restart()
 		return layout.Center.Layout(gtx, func(gtx C) D {
-			gtx.Constraints.Max.X = min(gtx.Constraints.Max.X-2*b, gtx.Dp(480))
-			return gui.EmptyState{Icon: gui.IconScrollText, Title: "Плану ще немає",
-				Text:   "Напиши історію на кроці «Сценарій» і натисни «Створити план» — ШІ розпише її на сцени, героїв і локації.",
-				Action: "До сценарію", ActionIcon: gui.IconArrowLeft}.Layout(gtx, th, &s.backBtn)
+			gtx.Constraints.Max.X = min(gtx.Constraints.Max.X-2*b, gtx.Dp(520))
+			return gui.Card{Padding: gui.Sp24}.Layout(gtx, th, func(gtx C) D {
+				return gui.VStack(gtx, gui.Sp16,
+					func(gtx C) D {
+						return layout.Flex{Alignment: layout.Middle}.Layout(gtx,
+							layout.Rigid(func(gtx C) D {
+								sz := gtx.Dp(48)
+								gui.FillCircle(gtx, 48, th.Pal.ActionSoft)
+								is := gtx.Dp(24)
+								o := op.Offset(image.Pt((sz-is)/2, (sz-is)/2)).Push(gtx.Ops)
+								gui.IconScrollText.Layout(gtx, 24, th.Pal.Action)
+								o.Pop()
+								return D{Size: image.Pt(sz, sz)}
+							}),
+							layout.Rigid(layout.Spacer{Width: gui.Sp16}.Layout),
+							layout.Flexed(1, func(gtx C) D {
+								return gui.VStack(gtx, 2,
+									gui.Text{Style: th.H3}.Widget(th, "Плану ще немає"),
+									gui.Text{Style: th.Body, Color: th.Pal.Text2}.Widget(th, "Створи план автоматично за сценарієм або додай першу сцену вручну."),
+								)
+							}),
+						)
+					},
+					func(gtx C) D {
+						return gui.HStack(gtx, gui.Sp12,
+							func(gtx C) D {
+								return gui.Button{Size: gui.Big, Icon: gui.IconWand, Text: "Створити план", Disabled: pv.Running()}.Layout(gtx, th, &s.startPlanBtn)
+							},
+							func(gtx C) D {
+								return gui.Button{Kind: gui.Secondary, Size: gui.Big, Icon: gui.IconPlus, Text: "Додати сцену вручну"}.Layout(gtx, th, &s.addFirstBtn)
+							},
+							func(gtx C) D {
+								return gui.Button{Kind: gui.Ghost, Size: gui.Big, Icon: gui.IconArrowLeft, Text: "До сценарію"}.Layout(gtx, th, &s.backBtn)
+							},
+						)
+					},
+				)
+			})
 		})
 	}
 	// The plan is being written: skeleton cards of what is coming.

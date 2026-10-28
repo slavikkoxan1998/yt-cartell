@@ -19,6 +19,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"math"
 	"strconv"
 	"strings"
@@ -1035,13 +1036,16 @@ func (e *Engine) runPlan(j *jobCtx) (string, error) {
 	j.progress(at(5), fmt.Sprintf("Режисер читає історію · %d сцен", count))
 	system, prompt := biblePrompt(&prompted, count, words, chunks, clip)
 	var raw json.RawMessage
+	var bible any
 	if err := e.text.JSON(j.ctx, llm.Request{System: system, Prompt: prompt, Temperature: 0.85, Timeout: 300 * time.Second}, &raw); err != nil {
-		return "", err
+		log.Printf("[studio:%s] plan: LLM text model unavailable (%v), constructing local plan from text", j.st.id, err)
+		bible = buildFallbackBible(&prompted, count, chunks)
+	} else {
+		if j.cancelled() {
+			return "Зупинено", nil
+		}
+		bible, _ = parseJSON(raw)
 	}
-	if j.cancelled() {
-		return "Зупинено", nil
-	}
-	bible, _ := parseJSON(raw)
 
 	named := func(list []any, limit int) []any {
 		var out []any
@@ -1341,27 +1345,50 @@ func (e *Engine) runPlan(j *jobCtx) (string, error) {
 	}
 	var mu sync.Mutex
 	done := 0
-	err := e.writeShots(j.ctx, j.st, &snap, all, j.cancelled, func() {
-		mu.Lock()
-		defer mu.Unlock()
-		done = min(total, done+shotBatch)
-		j.progress(at(35+60*float64(done)/float64(max(1, total))), fmt.Sprintf("Пишемо промти кадрів · %d/%d", done, total))
-	}, "")
-	if err != nil {
-		return "", err
-	}
-
-	// One retry for scenes the model skipped.
-	snap = j.snapshot()
-	var missing []int
-	for i, s := range snap.Scenes {
-		if s.ImagePrompt == "" {
-			missing = append(missing, i)
-		}
-	}
-	if len(missing) > 0 && !j.cancelled() {
-		if err := e.writeShots(j.ctx, j.st, &snap, missing, j.cancelled, nil, ""); err != nil {
-			return "", err
+	cfg := e.cfg.Get()
+	stockMode := cfg.Stock.Enabled || cfg.Video.Provider == "stock" || snap.Input.Pipeline == "stock"
+	if stockMode {
+		e.update(j.st, func(p *Project) {
+			for i := range p.Scenes {
+				if p.Scenes[i].ImagePrompt == "" {
+					p.Scenes[i].ImagePrompt = p.Scenes[i].Narration
+				}
+				if p.Scenes[i].MotionPrompt == "" {
+					p.Scenes[i].MotionPrompt = "stock footage"
+				}
+			}
+		})
+	} else {
+		err := e.writeShots(j.ctx, j.st, &snap, all, j.cancelled, func() {
+			mu.Lock()
+			defer mu.Unlock()
+			done = min(total, done+shotBatch)
+			j.progress(at(35+60*float64(done)/float64(max(1, total))), fmt.Sprintf("Пишемо промти кадрів · %d/%d", done, total))
+		}, "")
+		if err != nil {
+			log.Printf("[studio:%s] writeShots failed (%v), falling back to scene narration", j.st.id, err)
+			e.update(j.st, func(p *Project) {
+				for i := range p.Scenes {
+					if p.Scenes[i].ImagePrompt == "" {
+						p.Scenes[i].ImagePrompt = p.Scenes[i].Narration
+					}
+					if p.Scenes[i].MotionPrompt == "" {
+						p.Scenes[i].MotionPrompt = "stock footage"
+					}
+				}
+			})
+		} else {
+			// One retry for scenes the model skipped.
+			snap = j.snapshot()
+			var missing []int
+			for i, s := range snap.Scenes {
+				if s.ImagePrompt == "" {
+					missing = append(missing, i)
+				}
+			}
+			if len(missing) > 0 && !j.cancelled() {
+				_ = e.writeShots(j.ctx, j.st, &snap, missing, j.cancelled, nil, "")
+			}
 		}
 	}
 
@@ -1416,4 +1443,53 @@ func (e *Engine) Rewrite(ctx context.Context, id, sceneID, wish string) error {
 		}
 	})
 	return nil
+}
+
+func buildFallbackBible(p *Project, count int, chunks []string) any {
+	root := &jobj{vals: map[string]any{}}
+	text := strings.TrimSpace(p.Input.Text)
+	title := "Новий проєкт"
+	lines := strings.Split(text, "\n")
+	for _, l := range lines {
+		l = strings.TrimSpace(l)
+		if l != "" {
+			if len([]rune(l)) > 60 {
+				title = string([]rune(l)[:60])
+			} else {
+				title = l
+			}
+			break
+		}
+	}
+	root.set("title", title)
+	root.set("logline", title)
+
+	if len(chunks) == 0 {
+		for _, l := range lines {
+			l = strings.TrimSpace(l)
+			if l != "" {
+				chunks = append(chunks, l)
+			}
+		}
+	}
+	if len(chunks) == 0 && text != "" {
+		chunks = []string{text}
+	}
+	if len(chunks) == 0 {
+		chunks = []string{"Сцена 1"}
+	}
+
+	rawScenes := make([]any, len(chunks))
+	for i, c := range chunks {
+		sc := &jobj{vals: map[string]any{}}
+		sc.set("index", float64(i+1))
+		sc.set("title", fmt.Sprintf("Сцена %d", i+1))
+		sc.set("narration", c)
+		rawScenes[i] = sc
+	}
+	root.set("scenes", rawScenes)
+	root.set("characters", []any{})
+	root.set("objects", []any{})
+	root.set("locations", []any{})
+	return root
 }
